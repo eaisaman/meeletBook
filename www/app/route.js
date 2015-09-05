@@ -5,15 +5,24 @@ define(
             var needGoBack = true;
 
             var urlService = function ($location, $rootScope, $timeout, uiSVGService) {
-                this.$location = $location;
-                this.$rootScope = $rootScope;
-                this.$timeout = $timeout;
-                this.uiSVGService = uiSVGService;
-                this.$rootScope.urlStack = [];
-                this.locations = [];
-                this.addLocation(locations);
+                var self = this;
 
-                this.$rootScope.$on("$routeChangeStart", function (next, current) {
+                self.$location = $location;
+                self.$rootScope = $rootScope;
+                self.$timeout = $timeout;
+                self.uiSVGService = uiSVGService;
+                self.$rootScope.urlStack = [];
+                self.locations = angular.copy(locations);
+
+                locations.forEach(function (loc) {
+                    self[loc] = self[loc] || function () {
+                            var args = Array.prototype.slice.apply(arguments);
+                            args.splice(0, 0, loc);
+                            urlService.prototype.route.apply(self, args);
+                        }
+                });
+
+                self.$rootScope.$on("$routeChangeStart", function (next, current) {
                     $('#loader').hasClass("show") && uiSVGService.hide("#loader").then(function () {
                         $('#loader').removeClass("show");
                     });
@@ -100,6 +109,8 @@ define(
                     self.locations = Array.prototype.concat.apply(self.locations, arr);
 
                     arr.forEach(function (loc) {
+                        self.$routeProvider.when("/" + loc, {templateUrl: loc + ".html"});
+
                         self[loc] = self[loc] || function () {
                                 var args = Array.prototype.slice.apply(arguments);
                                 args.splice(0, 0, loc);
@@ -117,6 +128,8 @@ define(
                     $provide.service('urlService', urlService);
                 }]).
                 config(["$routeProvider", function ($routeProvider) {
+                    urlService.prototype.$routeProvider = $routeProvider;
+
                     locations.forEach(function (loc) {
                         $routeProvider.when("/" + loc, {templateUrl: loc + ".html"});
                     });

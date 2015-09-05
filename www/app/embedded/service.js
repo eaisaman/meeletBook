@@ -1,7 +1,7 @@
 define(
     ["angular"],
     function () {
-        var appService = function ($rootScope, $http, $timeout, $q, $compile, $cookies, $cookieStore, angularConstants) {
+        var appService = function ($rootScope, $http, $timeout, $q, $compile, $cookies, $cookieStore, angularConstants, angularEventTypes) {
             this.$rootScope = $rootScope;
             this.$http = $http;
             this.$timeout = $timeout;
@@ -10,9 +10,10 @@ define(
             this.$cookies = $cookies;
             this.$cookieStore = $cookieStore;
             this.angularConstants = angularConstants;
+            this.angularEventTypes = angularEventTypes;
         };
 
-        appService.$inject = ["$rootScope", "$http", "$timeout", "$q", "$compile", "$cookies", "$cookieStore", "angularConstants"];
+        appService.$inject = ["$rootScope", "$http", "$timeout", "$q", "$compile", "$cookies", "$cookieStore", "angularConstants", "angularEventTypes"];
 
         appService.prototype.NOOP = function () {
             var self = this,
@@ -120,18 +121,8 @@ define(
             );
         }
 
-        appService.prototype.doLogin = function (loginName, password) {
-            var self = this;
-
-            return self.cordovaPromise("doLogin").apply(self, [loginName, password]).then(
-                function () {
-                    return self.restoreUserFromStorage();
-                },
-                function (err) {
-                    return self.getRejectDefer(err);
-                }
-            );
-        }
+        //FIXME For Demo Use.
+        appService.prototype.doLogin = appService.prototype.NOOP;
 
         appService.prototype.doLogout = function () {
             var self = this;
@@ -156,38 +147,42 @@ define(
             );
         }
 
+        //FIXME For Demo Use.
         appService.prototype.restoreUserFromStorage = function () {
-            var self = this;
+            var userObj = {
+                _id: "52591a12c763d5e4585563d0",
+                loginName: "wangxinyun28",
+                name: "王欣芸",
+                password: "5e6554a12398eb0ed04fbf4a880067f300adb5e0"
+            };
 
-            return self.cordovaPromise("restoreUserFromStorage").apply(this, Array.prototype.slice.call(arguments)).then(
-                function (result) {
-                    var defer = self.$q.defer(),
-                        userObj = result.data.resultValue;
+            this.$rootScope.loginUser = userObj;
 
-                    self.$timeout(function () {
-                        self.$rootScope.loginUser = self.$rootScope.loginUser || {};
-
-                        for (var key in self.$rootScope.loginUser) {
-                            delete self.$rootScope.loginUser[key];
-                        }
-
-                        for (var key in userObj) {
-                            self.$rootScope.loginUser[key] = userObj[key];
-                        }
-
-                        defer.resolve(userObj);
-                    });
-
-                    return defer.promise;
-                },
-                function (err) {
-                    return self.getRejectDefer(err);
-                }
-            );
+            return this.getResolveDefer(userObj);
         }
 
+        //FIXME For Demo Use.
         appService.prototype.getUserDetail = function (userFilter) {
-            return this.cordovaPromise("getUserDetail").apply(this, [JSON.stringify(userFilter)]);
+            return this.getResolveDefer({
+                data: {
+                    result: "OK",
+                    resultValue: [{
+                        _id: "52591a12c763d5e4585563d0",
+                        projectList: [
+                            {
+                                _id: "55e69a54c57957980cf74584",
+                                desc: "入学适应篇",
+                                forbidden: false,
+                                lock: true,
+                                lockUser: "52591a12c763d5e4585563d0",
+                                name: "小学生心理健康教育",
+                                type: "sketch",
+                                userId: "52591a12c763d5e4585563d0"
+                            }
+                        ]
+                    }]
+                }
+            });
         }
 
         appService.prototype.getLocalProject = function () {

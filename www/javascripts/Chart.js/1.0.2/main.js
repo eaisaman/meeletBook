@@ -1,7 +1,7 @@
 requirejs.config(
     {
         paths: {
-            "jquery": JQUERY_LIB_PATH + "jquery.min"
+            "chart": CHART_LIB_PATH + "Chart.min"
         },
         waitSeconds: 0
     }
@@ -9,7 +9,7 @@ requirejs.config(
 
 define(
     [
-            "jquery"
+            "chart"
     ],
     function () {
         return function () {

@@ -1,7 +1,7 @@
 define(
     ["angular"],
     function () {
-        var appService = function ($rootScope, $http, $timeout, $q, $compile, $cookies, $cookieStore, angularConstants, utilService) {
+        var appService = function ($rootScope, $http, $timeout, $q, $compile, $cookies, $cookieStore, angularConstants, angularEventTypes, utilService, urlService) {
             this.$rootScope = $rootScope;
             this.$http = $http;
             this.$timeout = $timeout;
@@ -10,10 +10,12 @@ define(
             this.$cookies = $cookies;
             this.$cookieStore = $cookieStore;
             this.angularConstants = angularConstants;
+            this.angularEventTypes = angularEventTypes;
             this.utilService = utilService;
+            this.urlService = urlService;
         };
 
-        appService.$inject = ["$rootScope", "$http", "$timeout", "$q", "$compile", "$cookies", "$cookieStore", "angularConstants", "utilService"];
+        appService.$inject = ["$rootScope", "$http", "$timeout", "$q", "$compile", "$cookies", "$cookieStore", "angularConstants", "angularEventTypes", "utilService", "urlService"];
 
         appService.prototype.NOOP = function () {
             var self = this,
@@ -87,14 +89,8 @@ define(
             });
         }
 
-        appService.prototype.doLogin = function (loginName, password) {
-            var self = this,
-                encoded = self.utilService.encode(loginName + ':' + password);
-
-            this.$http.defaults.headers.common.Authorization = 'Basic ' + encoded;
-
-            return self.refreshUser(loginName);
-        }
+        //FIXME For Demo Use.
+        appService.prototype.doLogin = appService.prototype.NOOP;
 
         appService.prototype.doLogout = function () {
             var self = this,
@@ -115,38 +111,41 @@ define(
             return defer.promise;
         }
 
+        //FIXME For Demo Use.
         appService.prototype.restoreUserFromStorage = function () {
-            var self = this,
-                defer = self.$q.defer();
+            var userObj = {
+                _id: "52591a12c763d5e4585563d0",
+                loginName: "wangxinyun28",
+                name: "王欣芸",
+                password: "5e6554a12398eb0ed04fbf4a880067f300adb5e0"
+            };
 
-            self.$timeout(
-                function () {
-                    var sid = self.$cookies["connect.sid"];
+            this.$rootScope.loginUser = userObj;
 
-                    !sid && delete localStorage.loginUser;
-
-                    self.$rootScope.loginUser = self.$rootScope.loginUser || {};
-
-                    var userObj = eval("(" + localStorage.loginUser + ")");
-
-                    for (var key in self.$rootScope.loginUser) {
-                        delete self.$rootScope.loginUser[key];
-                    }
-
-                    _.extend(self.$rootScope.loginUser, userObj);
-
-                    defer.resolve(userObj);
-                }
-            );
-
-            return defer.promise;
+            return this.getResolveDefer(userObj);
         }
 
+        //FIXME For Demo Use.
         appService.prototype.getUserDetail = function (userFilter) {
-            return this.$http({
-                method: 'GET',
-                url: this.angularConstants.serverUrl + '/api/private/userDetail',
-                params: {userFilter: JSON.stringify(userFilter)}
+            return this.getResolveDefer({
+                data: {
+                    result: "OK",
+                    resultValue: [{
+                        _id: "52591a12c763d5e4585563d0",
+                        projectList: [
+                            {
+                                _id: "55e69a54c57957980cf74584",
+                                desc: "入学适应篇",
+                                forbidden: false,
+                                lock: true,
+                                lockUser: "52591a12c763d5e4585563d0",
+                                name: "小学生心理健康教育",
+                                type: "sketch",
+                                userId: "52591a12c763d5e4585563d0"
+                            }
+                        ]
+                    }]
+                }
             });
         }
 
@@ -167,13 +166,22 @@ define(
 
         }
 
-        appService.prototype.downloadModules = appService.prototype.NOOP;
+        //FIXME For Demo Use.
+        appService.prototype.downloadModules = function () {
+            var self = this;
+
+            self.$timeout(function () {
+                self.$rootScope.$broadcast(self.angularEventTypes.downloadProjectModulesDoneEvent);
+            }, 1000);
+        }
 
         appService.prototype.downloadProject = appService.prototype.NOOP;
 
         appService.prototype.pauseDownloadProject = appService.prototype.NOOP;
 
-        appService.prototype.showProject = appService.prototype.NOOP;
+        appService.prototype.showProject = function (projectId) {
+            window.open("book/{0}/index.html".format(projectId), "Book", "resizable=no,width=1024,height=768");
+        }
 
         return function (appModule) {
             appModule.

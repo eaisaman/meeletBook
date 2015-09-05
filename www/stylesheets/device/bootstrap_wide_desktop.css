@@ -6693,75 +6693,75 @@ button.close {
   }
 }
 .fs-x-huge {
-  font-size: 72px !important;
+  font-size: 36px !important;
 }
 
 .fs-x-large {
-  font-size: 36px !important;
+  font-size: 30px !important;
 }
 
 .fs-x-medium {
-  font-size: 30px !important;
+  font-size: 24px !important;
 }
 
 .fs-x-small {
-  font-size: 24px !important;
+  font-size: 18px !important;
 }
 
 .fs-x-smaller {
-  font-size: 18px !important;
+  font-size: 14px !important;
 }
 
 .fs-x-tiny {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .fs-x-huge-before:before {
-  font-size: 72px !important;
+  font-size: 36px !important;
 }
 
 .fs-x-large-before:before {
-  font-size: 36px !important;
+  font-size: 30px !important;
 }
 
 .fs-x-medium-before:before {
-  font-size: 30px !important;
+  font-size: 24px !important;
 }
 
 .fs-x-small-before:before {
-  font-size: 24px !important;
+  font-size: 18px !important;
 }
 
 .fs-x-smaller-before:before {
-  font-size: 18px !important;
+  font-size: 14px !important;
 }
 
 .fs-x-tiny-before:before {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .fs-x-huge-after:after {
-  font-size: 72px !important;
-}
-
-.fs-x-large-after:after {
   font-size: 36px !important;
 }
 
-.fs-x-medium-after:after {
+.fs-x-large-after:after {
   font-size: 30px !important;
 }
 
-.fs-x-small-after:after {
+.fs-x-medium-after:after {
   font-size: 24px !important;
 }
 
-.fs-x-smaller-after:after {
+.fs-x-small-after:after {
   font-size: 18px !important;
 }
 
-.fs-x-tiny-after:after {
+.fs-x-smaller-after:after {
   font-size: 14px !important;
+}
+
+.fs-x-tiny-after:after {
+  font-size: 12px !important;
 }
 
 /* Define size of color pane
@@ -6807,7 +6807,7 @@ button.close {
  * Found in _gradient_editor.html
  */
 .vt-scroll-pane {
-  height: 396px;
+  height: 378px;
 }
 
 /* Create a halo-like borders

@@ -42,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Extensions 0
 #define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Extensions 0
 
+// FreeStreamer
+#define COCOAPODS_POD_AVAILABLE_FreeStreamer
+#define COCOAPODS_VERSION_MAJOR_FreeStreamer 2
+#define COCOAPODS_VERSION_MINOR_FreeStreamer 12
+#define COCOAPODS_VERSION_PATCH_FreeStreamer 11
+
 // JSONKit
 #define COCOAPODS_POD_AVAILABLE_JSONKit
 #define COCOAPODS_VERSION_MAJOR_JSONKit 1

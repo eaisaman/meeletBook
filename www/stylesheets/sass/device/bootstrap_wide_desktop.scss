@@ -3,12 +3,12 @@
 @import "../global";
 @import "../bootstrap";
 
-$fs-x-huge: $font-size-h1 * 2;
-$fs-x-large: $font-size-h1;
-$fs-x-medium: $font-size-h2;
-$fs-x-small: $font-size-h3;
-$fs-x-smaller: $font-size-h4;
-$fs-x-tiny: $font-size-h5;
+$fs-x-huge: $font-size-h1;
+$fs-x-large: $font-size-h2;
+$fs-x-medium: $font-size-h3;
+$fs-x-small: $font-size-h4;
+$fs-x-smaller: $font-size-h5;
+$fs-x-tiny: $font-size-h6;
 
 .fs-x-huge {
     font-size: $fs-x-huge !important;

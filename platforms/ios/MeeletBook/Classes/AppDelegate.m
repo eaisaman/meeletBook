@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "Global.h"
 
 #import <Cordova/CDVPlugin.h>
 
@@ -63,6 +64,8 @@
  */
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [Global initApplication];
+    
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
 #if __has_feature(objc_arc)
@@ -77,7 +80,7 @@
 #else
         self.viewController = [[[MainViewController alloc] init] autorelease];
 #endif
-
+    
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
     // self.viewController.startPage = @"index.html";

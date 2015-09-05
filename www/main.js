@@ -21,6 +21,7 @@ var ANGULAR_LIB_PATH = "javascripts/angular/1.3.0-beta.8/",
     PRETTIFY_LIB_PATH = "javascripts/prettify/r298/",//Depended by editormd
     EDITORMD_LIB_PATH = "javascripts/editormd/1.4.3/",
     SNAP_SVG_LIB_PATH = "javascripts/snap/0.4.1/",
+    CHART_LIB_PATH = "javascripts/Chart.js/1.0.2/",
     APP_LIB_PATH = "app/",
     DIRECTIVE_LIB_PATH = "directive/",
     isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && !/jsDom$/i.test(navigator.appName) && window.document);
@@ -53,6 +54,7 @@ requirejs.config({
         "prettify-lib": PRETTIFY_LIB_PATH + "main",
         "editormd-lib": EDITORMD_LIB_PATH + "main",
         "snap-svg-lib": SNAP_SVG_LIB_PATH + "main",
+        "chart-lib": CHART_LIB_PATH + "main",
         "app-lib": APP_LIB_PATH + "main",
         "directive-lib": DIRECTIVE_LIB_PATH + "main"
     },
@@ -61,7 +63,7 @@ requirejs.config({
     }
 });
 
-requirejs(["jquery-lib", "jquery-plugins-lib", "hammer-lib", "jquery-ui-lib", "jquery-ui-plugins-lib", "angular-lib", "angular-modules-lib", "underscore-lib", "classie-lib", "modernizr-lib", "string-lib", "editormd-lib", "snap-svg-lib"], function () {
+requirejs(["jquery-lib", "jquery-plugins-lib", "hammer-lib", "jquery-ui-lib", "jquery-ui-plugins-lib", "angular-lib", "angular-modules-lib", "underscore-lib", "classie-lib", "modernizr-lib", "string-lib", "editormd-lib", "snap-svg-lib", "chart-lib"], function () {
     window.appModule = angular.module(APP_MODULE_NAME, APP_MODULE_DEPS);
     window.appModule.value("angularEventTypes", {
         boundPropertiesEvent: "boundPropertiesEvent",

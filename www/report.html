@@ -1,7 +1,47 @@
-<link rel="stylesheet" type="text/css" href="stylesheets/preload.css"/>
+<link rel="stylesheet" type="text/css" href="stylesheets/report.css"/>
 
-<div id="preloadContainer" ng-controller="PreloadController">
-    <div id="desktopBackground">
-        <div id="loaderBackground"></div>
+<div id="reportContainer" ng-controller="ReportController" class="fs-x-large">
+    <div id="reportHead">
+        <span>王欣芸的读书报告</span>
+    </div>
+    <div id="reportDetail">
+        <div id="chartContainer" class="col-as-9 fs-x-medium">
+            <div class="chart lineChart">
+                <span>阅读时间</span>
+                <canvas id="timeChart"></canvas>
+            </div>
+            <div class="chart barChart">
+                <span>章节打分</span>
+                <canvas id="favoriteChart"></canvas>
+            </div>
+        </div>
+        <div id="summaryContainer" class="col-as-3 fs-x-small">
+            <div class="summary">
+                <div class="summaryHead fs-x-large"><span>阅读统计</span></div>
+                <div class="summaryContent fs-x-medium">
+                    <div class="input-group summaryItem col-as-12">
+                        <label class="col-as-5 no-padding-right control-label fs-x-smaller">总阅读时间</label>
+
+                        <div class="col-as-7 no-padding-left">
+                            <span class="no-padding fs-x-smaller">3小时16分</span>
+                        </div>
+                    </div>
+                    <div class="input-group summaryItem col-as-12">
+                        <label class="col-as-5 no-padding-right control-label fs-x-smaller">总阅读章节</label>
+
+                        <div class="col-as-7 no-padding-left">
+                            <span class="no-padding fs-x-smaller">16章</span>
+                        </div>
+                    </div>
+                    <div class="input-group summaryItem col-as-12">
+                        <label class="col-as-5 no-padding-right control-label fs-x-smaller">回答问题</label>
+
+                        <div class="col-as-7 no-padding-left">
+                            <span class="no-padding fs-x-smaller">10个</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

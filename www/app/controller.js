@@ -119,6 +119,7 @@ define(
                                         function (result) {
                                             if (result && result.data.result == "OK") {
                                                 Array.prototype.splice.apply($rootScope.userDetail.projectList, Array.prototype.concat.apply(Array.prototype, [$rootScope.userDetail.projectList.length, 0, result.data.resultValue[0].projectList]));
+
                                             }
 
                                             return uiUtilService.getResolveDefer();
@@ -506,10 +507,91 @@ define(
                 initMaster();
             }
 
+            function ReportController($scope, $rootScope, $timeout, $q, angularConstants, angularEventTypes, appService, urlService, uiUtilService) {
+                extension && extension.attach && extension.attach($scope, {
+                    "$timeout": $timeout,
+                    "$q": $q,
+                    "angularConstants": angularConstants,
+                    "uiUtilService": uiUtilService,
+                    "element": $("#reportContainer"),
+                    "scope": $scope
+                });
+
+                $timeout(
+                    function () {
+                        (function () {
+                            var ctx = document.getElementById("timeChart").getContext("2d");
+                            var randomScalingFactor = function () {
+                                return Math.round(Math.random() * 20)
+                            };
+                            var lineChartData = {
+                                labels: ["27/08", "28/08", "29/08", "30/08", "31/08", "01/09", "02/09", "03/09", "04/09", "05/09"],
+                                datasets: [
+                                    {
+                                        label: "My First dataset",
+                                        fillColor: "rgba(151,187,205,0.2)",
+                                        strokeColor: "rgba(151,187,205,1)",
+                                        pointColor: "rgba(151,187,205,1)",
+                                        pointStrokeColor: "#fff",
+                                        pointHighlightFill: "#fff",
+                                        pointHighlightStroke: "rgba(151,187,205,1)",
+                                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                                    }
+                                ]
+
+                            }
+
+                            $scope.myLine = new Chart(ctx).Line(lineChartData, {
+                                responsive: true
+                            });
+                        })();
+
+                        (function () {
+                            var ctx = document.getElementById("favoriteChart").getContext("2d");
+                            var randomScalingFactor = function () {
+                                return Math.round(Math.random() * 5)
+                            };
+                            var barChartData = {
+                                labels: ["第1模块第1节", "第1模块第2节", "第1模块第3节", "第1模块第4节", "第1模块第5节", "第1模块第6节", "第1模块第7节"],
+                                datasets: [
+                                    {
+                                        fillColor: "rgba(151,187,205,0.5)",
+                                        strokeColor: "rgba(151,187,205,0.8)",
+                                        highlightFill: "rgba(151,187,205,0.75)",
+                                        highlightStroke: "rgba(151,187,205,1)",
+                                        data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                                    }
+                                ]
+
+                            }
+
+                            $scope.myBar = new Chart(ctx).Bar(barChartData, {
+                                responsive: true
+                            });
+                        })();
+
+                    }, 300
+                );
+            }
+
+            function SettingsController($scope, $rootScope, $timeout, $q, angularConstants, angularEventTypes, appService, urlService, uiUtilService) {
+                extension && extension.attach && extension.attach($scope, {
+                    "$timeout": $timeout,
+                    "$q": $q,
+                    "angularConstants": angularConstants,
+                    "uiUtilService": uiUtilService,
+                    "element": $("#settingsContainer"),
+                    "scope": $scope
+                });
+            }
+
+
             appModule.
                 controller('RootController', ["$scope", "$rootScope", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", RootController]).
                 controller('PreloadController', ["$scope", "$rootScope", "$timeout", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", PreloadController]).
-                controller('ProjectController', ["$scope", "$rootScope", "$timeout", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", ProjectController]);
+                controller('ProjectController', ["$scope", "$rootScope", "$timeout", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", ProjectController]).
+                controller('ReportController', ["$scope", "$rootScope", "$timeout", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", ReportController]).
+                controller('SettingsController', ["$scope", "$rootScope", "$timeout", "$q", "angularConstants", "angularEventTypes", "appService", "urlService", "uiUtilService", SettingsController]);
         }
     }
 );

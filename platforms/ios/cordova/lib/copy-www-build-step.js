@@ -68,10 +68,10 @@ shell.rm('-rf', path.join(dstDir, 'embedded.mobileprovision'));
 if(!!COPY_HIDDEN) {
     shell.mkdir('-p', dstWwwDir);
     shell.cp('-r', glob.sync(srcDir + '/**', { dot: true }), dstWwwDir);
-    shell.cp('-r', glob.sync(baseSrcDir + '/**', { dot: true, ignore: ['**/sass'] }), dstWwwDir);
+    shell.cp('-rf', glob.sync(baseSrcDir + '/**', { dot: true, ignore: ['**/sass'] }), dstWwwDir);
 } else {
     shell.cp('-r', srcDir, dstDir);
-    shell.cp('-r', baseSrcDir, dstDir);
+    shell.cp('-rf', baseSrcDir, dstDir);
 }
 
 // Copy the config.xml file.

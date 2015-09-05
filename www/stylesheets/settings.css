@@ -4,3 +4,53 @@
   width: 100%;
   height: 100%;
 }
+#settingsContainer #settingsHead {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 3em;
+  background: #52c67e;
+  text-shadow: 0px 2px 2px #333;
+  color: #fff;
+}
+#settingsContainer #settingsHead span {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  line-height: 3;
+  text-align: center;
+}
+#settingsContainer #settingsDetail {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: calc(100% - 3em);
+}
+#settingsContainer #settingsDetail .settingItem > div {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#settingsContainer #settingsDetail .settingItem .itemHead {
+  color: #669933;
+  background: rgba(192, 192, 192, 0.4);
+  line-height: 2;
+}
+#settingsContainer #settingsDetail .settingItem .itemDetail {
+  line-height: 2;
+  color: rgba(0, 0, 0, 0.4);
+}
+#settingsContainer #settingsDetail .settingItem .itemDetail:not(:last-child):after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZWJlYiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZWJlYmViIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ebebeb), color-stop(50%, #ebebeb), color-stop(100%, #ffffff));
+  background: -moz-linear-gradient(left, #ebebeb 0%, #ebebeb 50%, #ffffff 100%);
+  background: -webkit-linear-gradient(left, #ebebeb 0%, #ebebeb 50%, #ffffff 100%);
+  background: linear-gradient(to right, #ebebeb 0%, #ebebeb 50%, #ffffff 100%);
+}

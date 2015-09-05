@@ -11,6 +11,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
+  - FreeStreamer (2.12.11):
+    - Reachability (~> 3.0)
   - JSONKit (1.4)
   - Reachability (3.2)
   - SSZipArchive (0.3.2)
@@ -18,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaHTTPServer
+  - FreeStreamer
   - JSONKit
   - Reachability
   - SSZipArchive
@@ -27,6 +30,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  FreeStreamer: 37e0c8fe1e9fa6ced7349a9b01aaac81b013a814
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SSZipArchive: 11801759495fa4efb7512ef652eb0042d68305d7

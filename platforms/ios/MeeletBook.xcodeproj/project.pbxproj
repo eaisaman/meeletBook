@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC9EB86767F48538AA3C519 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE6B992D4B5483D81004619 /* UIImage+CropScaleOrientation.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -29,6 +30,7 @@
 		30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C1856519D5FC0A00212699 /* icon-60@3x.png */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		6A36C782A778497D86C66035 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFB5BFD36543A7A847DF84 /* CDVJpegHeaderWriter.m */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -39,6 +41,9 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
+		859609AA9FF7421CB196228C /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C318E32F6F4654AB33B8FE /* CDVCamera.m */; };
+		955CDE09CF2747A39D198D8A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF85B406DB244738638B82A /* CoreLocation.framework */; };
+		A10C21041B9AB62000F183C1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10C21031B9AB62000F183C1 /* Pods.framework */; };
 		A1926F4B1B96C95D000686B7 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1926F271B96C95D000686B7 /* QRCodeViewController.xib */; };
 		A1926F4C1B96C95D000686B7 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F291B96C95D000686B7 /* ProjectViewController.m */; };
 		A1926F4D1B96C95D000686B7 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F2B1B96C95D000686B7 /* QRCodeViewController.m */; };
@@ -57,8 +62,10 @@
 		A1926F5A1B96C95D000686B7 /* SecurityContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F461B96C95D000686B7 /* SecurityContext.m */; };
 		A1926F5B1B96C95D000686B7 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F481B96C95D000686B7 /* UIDevice+IdentifierAddition.m */; };
 		A1926F5C1B96C95D000686B7 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F4A1B96C95D000686B7 /* UserDetails.m */; };
-		A1926F5E1B96C987000686B7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1926F5D1B96C987000686B7 /* Pods.framework */; };
+		A1926F641B96F529000686B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1926F631B96F529000686B7 /* Settings.bundle */; };
+		CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8F7F721944A798BD4FD75 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		F37FD703F3164365B0C5CE33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638C09EDAA2942708E0D0C99 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,11 +86,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A52CAC7F6F4E90A4B02952 /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVExif.h; path = "cordova-plugin-camera/CDVExif.h"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* MeeletBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeeletBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD8F7F721944A798BD4FD75 /* ImageIO.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28C318E32F6F4654AB33B8FE /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCamera.m; path = "cordova-plugin-camera/CDVCamera.m"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2BF85B406DB244738638B82A /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -106,7 +117,9 @@
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MeeletBook-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeeletBook-Prefix.pch"; sourceTree = "<group>"; };
 		4417C82B30224E9EE73B8DA6 /* Pods-MeeletBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeeletBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeeletBook/Pods-MeeletBook.debug.xcconfig"; sourceTree = "<group>"; };
+		4BB74F2937BD4E51AB43F1CD /* UIImage+CropScaleOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropScaleOrientation.h"; path = "cordova-plugin-camera/UIImage+CropScaleOrientation.h"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		638C09EDAA2942708E0D0C99 /* AVFoundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7C6B14CFD49DAACA4644BD2C /* Pods-MeeletBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeeletBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeeletBook/Pods-MeeletBook.release.xcconfig"; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
@@ -118,7 +131,9 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
+		8BBFB5BFD36543A7A847DF84 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = "cordova-plugin-camera/CDVJpegHeaderWriter.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MeeletBook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MeeletBook-Info.plist"; path = "../MeeletBook-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A10C21031B9AB62000F183C1 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = Pods/build/Framework/Pods.framework; sourceTree = "<group>"; };
 		A1926F271B96C95D000686B7 /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QRCodeViewController.xib; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeViewController.xib; sourceTree = "<group>"; };
 		A1926F281B96C95D000686B7 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectViewController.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/ProjectViewController.h; sourceTree = "<group>"; };
 		A1926F291B96C95D000686B7 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectViewController.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/ProjectViewController.m; sourceTree = "<group>"; };
@@ -154,8 +169,11 @@
 		A1926F481B96C95D000686B7 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		A1926F491B96C95D000686B7 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		A1926F4A1B96C95D000686B7 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
-		A1926F5D1B96C987000686B7 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = Pods/build/Framework/Pods.framework; sourceTree = "<group>"; };
+		A1926F631B96F529000686B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BD9F39DD87664A3C9D04478D /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = "cordova-plugin-camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DCE6B992D4B5483D81004619 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropScaleOrientation.m"; path = "cordova-plugin-camera/UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
+		EA3DFC8542F84307A3E1744A /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = "cordova-plugin-camera/CDVCamera.h"; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -167,11 +185,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10C21041B9AB62000F183C1 /* Pods.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
-				A1926F5E1B96C987000686B7 /* Pods.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */,
+				955CDE09CF2747A39D198D8A /* CoreLocation.framework in Frameworks */,
+				F37FD703F3164365B0C5CE33 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +266,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1926F631B96F529000686B7 /* Settings.bundle */,
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* MeeletBook-Info.plist */,
@@ -256,10 +278,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1926F5D1B96C987000686B7 /* Pods.framework */,
+				A10C21031B9AB62000F183C1 /* Pods.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				1FD8F7F721944A798BD4FD75 /* ImageIO.framework */,
+				2BF85B406DB244738638B82A /* CoreLocation.framework */,
+				638C09EDAA2942708E0D0C99 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,6 +300,13 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				DCE6B992D4B5483D81004619 /* UIImage+CropScaleOrientation.m */,
+				28C318E32F6F4654AB33B8FE /* CDVCamera.m */,
+				8BBFB5BFD36543A7A847DF84 /* CDVJpegHeaderWriter.m */,
+				4BB74F2937BD4E51AB43F1CD /* UIImage+CropScaleOrientation.h */,
+				EA3DFC8542F84307A3E1744A /* CDVCamera.h */,
+				BD9F39DD87664A3C9D04478D /* CDVJpegHeaderWriter.h */,
+				04A52CAC7F6F4E90A4B02952 /* CDVExif.h */,
 			);
 			name = Plugins;
 			path = MeeletBook/Plugins;
@@ -468,6 +500,7 @@
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				A1926F4B1B96C95D000686B7 /* QRCodeViewController.xib in Resources */,
 				7E7966E21810823500FA85AD /* icon-60.png in Resources */,
+				A1926F641B96F529000686B7 /* Settings.bundle in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */,
@@ -493,7 +526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cordova/lib/copy-www-build-step.sh";
+			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
 			showEnvVarsInLog = 0;
 		};
 		4A9F92B6478FF445755D76C4 /* Check Pods Manifest.lock */ = {
@@ -553,6 +586,9 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				A1926F591B96C95D000686B7 /* ResubmittableRecordStore.m in Sources */,
 				A1926F5B1B96C95D000686B7 /* UIDevice+IdentifierAddition.m in Sources */,
+				0EC9EB86767F48538AA3C519 /* UIImage+CropScaleOrientation.m in Sources */,
+				859609AA9FF7421CB196228C /* CDVCamera.m in Sources */,
+				6A36C782A778497D86C66035 /* CDVJpegHeaderWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +640,7 @@
 					"-lz",
 					"${PODS_LIBRARY_LDFLAGS}",
 				);
-				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv";
+				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv -lstdc++";
 				PRODUCT_NAME = MeeletBook;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -645,7 +681,7 @@
 					"-lz",
 					"${PODS_LIBRARY_LDFLAGS}",
 				);
-				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv";
+				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv -lstdc++";
 				PRODUCT_NAME = MeeletBook;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
