@@ -1,0 +1,210 @@
+@import "../bootstrap-compass";
+@import "../bootstrap-variables";
+@import "../global";
+@import "../bootstrap";
+
+$fs-x-huge: $font-size-h1 * 2;
+$fs-x-large: $font-size-h1;
+$fs-x-medium: $font-size-h2;
+$fs-x-small: $font-size-h3;
+$fs-x-smaller: $font-size-h4;
+$fs-x-tiny: $font-size-h5;
+
+.fs-x-huge {
+    font-size: $fs-x-huge !important;
+}
+
+.fs-x-large {
+    font-size: $fs-x-large !important;
+}
+
+.fs-x-medium {
+    font-size: $fs-x-medium !important;
+}
+
+.fs-x-small {
+    font-size: $fs-x-small !important;
+}
+
+.fs-x-smaller {
+    font-size: $fs-x-smaller !important;
+}
+
+.fs-x-tiny {
+    font-size: $fs-x-tiny !important;
+}
+
+.fs-x-huge-before:before {
+    font-size: $fs-x-huge !important;
+}
+
+.fs-x-large-before:before {
+    font-size: $fs-x-large !important;
+}
+
+.fs-x-medium-before:before {
+    font-size: $fs-x-medium !important;
+}
+
+.fs-x-small-before:before {
+    font-size: $fs-x-small !important;
+}
+
+.fs-x-smaller-before:before {
+    font-size: $fs-x-smaller !important;
+}
+
+.fs-x-tiny-before:before {
+    font-size: $fs-x-tiny !important;
+}
+
+.fs-x-huge-after:after {
+    font-size: $fs-x-huge !important;
+}
+
+.fs-x-large-after:after {
+    font-size: $fs-x-large !important;
+}
+
+.fs-x-medium-after:after {
+    font-size: $fs-x-medium !important;
+}
+
+.fs-x-small-after:after {
+    font-size: $fs-x-small !important;
+}
+
+.fs-x-smaller-after:after {
+    font-size: $fs-x-smaller !important;
+}
+
+.fs-x-tiny-after:after{
+    font-size: $fs-x-tiny !important;
+}
+
+/* Define size of color pane
+ * Used by directive ng.ui.color-picker, ng.ui.gradient-editor
+ * Found in _color_picker.html, _gradient_editor.html
+ */
+$panSize: 40px;
+.squarePane {
+    width: $panSize;
+    height: $panSize;
+}
+.fs-x-squarePane {
+    font-size: $panSize;
+}
+.smallSquarePane {
+    width: $panSize / 2;
+    height: $panSize / 2;
+}
+
+/* Define size of tool button
+ * Used by directive ng.ui.gradient-editor
+ * Found in _gradient_editor.html
+ */
+$toolButtonFont: 30px;
+.fs-x-toolButton-normal {
+    font-size: $toolButtonFont;
+}
+.fs-x-toolButton-small {
+    font-size: $toolButtonFont * 0.75;
+}
+
+/* Define height of scroll bar
+ * Used by directive ng.ui.gradient-editor
+ * Found in _gradient_editor.html
+ */
+$verticalScrollHeight: 300px;
+.vt-scroll-normal {
+    height: $verticalScrollHeight;
+}
+
+/* Define height of scroll pane containing title, value display and scroll bar
+ * Used by directive ng.ui.gradient-editor
+ * Found in _gradient_editor.html
+ */
+.vt-scroll-pane {
+    height: $fs-x-medium * 1.5 + $fs-x-small * 1.5 + $verticalScrollHeight + $grid-gutter-width * 0.5;
+}
+
+/* Create a halo-like borders
+ * Used by directive ng.ui.gradient-editor
+ * Found in _gradient_editor.html
+ */
+.haloPane {
+    border: 5px solid hsl(0, 0%, 40%);
+    outline: 5px solid hsl(0, 0%, 60%);
+
+    @include box-shadow(0 0 0 $grid-gutter-width/3 #cccccc, 0 0 0 $grid-gutter-width/2 #e6e6e6);
+}
+
+@mixin all-grid-columns($i: 1, $colPatterns: (".col-lg-")) {
+    @for $i from 1 through $grid-columns {
+        @each $pattern in $colPatterns {
+            .col-as-#{$i} {
+                @extend #{$pattern}#{$i} !optional;
+            }
+            .col-as-offset-#{$i} {
+                @extend #{$pattern}offset-#{$i} !optional;
+            }
+            .col-as-pull-#{$i} {
+                @extend #{$pattern}pull-#{$i} !optional;
+            }
+            .col-as-push-#{$i} {
+                @extend #{$pattern}push-#{$i} !optional;
+            }
+        }
+    }
+}
+
+@include all-grid-columns();
+
+@mixin no-padding($side) {
+    @if $side == 'all' {
+        .no-padding {
+            padding: 0 !important;
+        }
+    } @else {
+        .no-padding-#{$side} {
+            padding-#{$side}: 0 !important;
+        }
+    }
+}
+
+@include no-padding("left");
+@include no-padding("right");
+@include no-padding("top");
+@include no-padding("bottom");
+@include no-padding("all");
+
+@mixin no-margin($side) {
+    @if $side == 'all' {
+        .no-margin {
+            margin: 0 !important;
+        }
+    } @else {
+        .no-margin#{$side} {
+            margin-#{$side}: 0 !important;
+        }
+    }
+}
+
+@include no-margin("left");
+@include no-margin("right");
+@include no-margin("top");
+@include no-margin("bottom");
+@include no-margin("all");
+
+.vt-align-center {
+    top: calc(50% - 0.5em);
+}
+
+.hz-align-center {
+    left: calc(50% - 0.5em);
+}
+
+.align-center {
+    top: calc(50% - 0.5em);
+    left: calc(50% - 0.5em);
+}

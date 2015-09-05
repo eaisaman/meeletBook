@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'icon-mobile-client';
+    src: url('icon-mobile-client.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-mobile-client:before {
+    font-family: 'icon-mobile-client';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-client-before:before {
+    font-family: 'icon-mobile-client';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-client-after:after {
+    font-family: 'icon-mobile-client';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-client-pause:before {
+    content: "\e601";
+}
+.icon-mobile-client-refresh:before {
+    content: "\e602";
+}
+.icon-mobile-client-download:before {
+    content: "\e603";
+}
+.icon-mobile-client-check:before {
+    content: "\e606";
+}
+.icon-mobile-client-uncheck:before {
+    content: "\e607";
+}
+.icon-mobile-client-confirm:before {
+    content: "\e608";
+}
+.icon-mobile-client-cancel:before {
+    content: "\e609";
+}
+.icon-mobile-client-delete:before {
+    content: "\e604";
+}
+.icon-mobile-client-qr-code:before {
+    content: "\e605";
+}
+
+.icon-mobile-client-pause-before:before {
+    content: "\e601";
+}
+.icon-mobile-client-refresh-before:before {
+    content: "\e602";
+}
+.icon-mobile-client-download-before:before {
+    content: "\e603";
+}
+.icon-mobile-client-check-before:before {
+    content: "\e606";
+}
+.icon-mobile-client-uncheck-before:before {
+    content: "\e607";
+}
+.icon-mobile-client-confirm-before:before {
+    content: "\e608";
+}
+.icon-mobile-client-cancel-before:before {
+    content: "\e609";
+}
+.icon-mobile-client-delete-before:before {
+    content: "\e604";
+}
+.icon-mobile-client-qr-code-before:before {
+    content: "\e605";
+}
+
+.icon-mobile-client-pause-after:after {
+    content: "\e601";
+}
+.icon-mobile-client-refresh-after:after {
+    content: "\e602";
+}
+.icon-mobile-client-download-after:after {
+    content: "\e603";
+}
+.icon-mobile-client-check-after:after {
+    content: "\e606";
+}
+.icon-mobile-client-uncheck-after:after {
+    content: "\e607";
+}
+.icon-mobile-client-confirm-after:after {
+    content: "\e608";
+}
+.icon-mobile-client-cancel-after:after {
+    content: "\e609";
+}
+.icon-mobile-client-delete-after:after {
+    content: "\e604";
+}
+.icon-mobile-client-qr-code-after:after {
+    content: "\e605";
+}

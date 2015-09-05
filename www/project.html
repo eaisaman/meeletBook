@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/project.css"/>
+<link rel="stylesheet" type="text/css" href="fonts/icon-mobile-client/style.css"/>
+<link rel="stylesheet" type="text/css" href="fonts/icon-mobile-topbar/style.css"/>
+
+<div id="projectContainer" ng-controller="ProjectController">
+    <div ui-modal-window transition="fadeInScaleUp">
+        <div class="projectMainContent" name="mainContent">
+            <div ui-mobile-topbar class="fs-x-medium">
+                <div name="extraButtons">
+                    <div class="topbarButton topbarToggleButton icon-mobile-client-before icon-mobile-client-delete-before"
+                         action="delete"
+                         ng-click="toggleProjectButton($event)"></div>
+                    <div class="topbarButton icon-mobile-client-before icon-mobile-client-qr-code-before"
+                         ng-click="scanProjectCode($event)"></div>
+                </div>
+            </div>
+            <div class="projectContent col-as-12">
+                <div class="fs-x-small projectItem" ng-repeat="projectItem in $root.userDetail.projectList"
+                     ng-attr-id="{{projectItem._id}}" ng-init="createProjectKnob(projectItem)"
+                     ng-attr-mode="{{projectItem.mode}}">
+                    <div class="projectItemCheck fs-x-medium icon-mobile-client-before"
+                         ng-if="projectItem.mode === 'waitRefresh'"
+                         ng-class="{'icon-mobile-client-uncheck-before':!projectItem.checked, 'icon-mobile-client-check-before':projectItem.checked}"
+                         ng-click="toggleCheck(projectItem, $event)" ng-show="toggleCheckMode"></div>
+
+                    <div class="projectItemDownload fs-x-medium icon-mobile-client-before icon-mobile-client-download-before"
+                         ng-click="downloadProject(projectItem, $event)"></div>
+
+                    <div class="projectItemRefresh fs-x-medium icon-mobile-client-before icon-mobile-client-refresh-before"
+                         ng-click="downloadProject(projectItem, $event)"></div>
+
+                    <div class="projectItemPause fs-x-medium icon-mobile-client-before icon-mobile-client-pause-before"
+                         ng-click="pauseDownloadProject(projectItem, $event)"></div>
+
+                    <div class="projectItemInfoList col-as-12 no-padding">
+                        <div class="projectItemProgress"
+                             ng-show="projectItem.progress > 1 && projectItem.progress < 100">
+                            <input class="projectItemKnob" data-width="100" data-fgColor="#2ecc71"
+                                   data-bgColor="#ecf0f1" data-readOnly=true data-thickness=.3 data-linecap=round
+                                   value="0"/>
+                        </div>
+
+                        <div class="projectItemInfo projectItemDesc"
+                             ng-class="{'blur':projectItem.progress > 1 && projectItem.progress < 100}" ng-click="showProject(projectItem, $event)">
+                            <span class="col-as-12">{{projectItem.desc}}</span>
+                        </div>
+                        <div class="projectItemInfo"
+                             ng-class="{'blur':projectItem.progress > 1 && projectItem.progress < 100}">
+                            <div class="infoLabel">Name</div>
+
+                            <div class="infoContent"><span>{{projectItem.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projectActionConfirmBar fs-x-medium" ng-class="{'select':toggleCheckMode}">
+                <div class="projectActionButton"
+                     ng-click="confirmProjectAction($event)">
+                    <span class="icon-mobile-client-before icon-mobile-client-confirm-before">Confirm</span>
+                </div>
+                <div class="projectActionButton"
+                     ng-click="cancelProjectAction($event)">
+                    <span class="icon-mobile-client-before icon-mobile-client-cancel-before">Cancel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="projectModalContent" name="modalContent">
+            <div class="projectInfoContainer">
+                <div class="projectInfo fs-x-small">
+                    <div class="infoLabel">Name</div>
+                    <div class="infoContent"><span>{{pickedProject.name}}</span>
+                    </div>
+                </div>
+                <div class="projectInfo fs-x-small">
+                    <div class="infoLabel">Description</div>
+                    <div class="infoContent"><span>{{pickedProject.desc}}</span>
+                    </div>
+                </div>
+                <div class="projectModalBar fs-x-medium">
+                    <div class="projectModalButton"
+                         ng-click="downloadProject(pickedProject, $event) && hideProjectModal($event)">
+                        <span class="icon-mobile-client-before icon-mobile-client-confirm-before">Download</span>
+                    </div>
+                    <div class="projectModalButton"
+                         ng-click="hideProjectModal($event)">
+                        <span class="icon-mobile-client-before icon-mobile-client-cancel-before">Cancel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

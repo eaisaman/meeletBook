@@ -1,0 +1,38 @@
+@import "compass/css3/animation";
+
+%defaultBaseAnimation {
+    @include animation-duration(1s);
+    @include animation-fill-mode(both);
+    -webkit-backface-visibility: none;
+       -moz-backface-visibility: none;
+         -o-backface-visibility: none;
+            backface-visibility: none;
+}
+
+@mixin baseAnimation(
+    $name: null,
+    $duration: null,
+    $timing: null,
+    $iterations: null,
+    $delay: null,
+    $fill: null,
+    $direction: null,
+    $state: null) {
+
+    @if $name != null {
+        %#{$name} {
+            @extend %defaultBaseAnimation;
+            @include animation-name(unquote($name));
+            @if $duration != null { @include animation-duration($duration); }
+            @if $timing != null { @include animation-timing-function($timing); }
+            @if $iterations != null { @include animation-iteration-count($iterations); }
+            @if $delay != null { @include animation-delay($delay); }
+            @if $fill != null { @include animation-fill-mode($fill); }
+            @if $direction != null { @include animation-direction($direction); }
+            @if $state != null { @include animation-play-state($state); }
+        }
+    } @else {
+        @warn "Your animation needs a name!"
+    }
+
+}

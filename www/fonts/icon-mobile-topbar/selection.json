@@ -1,0 +1,92 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M448 0l-448 384 448 320v-704zM448 256c0 0 576-21.504 576 768 0 0-168.448-576-576-576v-192z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"reply",
+					"arrow",
+					"left"
+				],
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 27,
+				"order": 1,
+				"prevSize": 32,
+				"code": 58880,
+				"name": "back",
+				"ligatures": ""
+			},
+			"setIdx": 0,
+			"setId": 12,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M192 576l64 384h192v-320h128v320h192l64-384-320-320-320 320zM832 384v-256h-128l0.312 128.312-192.312-192.312-512 512h128l384-384 384 384h128l-192-192z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"order": 2,
+				"id": 0,
+				"prevSize": 32,
+				"code": 58881,
+				"name": "home",
+				"ligatures": ""
+			},
+			"setIdx": 0,
+			"setId": 12,
+			"iconIdx": 1
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icon-mobile-topbar"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-mobile-topbar-",
+			"metadata": {
+				"fontFamily": "icon-mobile-topbar",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"resetPoint": 58880,
+			"showSelector": true,
+			"selector": "class",
+			"classSelector": ".icon-mobile-topbar",
+			"showMetrics": false
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215
+		},
+		"historySize": 100,
+		"showCodes": false,
+		"gridSize": 16
+	}
+}

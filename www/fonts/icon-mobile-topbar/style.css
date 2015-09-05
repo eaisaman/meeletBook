@@ -1,0 +1,69 @@
+@font-face {
+	font-family: 'icon-mobile-topbar';
+	src: url('icon-mobile-topbar.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-mobile-topbar:before {
+	font-family: 'icon-mobile-topbar';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-topbar-before:before {
+	font-family: 'icon-mobile-topbar';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-topbar-after:after {
+	font-family: 'icon-mobile-topbar';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-topbar-back:before {
+	content: "\e600";
+}
+.icon-mobile-topbar-home:before {
+	content: "\e601";
+}
+
+.icon-mobile-topbar-back-before:before {
+	content: "\e600";
+}
+.icon-mobile-topbar-home-before:before {
+	content: "\e601";
+}
+
+.icon-mobile-topbar-back-after:after {
+	content: "\e600";
+}
+.icon-mobile-topbar-home-after:after {
+	content: "\e601";
+}

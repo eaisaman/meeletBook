@@ -1,0 +1,36 @@
+
+@-webkit-keyframes blinkEffect {
+    0% {
+        opacity: 0.7;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@-moz-keyframes blinkEffect {
+    0% {
+        opacity: 0.7;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blinkEffect {
+    0% {
+        opacity: 0.7;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

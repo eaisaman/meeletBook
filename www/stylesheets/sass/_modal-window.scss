@@ -1,0 +1,405 @@
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "animation/modal-window";
+
+@mixin modal-window($modalWindowClass:modalWindowContainer) {
+
+    .#{$modalWindowClass} {
+        &.md-perspective {
+            @include perspective(600px);
+        }
+
+        .mainContent {
+            min-height: 100%;
+
+            [name=mainContent] {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        > .md-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            min-width: 320px;
+            height: auto;
+            z-index: 2000;
+            visibility: hidden;
+            @include backface-visibility(hidden);
+            @include transform(translateX(-50%) translateY(-50%));
+
+            &.show {
+                visibility: visible;
+            }
+
+            /* Individual modal styles with animations/transitions */
+
+            /* Effect 1: Fade in and scale up */
+            &.fadeInScaleUp > [name=modalContent] {
+                opacity: 0;
+                @include transform(scale(0.7));
+                @include transition(all 0.3s);
+            }
+
+            &.show.fadeInScaleUp > [name=modalContent] {
+                opacity: 1;
+                @include transform(scale(1));
+            }
+
+            /* Effect 2: Slide from the right */
+            &.slideFromRight > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateX(20%));
+                @include transition(all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9));
+            }
+
+            &.show.slideFromRight > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateX(0));
+            }
+
+            /* Effect 3: Slide from the bottom */
+            &.slideFromBottom > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateY(20%));
+                @include transition(all 0.3s);
+            }
+
+            &.show.slideFromBottom > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0));
+            }
+
+            /* Effect 4: Newspaper */
+            &.newspaper > [name=modalContent] {
+                opacity: 0;
+                @include transform(scale(0) rotate(720deg));
+            }
+
+            &.show.newspaper ~ .modalOverlay,
+            .newspaper > [name=modalContent] {
+                @include transition(all 0.5s);
+            }
+
+            &.show.newspaper > [name=modalContent] {
+                opacity: 1;
+                @include transform(scale(1) rotate(0deg));
+            }
+
+            /* Effect 5: fall */
+            &.fall {
+                @include perspective(1300px);
+            }
+
+            &.fall > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(translateZ(600px) rotateX(20deg));
+            }
+
+            &.show.fall > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateZ(0px) rotateX(0deg));
+                @include transition(all 0.3s ease-in);
+            }
+
+            /* Effect 6: side fall */
+            &.sideFall {
+                @include perspective(1300px);
+            }
+
+            &.sideFall > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(translate(30%) translateZ(600px) rotate(10deg));
+            }
+
+            &.show.sideFall > [name=modalContent] {
+                opacity: 1;
+                @include transform(translate(0%) translateZ(0) rotate(0deg));
+                @include transition(all 0.3s ease-in);
+            }
+
+            /* Effect 7:  slide and stick to top */
+            &.slideStickTop {
+                top: 0;
+                @include transform(translateX(-50%));
+            }
+
+            &.slideStickTop > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateY(-200%));
+                @include transition(all .3s);
+            }
+
+            &.show.slideStickTop > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0%));
+                border-radius: 0 0 3px 3px;
+            }
+
+            /* Effect 8: 3D flip horizontal */
+            &.flipHorizontal3D {
+                @include perspective(1300px);
+            }
+
+            &.flipHorizontal3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(rotateY(-70deg));
+                @include transition(all 0.3s);
+            }
+
+            &.show.flipHorizontal3D > [name=modalContent] {
+                opacity: 1;
+                @include transform(rotateY(0deg));
+            }
+
+            /* Effect 9: 3D flip vertical */
+            &.flipVertical3D {
+                @include perspective(1300px);
+            }
+
+            &.flipVertical3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(rotateX(-70deg));
+                @include transition(all 0.3s);
+            }
+
+            &.show.flipVertical3D > [name=modalContent] {
+                opacity: 1;
+                @include transform(rotateX(0deg));
+            }
+
+            /* Effect 10: 3D sign */
+            &.sign3D {
+                @include perspective(1300px);
+            }
+
+            &.sign3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(rotateX(-60deg));
+                @include transition(all 0.3s);
+                @include transform-origin(50% 0);
+            }
+
+            &.show.sign3D > [name=modalContent] {
+                opacity: 1;
+                @include transform(rotateX(0deg));
+            }
+
+            /* Effect 11: Super scaled */
+            &.superScaled > [name=modalContent] {
+                opacity: 0;
+                @include transform(scale(2));
+                @include transition(all 0.3s);
+            }
+
+            &.show.superScaled > [name=modalContent] {
+                opacity: 1;
+                @include transform(scale(1));
+            }
+
+            /* Effect 12:  Just me */
+            &.justMe > [name=modalContent] {
+                opacity: 0;
+                @include transform(scale(0.8));
+                @include transition(all 0.3s);
+            }
+
+            &.show.justMe ~ .modalOverlay {
+                background: #e74c3c;
+            }
+
+            &.justMe > [name=modalContent] h3,
+            &.justMe > [name=modalContent] {
+                background: transparent;
+            }
+
+            &.show.justMe > [name=modalContent] {
+                opacity: 1;
+                @include transform(scale(1));
+            }
+
+            /* Effect 13: 3D slit */
+            &.slit3D {
+                @include perspective(1300px);
+            }
+
+            &.slit3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(translateZ(-3000px) rotateY(90deg));
+            }
+
+            &.show.slit3D > [name=modalContent] {
+                @extend %modalWindow_slit;
+            }
+
+            /* Effect 14:  3D Rotate from bottom */
+            &.rotateFromBottom3D {
+                @include perspective(1300px);
+            }
+
+            &.rotateFromBottom3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(translateY(100%) rotateX(90deg));
+                @include transition(all 0.3s ease-out);
+                @include transform-origin(0 100%);
+            }
+
+            &.show.rotateFromBottom3D > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0%) rotateX(0deg));
+            }
+
+            /* Effect 15:  3D Rotate in from left */
+            &.rotateFromLeft3D {
+                @include perspective(1300px);
+            }
+
+            &.rotateFromLeft3D > [name=modalContent] {
+                opacity: 0;
+                @include transform-style(preserve-3d);
+                @include transform(translateZ(100px) translateX(-30%) rotateY(90deg));
+                @include transition(all 0.3s);
+                @include transform-origin(0 100%);
+            }
+
+            &.show.rotateFromLeft3D > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateZ(0px) translateX(0%) rotateY(0deg));
+            }
+
+            /* Effect 16:  Blur */
+            &.show.blur ~ .modalOverlay {
+                background: rgba(180, 46, 32, 0.5);
+            }
+
+            &.show.blur ~ .mainContent {
+                @include filter(blur(3px));
+                @include transition(all 0.3s);
+            }
+
+            &.blur > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateY(-5%));
+                @include transition(all 0.3s);
+            }
+
+            &.show.blur > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0));
+            }
+
+            /* Effect 17:  Slide in from bottom with perspective on container */
+            &.show.slideFromBottomPerspective ~ .mainContent {
+                height: 100%;
+                overflow: hidden;
+                @include transition(transform 0.3s);
+            }
+
+            &.show.slideFromBottomPerspective ~ .mainContent,
+            &.show.slideFromBottomPerspective ~ .modalOverlay {
+                @include transform-style(preserve-3d);
+                @include transform(rotateX(-2deg));
+                @include transform-origin(50% 0%);
+            }
+
+            &.slideFromBottomPerspective > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateY(200%));
+            }
+
+            &.show.slideFromBottomPerspective > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0));
+                @include transition(all 0.3s 0.2s);
+            }
+
+            /* Effect 18:  Slide from right with perspective on container */
+            &.show.slideFromRightPerspective ~ .mainContent {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            &.show.slideFromRightPerspective ~ .modalOverlay {
+                background: rgba(143, 27, 15, 0.8);
+                @include transition(all 0.5s);
+            }
+
+            &.show.slideFromRightPerspective ~ .mainContent,
+            &.show.slideFromRightPerspective ~ .modalOverlay {
+                @include transform-style(preserve-3d);
+                @include transform-origin(0% 50%);
+
+                @extend %modalWindow_rotateRightSideFirst;
+            }
+
+            &.slideFromRightPerspective > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateX(200%));
+            }
+
+            &.show.slideFromRightPerspective > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateX(0));
+                @include transition(all 0.5s 0.1s);
+            }
+
+            /* Effect 19:  Slip in from the top with perspective on container */
+            &.show.slipFromTopPerspective ~ .mainContent {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            &.show.slipFromTopPerspective ~ .modalOverlay {
+                @include transition(all 0.5s);
+            }
+
+            &.show.slipFromTopPerspective ~ .mainContent,
+            &.show.slipFromTopPerspective ~ .modalOverlay {
+                @include transform-style(preserve-3d);
+                @include transform-origin(50% 100%);
+                @extend %modalWindow_openTop;
+            }
+
+            &.slipFromTopPerspective > [name=modalContent] {
+                opacity: 0;
+                @include transform(translateY(-200%));
+            }
+
+            &.show.slipFromTopPerspective > [name=modalContent] {
+                opacity: 1;
+                @include transform(translateY(0));
+                @include transition(all 0.5s 0.1s);
+            }
+        }
+
+        > .modalOverlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            opacity: 0;
+
+            @include transition(all 0.3s);
+        }
+
+        > .md-modal.show ~ .modalOverlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    }
+}

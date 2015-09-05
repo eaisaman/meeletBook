@@ -1,0 +1,184 @@
+@mixin topbar() {
+    #appTopBar {
+        position: relative;
+        width: 100%;
+        height: 3em;
+        background: #fff;
+        box-shadow: 0 1px 4px #A4A4A4, 0 0 40px #E0E0E0 inset;
+        z-index: 100;
+
+        .topbarButton, .topbarMenu, .topbarDropdown {
+            position: relative;
+            float: left;
+            top: 0.5em;
+            width: 2em;
+            height: 2em;
+            background-color: #ddd;
+            box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .135);
+            border-radius: 0.2em;
+            display: inline-block;
+            margin: 0 0.5em;
+            color: $color;
+
+            &:active {
+                background-color: #555;
+                color: $activeColor;
+                box-shadow: none;
+            }
+
+            &:before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 2;
+            }
+        }
+
+        .topbarButton:not(:first-child) {
+            margin-left: 0;
+        }
+
+        .topbarDropdown {
+            margin: 0 0.5em 0 0;
+
+            .btn-group {
+                z-index: -1;
+                pointer-events: none;
+                visibility: hidden;
+                top: 100%;
+                width: 10em;
+                padding-top: 0.5em;
+                background-color: #ddd;
+                border-left: 1px solid #CACDC0;
+
+                &:last-child {
+                    padding-bottom: 0.5em;
+                }
+            }
+
+            &.select {
+                overflow: visible;
+
+                &:active {
+                    color: $color;
+                    background: #ddd;
+                    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .135);
+                }
+
+                .btn-group {
+                    z-index: 1;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .topbarToggleButton.select {
+            background-color: #aaa;
+            color: $activeColor;
+            box-shadow: none;
+        }
+
+        .topbarButtonGroup {
+            position: relative;
+            float: left;
+            top: 0.5em;
+            width: 3em;
+            height: 2em;
+            background-color: #ddd;
+            box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .135);
+            border-radius: 0.2em;
+            display: inline-block;
+            margin: 0 0.5em 0 0;
+            color: $color;
+            overflow: hidden;
+
+            &:active {
+                background-color: #555;
+                color: $activeColor;
+                box-shadow: none;
+            }
+
+            &:after {
+                content: '\25BC';
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 1em;
+                height: 100%;
+                text-align: center;
+                line-height: 2;
+            }
+
+            .btn-group {
+                z-index: -1;
+                pointer-events: none;
+                visibility: hidden;
+                top: 100%;
+                width: 10em;
+                border-left: 1px solid #CACDC0;
+            }
+
+            &.select {
+                overflow: visible;
+
+                .btn-group {
+                    z-index: 1;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+            }
+
+            > .selectedButton {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2em;
+                height: 100%;
+                background: transparent;
+                overflow: hidden;
+
+                &:after {
+                    position: absolute;
+                    right: 0;
+                    width: 0px;
+                    height: 100%;
+                    content: '';
+                    border-left: 1px solid #CACDC0;
+                    border-right: 1px solid #FFF;
+                }
+            }
+
+            .topbarButton {
+                margin: 0;
+                top: 0;
+                border-radius: 0;
+
+                &:after {
+                    position: absolute;
+                    right: 0;
+                    width: 0px;
+                    height: 100%;
+                    content: '';
+                    border-left: 1px solid #CACDC0;
+                    border-right: 1px solid #FFF;
+                }
+            }
+        }
+
+        .extraButtons {
+            position: relative;
+            float: left;
+            width: calc(100% - 10em);
+            height: 100%;
+
+            [name='extraButtons'] {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
