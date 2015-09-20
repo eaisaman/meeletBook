@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA015B8D82DFC6D27C24B568"
-               BuildableName = "libPods-MeeletBook-CocoaHTTPServer.a"
-               BlueprintName = "Pods-MeeletBook-CocoaHTTPServer"
+               BlueprintIdentifier = "260C932843437CF3E5F45250"
+               BuildableName = "libPods-MeeletBook.a"
+               BlueprintName = "Pods-MeeletBook"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "260C932843437CF3E5F45250"
+            BuildableName = "libPods-MeeletBook.a"
+            BlueprintName = "Pods-MeeletBook"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

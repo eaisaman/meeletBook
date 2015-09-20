@@ -1,0 +1,4 @@
+[
+  "-workspace", "MeeletBook.xcworkspace",
+  "-scheme", "MeeletBook"
+]
