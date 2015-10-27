@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6BA5312969E0B0DFEAA7F4554C082CC199676452",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A9FE791E3509432577DF49F8EE55D8F412AE7ED7" : 0,
+    "4FE3A013A7370D07063E985A91C238C041258CEE" : 0,
+    "DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D" : 0,
+    "6BA5312969E0B0DFEAA7F4554C082CC199676452" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "640C0E48-1B5A-46CC-BBB1-120958AEFC8C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A9FE791E3509432577DF49F8EE55D8F412AE7ED7" : "meeletClient",
+    "4FE3A013A7370D07063E985A91C238C041258CEE" : "meeletBook\/Common\/",
+    "DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D" : "meelet",
+    "6BA5312969E0B0DFEAA7F4554C082CC199676452" : "meeletBook"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MeeletBook",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "platforms\/ios\/MeeletBook.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:eaisaman\/meeletCommon.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4FE3A013A7370D07063E985A91C238C041258CEE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/eaisaman\/meeletBook.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6BA5312969E0B0DFEAA7F4554C082CC199676452"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/eaisaman\/meeletClient.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A9FE791E3509432577DF49F8EE55D8F412AE7ED7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/eaisaman\/meelet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D"
+    }
+  ]
+}
