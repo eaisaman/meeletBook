@@ -79,7 +79,7 @@ var Thumb = React.createClass({
               <Text style={[styles.talkText, styles.myTalkText, ]} numberOfLines={4}>{this.props.data.content}</Text>
             </View>
             <View style={[styles.avatarItem, styles.myAvatar, ]}>
-              <LocalImage style={[styles.avatarImg, ]} source='fox-character.png' alt={require('image!default-avatar')}/>
+              <LocalImage style={[styles.avatarContainer, ]} imgStyle={styles.avatarImg} source='fox-character.png' alt={require('image!default-avatar')}/>
             </View>
           </View>
         );
@@ -89,7 +89,7 @@ var Thumb = React.createClass({
           <View
             style={[styles.contentRow,]}>
             <View style={styles.avatarItem}>
-              <LocalImage style={[styles.avatarImg, ]} source='dog1-character.png' alt={require('image!default-avatar')}/>
+              <LocalImage style={[styles.avatarContainer, ]} imgStyle={styles.avatarImg} source='dog1-character.png' alt={require('image!default-avatar')}/>
             </View>
             <View style={[styles.talkItem, styles.talkTextContainer, ]}>
               <Text style={[styles.talkText, ]} numberOfLines={4}>{this.props.data.content}</Text>
@@ -131,7 +131,7 @@ var TalkScreen = React.createClass({
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
         loadData={this.reloadTalk}
-        refreshDescription="Refreshing articles"
+        refreshDescription="以前..."
       />
     )
   },
@@ -174,12 +174,16 @@ var styles = StyleSheet.create({
   myAvatar: {
     right: 0,
   },
-  avatarImg: {
+  avatarContainer: {
     position: "absolute",
     left: 0,
     top: 0,
     right: 0,
     height: 60,
+  },
+  avatarImg: {
+    width: 40,
+    height: 40,
   },
   talkTextContainer: {
   },

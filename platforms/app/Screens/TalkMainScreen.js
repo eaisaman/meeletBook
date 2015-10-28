@@ -13,7 +13,7 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var TalkListScreen = require('./TalkListScreen');
 var TalkScreen = require('./TalkScreen');
 
-var TalkSummaryScreen = React.createClass({
+var TalkMainScreen = React.createClass({
   getInitialState: function() {
     return {showNavBar:false};
   },
@@ -80,7 +80,7 @@ var TalkSummaryScreen = React.createClass({
   renderScene(route, nav) {
     switch (route.id) {
         case 'list':
-            return <TalkListScreen navigator={nav} summaryScreen={this} style={styles.scene}/>;
+            return <TalkListScreen navigator={nav} mainScreen={this} style={styles.scene}/>;
         case 'talk':
             return <TalkScreen navigator={nav} style={styles.scene}/>;
         default:
@@ -161,6 +161,7 @@ var styles = StyleSheet.create({
     color: 'white',
     textAlign: 'left',
     fontWeight: 'bold',
+    marginHorizontal: 10,
   },
   titleIconPlaceholder: {
     width: 24,
@@ -172,4 +173,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = TalkSummaryScreen;
+module.exports = TalkMainScreen;

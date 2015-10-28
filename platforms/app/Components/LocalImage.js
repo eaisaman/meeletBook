@@ -15,11 +15,7 @@ var LocalImage = React.createClass({
   },
 
   componentDidMount: function() {
-    this.fetch(this.props.source).then(source => {this.setState({source});});
-  },
-
-  componentWillReceiveProps: function(newProps) {
-    this.state.source = this.props.alt;
+    this.fetch(this.props.source).then(source => {this.setState({source});}, () => {this.setState({source:null})});
   },
 
   fetch: function(source) {
@@ -43,12 +39,16 @@ var LocalImage = React.createClass({
   },
 
   render: function() {
-    return <Image source={this.state.source || this.props.alt} style={[styles.base]} />;
+    return (
+        <Image source={this.state.source || this.props.alt} style={[styles.base, this.props.imgStyle, ]} />
+    );
   }
 });
 
 var styles = StyleSheet.create({
   base: {
+    width: 64,
+    height: 64,
     resizeMode: Image.resizeMode.contain,
   },
 });

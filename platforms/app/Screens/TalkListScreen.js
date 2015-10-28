@@ -18,7 +18,7 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var now = new Date();
 let list = [ 
     {
-      "_id" : "52591a12c763d5e45855639a",
+    "_id" : "52591a12c763d5e45855639a",
       "name" : "陈昌申",
       "content" : "自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
       "time": now.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
@@ -120,7 +120,7 @@ var TalkListScreen = React.createClass({
   },
 
   routeTalk: function(title) {
-    this.props.summaryScreen.showNavBar();
+    this.props.mainScreen.showNavBar();
 
     this.props.navigator.push({id:"talk", title:title});
   },

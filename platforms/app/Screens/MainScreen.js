@@ -8,9 +8,9 @@ var {
     View,
     } = React;
 var Icon = require('react-native-vector-icons/MaterialIcons');
-var TalkSummaryScreen = require('./TalkSummaryScreen');
+var TalkMainScreen = require('./TalkMainScreen');
 var FriendScreen = require('./FriendScreen');
-var StudyScreen = require('./StudyScreen');
+var StudyMainScreen = require('./StudyMainScreen');
 var ProfileScreen = require('./ProfileScreen');
 
 var MainScreen = React.createClass({
@@ -47,7 +47,7 @@ var MainScreen = React.createClass({
                         this.setState({selectedTab: 'talkTab',});
                     }}
                     >
-                    <TalkSummaryScreen ref="talkSummary"></TalkSummaryScreen>
+                    <TalkMainScreen ref="talkSummary"></TalkMainScreen>
                 </Icon.TabBarItem>
                 <Icon.TabBarItem
                     title="好友"
@@ -68,7 +68,7 @@ var MainScreen = React.createClass({
                             selectedTab: 'studyTab'});
                     }}
                     >
-                    <StudyScreen></StudyScreen>
+                    <StudyMainScreen></StudyMainScreen>
                 </Icon.TabBarItem>
                 <Icon.TabBarItem
                     title="个人"
