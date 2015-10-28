@@ -43,26 +43,57 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		859609AA9FF7421CB196228C /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C318E32F6F4654AB33B8FE /* CDVCamera.m */; };
 		955CDE09CF2747A39D198D8A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF85B406DB244738638B82A /* CoreLocation.framework */; };
+		A106A3FA1BC8D399001481D0 /* BaseNativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3D41BC8D399001481D0 /* BaseNativeBridge.m */; };
+		A106A3FB1BC8D399001481D0 /* BookNativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3D61BC8D399001481D0 /* BookNativeBridge.m */; };
+		A106A3FC1BC8D399001481D0 /* CommonNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3D71BC8D399001481D0 /* CommonNetworkEngine.m */; };
+		A106A3FD1BC8D399001481D0 /* CommonNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3D91BC8D399001481D0 /* CommonNetworkOperation.m */; };
+		A106A3FE1BC8D399001481D0 /* FlowNativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3DB1BC8D399001481D0 /* FlowNativeBridge.m */; };
+		A106A3FF1BC8D399001481D0 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3DD1BC8D399001481D0 /* Global.m */; };
+		A106A4001BC8D399001481D0 /* NetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3E01BC8D399001481D0 /* NetworkEngine.m */; };
+		A106A4011BC8D399001481D0 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3E21BC8D399001481D0 /* NSData+Base64.m */; };
+		A106A4021BC8D399001481D0 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3E41BC8D399001481D0 /* NSDate+RFC1123.m */; };
+		A106A4031BC8D399001481D0 /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3E61BC8D399001481D0 /* NSDictionary+RequestEncoding.m */; };
+		A106A4041BC8D399001481D0 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3E81BC8D399001481D0 /* NSString+MD5Addition.m */; };
+		A106A4051BC8D399001481D0 /* NSString+NetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3EA1BC8D399001481D0 /* NSString+NetworkKitAdditions.m */; };
+		A106A4061BC8D399001481D0 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3EC1BC8D399001481D0 /* ProjectViewController.m */; };
+		A106A4071BC8D399001481D0 /* QRCodeOutlineBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3EE1BC8D399001481D0 /* QRCodeOutlineBox.m */; };
+		A106A4081BC8D399001481D0 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3F01BC8D399001481D0 /* QRCodeViewController.m */; };
+		A106A4091BC8D399001481D0 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A106A3F11BC8D399001481D0 /* QRCodeViewController.xib */; };
+		A106A40A1BC8D399001481D0 /* ResubmittableRecordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3F31BC8D399001481D0 /* ResubmittableRecordStore.m */; };
+		A106A40B1BC8D399001481D0 /* SecurityContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3F51BC8D399001481D0 /* SecurityContext.m */; };
+		A106A40C1BC8D399001481D0 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3F71BC8D399001481D0 /* UIDevice+IdentifierAddition.m */; };
+		A106A40D1BC8D399001481D0 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A3F91BC8D399001481D0 /* UserDetails.m */; };
 		A10C21041B9AB62000F183C1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10C21031B9AB62000F183C1 /* Pods.framework */; };
-		A1926F4B1B96C95D000686B7 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1926F271B96C95D000686B7 /* QRCodeViewController.xib */; };
-		A1926F4C1B96C95D000686B7 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F291B96C95D000686B7 /* ProjectViewController.m */; };
-		A1926F4D1B96C95D000686B7 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F2B1B96C95D000686B7 /* QRCodeViewController.m */; };
-		A1926F4E1B96C95D000686B7 /* QRCodeOutlineBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F2D1B96C95D000686B7 /* QRCodeOutlineBox.m */; };
-		A1926F4F1B96C95D000686B7 /* NetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F2F1B96C95D000686B7 /* NetworkEngine.m */; };
-		A1926F501B96C95D000686B7 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F311B96C95D000686B7 /* NativeBridge.m */; };
-		A1926F511B96C95D000686B7 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F331B96C95D000686B7 /* Global.m */; };
-		A1926F521B96C95D000686B7 /* CommonNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F351B96C95D000686B7 /* CommonNetworkEngine.m */; };
-		A1926F531B96C95D000686B7 /* CommonNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F371B96C95D000686B7 /* CommonNetworkOperation.m */; };
-		A1926F541B96C95D000686B7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F3A1B96C95D000686B7 /* NSData+Base64.m */; };
-		A1926F551B96C95D000686B7 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F3C1B96C95D000686B7 /* NSDate+RFC1123.m */; };
-		A1926F561B96C95D000686B7 /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F3E1B96C95D000686B7 /* NSDictionary+RequestEncoding.m */; };
-		A1926F571B96C95D000686B7 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F401B96C95D000686B7 /* NSString+MD5Addition.m */; };
-		A1926F581B96C95D000686B7 /* NSString+NetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F421B96C95D000686B7 /* NSString+NetworkKitAdditions.m */; };
-		A1926F591B96C95D000686B7 /* ResubmittableRecordStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F441B96C95D000686B7 /* ResubmittableRecordStore.m */; };
-		A1926F5A1B96C95D000686B7 /* SecurityContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F461B96C95D000686B7 /* SecurityContext.m */; };
-		A1926F5B1B96C95D000686B7 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F481B96C95D000686B7 /* UIDevice+IdentifierAddition.m */; };
-		A1926F5C1B96C95D000686B7 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A1926F4A1B96C95D000686B7 /* UserDetails.m */; };
+		A1133D9D1BD5ED0C0041746B /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1133D8F1BD5ECFF0041746B /* libBVLinearGradient.a */; };
+		A12252991BDF7129000CFD8C /* MaterialIcons.js in Resources */ = {isa = PBXBuildFile; fileRef = A12252981BDF7129000CFD8C /* MaterialIcons.js */; };
+		A124BCB31BCFF4F8004105D1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BCAC1BCFF391004105D1 /* libRCTActionSheet.a */; };
+		A124BCB41BCFF4F8004105D1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BCA61BCFF37F004105D1 /* libRCTGeolocation.a */; };
+		A124BCB51BCFF4F8004105D1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BCA01BCFF36E004105D1 /* libRCTImage.a */; };
+		A124BCB61BCFF4F8004105D1 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC9A1BCFF35E004105D1 /* libRCTLinking.a */; };
+		A124BCB71BCFF4F8004105D1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC941BCFF34E004105D1 /* libRCTNetwork.a */; };
+		A124BCB81BCFF4F8004105D1 /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC8E1BCFF337004105D1 /* libRCTSettings.a */; };
+		A124BCB91BCFF4F8004105D1 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC881BCFF327004105D1 /* libRCTText.a */; };
+		A124BCBA1BCFF4F8004105D1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC821BCFF312004105D1 /* libRCTVibration.a */; };
+		A124BCBB1BCFF4F8004105D1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BC7C1BCFF2FD004105D1 /* libRCTWebSocket.a */; };
+		A124BCBC1BCFF4F8004105D1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A124BCB21BCFF3BD004105D1 /* libReact.a */; };
+		A124BCC01BCFF578004105D1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = A124BCBF1BCFF578004105D1 /* main.jsbundle */; };
+		A124BCCD1BCFF74F004105D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A124BCCB1BCFF74F004105D1 /* LaunchScreen.xib */; };
+		A1371FE81BDE1CCD005EFA0D /* LocalResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1371FE71BDE1CCD005EFA0D /* LocalResourceManager.m */; };
+		A14A4D9C1BD3731500651768 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A14A4D9B1BD3731000651768 /* libRNVectorIcons.a */; };
+		A14A4DA61BD3736A00651768 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4D9E1BD3736A00651768 /* Entypo.ttf */; };
+		A14A4DA71BD3736A00651768 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4D9F1BD3736A00651768 /* EvilIcons.ttf */; };
+		A14A4DA81BD3736A00651768 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA01BD3736A00651768 /* FontAwesome.ttf */; };
+		A14A4DA91BD3736A00651768 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA11BD3736A00651768 /* Foundation.ttf */; };
+		A14A4DAA1BD3736A00651768 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA21BD3736A00651768 /* Ionicons.ttf */; };
+		A14A4DAB1BD3736A00651768 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA31BD3736A00651768 /* MaterialIcons.ttf */; };
+		A14A4DAC1BD3736A00651768 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA41BD3736A00651768 /* Octicons.ttf */; };
+		A14A4DAD1BD3736A00651768 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A14A4DA51BD3736A00651768 /* Zocial.ttf */; };
+		A1877F701BD5321800EACBDB /* libRNOverlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1877F6F1BD5320D00EACBDB /* libRNOverlay.a */; };
 		A1926F641B96F529000686B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1926F631B96F529000686B7 /* Settings.bundle */; };
+		A1B101CC1BDDCD940021D129 /* dog1-character.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B101C91BDDCD940021D129 /* dog1-character.png */; };
+		A1B101CE1BDDCD940021D129 /* fox-character.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B101CB1BDDCD940021D129 /* fox-character.png */; };
+		A1B101DE1BDDCF6F0021D129 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B101DD1BDDCF6F0021D129 /* Images.xcassets */; };
+		A1C83C0E1BD6864800D29F76 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C83C0D1BD6864300D29F76 /* libRNBlur.a */; };
 		CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8F7F721944A798BD4FD75 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F37FD703F3164365B0C5CE33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638C09EDAA2942708E0D0C99 /* AVFoundation.framework */; };
@@ -82,6 +113,104 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
+		};
+		A1133D8E1BD5ECFF0041746B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1133D8A1BD5ECFF0041746B /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = BVLinearGradient;
+		};
+		A124BC7B1BCFF2FD004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC771BCFF2FD004105D1 /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
+			remoteInfo = RCTWebSocket;
+		};
+		A124BC811BCFF312004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC7D1BCFF312004105D1 /* RCTVibration.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 832C81801AAF6DEF007FA2F7;
+			remoteInfo = RCTVibration;
+		};
+		A124BC871BCFF327004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC831BCFF327004105D1 /* RCTText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
+			remoteInfo = RCTText;
+		};
+		A124BC8D1BCFF337004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC891BCFF337004105D1 /* RCTSettings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTSettings;
+		};
+		A124BC931BCFF34E004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC8F1BCFF34E004105D1 /* RCTNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B511DB1A9E6C8500147676;
+			remoteInfo = RCTNetwork;
+		};
+		A124BC991BCFF35E004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC951BCFF35E004105D1 /* RCTLinking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTLinking;
+		};
+		A124BC9F1BCFF36E004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BC9B1BCFF36E004105D1 /* RCTImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTImage;
+		};
+		A124BCA51BCFF37F004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BCA11BCFF37F004105D1 /* RCTGeolocation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTGeolocation;
+		};
+		A124BCAB1BCFF391004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BCA71BCFF391004105D1 /* RCTActionSheet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTActionSheet;
+		};
+		A124BCB11BCFF3BD004105D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A124BCAD1BCFF3BC004105D1 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		A14A4D9A1BD3731000651768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A14A4D961BD3730F00651768 /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
+			remoteInfo = RNVectorIcons;
+		};
+		A1877F6E1BD5320D00EACBDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1877F6A1BD5320D00EACBDB /* RNOverlay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNOverlay;
+		};
+		A1C83C0C1BD6864300D29F76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A68BD7BC1BC31318005F02DF;
+			remoteInfo = RNBlur;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -133,48 +262,81 @@
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
 		8BBFB5BFD36543A7A847DF84 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = "cordova-plugin-camera/CDVJpegHeaderWriter.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MeeletBook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MeeletBook-Info.plist"; path = "../MeeletBook-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A106A3D31BC8D399001481D0 /* BaseNativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNativeBridge.h; sourceTree = "<group>"; };
+		A106A3D41BC8D399001481D0 /* BaseNativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNativeBridge.m; sourceTree = "<group>"; };
+		A106A3D51BC8D399001481D0 /* BookNativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookNativeBridge.h; sourceTree = "<group>"; };
+		A106A3D61BC8D399001481D0 /* BookNativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookNativeBridge.m; sourceTree = "<group>"; };
+		A106A3D71BC8D399001481D0 /* CommonNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNetworkEngine.m; sourceTree = "<group>"; };
+		A106A3D81BC8D399001481D0 /* CommonNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNetworkKit.h; sourceTree = "<group>"; };
+		A106A3D91BC8D399001481D0 /* CommonNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNetworkOperation.m; sourceTree = "<group>"; };
+		A106A3DA1BC8D399001481D0 /* FlowNativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowNativeBridge.h; sourceTree = "<group>"; };
+		A106A3DB1BC8D399001481D0 /* FlowNativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowNativeBridge.m; sourceTree = "<group>"; };
+		A106A3DC1BC8D399001481D0 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		A106A3DD1BC8D399001481D0 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		A106A3DE1BC8D399001481D0 /* LogMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacro.h; sourceTree = "<group>"; };
+		A106A3DF1BC8D399001481D0 /* NetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEngine.h; sourceTree = "<group>"; };
+		A106A3E01BC8D399001481D0 /* NetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEngine.m; sourceTree = "<group>"; };
+		A106A3E11BC8D399001481D0 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		A106A3E21BC8D399001481D0 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		A106A3E31BC8D399001481D0 /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
+		A106A3E41BC8D399001481D0 /* NSDate+RFC1123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RFC1123.m"; sourceTree = "<group>"; };
+		A106A3E51BC8D399001481D0 /* NSDictionary+RequestEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RequestEncoding.h"; sourceTree = "<group>"; };
+		A106A3E61BC8D399001481D0 /* NSDictionary+RequestEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RequestEncoding.m"; sourceTree = "<group>"; };
+		A106A3E71BC8D399001481D0 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		A106A3E81BC8D399001481D0 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		A106A3E91BC8D399001481D0 /* NSString+NetworkKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NetworkKitAdditions.h"; sourceTree = "<group>"; };
+		A106A3EA1BC8D399001481D0 /* NSString+NetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NetworkKitAdditions.m"; sourceTree = "<group>"; };
+		A106A3EB1BC8D399001481D0 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		A106A3EC1BC8D399001481D0 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		A106A3ED1BC8D399001481D0 /* QRCodeOutlineBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeOutlineBox.h; sourceTree = "<group>"; };
+		A106A3EE1BC8D399001481D0 /* QRCodeOutlineBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeOutlineBox.m; sourceTree = "<group>"; };
+		A106A3EF1BC8D399001481D0 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		A106A3F01BC8D399001481D0 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		A106A3F11BC8D399001481D0 /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
+		A106A3F21BC8D399001481D0 /* ResubmittableRecordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResubmittableRecordStore.h; sourceTree = "<group>"; };
+		A106A3F31BC8D399001481D0 /* ResubmittableRecordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResubmittableRecordStore.m; sourceTree = "<group>"; };
+		A106A3F41BC8D399001481D0 /* SecurityContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityContext.h; sourceTree = "<group>"; };
+		A106A3F51BC8D399001481D0 /* SecurityContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityContext.m; sourceTree = "<group>"; };
+		A106A3F61BC8D399001481D0 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		A106A3F71BC8D399001481D0 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		A106A3F81BC8D399001481D0 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		A106A3F91BC8D399001481D0 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		A10C21031B9AB62000F183C1 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = Pods/build/Framework/Pods.framework; sourceTree = "<group>"; };
-		A1926F271B96C95D000686B7 /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QRCodeViewController.xib; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeViewController.xib; sourceTree = "<group>"; };
-		A1926F281B96C95D000686B7 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectViewController.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/ProjectViewController.h; sourceTree = "<group>"; };
-		A1926F291B96C95D000686B7 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectViewController.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/ProjectViewController.m; sourceTree = "<group>"; };
-		A1926F2A1B96C95D000686B7 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeViewController.h; sourceTree = "<group>"; };
-		A1926F2B1B96C95D000686B7 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeViewController.m; sourceTree = "<group>"; };
-		A1926F2C1B96C95D000686B7 /* QRCodeOutlineBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeOutlineBox.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeOutlineBox.h; sourceTree = "<group>"; };
-		A1926F2D1B96C95D000686B7 /* QRCodeOutlineBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeOutlineBox.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/QRCodeOutlineBox.m; sourceTree = "<group>"; };
-		A1926F2E1B96C95D000686B7 /* NetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkEngine.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/NetworkEngine.h; sourceTree = "<group>"; };
-		A1926F2F1B96C95D000686B7 /* NetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkEngine.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/NetworkEngine.m; sourceTree = "<group>"; };
-		A1926F301B96C95D000686B7 /* NativeBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeBridge.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/NativeBridge.h; sourceTree = "<group>"; };
-		A1926F311B96C95D000686B7 /* NativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeBridge.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/NativeBridge.m; sourceTree = "<group>"; };
-		A1926F321B96C95D000686B7 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Global.h; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/Global.h; sourceTree = "<group>"; };
-		A1926F331B96C95D000686B7 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Global.m; path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/Global.m; sourceTree = "<group>"; };
-		A1926F351B96C95D000686B7 /* CommonNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNetworkEngine.m; sourceTree = "<group>"; };
-		A1926F361B96C95D000686B7 /* CommonNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNetworkKit.h; sourceTree = "<group>"; };
-		A1926F371B96C95D000686B7 /* CommonNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNetworkOperation.m; sourceTree = "<group>"; };
-		A1926F381B96C95D000686B7 /* LogMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacro.h; sourceTree = "<group>"; };
-		A1926F391B96C95D000686B7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		A1926F3A1B96C95D000686B7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		A1926F3B1B96C95D000686B7 /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
-		A1926F3C1B96C95D000686B7 /* NSDate+RFC1123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RFC1123.m"; sourceTree = "<group>"; };
-		A1926F3D1B96C95D000686B7 /* NSDictionary+RequestEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RequestEncoding.h"; sourceTree = "<group>"; };
-		A1926F3E1B96C95D000686B7 /* NSDictionary+RequestEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RequestEncoding.m"; sourceTree = "<group>"; };
-		A1926F3F1B96C95D000686B7 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
-		A1926F401B96C95D000686B7 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
-		A1926F411B96C95D000686B7 /* NSString+NetworkKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NetworkKitAdditions.h"; sourceTree = "<group>"; };
-		A1926F421B96C95D000686B7 /* NSString+NetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NetworkKitAdditions.m"; sourceTree = "<group>"; };
-		A1926F431B96C95D000686B7 /* ResubmittableRecordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResubmittableRecordStore.h; sourceTree = "<group>"; };
-		A1926F441B96C95D000686B7 /* ResubmittableRecordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResubmittableRecordStore.m; sourceTree = "<group>"; };
-		A1926F451B96C95D000686B7 /* SecurityContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityContext.h; sourceTree = "<group>"; };
-		A1926F461B96C95D000686B7 /* SecurityContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityContext.m; sourceTree = "<group>"; };
-		A1926F471B96C95D000686B7 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
-		A1926F481B96C95D000686B7 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
-		A1926F491B96C95D000686B7 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
-		A1926F4A1B96C95D000686B7 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		A1133D8A1BD5ECFF0041746B /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
+		A12252981BDF7129000CFD8C /* MaterialIcons.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MaterialIcons.js; sourceTree = "<group>"; };
+		A124BC771BCFF2FD004105D1 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
+		A124BC7D1BCFF312004105D1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
+		A124BC831BCFF327004105D1 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A124BC891BCFF337004105D1 /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
+		A124BC8F1BCFF34E004105D1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
+		A124BC951BCFF35E004105D1 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		A124BC9B1BCFF36E004105D1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
+		A124BCA11BCFF37F004105D1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
+		A124BCA71BCFF391004105D1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
+		A124BCAD1BCFF3BC004105D1 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		A124BCBF1BCFF578004105D1 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = SOURCE_ROOT; };
+		A124BCCC1BCFF74F004105D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MeeletBook/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		A1371FE61BDE1CCD005EFA0D /* LocalResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalResourceManager.h; sourceTree = "<group>"; };
+		A1371FE71BDE1CCD005EFA0D /* LocalResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalResourceManager.m; sourceTree = "<group>"; };
+		A14A4D961BD3730F00651768 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		A14A4D9E1BD3736A00651768 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		A14A4D9F1BD3736A00651768 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		A14A4DA01BD3736A00651768 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		A14A4DA11BD3736A00651768 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		A14A4DA21BD3736A00651768 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		A14A4DA31BD3736A00651768 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		A14A4DA41BD3736A00651768 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		A14A4DA51BD3736A00651768 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		A1877F6A1BD5320D00EACBDB /* RNOverlay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNOverlay.xcodeproj; path = "../node_modules/react-native-overlay/RNOverlay.xcodeproj"; sourceTree = "<group>"; };
 		A1926F631B96F529000686B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A1B101C91BDDCD940021D129 /* dog1-character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog1-character.png"; sourceTree = "<group>"; };
+		A1B101CB1BDDCD940021D129 /* fox-character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fox-character.png"; sourceTree = "<group>"; };
+		A1B101DD1BDDCF6F0021D129 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		BD9F39DD87664A3C9D04478D /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = "cordova-plugin-camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		DCE6B992D4B5483D81004619 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropScaleOrientation.m"; path = "cordova-plugin-camera/UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
 		EA3DFC8542F84307A3E1744A /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = "cordova-plugin-camera/CDVCamera.h"; sourceTree = "<group>"; };
-		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = MeeletBook/config.xml; sourceTree = "<group>"; };
@@ -185,9 +347,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C83C0E1BD6864800D29F76 /* libRNBlur.a in Frameworks */,
+				A1133D9D1BD5ED0C0041746B /* libBVLinearGradient.a in Frameworks */,
+				A1877F701BD5321800EACBDB /* libRNOverlay.a in Frameworks */,
+				A14A4D9C1BD3731500651768 /* libRNVectorIcons.a in Frameworks */,
+				A124BCB31BCFF4F8004105D1 /* libRCTActionSheet.a in Frameworks */,
+				A124BCB41BCFF4F8004105D1 /* libRCTGeolocation.a in Frameworks */,
+				A124BCB51BCFF4F8004105D1 /* libRCTImage.a in Frameworks */,
+				A124BCB61BCFF4F8004105D1 /* libRCTLinking.a in Frameworks */,
+				A124BCB71BCFF4F8004105D1 /* libRCTNetwork.a in Frameworks */,
+				A124BCB81BCFF4F8004105D1 /* libRCTSettings.a in Frameworks */,
+				A124BCB91BCFF4F8004105D1 /* libRCTText.a in Frameworks */,
+				A124BCBA1BCFF4F8004105D1 /* libRCTVibration.a in Frameworks */,
+				A124BCBB1BCFF4F8004105D1 /* libRCTWebSocket.a in Frameworks */,
+				A124BCBC1BCFF4F8004105D1 /* libReact.a in Frameworks */,
+				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				A10C21041B9AB62000F183C1 /* Pods.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
-				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */,
@@ -202,25 +378,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A1926F271B96C95D000686B7 /* QRCodeViewController.xib */,
-				A1926F281B96C95D000686B7 /* ProjectViewController.h */,
-				A1926F291B96C95D000686B7 /* ProjectViewController.m */,
-				A1926F2A1B96C95D000686B7 /* QRCodeViewController.h */,
-				A1926F2B1B96C95D000686B7 /* QRCodeViewController.m */,
-				A1926F2C1B96C95D000686B7 /* QRCodeOutlineBox.h */,
-				A1926F2D1B96C95D000686B7 /* QRCodeOutlineBox.m */,
-				A1926F2E1B96C95D000686B7 /* NetworkEngine.h */,
-				A1926F2F1B96C95D000686B7 /* NetworkEngine.m */,
-				A1926F301B96C95D000686B7 /* NativeBridge.h */,
-				A1926F311B96C95D000686B7 /* NativeBridge.m */,
-				A1926F321B96C95D000686B7 /* Global.h */,
-				A1926F331B96C95D000686B7 /* Global.m */,
-				A1926F341B96C95D000686B7 /* Commons */,
+				A106A3D21BC8D399001481D0 /* Common */,
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
+				A1371FE61BDE1CCD005EFA0D /* LocalResourceManager.h */,
+				A1371FE71BDE1CCD005EFA0D /* LocalResourceManager.m */,
 			);
 			name = Classes;
 			path = MeeletBook/Classes;
@@ -239,10 +404,10 @@
 			children = (
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
-				EB87FDF21871DA7A0020F90C /* merges */,
 				EB87FDF11871DA420020F90C /* Staging */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				A124BC761BCFF2C2004105D1 /* Libraries */,
 				307C750510C5A3420062BCA9 /* Plugins */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -266,10 +431,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A12252981BDF7129000CFD8C /* MaterialIcons.js */,
+				A1B101C91BDDCD940021D129 /* dog1-character.png */,
+				A1B101CB1BDDCD940021D129 /* fox-character.png */,
+				A14A4D9D1BD3736A00651768 /* Fonts */,
+				A124BCCB1BCFF74F004105D1 /* LaunchScreen.xib */,
+				A124BCBF1BCFF578004105D1 /* main.jsbundle */,
 				A1926F631B96F529000686B7 /* Settings.bundle */,
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* MeeletBook-Info.plist */,
+				A1B101DD1BDDCF6F0021D129 /* Images.xcassets */,
 			);
 			name = Resources;
 			path = MeeletBook/Resources;
@@ -351,34 +523,199 @@
 			path = splash;
 			sourceTree = "<group>";
 		};
-		A1926F341B96C95D000686B7 /* Commons */ = {
+		A106A3D21BC8D399001481D0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A1926F351B96C95D000686B7 /* CommonNetworkEngine.m */,
-				A1926F361B96C95D000686B7 /* CommonNetworkKit.h */,
-				A1926F371B96C95D000686B7 /* CommonNetworkOperation.m */,
-				A1926F381B96C95D000686B7 /* LogMacro.h */,
-				A1926F391B96C95D000686B7 /* NSData+Base64.h */,
-				A1926F3A1B96C95D000686B7 /* NSData+Base64.m */,
-				A1926F3B1B96C95D000686B7 /* NSDate+RFC1123.h */,
-				A1926F3C1B96C95D000686B7 /* NSDate+RFC1123.m */,
-				A1926F3D1B96C95D000686B7 /* NSDictionary+RequestEncoding.h */,
-				A1926F3E1B96C95D000686B7 /* NSDictionary+RequestEncoding.m */,
-				A1926F3F1B96C95D000686B7 /* NSString+MD5Addition.h */,
-				A1926F401B96C95D000686B7 /* NSString+MD5Addition.m */,
-				A1926F411B96C95D000686B7 /* NSString+NetworkKitAdditions.h */,
-				A1926F421B96C95D000686B7 /* NSString+NetworkKitAdditions.m */,
-				A1926F431B96C95D000686B7 /* ResubmittableRecordStore.h */,
-				A1926F441B96C95D000686B7 /* ResubmittableRecordStore.m */,
-				A1926F451B96C95D000686B7 /* SecurityContext.h */,
-				A1926F461B96C95D000686B7 /* SecurityContext.m */,
-				A1926F471B96C95D000686B7 /* UIDevice+IdentifierAddition.h */,
-				A1926F481B96C95D000686B7 /* UIDevice+IdentifierAddition.m */,
-				A1926F491B96C95D000686B7 /* UserDetails.h */,
-				A1926F4A1B96C95D000686B7 /* UserDetails.m */,
+				A106A3D31BC8D399001481D0 /* BaseNativeBridge.h */,
+				A106A3D41BC8D399001481D0 /* BaseNativeBridge.m */,
+				A106A3D51BC8D399001481D0 /* BookNativeBridge.h */,
+				A106A3D61BC8D399001481D0 /* BookNativeBridge.m */,
+				A106A3D71BC8D399001481D0 /* CommonNetworkEngine.m */,
+				A106A3D81BC8D399001481D0 /* CommonNetworkKit.h */,
+				A106A3D91BC8D399001481D0 /* CommonNetworkOperation.m */,
+				A106A3DA1BC8D399001481D0 /* FlowNativeBridge.h */,
+				A106A3DB1BC8D399001481D0 /* FlowNativeBridge.m */,
+				A106A3DC1BC8D399001481D0 /* Global.h */,
+				A106A3DD1BC8D399001481D0 /* Global.m */,
+				A106A3DE1BC8D399001481D0 /* LogMacro.h */,
+				A106A3DF1BC8D399001481D0 /* NetworkEngine.h */,
+				A106A3E01BC8D399001481D0 /* NetworkEngine.m */,
+				A106A3E11BC8D399001481D0 /* NSData+Base64.h */,
+				A106A3E21BC8D399001481D0 /* NSData+Base64.m */,
+				A106A3E31BC8D399001481D0 /* NSDate+RFC1123.h */,
+				A106A3E41BC8D399001481D0 /* NSDate+RFC1123.m */,
+				A106A3E51BC8D399001481D0 /* NSDictionary+RequestEncoding.h */,
+				A106A3E61BC8D399001481D0 /* NSDictionary+RequestEncoding.m */,
+				A106A3E71BC8D399001481D0 /* NSString+MD5Addition.h */,
+				A106A3E81BC8D399001481D0 /* NSString+MD5Addition.m */,
+				A106A3E91BC8D399001481D0 /* NSString+NetworkKitAdditions.h */,
+				A106A3EA1BC8D399001481D0 /* NSString+NetworkKitAdditions.m */,
+				A106A3EB1BC8D399001481D0 /* ProjectViewController.h */,
+				A106A3EC1BC8D399001481D0 /* ProjectViewController.m */,
+				A106A3ED1BC8D399001481D0 /* QRCodeOutlineBox.h */,
+				A106A3EE1BC8D399001481D0 /* QRCodeOutlineBox.m */,
+				A106A3EF1BC8D399001481D0 /* QRCodeViewController.h */,
+				A106A3F01BC8D399001481D0 /* QRCodeViewController.m */,
+				A106A3F11BC8D399001481D0 /* QRCodeViewController.xib */,
+				A106A3F21BC8D399001481D0 /* ResubmittableRecordStore.h */,
+				A106A3F31BC8D399001481D0 /* ResubmittableRecordStore.m */,
+				A106A3F41BC8D399001481D0 /* SecurityContext.h */,
+				A106A3F51BC8D399001481D0 /* SecurityContext.m */,
+				A106A3F61BC8D399001481D0 /* UIDevice+IdentifierAddition.h */,
+				A106A3F71BC8D399001481D0 /* UIDevice+IdentifierAddition.m */,
+				A106A3F81BC8D399001481D0 /* UserDetails.h */,
+				A106A3F91BC8D399001481D0 /* UserDetails.m */,
 			);
-			name = Commons;
-			path = ../../../../../meeletClient/platforms/ios/MeeletClient/Classes/Commons;
+			name = Common;
+			path = ../../../../Common/src/ios;
+			sourceTree = "<group>";
+		};
+		A1133D8B1BD5ECFF0041746B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1133D8F1BD5ECFF0041746B /* libBVLinearGradient.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC761BCFF2C2004105D1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */,
+				A1133D8A1BD5ECFF0041746B /* BVLinearGradient.xcodeproj */,
+				A1877F6A1BD5320D00EACBDB /* RNOverlay.xcodeproj */,
+				A14A4D961BD3730F00651768 /* RNVectorIcons.xcodeproj */,
+				A124BCAD1BCFF3BC004105D1 /* React.xcodeproj */,
+				A124BCA71BCFF391004105D1 /* RCTActionSheet.xcodeproj */,
+				A124BCA11BCFF37F004105D1 /* RCTGeolocation.xcodeproj */,
+				A124BC9B1BCFF36E004105D1 /* RCTImage.xcodeproj */,
+				A124BC951BCFF35E004105D1 /* RCTLinking.xcodeproj */,
+				A124BC8F1BCFF34E004105D1 /* RCTNetwork.xcodeproj */,
+				A124BC891BCFF337004105D1 /* RCTSettings.xcodeproj */,
+				A124BC831BCFF327004105D1 /* RCTText.xcodeproj */,
+				A124BC7D1BCFF312004105D1 /* RCTVibration.xcodeproj */,
+				A124BC771BCFF2FD004105D1 /* RCTWebSocket.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		A124BC781BCFF2FD004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC7C1BCFF2FD004105D1 /* libRCTWebSocket.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC7E1BCFF312004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC821BCFF312004105D1 /* libRCTVibration.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC841BCFF327004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC881BCFF327004105D1 /* libRCTText.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC8A1BCFF337004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC8E1BCFF337004105D1 /* libRCTSettings.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC901BCFF34E004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC941BCFF34E004105D1 /* libRCTNetwork.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC961BCFF35E004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BC9A1BCFF35E004105D1 /* libRCTLinking.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BC9C1BCFF36E004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BCA01BCFF36E004105D1 /* libRCTImage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BCA21BCFF37F004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BCA61BCFF37F004105D1 /* libRCTGeolocation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BCA81BCFF391004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BCAC1BCFF391004105D1 /* libRCTActionSheet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A124BCAE1BCFF3BC004105D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A124BCB21BCFF3BD004105D1 /* libReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A14A4D971BD3730F00651768 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A14A4D9B1BD3731000651768 /* libRNVectorIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A14A4D9D1BD3736A00651768 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A14A4D9E1BD3736A00651768 /* Entypo.ttf */,
+				A14A4D9F1BD3736A00651768 /* EvilIcons.ttf */,
+				A14A4DA01BD3736A00651768 /* FontAwesome.ttf */,
+				A14A4DA11BD3736A00651768 /* Foundation.ttf */,
+				A14A4DA21BD3736A00651768 /* Ionicons.ttf */,
+				A14A4DA31BD3736A00651768 /* MaterialIcons.ttf */,
+				A14A4DA41BD3736A00651768 /* Octicons.ttf */,
+				A14A4DA51BD3736A00651768 /* Zocial.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A1877F6B1BD5320D00EACBDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1877F6F1BD5320D00EACBDB /* libRNOverlay.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1C83C091BD6864300D29F76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1C83C0D1BD6864300D29F76 /* libRNBlur.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B0FEE03788AA5A7BA35E1603 /* Pods */ = {
@@ -449,13 +786,70 @@
 				es,
 				de,
 				se,
+				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = A1133D8B1BD5ECFF0041746B /* Products */;
+					ProjectRef = A1133D8A1BD5ECFF0041746B /* BVLinearGradient.xcodeproj */;
+				},
+				{
 					ProductGroup = 301BF52E109A57CC0062928A /* Products */;
 					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BCA81BCFF391004105D1 /* Products */;
+					ProjectRef = A124BCA71BCFF391004105D1 /* RCTActionSheet.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BCA21BCFF37F004105D1 /* Products */;
+					ProjectRef = A124BCA11BCFF37F004105D1 /* RCTGeolocation.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC9C1BCFF36E004105D1 /* Products */;
+					ProjectRef = A124BC9B1BCFF36E004105D1 /* RCTImage.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC961BCFF35E004105D1 /* Products */;
+					ProjectRef = A124BC951BCFF35E004105D1 /* RCTLinking.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC901BCFF34E004105D1 /* Products */;
+					ProjectRef = A124BC8F1BCFF34E004105D1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC8A1BCFF337004105D1 /* Products */;
+					ProjectRef = A124BC891BCFF337004105D1 /* RCTSettings.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC841BCFF327004105D1 /* Products */;
+					ProjectRef = A124BC831BCFF327004105D1 /* RCTText.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC7E1BCFF312004105D1 /* Products */;
+					ProjectRef = A124BC7D1BCFF312004105D1 /* RCTVibration.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BC781BCFF2FD004105D1 /* Products */;
+					ProjectRef = A124BC771BCFF2FD004105D1 /* RCTWebSocket.xcodeproj */;
+				},
+				{
+					ProductGroup = A124BCAE1BCFF3BC004105D1 /* Products */;
+					ProjectRef = A124BCAD1BCFF3BC004105D1 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = A1C83C091BD6864300D29F76 /* Products */;
+					ProjectRef = A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */;
+				},
+				{
+					ProductGroup = A1877F6B1BD5320D00EACBDB /* Products */;
+					ProjectRef = A1877F6A1BD5320D00EACBDB /* RNOverlay.xcodeproj */;
+				},
+				{
+					ProductGroup = A14A4D971BD3730F00651768 /* Products */;
+					ProjectRef = A14A4D961BD3730F00651768 /* RNVectorIcons.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -473,6 +867,104 @@
 			remoteRef = 301BF534109A57CC0062928A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		A1133D8F1BD5ECFF0041746B /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = A1133D8E1BD5ECFF0041746B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC7C1BCFF2FD004105D1 /* libRCTWebSocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTWebSocket.a;
+			remoteRef = A124BC7B1BCFF2FD004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC821BCFF312004105D1 /* libRCTVibration.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVibration.a;
+			remoteRef = A124BC811BCFF312004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC881BCFF327004105D1 /* libRCTText.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTText.a;
+			remoteRef = A124BC871BCFF327004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC8E1BCFF337004105D1 /* libRCTSettings.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTSettings.a;
+			remoteRef = A124BC8D1BCFF337004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC941BCFF34E004105D1 /* libRCTNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTNetwork.a;
+			remoteRef = A124BC931BCFF34E004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BC9A1BCFF35E004105D1 /* libRCTLinking.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTLinking.a;
+			remoteRef = A124BC991BCFF35E004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BCA01BCFF36E004105D1 /* libRCTImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTImage.a;
+			remoteRef = A124BC9F1BCFF36E004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BCA61BCFF37F004105D1 /* libRCTGeolocation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTGeolocation.a;
+			remoteRef = A124BCA51BCFF37F004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BCAC1BCFF391004105D1 /* libRCTActionSheet.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTActionSheet.a;
+			remoteRef = A124BCAB1BCFF391004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A124BCB21BCFF3BD004105D1 /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = A124BCB11BCFF3BD004105D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A14A4D9B1BD3731000651768 /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = A14A4D9A1BD3731000651768 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1877F6F1BD5320D00EACBDB /* libRNOverlay.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNOverlay.a;
+			remoteRef = A1877F6E1BD5320D00EACBDB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1C83C0D1BD6864300D29F76 /* libRNBlur.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBlur.a;
+			remoteRef = A1C83C0C1BD6864300D29F76 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -481,33 +973,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7966E41810823500FA85AD /* icon-76.png in Resources */,
+				A14A4DA91BD3736A00651768 /* Foundation.ttf in Resources */,
+				A14A4DAA1BD3736A00651768 /* Ionicons.ttf in Resources */,
+				A14A4DA71BD3736A00651768 /* EvilIcons.ttf in Resources */,
+				A14A4DAD1BD3736A00651768 /* Zocial.ttf in Resources */,
 				7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */,
+				A14A4DAB1BD3736A00651768 /* MaterialIcons.ttf in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				30B4F30119D5E07200D9F7D8 /* Default-736h.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
+				A14A4DA61BD3736A00651768 /* Entypo.ttf in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
+				A124BCC01BCFF578004105D1 /* main.jsbundle in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
 				7E7966E31810823500FA85AD /* icon-60@2x.png in Resources */,
+				A124BCCD1BCFF74F004105D1 /* LaunchScreen.xib in Resources */,
+				A14A4DAC1BD3736A00651768 /* Octicons.ttf in Resources */,
 				7E7966E61810823500FA85AD /* icon-small.png in Resources */,
 				3088BBBD154F3926009F9C59 /* Default-Landscape@2x~ipad.png in Resources */,
 				3088BBBE154F3926009F9C59 /* Default-Landscape~ipad.png in Resources */,
 				3088BBBF154F3926009F9C59 /* Default-Portrait@2x~ipad.png in Resources */,
 				7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */,
+				A1B101DE1BDDCF6F0021D129 /* Images.xcassets in Resources */,
 				3088BBC0154F3926009F9C59 /* Default-Portrait~ipad.png in Resources */,
 				30B4F30019D5E07200D9F7D8 /* Default-667h.png in Resources */,
 				7E7966DE1810823500FA85AD /* icon-40.png in Resources */,
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
-				A1926F4B1B96C95D000686B7 /* QRCodeViewController.xib in Resources */,
+				A12252991BDF7129000CFD8C /* MaterialIcons.js in Resources */,
 				7E7966E21810823500FA85AD /* icon-60.png in Resources */,
 				A1926F641B96F529000686B7 /* Settings.bundle in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30B4F30219D5E07200D9F7D8 /* Default-Landscape-736h.png in Resources */,
 				30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */,
+				A1B101CC1BDDCD940021D129 /* dog1-character.png in Resources */,
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
+				A1B101CE1BDDCD940021D129 /* fox-character.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
+				A106A4091BC8D399001481D0 /* QRCodeViewController.xib in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				A14A4DA81BD3736A00651768 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,29 +1072,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1926F4F1B96C95D000686B7 /* NetworkEngine.m in Sources */,
-				A1926F571B96C95D000686B7 /* NSString+MD5Addition.m in Sources */,
-				A1926F561B96C95D000686B7 /* NSDictionary+RequestEncoding.m in Sources */,
-				A1926F551B96C95D000686B7 /* NSDate+RFC1123.m in Sources */,
-				A1926F521B96C95D000686B7 /* CommonNetworkEngine.m in Sources */,
-				A1926F5A1B96C95D000686B7 /* SecurityContext.m in Sources */,
-				A1926F4E1B96C95D000686B7 /* QRCodeOutlineBox.m in Sources */,
-				A1926F4D1B96C95D000686B7 /* QRCodeViewController.m in Sources */,
-				A1926F4C1B96C95D000686B7 /* ProjectViewController.m in Sources */,
-				A1926F541B96C95D000686B7 /* NSData+Base64.m in Sources */,
+				A106A3FF1BC8D399001481D0 /* Global.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				A1926F501B96C95D000686B7 /* NativeBridge.m in Sources */,
-				A1926F511B96C95D000686B7 /* Global.m in Sources */,
-				A1926F5C1B96C95D000686B7 /* UserDetails.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
-				A1926F581B96C95D000686B7 /* NSString+NetworkKitAdditions.m in Sources */,
-				A1926F531B96C95D000686B7 /* CommonNetworkOperation.m in Sources */,
+				A106A40D1BC8D399001481D0 /* UserDetails.m in Sources */,
+				A106A4061BC8D399001481D0 /* ProjectViewController.m in Sources */,
+				A106A4071BC8D399001481D0 /* QRCodeOutlineBox.m in Sources */,
+				A106A4011BC8D399001481D0 /* NSData+Base64.m in Sources */,
+				A1371FE81BDE1CCD005EFA0D /* LocalResourceManager.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				A1926F591B96C95D000686B7 /* ResubmittableRecordStore.m in Sources */,
-				A1926F5B1B96C95D000686B7 /* UIDevice+IdentifierAddition.m in Sources */,
+				A106A3FA1BC8D399001481D0 /* BaseNativeBridge.m in Sources */,
+				A106A40C1BC8D399001481D0 /* UIDevice+IdentifierAddition.m in Sources */,
+				A106A3FB1BC8D399001481D0 /* BookNativeBridge.m in Sources */,
+				A106A4051BC8D399001481D0 /* NSString+NetworkKitAdditions.m in Sources */,
+				A106A3FD1BC8D399001481D0 /* CommonNetworkOperation.m in Sources */,
+				A106A4021BC8D399001481D0 /* NSDate+RFC1123.m in Sources */,
+				A106A40B1BC8D399001481D0 /* SecurityContext.m in Sources */,
+				A106A4001BC8D399001481D0 /* NetworkEngine.m in Sources */,
 				0EC9EB86767F48538AA3C519 /* UIImage+CropScaleOrientation.m in Sources */,
+				A106A4031BC8D399001481D0 /* NSDictionary+RequestEncoding.m in Sources */,
 				859609AA9FF7421CB196228C /* CDVCamera.m in Sources */,
 				6A36C782A778497D86C66035 /* CDVJpegHeaderWriter.m in Sources */,
+				A106A3FC1BC8D399001481D0 /* CommonNetworkEngine.m in Sources */,
+				A106A40A1BC8D399001481D0 /* ResubmittableRecordStore.m in Sources */,
+				A106A4041BC8D399001481D0 /* NSString+MD5Addition.m in Sources */,
+				A106A3FE1BC8D399001481D0 /* FlowNativeBridge.m in Sources */,
+				A106A4081BC8D399001481D0 /* QRCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +1110,17 @@
 			targetProxy = 301BF550109A68C00062928A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A124BCCB1BCFF74F004105D1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A124BCCC1BCFF74F004105D1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -622,8 +1142,28 @@
 				GCC_PREFIX_HEADER = "MeeletBook/MeeletBook-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaHTTPServer\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FreeStreamer\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SSZipArchive\"",
+					"\"${PODS_ROOT}/Headers/Public/ZBarSDK\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+				);
 				INFOPLIST_FILE = "MeeletBook/MeeletBook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -642,6 +1182,7 @@
 				);
 				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv -lstdc++";
 				PRODUCT_NAME = MeeletBook;
+				PROVISIONING_PROFILE = "e0f85e00-10d7-40dc-bf3c-3b69cd35c2de";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -663,8 +1204,28 @@
 				GCC_PREFIX_HEADER = "MeeletBook/MeeletBook-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaHTTPServer\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FreeStreamer\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SSZipArchive\"",
+					"\"${PODS_ROOT}/Headers/Public/ZBarSDK\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+				);
 				INFOPLIST_FILE = "MeeletBook/MeeletBook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -683,6 +1244,7 @@
 				);
 				PODS_LIBRARY_LDFLAGS = "-framework AVFoundation -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework QuartzCore -liconv -lstdc++";
 				PRODUCT_NAME = MeeletBook;
+				PROVISIONING_PROFILE = "e0f85e00-10d7-40dc-bf3c-3b69cd35c2de";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
