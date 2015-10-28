@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCTBridgeModule.h"
+#import "RCTLog.h"
 
-@interface LocalResourceManager : NSObject
+@interface LocalResourceManager : NSObject<RCTBridgeModule>
 
 @end

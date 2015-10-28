@@ -2,20 +2,889 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb548f9b-d988-4bf4-9088-04899e817ecf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/CordovaLib.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/MeeletBook.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-CocoaAsyncSocket.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-CocoaHTTPServer.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-CocoaLumberjack.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-JSONKit.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-Reachability.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-SSZipArchive.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook-ZBarSDK.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/Pods-MeeletBook.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Pods/Pods.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Common" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitmodules" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Base.lproj/LaunchScreen.xib" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Commons" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Global.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Global.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/NativeBridge.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/NativeBridge.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/NetworkEngine.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/NetworkEngine.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/ProjectViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/ProjectViewController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/QRCodeOutlineBox.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/QRCodeOutlineBox.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/QRCodeViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/QRCodeViewController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/QRCodeViewController.xib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/browser/service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/embedded/service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/filter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/meta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/requirejs-plugins/json.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/requirejs-plugins/text.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/route.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/book/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.draggable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.extension.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.hammer-gestures.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.mobile-topbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.modal-window.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.multi-transclude.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.svg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/ng.ui.util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/directive/widget.anchor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/demo-files/demo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/demo-files/demo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/demo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/icon-mobile-client.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/icon-mobile-client.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/icon-mobile-client.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/icon-mobile-client.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/selection.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-client/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/demo-files/demo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/demo-files/demo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/demo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/icon-mobile-topbar.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/icon-mobile-topbar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/icon-mobile-topbar.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/icon-mobile-topbar.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/selection.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-topbar/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/iMac.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/loading-cylon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/include/_mobile_topbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/include/_modal_window.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/Chart.js/1.0.2/Chart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/Chart.js/1.0.2/Chart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/Chart.js/1.0.2/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/String/String.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/String/String.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/String/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular-modules/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular-modules/ng-flow/2.5.1/ng-flow-standalone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular-modules/ng-flow/2.5.1/ng-flow-standalone.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular-plugins/angular-ui-tree.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular-plugins/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-animate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-animate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-animate.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-cookies.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-cookies.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-cookies.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-route.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-route.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-route.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-touch.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-touch.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-touch.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap-sprockets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/affix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/alert.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/popover.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/tab.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/bootstrap/transition.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/classie/classie.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/classie/classie.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/classie/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/AUTHORS" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/comment/comment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/comment/continuecomment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/dialog/dialog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/dialog/dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/display/fullscreen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/display/fullscreen.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/display/panel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/display/placeholder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/display/rulers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/closebrackets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/closetag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/continuelist.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/matchbrackets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/matchtags.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/edit/trailingspace.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/brace-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/comment-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/foldcode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/foldgutter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/foldgutter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/indent-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/markdown-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/fold/xml-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/anyword-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/css-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/html-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/javascript-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/show-hint.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/show-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/sql-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/hint/xml-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/coffeescript-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/css-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/javascript-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/json-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/lint.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/lint/yaml-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/merge/merge.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/merge/merge.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/mode/loadmode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/mode/multiplex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/mode/multiplex_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/mode/overlay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/mode/simple.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/runmode/colorize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/runmode/runmode-standalone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/runmode/runmode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/runmode/runmode.node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/scroll/annotatescrollbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/scroll/scrollpastend.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/scroll/simplescrollbars.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/scroll/simplescrollbars.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/search/match-highlighter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/search/matchesonscrollbar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/search/matchesonscrollbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/search/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/search/searchcursor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/selection/active-line.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/selection/mark-selection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/selection/selection-pointer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/tern/tern.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/tern/tern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/tern/worker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/addon/wrap/hardwrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bin/authors.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bin/compress" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bin/lint" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bin/release" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bin/source-highlight" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/activeline.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/anywordhint.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/bidi.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/btree.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/buffers.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/changemode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/closebrackets.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/closetag.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/complete.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/emacs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/folding.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/fullscreen.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/hardwrap.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/html5complete.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/indentwrap.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/lint.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/loadmode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/marker.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/markselection.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/matchhighlighter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/matchtags.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/merge.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/multiplex.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/mustache.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/panel.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/placeholder.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/preview.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/requirejs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/resize.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/rulers.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/runmode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/search.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/simplemode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/simplescrollbars.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/spanaffectswrapping_shim.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/sublime.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/tern.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/theme.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/trailingspace.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/variableheight.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/vim.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/visibletabs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/widget.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/demo/xmlcomplete.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/activebookmark.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/compress.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/docs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/internals.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/logo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/manual.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/realworld.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/releases.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/reporting.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/upgrade_v2.2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/upgrade_v3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/upgrade_v4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/doc/yinyang.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/keymap/emacs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/keymap/sublime.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/keymap/vim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/lib/codemirror.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/lib/codemirror.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/apl/apl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/apl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/asciiarmor/asciiarmor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/asciiarmor/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/asterisk/asterisk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/asterisk/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/clike/clike.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/clike/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/clike/scala.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/clojure/clojure.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/clojure/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cmake/cmake.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cmake/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cobol/cobol.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cobol/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/coffeescript/coffeescript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/coffeescript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/commonlisp/commonlisp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/commonlisp/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/less.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/less_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/scss.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/scss_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/css/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cypher/cypher.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/cypher/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/d/d.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/d/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dart/dart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dart/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/diff/diff.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/diff/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/django/django.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/django/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dockerfile/dockerfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dockerfile/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dtd/dtd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dtd/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dylan/dylan.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/dylan/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ebnf/ebnf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ebnf/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ecl/ecl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ecl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/eiffel/eiffel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/eiffel/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/erlang/erlang.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/erlang/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/forth/forth.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/forth/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/fortran/fortran.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/fortran/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gas/gas.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gas/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gfm/gfm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gfm/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gfm/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gherkin/gherkin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/gherkin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/go/go.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/go/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/groovy/groovy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/groovy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haml/haml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haml/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haml/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/handlebars/handlebars.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/handlebars/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haskell/haskell.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haskell/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haxe/haxe.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/haxe/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/htmlembedded/htmlembedded.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/htmlembedded/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/htmlmixed/htmlmixed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/htmlmixed/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/http/http.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/http/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/idl/idl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/idl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/jade/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/jade/jade.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/javascript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/javascript/javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/javascript/json-ld.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/javascript/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/javascript/typescript.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/jinja2/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/jinja2/jinja2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/julia/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/julia/julia.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/kotlin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/kotlin/kotlin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/livescript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/livescript/livescript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/lua/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/lua/lua.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/markdown/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/markdown/markdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/markdown/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/meta.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mirc/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mirc/mirc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mllike/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mllike/mllike.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/modelica/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/modelica/modelica.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mumps/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/mumps/mumps.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/nginx/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/nginx/nginx.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ntriples/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ntriples/ntriples.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/octave/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/octave/octave.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pascal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pascal/pascal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pegjs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pegjs/pegjs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/perl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/perl/perl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/php/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/php/php.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/php/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pig/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/pig/pig.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/properties/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/properties/properties.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/puppet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/puppet/puppet.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/python/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/python/python.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/q/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/q/q.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/r/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/r/r.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rpm/changes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rpm/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rpm/rpm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rst/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rst/rst.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ruby/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ruby/ruby.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/ruby/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rust/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/rust/rust.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sass/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sass/sass.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/scheme/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/scheme/scheme.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/shell/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/shell/shell.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/shell/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sieve/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sieve/sieve.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/slim/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/slim/slim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/slim/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/smalltalk/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/smalltalk/smalltalk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/smarty/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/smarty/smarty.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/solr/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/solr/solr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/soy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/soy/soy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sparql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sparql/sparql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/spreadsheet/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/spreadsheet/spreadsheet.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/sql/sql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/stex/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/stex/stex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/stex/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/stylus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/stylus/stylus.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tcl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tcl/tcl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/textile/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/textile/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/textile/textile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiddlywiki/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiddlywiki/tiddlywiki.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiddlywiki/tiddlywiki.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiki/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiki/tiki.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tiki/tiki.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/toml/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/toml/toml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tornado/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/tornado/tornado.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/troff/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/troff/troff.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/turtle/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/turtle/turtle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/vb/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/vb/vb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/vbscript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/vbscript/vbscript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/velocity/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/velocity/velocity.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/verilog/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/verilog/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/verilog/verilog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xml/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xml/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xml/xml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xquery/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xquery/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/xquery/xquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/yaml/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/yaml/yaml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/z80/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/mode/z80/z80.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/comment_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/doc_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/driver.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/emacs_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/mode_test.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/mode_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/multi_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/phantom_driver.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/scroll_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/search_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/sql-hint-test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/sublime_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/test/vim_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/3024-day.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/3024-night.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/ambiance-mobile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/ambiance.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/base16-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/base16-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/blackboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/cobalt.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/colorforth.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/eclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/elegant.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/erlang-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/lesser-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/liquibyte.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/mbo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/mdn-like.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/midnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/monokai.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/neat.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/neo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/night.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/paraiso-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/paraiso-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/pastel-on-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/rubyblue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/solarized.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/the-matrix.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/tomorrow-night-bright.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/tomorrow-night-eighties.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/twilight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/vibrant-ink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/xq-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/xq-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/codemirror/5.2.0/theme/zenburn.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.logo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.logo.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.preview.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/css/editormd.preview.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/editormd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/editormd-logo.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/editormd-logo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/editormd-logo.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/editormd-logo.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/languages/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/languages/zh-tw.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/code-block-dialog/code-block-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/emoji-dialog/emoji-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/emoji-dialog/emoji.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/goto-line-dialog/goto-line-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/help-dialog/help-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/help-dialog/help.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/html-entities-dialog/html-entities-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/html-entities-dialog/html-entities.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/image-dialog/image-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/link-dialog/link-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/plugin-template.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/preformatted-text-dialog/preformatted-text-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/reference-link-dialog/reference-link-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/table-dialog/table-dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/editormd/1.4.3/plugins/test-plugin/test-plugin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/flowchart/1.4.0/flowchart.amd-1.4.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/flowchart/1.4.0/flowchart.amd-1.4.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/flowchart/1.4.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.2/hammer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.2/hammer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.2/hammer.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.2/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.4/hammer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.4/hammer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.4/hammer.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/hammer/2.0.4/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/icheck.jquery.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/icheck.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/icheck.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/_all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/aero.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/aero.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/aero@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/blue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/blue@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/flat.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/flat.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/flat@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/green.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/green.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/green@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/grey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/grey.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/grey@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/orange.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/orange@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/pink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/pink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/pink@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/purple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/purple@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/red.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/red@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/yellow.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/yellow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/flat/yellow@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/futurico/futurico.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/futurico/futurico.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/futurico/futurico@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/_all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/aero.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/blue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/green.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/grey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/line.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/line.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/line@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/orange.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/pink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/purple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/red.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/line/yellow.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/_all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/aero.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/aero.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/aero@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/blue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/blue@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/green.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/green.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/green@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/grey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/grey.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/grey@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/minimal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/minimal@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/orange.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/orange@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/pink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/pink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/pink@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/purple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/purple@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/red.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/red@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/yellow.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/yellow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/minimal/yellow@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/polaris/polaris.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/polaris/polaris.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/polaris/polaris@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/_all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/aero.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/aero.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/aero@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/blue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/blue@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/green.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/green.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/green@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/grey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/grey.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/grey@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/orange.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/orange.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/orange@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/pink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/pink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/pink@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/purple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/purple@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/red.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/red@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/square.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/square.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/square@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/yellow.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/yellow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/icheck/1.0.2/skins/square/yellow@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/knob/1.2.11/jquery.knob.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/knob/1.2.11/jquery.knob.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/sly/1.2.7/sly.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-plugins/sly/1.2.7/sly.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui-plugins/jquery.easing/1.3/jquery.easing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui-plugins/jquery.easing/1.3/jquery.easing.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui-plugins/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery-ui/1.11.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery.flowchart/1.0.0/jquery.flowchart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery.flowchart/1.0.0/jquery.flowchart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery.flowchart/1.0.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery/2.1.1/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery/2.1.1/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery/2.1.1/jquery.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/jquery/2.1.1/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/contrib/auto-render.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_AMS-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_AMS-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_AMS-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_AMS-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Bold.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Bold.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Bold.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Italic.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Italic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Italic.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Italic.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Main-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-BoldItalic.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-BoldItalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-BoldItalic.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-BoldItalic.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Italic.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Italic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Italic.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Italic.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Math-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size1-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size1-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size1-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size1-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size2-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size2-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size2-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size2-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size3-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size3-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size3-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size3-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size4-Regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size4-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size4-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/fonts/KaTeX_Size4-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/katex.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/katex.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/katex/0.3.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/marked/0.3.3/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/marked/0.3.3/marked.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/marked/0.3.3/marked.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/modernizr/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/modernizr/modernizr.custom.63321.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-apollo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-apollo.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-basic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-basic.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-clj.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-clj.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-css.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-dart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-dart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-erlang.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-erlang.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-go.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-go.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-hs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-hs.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-lisp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-lisp.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-llvm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-llvm.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-lua.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-lua.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-matlab.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-ml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-ml.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-mumps.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-mumps.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-n.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-pascal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-pascal.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-proto.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-proto.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-r.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-r.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-rd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-rd.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-scala.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-scala.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-sql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-sql.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-tcl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-tcl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-tex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-tex.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-vb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-vb.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-vhdl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-vhdl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-wiki.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-wiki.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-xq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-xq.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-yaml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/lang-yaml.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/prettify.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/prettify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/prettify.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/prettify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/run_prettify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/prettify/r298/run_prettify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/raphael/2.1.2/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/raphael/2.1.2/raphael-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/raphael/2.1.2/raphael.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/require/require.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/require/require.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/sequence-diagram/1.0.4/build/sequence-diagram-min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/sequence-diagram/1.0.4/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/sequence-diagram/1.0.4/sequence-diagram-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/snap/0.4.1/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/snap/0.4.1/snap.svg-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/snap/0.4.1/snap.svg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/underscore/1.6.0/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/underscore/1.6.0/underscore-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/underscore/1.6.0/underscore-min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/javascripts/underscore/1.6.0/underscore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/preload.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/project.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/report.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/settings.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/bootstrap/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/bootstrap/bootstrap/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/device/bootstrap_desktop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/device/bootstrap_phone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/device/bootstrap_tablet.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/device/bootstrap_wide_desktop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/preload.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/project.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/report.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_bootstrap-compass.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_bootstrap-sprockets.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_bootstrap-variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_compass.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_global.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_mobile-topbar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_modal-window.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/animation/_app_animation.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/animation/_app_animation_keyframes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/animation/_base.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/animation/_modal-window.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/bootstrap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/bootstrap.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/compass" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/config.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/device/bootstrap_desktop.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/device/bootstrap_phone.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/device/bootstrap_tablet.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/device/bootstrap_wide_desktop.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/fonts/bootstrap/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/fonts/bootstrap/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/fonts/bootstrap/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/fonts/bootstrap/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/index.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/preload.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/project.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/report.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/sass/settings.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/stylesheets/settings.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.h" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.m" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/MeeletBook-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/MeeletBook-Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/jill.xcuserdatad/xcschemes/xcschememanagement.plist" />
     </list>
     <ignored path="meeletBook.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +933,6 @@
         <option value="$PROJECT_DIR$/www/book/modules/edge/5.0.1/main.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/app/util.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/app/meta.json" />
-        <option value="$PROJECT_DIR$/www/app/controller.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/main.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/stylesheets/sass/page-Widget_0000000000000.scss" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/stylesheets/sass/page-Widget_0000000000001.scss" />
@@ -79,8 +947,13 @@
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/page-Widget_1441176722817.html" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/app/controller.js" />
         <option value="$PROJECT_DIR$/www/project.html" />
-        <option value="$PROJECT_DIR$/www/app/embedded/service.js" />
         <option value="$PROJECT_DIR$/www/app/browser/service.js" />
+        <option value="$PROJECT_DIR$/www/app/embedded/service.js" />
+        <option value="$PROJECT_DIR$/www/app/controller.js" />
+        <option value="$PROJECT_DIR$/www/app/main.js" />
+        <option value="$PROJECT_DIR$/platforms/index.ios.js" />
+        <option value="$PROJECT_DIR$/platforms/app/Screens/Styles.js" />
+        <option value="$PROJECT_DIR$/platforms/app/Screens/MainScreen.js" />
       </list>
     </option>
   </component>
@@ -137,14 +1010,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.phonegap.settings.workdir" value="$PROJECT_DIR$" />
@@ -152,14 +1077,17 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/watchers.xml" />
+    <property name="JavaScriptLanguageLevel" value="JSX" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www" />
+      <recent name="$PROJECT_DIR$/www/app" />
       <recent name="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/stylesheets/sass" />
       <recent name="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/stylesheets" />
       <recent name="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584" />
-      <recent name="$PROJECT_DIR$/www/book/modules" />
-      <recent name="$PROJECT_DIR$/www/book/common/stylesheets/sass" />
     </key>
   </component>
   <component name="RunManager" selected="PhoneGap/Cordova.Phonegap/Cordova run">
@@ -255,31 +1183,46 @@
       <option name="project" value="LOCAL" />
       <updated>1441464122772</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Init Commit of book platform.">
+      <created>1442732203770</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1442732203770</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32503662" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23907864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3161239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -302,143 +1245,76 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/app/embedded/service.js">
+    <entry file="file://$PROJECT_DIR$/platforms/index.ios.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <marker date="1445138626000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/browser/service.js">
+    <entry file="file://$PROJECT_DIR$/platforms/app/Screens/MainScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/javascripts/Chart.js/1.0.2/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38931298">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/meta.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.118858956">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/bootstrap/mixins/_gradients.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2599049">
-          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/report.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.541667">
-          <caret line="104" column="21" selection-start-line="101" selection-start-column="20" selection-end-line="104" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/_global.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2200489">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/settings.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70660144">
-          <caret line="58" column="60" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular-route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36030534">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/route.js">
+    <entry file="file://$PROJECT_DIR$/platforms/app/Screens/Styles.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/javascripts/angular/1.3.0-beta.8/angular.js">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49312976">
-          <caret line="9424" column="19" selection-start-line="9424" selection-start-column="19" selection-end-line="9424" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.22900763">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/report.html">
+    <entry file="file://$PROJECT_DIR$/platforms/platforms.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49920762">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.04754358">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/settings.html">
+    <entry file="file://$PROJECT_DIR$/platforms/ios/www/cordova_plugins.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30110934">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.34351146">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24580152">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45801526">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/config.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2078522">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/project.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025356578">
-          <caret line="59" column="51" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5954198">
-          <caret line="341" column="44" selection-start-line="341" selection-start-column="44" selection-end-line="341" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/embedded/service.js">
+    <entry file="file://$PROJECT_DIR$/platforms/index.ios.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <marker date="1445138626000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/browser/service.js">
+    <entry file="file://$PROJECT_DIR$/platforms/app/Screens/Styles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27633587">
-          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/app/Screens/MainScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65543646">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,7 @@ var {
   StyleSheet,
   TabBarIOS,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
   } = React;
@@ -15,7 +16,9 @@ var LessonListScreen = require('./LessonListScreen');
 
 var StudyMainScreen = React.createClass({
   getInitialState: function() {
-    return {};
+    return {
+      showSearchInput: false,
+    };
   },
 
   componentWillMount: function() {
@@ -31,7 +34,7 @@ var StudyMainScreen = React.createClass({
         var titleIconName;
         switch(previousRoute.id) {
           case "list":
-            titleIconName = 'view-comfortable';
+            titleIconName = 'view-comfy';
             break;
         }
 
@@ -48,9 +51,9 @@ var StudyMainScreen = React.createClass({
         switch(route.id) {
           case "list":
             return (
-              <View style={styles.navBarRightButton}>
+              <View style={[styles.navBarRightButton, self.state.showSearchInput?{opacity:0}:{opacity:1}, ]}>
                 <TouchableOpacity
-                  onPress={() => {navigator.pop();}}
+                  onPress={self.toggleSearchInput}
                   style={styles.navButtonIconPlaceholder}>
                   <Icon name="search" size={24} style={[styles.navButtonIcon, ]}/>
                 </TouchableOpacity>
@@ -68,21 +71,32 @@ var StudyMainScreen = React.createClass({
       },
 
       Title: function(route, navigator, index, navState) {
-        var titleIconName;
         switch(route.id) {
           case "list":
-            titleIconName = 'view-comfy';
+            return (
+              <View style={styles.titleContainer}>
+                <View style={[styles.title, self.state.showSearchInput?{opacity:0}:{opacity:1}, ]}>
+                  <View style={styles.titleIconPlaceholder}>
+                    <Icon name="view-comfy" size={24} style={[styles.navButtonIcon, ]}/>
+                  </View>
+                  <Text style={styles.titleText}>{route.title}</Text>
+                </View>
+                <View style={[styles.searchContainer, self.state.showSearchInput?{opacity:1}:{opacity:0}, ]}>
+                  <TextInput
+                    autoCapitalize="none"
+                    placeholder="搜索"
+                    autoCorrect={false}
+                    returnKeyType="search"
+                    onSubmitEditing={(event) => this.updateSearchInput(event.nativeEvent.text) }
+                    style={styles.searchInput}
+                  />
+                </View>
+              </View>
+            );
             break;
         }
 
-        return (
-          <View style={[styles.title, ]}>
-            <View style={styles.titleIconPlaceholder}>
-              <Icon name={titleIconName} size={24} style={[styles.navButtonIcon, ]}/>
-            </View>
-            <Text style={styles.titleText}>{route.title}</Text>
-          </View>
-        );
+        return null;
       },
     };
   },
@@ -112,6 +126,12 @@ var StudyMainScreen = React.createClass({
       />
     );
   },
+
+  toggleSearchInput: function() {
+    this.setState({showSearchInput: !this.state.showSearchInput});
+  },
+
+  updateSearchInput: function() {},
 })
 
 var styles = StyleSheet.create({
@@ -146,6 +166,15 @@ var styles = StyleSheet.create({
     alignSelf: 'center',
     color: "white",
   },
+  titleContainer: {
+    flex: 1,
+    alignSelf: 'center',
+    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: "#ccc"
+  },
   title: {
     width: 120,
     alignSelf: 'center',
@@ -169,6 +198,27 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: "transparent",
+  },
+  searchContainer: {
+    flex: 1,
+    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#dde1dc',
+    flexDirection: 'row',
+  },
+  searchInput: {
+    backgroundColor: 'white',
+    borderColor: '#cccccc',
+    borderRadius: 3,
+    borderWidth: 0.5,
+    marginHorizontal: 10,
+    marginVertical: 10,
+    height: 40,
+    flex: 1,
+    fontSize: 24,
+    textAlign: "center",
   },
   navButtonIconPlaceholder: {
     flex: 1,

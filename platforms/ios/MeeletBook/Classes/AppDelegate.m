@@ -1,39 +1,18 @@
-/*
- Licensed to the Apache Software Foundation (ASF) under one
- or more contributor license agreements.  See the NOTICE file
- distributed with this work for additional information
- regarding copyright ownership.  The ASF licenses this file
- to you under the Apache License, Version 2.0 (the
- "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing,
- software distributed under the License is distributed on an
- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, either express or implied.  See the License for the
- specific language governing permissions and limitations
- under the License.
+/**
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-//
-//  AppDelegate.m
-//  MeeletBook
-//
-//  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
-//
-
 #import "AppDelegate.h"
-#import "MainViewController.h"
 #import "Global.h"
-
+#import "RCTRootView.h"
 #import <Cordova/CDVPlugin.h>
 
 @implementation AppDelegate
-
-@synthesize window, viewController;
 
 - (id)init
 {
@@ -41,56 +20,68 @@
      *  -jm
      **/
     NSHTTPCookieStorage* cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-
+    
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
-
+    
     int cacheSizeMemory = 8 * 1024 * 1024; // 8MB
     int cacheSizeDisk = 32 * 1024 * 1024; // 32MB
 #if __has_feature(objc_arc)
-        NSURLCache* sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
+    NSURLCache* sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
 #else
-        NSURLCache* sharedCache = [[[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"] autorelease];
+    NSURLCache* sharedCache = [[[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"] autorelease];
 #endif
     [NSURLCache setSharedURLCache:sharedCache];
-
+    
     self = [super init];
     return self;
 }
 
-#pragma mark UIApplicationDelegate implementation
-
-/**
- * This is main kick off after the app inits, the views and Settings are setup here. (preferred - iOS4 and up)
- */
-- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Global initApplication];
+#warning Copy sample png files to shared resource folder to mimic the situation of displaying downloaded pictures
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"dog1-character" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"dog1-character.png"] error:nil];
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"fox-character" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"fox-character.png"] error:nil];
     
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-
-#if __has_feature(objc_arc)
-        self.window = [[UIWindow alloc] initWithFrame:screenBounds];
-#else
-        self.window = [[[UIWindow alloc] initWithFrame:screenBounds] autorelease];
-#endif
-    self.window.autoresizesSubviews = YES;
-
-#if __has_feature(objc_arc)
-        self.viewController = [[MainViewController alloc] init];
-#else
-        self.viewController = [[[MainViewController alloc] init] autorelease];
-#endif
+    NSURL *jsCodeLocation;
     
-    // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
-    // If necessary, uncomment the line below to override it.
-    // self.viewController.startPage = @"index.html";
-
-    // NOTE: To customize the view's frame size (which defaults to full screen), override
-    // [self.viewController viewWillAppear:] in your view controller.
-
-    self.window.rootViewController = self.viewController;
+    /**
+     * Loading JavaScript code - uncomment the one you want.
+     *
+     * OPTION 1
+     * Load from development server. Start the server from the repository root:
+     *
+     * $ npm start
+     *
+     * To run on device, change `localhost` to the IP address of your computer
+     * (you can get this by typing `ifconfig` into the terminal and selecting the
+     * `inet` value under `en0:`) and make sure your computer and iOS device are
+     * on the same Wi-Fi network.
+     */
+    
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+    
+    /**
+     * OPTION 2
+     * Load from pre-bundled file on disk. To re-generate the static bundle
+     * from the root of your project directory, run
+     *
+     * $ react-native bundle --minify
+     *
+     * see http://facebook.github.io/react-native/docs/runningondevice.html
+     */
+    
+    //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                        moduleName:@"MeeletBook"
+                                                 initialProperties:nil
+                                                     launchOptions:launchOptions];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *rootViewController = [[UIViewController alloc] init];
+    rootViewController.view = rootView;
+    self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
-
     return YES;
 }
 
@@ -101,10 +92,10 @@
     if (!url) {
         return NO;
     }
-
+    
     // all plugins will get the notification, and their handlers will be called
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPluginHandleOpenURLNotification object:url]];
-
+    
     return YES;
 }
 
@@ -118,31 +109,31 @@
 
 #ifndef DISABLE_PUSH_NOTIFICATIONS
 
-    - (void)                                 application:(UIApplication*)application
-        didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
-    {
-        // re-post ( broadcast )
-        NSString* token = [[[[deviceToken description]
-            stringByReplacingOccurrencesOfString:@"<" withString:@""]
-            stringByReplacingOccurrencesOfString:@">" withString:@""]
-            stringByReplacingOccurrencesOfString:@" " withString:@""];
+- (void)                                 application:(UIApplication*)application
+    didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    // re-post ( broadcast )
+    NSString* token = [[[[deviceToken description]
+                         stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                        stringByReplacingOccurrencesOfString:@">" withString:@""]
+                       stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CDVRemoteNotification object:token];
+}
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:CDVRemoteNotification object:token];
-    }
-
-    - (void)                                 application:(UIApplication*)application
-        didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
-    {
-        // re-post ( broadcast )
-        [[NSNotificationCenter defaultCenter] postNotificationName:CDVRemoteNotificationError object:error];
-    }
+- (void)                                 application:(UIApplication*)application
+    didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    // re-post ( broadcast )
+    [[NSNotificationCenter defaultCenter] postNotificationName:CDVRemoteNotificationError object:error];
+}
 #endif
 
 - (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window
 {
     // iPhone doesn't support upside down by default, while the iPad does.  Override to allow all orientations always, and let the root view controller decide what's allowed (the supported orientations mask gets intersected).
     NSUInteger supportedInterfaceOrientations = (1 << UIInterfaceOrientationPortrait) | (1 << UIInterfaceOrientationLandscapeLeft) | (1 << UIInterfaceOrientationLandscapeRight) | (1 << UIInterfaceOrientationPortraitUpsideDown);
-
+    
     return supportedInterfaceOrientations;
 }
 
@@ -150,5 +141,4 @@
 {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
-
 @end
