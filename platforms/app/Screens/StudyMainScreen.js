@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var {
+  ActionSheetIOS,
   Navigator,
   StyleSheet,
   TabBarIOS,
@@ -51,14 +52,14 @@ var StudyMainScreen = React.createClass({
         switch(route.id) {
           case "list":
             return (
-              <View style={[styles.navBarRightButton, self.state.showSearchInput?{opacity:0}:{opacity:1}, ]}>
+              <View style={[styles.navBarRightButton, ]}>
                 <TouchableOpacity
-                  onPress={self.toggleSearchInput}
+                  onPress={self.showSearchInput}
                   style={styles.navButtonIconPlaceholder}>
                   <Icon name="search" size={24} style={[styles.navButtonIcon, ]}/>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => {navigator.pop();}}
+                  onPress={self.showSearchCategory}
                   style={styles.navButtonIconPlaceholder}>
                   <Icon name="dehaze" size={24} style={[styles.navButtonIcon, ]}/>
                 </TouchableOpacity>
@@ -74,23 +75,11 @@ var StudyMainScreen = React.createClass({
         switch(route.id) {
           case "list":
             return (
-              <View style={styles.titleContainer}>
-                <View style={[styles.title, self.state.showSearchInput?{opacity:0}:{opacity:1}, ]}>
-                  <View style={styles.titleIconPlaceholder}>
-                    <Icon name="view-comfy" size={24} style={[styles.navButtonIcon, ]}/>
-                  </View>
-                  <Text style={styles.titleText}>{route.title}</Text>
+              <View style={[styles.title, ]}>
+                <View style={styles.titleIconPlaceholder}>
+                  <Icon name="view-comfy" size={24} style={[styles.navButtonIcon, ]}/>
                 </View>
-                <View style={[styles.searchContainer, self.state.showSearchInput?{opacity:1}:{opacity:0}, ]}>
-                  <TextInput
-                    autoCapitalize="none"
-                    placeholder="搜索"
-                    autoCorrect={false}
-                    returnKeyType="search"
-                    onSubmitEditing={(event) => this.updateSearchInput(event.nativeEvent.text) }
-                    style={styles.searchInput}
-                  />
-                </View>
+                <Text style={styles.titleText}>{route.title}</Text>
               </View>
             );
             break;
@@ -104,7 +93,7 @@ var StudyMainScreen = React.createClass({
   renderScene(route, nav) {
     switch (route.id) {
         case 'list':
-            return <LessonListScreen navigator={nav} style={styles.scene}/>;
+            return <LessonListScreen ref="listScreen" navigator={nav} mainScreen={this} showSearchInput={this.state.showSearchInput} style={styles.scene}/>;
         default:
             return <View />;
     }
@@ -113,6 +102,7 @@ var StudyMainScreen = React.createClass({
   render: function() {
     return (
       <Navigator
+        ref="navigator"
         debugOverlay={false}
         style={styles.screen}
         initialRoute={{ id: 'list', title: '全部课程'}}
@@ -120,18 +110,25 @@ var StudyMainScreen = React.createClass({
         navigationBar={
           <Navigator.NavigationBar
             routeMapper={this._navBarRouteMapper}
-            style={[styles.navBar, ]}
+            style={[styles.navBar, this.state.showSearchInput?{opacity: 0}:{opacity: 1}, ]}
           />
         }
       />
     );
   },
 
-  toggleSearchInput: function() {
-    this.setState({showSearchInput: !this.state.showSearchInput});
+  showSearchInput: function() {
+    this.refs.navigator.refs.listScreen.fadeInSearchInput();
+    this.setState({showSearchInput: true});
   },
 
-  updateSearchInput: function() {},
+  hideSearchInput: function() {
+    this.setState({showSearchInput: false});
+  },
+
+  showSearchCategory: function() {
+    this.refs.navigator.refs.listScreen.showSideMenu();
+  },
 })
 
 var styles = StyleSheet.create({
@@ -166,15 +163,6 @@ var styles = StyleSheet.create({
     alignSelf: 'center',
     color: "white",
   },
-  titleContainer: {
-    flex: 1,
-    alignSelf: 'center',
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    backgroundColor: "#ccc"
-  },
   title: {
     width: 120,
     alignSelf: 'center',
@@ -198,27 +186,6 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: "transparent",
-  },
-  searchContainer: {
-    flex: 1,
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#dde1dc',
-    flexDirection: 'row',
-  },
-  searchInput: {
-    backgroundColor: 'white',
-    borderColor: '#cccccc',
-    borderRadius: 3,
-    borderWidth: 0.5,
-    marginHorizontal: 10,
-    marginVertical: 10,
-    height: 40,
-    flex: 1,
-    fontSize: 24,
-    textAlign: "center",
   },
   navButtonIconPlaceholder: {
     flex: 1,

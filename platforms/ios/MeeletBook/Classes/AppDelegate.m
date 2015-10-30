@@ -41,6 +41,9 @@
 #warning Copy sample png files to shared resource folder to mimic the situation of displaying downloaded pictures
     [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"dog1-character" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"dog1-character.png"] error:nil];
     [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"fox-character" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"fox-character.png"] error:nil];
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"book-1" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"book-1.png"] error:nil];
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"book-2" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"book-2.png"] error:nil];
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"book-3" ofType:@"png"] toPath:[[Global sharedResourcePath] stringByAppendingPathComponent:@"book-3.png"] error:nil];
     
     NSURL *jsCodeLocation;
     
