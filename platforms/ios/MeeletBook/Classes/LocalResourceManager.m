@@ -18,7 +18,11 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_METHOD(getResourcePath:(NSString*)fileName callback:(RCTResponseSenderBlock)callback){
     NSString *filePath = [[Global sharedResourcePath] stringByAppendingPathComponent:fileName];
     
-    callback(@[[NSNull null], filePath]);
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        callback(@[[NSNull null], filePath]);
+    } else {
+        callback(@[[NSString stringWithFormat:@"File not found at path %@", filePath], [NSNull null]]);
+    }
 }
 
 @end

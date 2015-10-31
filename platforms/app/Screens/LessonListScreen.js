@@ -4,10 +4,12 @@ var React = require('react-native');
 var {
   Animated,
   Dimensions,
+  ListView,
   Navigator,
   StyleSheet,
   Text,
   TextInput,
+  TouchableHighlight,
   TouchableOpacity,
   View,
   } = React;
@@ -15,12 +17,19 @@ var {
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var LinearGradient = require('react-native-linear-gradient');
 var SideMenu = require('react-native-side-menu');
+var TimerMixin = require('react-timer-mixin');
 
 var Dimensions = require('Dimensions');
 var window = Dimensions.get('window');
 
+var downloadModeIcons = [
+  'cloud-download',// Wait Download
+  'cloud-done',// Wait Refresh
+  'cloud-download',// In Progress
+];
+
 var startTime = new Date();
-endTime = startTime.addMinutes(45);
+var endTime = startTime.addMinutes(45);
 let list = [
     {
       "_id" : "52591a12c763d5e45855639a",
@@ -28,6 +37,7 @@ let list = [
       "bookName": "创建幸福教室的35个秘密",
       "creator" : "陈昌申",
       "title": "马当路小学三年级一班公开课",
+      "downloadMode": 2,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -37,6 +47,7 @@ let list = [
       "bookName": "青少年成长教育读本",
       "creator" : "冯智豪",
       "title": "马当路小学三年级一班公开课",
+      "downloadMode": 0,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -46,15 +57,17 @@ let list = [
       "bookName": "青少年成长教育读本",
       "creator" : "梁天祐",
       "title": "马当路小学三年级一班公开课",
+      "downloadMode": 1,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
     {
       "_id" : "52591a12c763d5e4585563a0",
-      "bookId": "book-3",
+      "bookId": "book-4",
       "bookName": "小学语文-义务教育课程标准",
       "creator" : "李壮",
       "title": "马当路小学三年级一班公开课",
+      "downloadMode": 2,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -186,6 +199,7 @@ var LessonListView = React.createClass({
   render: function() {
     return (
       <ListView
+        contentContainerStyle={styles.list}
         style={styles.listview}
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
@@ -203,22 +217,25 @@ var LessonItemView = React.createClass({
   },
   render: function() {
     return (
-      <TouchableOpacity
+      <TouchableHighlight
         onPress={this.props.onPress}
-        style={[styles.contentRow,]}>
-        <View style={[styles.lessonTitle, ]}>
-          <Text numberOfLines={2} style={[styles.titleText]}>{this.props.data.title}</Text>
+        underlayColor='rgba(192, 192, 192, 0.4)'>
+        <View style={styles.contentRow}>
+          <Icon name={downloadModeIcons[this.props.data.downloadMode]} size={36} style={[styles.downloadLessonIcon, ]}/>
+          <View style={[styles.lessonTitle, ]}>
+            <Text numberOfLines={2} style={[styles.titleText]}>{this.props.data.title}</Text>
+          </View>
+          <LocalImage style={[styles.lessonImageContainer, ]} imgStyle={styles.lessonImg} source={this.props.data.bookId + ".png"} alt={require('image!default-lesson')}/>
+          <View style={[styles.lessonTextContainer, ]}>
+            <Text style={styles.lessonTextDesc}>书名</Text>
+            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.bookName}</Text>
+          </View>
+          <View style={[styles.lessonTextContainer, ]}>
+            <Text style={styles.lessonTextDesc}>创建人</Text>
+            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.creator}</Text>
+          </View>
         </View>
-        <LocalImage style={[styles.lessonImageContainer, ]} imgStyle={styles.lessonImg} source={this.props.data.bookId + ".png"} alt={require('image!default-lesson')}/>
-        <View style={[styles.lessonTextContainer, ]}>
-          <Text style={styles.lessonTextDesc}>书名</Text>
-          <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.bookName}</Text>
-        </View>
-        <View style={[styles.lessonTextContainer, ]}>
-          <Text style={styles.lessonTextDesc}>创建人</Text>
-          <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.creator}</Text>
-        </View>
-      </TouchableOpacity>
+      </TouchableHighlight>
     );
   }
 });
@@ -329,16 +346,39 @@ var styles = StyleSheet.create({
     right: 0,
     top: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   listview: {
     flex: 1,
     backgroundColor: '#dde1dc',
   },
+  list: {
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
   contentRow: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
+    margin: 10,
+    width: 300,
+    height: 360,
     backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    shadowRadius: 2,
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+    shadowOffset: {height: 5},
+  },
+  downloadLessonIcon: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: 36,
+    height: 36,
+    color: '#dde1dc',
   },
   lessonTitle: {
     flex: 1,
@@ -348,7 +388,13 @@ var styles = StyleSheet.create({
   },
   titleText: {
     flex: 1,
-    width: 240,
+    fontSize: 18,
+    lineHeight: 24,
+    width: 200,
+    textAlign: 'center',
+  },
+  lessonContent: {
+    flex: 1,
   },
   lessonImageContainer: {
     flex: 1,
@@ -359,15 +405,21 @@ var styles = StyleSheet.create({
   },
   lessonTextContainer: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     flexDirection: 'row',
   },
   lessonTextDesc: {
     width: 60,
+    marginRight: 10,
+    fontSize: 18,
+    lineHeight: 24,
+    textAlign: "left",
   },
   lessonText: {
-    flex: 1,
+    width: 180,
+    fontSize: 18,
+    lineHeight: 24,
   },
 });
 
