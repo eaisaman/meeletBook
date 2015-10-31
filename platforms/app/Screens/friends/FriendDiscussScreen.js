@@ -182,7 +182,7 @@ for (let ii of sectionIds.keys()) { rowIds[ii] = []; }
 rowIds[0].push("btn_add_friend", "btn_add_group", "btn_join_talk");
 for (let item of list) { var rowId = item._id; dataBlob[rowId] = item; rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId); }
 var PAGE_SIZE = 4;
-var FriendScreen = React.createClass({
+var FriendDiscussScreen = React.createClass({
   mixins: [TimerMixin],
 
   timeoutId: (null: any),
@@ -202,10 +202,10 @@ var FriendScreen = React.createClass({
     };
   },
 
-  routeTalk: function(title,type) {
+  routeTalk: function(title) {
     this.props.mainScreen.showNavBar();
 
-    this.props.navigator.push({id:type, title:title});
+    this.props.navigator.push({id:"talk", title:title});
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
@@ -213,21 +213,21 @@ var FriendScreen = React.createClass({
       switch(rowId) {
         case "btn_add_friend":
           return (
-          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.routeTalk('newFriend','newFriend'); }}>
+          <TouchableOpacity style={[styles.friendRow,]}>
             <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
           </TouchableOpacity>
           );
         break;
         case "btn_add_group":
           return (
-          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.routeTalk('group','group'); }}>
+          <TouchableOpacity style={[styles.friendRow,]}>
             <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
           </TouchableOpacity>
           );
         break;
         case "btn_join_talk":
           return (
-          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.routeTalk('discuss','discuss'); }}>
+          <TouchableOpacity style={[styles.friendRow,]}>
             <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
           </TouchableOpacity>
           );
@@ -235,7 +235,7 @@ var FriendScreen = React.createClass({
       }
     }
 
-    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name,'user'); }}/>) || null;
+    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -387,4 +387,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = FriendScreen;
+module.exports = FriendDiscussScreen;

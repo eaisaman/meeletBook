@@ -13,6 +13,8 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var FriendListScreen = require('./friends/FriendListScreen');
 var FriendUserScreen = require('./friends/FriendUserScreen');
 var FriendGroupScreen = require('./friends/FriendGroupScreen');
+var FriendDiscussScreen = require('./friends/FriendDiscussScreen');
+var AddNewFriendScreen = require('./friends/AddNewFriendScreen');
 
 var FriendMainScreen = React.createClass({
   getInitialState: function() {
@@ -38,6 +40,12 @@ var FriendMainScreen = React.createClass({
             titleIconName = 'textsms';
             break;
           case "group":
+            titleIconName = 'textsms';
+            break;
+          case "discuss":
+            titleIconName = 'textsms';
+            break;
+          case "newFriend":
             titleIconName = 'textsms';
             break;
         }
@@ -70,6 +78,12 @@ var FriendMainScreen = React.createClass({
           case "group":
               titleIconName = 'textsms';
             break;
+          case "discuss":
+              titleIconName = 'textsms';
+            break;
+          case "newFriend":
+              titleIconName = 'textsms';
+            break;
         }
 
         return (
@@ -92,6 +106,10 @@ var FriendMainScreen = React.createClass({
             return <FriendGroupScreen navigator={nav} style={styles.scene}/>;
         case 'user':
             return <FriendUserScreen navigator={nav} style={styles.scene}/>;
+        case 'discuss':
+            return <FriendDiscussScreen navigator={nav} style={styles.scene}/>;
+        case 'newFriend':
+            return <AddNewFriendScreen navigator={nav} style={styles.scene}/>;
         default:
             return <View />;
     }
