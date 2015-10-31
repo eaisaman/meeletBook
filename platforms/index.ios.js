@@ -17,6 +17,7 @@ var {
 var MainScreen = require('./app/Screens/MainScreen');
 
 GLOBAL.LocalImage = require('./app/Components/LocalImage');
+GLOBAL.Icon = require('react-native-vector-icons/MaterialIcons');
 
 if (typeof window !== 'undefined') {
     window.React = React;

@@ -6,14 +6,13 @@ var {
   Navigator,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
-  View,
+  View
 } = React;
 
-var Icon = require('react-native-vector-icons/MaterialIcons');
 
-var ProfileScreen = require('./ProfileScreen');
+var ProfileScreen = require('./Profile/ProfileScreen');
+var ProfileInfoDetailScreen = require('./Profile/ProfileInfoDetailScreen');
 
 var ProfileMainScreen = React.createClass({
   getInitialState: function() {
@@ -35,7 +34,7 @@ var ProfileMainScreen = React.createClass({
           case "list":
             titleIconName = 'format-list-bulleted';
             break;
-          case "talk":
+          case "profileInfoDetail":
             titleIconName = 'textsms';
             break;
         }
@@ -62,7 +61,7 @@ var ProfileMainScreen = React.createClass({
           case "list":
             titleIconName = 'format-list-bulleted';
             break;
-          case "talk":
+          case "profileInfoDetail":
             titleIconName = 'textsms';
             break;
         }
@@ -83,8 +82,8 @@ var ProfileMainScreen = React.createClass({
     switch (route.id) {
         case 'list':
             return <ProfileScreen navigator={nav} mainScreen={this} style={styles.scene}/>;
-        // case 'talk':
-        //     return <ProfileScreen navigator={nav} style={styles.scene}/>;
+        case 'profileInfoDetail':
+            return <ProfileInfoDetailScreen navigator={nav} style={styles.scene}/>;
         default:
             return <View />;
     }

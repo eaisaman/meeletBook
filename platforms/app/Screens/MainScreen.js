@@ -12,7 +12,7 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var TalkMainScreen = require('./TalkMainScreen');
 var FriendScreen = require('./FriendScreen');
 var StudyMainScreen = require('./StudyMainScreen');
-var ProfileMainScreen = require('./Profile/ProfileMainScreen');
+var ProfileMainScreen = require('./ProfileMainScreen');
 
 var MainScreen = React.createClass({
     statics: {

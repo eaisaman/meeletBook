@@ -2,7 +2,6 @@
 
 var _ = require('lodash')
 var React = require('react-native');
-var Icon = require('react-native-vector-icons/MaterialIcons');
 var BlurView = require('react-native-blur').BlurView;
 var TForm = require('tcomb-form-native');
 
@@ -152,7 +151,7 @@ var ProfileScreen = React.createClass({
     if(this.state.loginedUser.loginName == null)
       this.setState({isModalOpen: true});
     else
-      this.routeProfileDetail("profile");
+      this.routeProfileDetail("detail");
   },
 
   closeModal() {
@@ -170,7 +169,7 @@ var ProfileScreen = React.createClass({
   routeProfileDetail: function(title) {
     this.props.mainScreen.showNavBar();
 
-    this.props.navigator.push({id:"profile", title:title});
+    this.props.navigator.push({id:"profileInfoDetail", title:title});
   },
 
   render: function() {
