@@ -5,8 +5,11 @@ var React = require('react-native');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var BlurView = require('react-native-blur').BlurView;
 var TForm = require('tcomb-form-native');
+
 var Form = TForm.form.Form;
+
 var {
+  AsyncStorage,
   AlertIOS,
   Image,
   LayoutAnimation,
@@ -18,6 +21,7 @@ var {
   TouchableOpacity,
   TouchableHighlight,
   View,
+  Navigator
 } = React;
 
 var loginUser = {
@@ -46,11 +50,30 @@ _.extend(_.property("textbox.normal")(AccountOptions.stylesheet), {
   borderColor: "#2ecc71",
 });
 
+var STORAGE_KEY = "loginedUser";
 var dataBlob = {};
 var sectionIds = ["*"];
 var rowIds = [["btn_album", "btn_collection", "btn_settings"]];
 for (let sectionId of sectionIds) dataBlob[sectionId] = sectionId;
+
 var ProfileScreen = React.createClass({
+  //获取localstorage中的登录信息
+  componentDidMount() {
+    this._loadInitialState().done();
+  },
+
+  async _loadInitialState() {
+    try {
+      var value = await AsyncStorage.getItem(STORAGE_KEY);
+      if (value !== null){
+        var entity = JSON.parse(value);
+        this.setState({loginedUser: entity});
+      }
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
   getInitialState: function() {
     var dataSource = new ListView.DataSource({
       getRowData: (dataBlob, sectionId, rowId) => rowId,
@@ -62,6 +85,8 @@ var ProfileScreen = React.createClass({
     return {
       dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
       isModalOpen: false,
+      loginedUser: {},
+      isTmp: false
     };
   },
 
@@ -113,8 +138,8 @@ var ProfileScreen = React.createClass({
       <TouchableOpacity style={[styles.header,]} onPress={this.openModal}>
         <Icon name='account-circle' size={60} color='#2ecc71' style={styles.avatar}/>
         <View style={styles.nameList}>
-          <Text style={styles.userName}>{loginUser.name}</Text>
-          <Text style={styles.userName}>帐号: {loginUser.loginName}</Text>
+          <Text style={styles.userName}>{this.state.loginedUser.name}</Text>
+          <Text style={styles.userName}>帐号: {this.state.loginedUser.loginName}</Text>
         </View>
         <View style={styles.arrow}>
           <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
@@ -124,11 +149,28 @@ var ProfileScreen = React.createClass({
   },
 
   openModal() {
-    this.setState({isModalOpen: true});
+    if(this.state.loginedUser.loginName == null)
+      this.setState({isModalOpen: true});
+    else
+      this.routeProfileDetail("profile");
   },
 
   closeModal() {
     this.setState({isModalOpen: false});
+  },
+
+  async login() {
+    this.setState({loginedUser: loginUser});
+    var jsonStr = JSON.stringify(loginUser)
+
+    await AsyncStorage.setItem(STORAGE_KEY, jsonStr);
+    this.closeModal();
+  },
+
+  routeProfileDetail: function(title) {
+    this.props.mainScreen.showNavBar();
+
+    this.props.navigator.push({id:"profile", title:title});
   },
 
   render: function() {
@@ -150,7 +192,7 @@ var ProfileScreen = React.createClass({
                 <View style={[styles.modalItem, styles.formContainer, ]}>
                   <Form ref="accountForm" type={Account} options={AccountOptions} style={styles.accountForm}/>
                 </View>
-                <TouchableHighlight style={[styles.button, styles.modalItem, ]} underlayColor='#27ae60'>
+                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.login} underlayColor='#27ae60'>
                   <Text style={styles.buttonText}>登录</Text>
                 </TouchableHighlight>
                 <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.closeModal} underlayColor='#27ae60'>
