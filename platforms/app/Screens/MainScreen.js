@@ -9,7 +9,7 @@ var {
     } = React;
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var TalkMainScreen = require('./TalkMainScreen');
-var FriendScreen = require('./FriendScreen');
+var FriendScreen = require('./FriendMainScreen');
 var StudyMainScreen = require('./StudyMainScreen');
 var ProfileScreen = require('./ProfileScreen');
 

@@ -1,6 +1,6 @@
 'use strict';
 
-let list = [ 
+let list = [
     {
       "_id" : "52591a12c763d5e45855639a",
       "name" : "陈昌申",
@@ -159,16 +159,14 @@ var {
   View,
 } = React;
 
-var Thumb = React.createClass({  
+var Thumb = React.createClass({
   getInitialState: function() {
     return {};
-  },
-  _onPressThumb: function() {
   },
   render: function() {
     return (
       <TouchableOpacity
-        onPress={this._onPressThumb}
+        onPress={this.props.onPress}
         style={[styles.friendRow,]}>
         <Text style={styles.thumbText}>{this.props.text}</Text>
       </TouchableOpacity>
@@ -204,12 +202,18 @@ var FriendScreen = React.createClass({
     };
   },
 
+  routeTalk: function(title,type) {
+    this.props.mainScreen.showNavBar();
+
+    this.props.navigator.push({id:type, title:title});
+  },
+
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
     if (sectionId === "*") {
       switch(rowId) {
         case "btn_add_friend":
           return (
-          <TouchableOpacity style={[styles.friendRow,]}>
+          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.routeTalk('group','group'); }}>
             <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
           </TouchableOpacity>
           );
@@ -231,7 +235,7 @@ var FriendScreen = React.createClass({
       }
     }
 
-    return rowData && (<Thumb text={rowData.name}/>) || null;
+    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name,'user'); }}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
