@@ -1,12 +1,9 @@
 var React = require('react-native');
 var {
   Image,
-  NativeModules,
   StyleSheet,
   View,
 } = React;
-
-var LocalResourceAPI=NativeModules.LocalResourceManager
 
 var imageSourceCache = {};
 var LocalImage = React.createClass({

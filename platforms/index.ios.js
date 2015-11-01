@@ -9,6 +9,7 @@ require('./app/Util/date');
 var React = require('react-native');
 var {
     AppRegistry,
+    NativeModules,
     Navigator,
     StyleSheet,
     Text,
@@ -16,6 +17,8 @@ var {
     } = React;
 var MainScreen = require('./app/Screens/MainScreen');
 
+GLOBAL.LocalResourceAPI=NativeModules.LocalResourceManager;
+GLOBAL.LocalAppAPI=NativeModules.LocalAppManager;
 GLOBAL.LocalImage = require('./app/Components/LocalImage');
 
 if (typeof window !== 'undefined') {

@@ -1,0 +1,193 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M726 470v-86h-86v86h86zM554 470v-86h-84v86h84zM384 470v-86h-86v86h86zM854 86q34 0 59 25t25 59v512q0 34-25 60t-59 26h-598l-170 170v-768q0-34 25-59t59-25h684z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"textsms"
+				],
+				"defaultCode": 57441,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 3,
+				"id": 97,
+				"prevSize": 24,
+				"code": 59648,
+				"name": "textsms",
+				"ligatures": "textsms"
+			},
+			"setIdx": 0,
+			"setId": 4,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M86 234h852v86h-852v-86zM86 448h852v86h-852v-86zM86 662h852v84h-852v-84z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"dehaze"
+				],
+				"defaultCode": 57692,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 1,
+				"id": 348,
+				"prevSize": 24,
+				"code": 59649,
+				"name": "dehaze",
+				"ligatures": "dehaze"
+			},
+			"setIdx": 0,
+			"setId": 4,
+			"iconIdx": 1
+		},
+		{
+			"icon": {
+				"paths": [
+					"M426 256l256 256-256 256-60-60 196-196-196-196z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"chevron_right"
+				],
+				"defaultCode": 57864,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 2,
+				"id": 520,
+				"prevSize": 24,
+				"code": 59650,
+				"name": "chevron_right",
+				"ligatures": "chevron_right"
+			},
+			"setIdx": 0,
+			"setId": 4,
+			"iconIdx": 2
+		},
+		{
+			"icon": {
+				"paths": [
+					"M384 214h512v170h-512v-170zM384 810v-170h512v170h-512zM384 598v-172h512v172h-512zM170 384v-170h172v170h-172zM170 810v-170h172v170h-172zM170 598v-172h172v172h-172z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"view_list"
+				],
+				"defaultCode": 58113,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 5,
+				"id": 769,
+				"prevSize": 24,
+				"code": 59651,
+				"name": "view_list",
+				"ligatures": "view_list"
+			},
+			"setIdx": 0,
+			"setId": 4,
+			"iconIdx": 3
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 234q-44 0-75 32t-31 76 31 75 75 31 75-31 31-75-31-76-75-32zM238 438q0-66 62-96-62-30-62-96 0-44 32-76t76-32q30 0 60 20v-8q0-44 31-76t75-32 75 32 31 76v8q30-20 60-20 44 0 76 32t32 76q0 66-62 96 62 30 62 96 0 44-32 75t-76 31q-34 0-60-18v8q0 44-31 75t-75 31-75-31-31-75v-8q-26 18-60 18-44 0-76-31t-32-75zM512 938q-160 0-272-113t-112-271q160 0 272 113t112 271zM512 938q0-158 112-271t272-113q0 158-112 271t-272 113z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"local_florist"
+				],
+				"defaultCode": 57821,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 6,
+				"id": 477,
+				"prevSize": 24,
+				"code": 59652,
+				"name": "local_florist",
+				"ligatures": "local_florist"
+			},
+			"setIdx": 0,
+			"setId": 4,
+			"iconIdx": 4
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icon-mobile-book"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-mobile-book-",
+			"metadata": {
+				"fontFamily": "icon-mobile-book",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"embed": false,
+			"resetPoint": 59648,
+			"showSelector": true,
+			"selector": "class",
+			"classSelector": ".icon-mobile-book"
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215
+		},
+		"historySize": 100,
+		"showCodes": false,
+		"gridSize": 16
+	}
+}

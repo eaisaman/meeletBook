@@ -96,6 +96,7 @@
 		A1B101CC1BDDCD940021D129 /* dog1-character.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B101C91BDDCD940021D129 /* dog1-character.png */; };
 		A1B101CE1BDDCD940021D129 /* fox-character.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B101CB1BDDCD940021D129 /* fox-character.png */; };
 		A1B101DE1BDDCF6F0021D129 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B101DD1BDDCF6F0021D129 /* Images.xcassets */; };
+		A1B3A8B21BE4561E007DA873 /* LocalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */; };
 		A1C83C0E1BD6864800D29F76 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C83C0D1BD6864300D29F76 /* libRNBlur.a */; };
 		CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8F7F721944A798BD4FD75 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
@@ -338,6 +339,8 @@
 		A1B101C91BDDCD940021D129 /* dog1-character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog1-character.png"; sourceTree = "<group>"; };
 		A1B101CB1BDDCD940021D129 /* fox-character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fox-character.png"; sourceTree = "<group>"; };
 		A1B101DD1BDDCF6F0021D129 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAppManager.m; sourceTree = "<group>"; };
+		A1B3A8C11BE45631007DA873 /* LocalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAppManager.h; sourceTree = "<group>"; };
 		A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		BD9F39DD87664A3C9D04478D /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = "cordova-plugin-camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 				A1371FE61BDE1CCD005EFA0D /* LocalResourceManager.h */,
 				A1371FE71BDE1CCD005EFA0D /* LocalResourceManager.m */,
+				A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */,
+				A1B3A8C11BE45631007DA873 /* LocalAppManager.h */,
 			);
 			name = Classes;
 			path = MeeletBook/Classes;
@@ -1092,6 +1097,7 @@
 				A106A4071BC8D399001481D0 /* QRCodeOutlineBox.m in Sources */,
 				A106A4011BC8D399001481D0 /* NSData+Base64.m in Sources */,
 				A1371FE81BDE1CCD005EFA0D /* LocalResourceManager.m in Sources */,
+				A1B3A8B21BE4561E007DA873 /* LocalAppManager.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				A106A3FA1BC8D399001481D0 /* BaseNativeBridge.m in Sources */,
 				A106A40C1BC8D399001481D0 /* UIDevice+IdentifierAddition.m in Sources */,

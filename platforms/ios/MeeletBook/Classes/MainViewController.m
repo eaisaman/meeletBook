@@ -27,6 +27,14 @@
 
 #import "MainViewController.h"
 
+@interface MainViewController () {
+    UIPinchGestureRecognizer *pinchGestureRecognizer;
+}
+
+- (void)closeMainView:(UIGestureRecognizer *)sender;
+
+@end
+
 @implementation MainViewController
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
@@ -61,6 +69,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)closeMainView:(UIGestureRecognizer *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated
@@ -74,7 +87,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(closeMainView:)];
+    [pinchGestureRecognizer setDelegate:self];
+    
+    [self.view addGestureRecognizer:pinchGestureRecognizer];
 }
 
 - (void)viewDidUnload

@@ -189,7 +189,18 @@ var LessonListView = React.createClass({
     };
   },
 
-  routeLesson: function(title) {
+  routeLesson: function(lesson) {
+    return new Promise((resolve, reject) => {
+      LocalAppAPI.openLesson(lesson._id, function(err) {
+        if(typeof err === 'string') {
+          err = new Error(err);
+        }
+        if(!err) {
+          return resolve();
+        }
+        reject(err);
+      });
+    });
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {

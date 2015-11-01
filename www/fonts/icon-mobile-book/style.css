@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'icon-mobile-book';
+    src: url('icon-mobile-book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-mobile-book:before {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-before:before {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-after:after {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-textsms:before {
+    content: "\e900";
+}
+
+.icon-mobile-book-dehaze:before {
+    content: "\e901";
+}
+
+.icon-mobile-book-chevron_right:before {
+    content: "\e902";
+}
+
+.icon-mobile-book-view_list:before {
+    content: "\e903";
+}
+
+.icon-mobile-book-local_florist:before {
+    content: "\e904";
+}
+
+.icon-mobile-book-textsms-before:before {
+    content: "\e900";
+}
+
+.icon-mobile-book-dehaze-before:before {
+    content: "\e901";
+}
+
+.icon-mobile-book-chevron_right-before:before {
+    content: "\e902";
+}
+
+.icon-mobile-book-view_list-before:before {
+    content: "\e903";
+}
+
+.icon-mobile-book-local_florist-before:before {
+    content: "\e904";
+}
+
+.icon-mobile-book-textsms-after:after {
+    content: "\e900";
+}
+
+.icon-mobile-book-dehaze-after:after {
+    content: "\e901";
+}
+
+.icon-mobile-book-chevron_right-after:after {
+    content: "\e902";
+}
+
+.icon-mobile-book-view_list-after:after {
+    content: "\e903";
+}
+
+.icon-mobile-book-local_florist-after:after {
+    content: "\e904";
+}
