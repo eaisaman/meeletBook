@@ -1,6 +1,6 @@
 'use strict';
 
-let list = [ 
+let list = [
     {
       "_id" : "52591a12c763d5e45855639a",
       "name" : "陈昌申",
@@ -159,16 +159,14 @@ var {
   View,
 } = React;
 
-var Thumb = React.createClass({  
+var Thumb = React.createClass({
   getInitialState: function() {
     return {};
-  },
-  _onPressThumb: function() {
   },
   render: function() {
     return (
       <TouchableOpacity
-        onPress={this._onPressThumb}
+        onPress={this.props.onPress}
         style={[styles.friendRow,]}>
         <Text style={styles.thumbText}>{this.props.text}</Text>
       </TouchableOpacity>
@@ -184,7 +182,7 @@ for (let ii of sectionIds.keys()) { rowIds[ii] = []; }
 rowIds[0].push("btn_add_friend", "btn_add_group", "btn_join_talk");
 for (let item of list) { var rowId = item._id; dataBlob[rowId] = item; rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId); }
 var PAGE_SIZE = 4;
-var FriendScreen = React.createClass({
+var FriendDiscussScreen = React.createClass({
   mixins: [TimerMixin],
 
   timeoutId: (null: any),
@@ -202,6 +200,12 @@ var FriendScreen = React.createClass({
       textAlign: "center",
       data: [],
     };
+  },
+
+  routeTalk: function(title) {
+    this.props.mainScreen.showNavBar();
+
+    this.props.navigator.push({id:"talk", title:title});
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
@@ -231,7 +235,7 @@ var FriendScreen = React.createClass({
       }
     }
 
-    return rowData && (<Thumb text={rowData.name}/>) || null;
+    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -383,4 +387,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = FriendScreen;
+module.exports = FriendDiscussScreen;

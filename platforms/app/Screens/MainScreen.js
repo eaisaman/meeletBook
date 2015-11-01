@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var {
+    AsyncStorage,
     StyleSheet,
     TabBarIOS,
     Text,
@@ -9,9 +10,9 @@ var {
     } = React;
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var TalkMainScreen = require('./TalkMainScreen');
-var FriendScreen = require('./FriendScreen');
+var FriendScreen = require('./FriendMainScreen');
 var StudyMainScreen = require('./StudyMainScreen');
-var ProfileScreen = require('./ProfileScreen');
+var ProfileMainScreen = require('./ProfileMainScreen');
 
 var MainScreen = React.createClass({
     statics: {
@@ -79,7 +80,7 @@ var MainScreen = React.createClass({
                           selectedTab: 'profileTab'});
                     }}
                     >
-                    <ProfileScreen></ProfileScreen>
+                    <ProfileMainScreen></ProfileMainScreen>
                 </Icon.TabBarItem>
             </TabBarIOS>
         );
