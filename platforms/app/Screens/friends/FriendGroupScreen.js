@@ -156,6 +156,7 @@ var {
   Text,
   TextInput,
   TouchableOpacity,
+  Navigator,
   View,
 } = React;
 
@@ -209,33 +210,33 @@ var FriendGroupScreen = React.createClass({
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    if (sectionId === "*") {
-      switch(rowId) {
-        case "btn_add_friend":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_add_group":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_join_talk":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-      }
-    }
+    // if (sectionId === "*") {
+    //   switch(rowId) {
+    //     case "btn_add_friend":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //     case "btn_add_group":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //     case "btn_join_talk":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //   }
+    // }
 
-    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
+    return rowData && (<Thumb text={rowData.name}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -270,7 +271,7 @@ var FriendGroupScreen = React.createClass({
       <ListView
         style={styles.listview}
         dataSource={this.state.dataSource}
-        renderHeader={this.renderHeader}
+        // renderHeader={this.renderHeader}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={this.renderRow}
         initialListSize={10}
@@ -317,6 +318,7 @@ var FriendGroupScreen = React.createClass({
 var styles = StyleSheet.create({
   listview: {
     backgroundColor: '#dde1dc',
+    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   },
   header: {
     height: 60,

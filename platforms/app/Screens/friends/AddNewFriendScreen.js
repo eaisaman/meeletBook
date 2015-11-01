@@ -1,11 +1,19 @@
 'use strict';
 
+var now = new Date();
 let list = [
-    {
-      "_id" : "52591a12c763d5e45855639a",
-      "name" : "陈昌申",
-      "alphabet" : "chenchangshen1"
-    }
+  {
+  "_id" : "52591a12c763d5e45855639a",
+    "name" : "陈昌申",
+    "content" : "自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+    "time": now.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+  },
+  {
+  "_id" : "52591a12c763d5r45855639a",
+    "name" : "昌申",
+    "content" : "自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+    "time": now.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+  },
 
 ];
 
@@ -15,6 +23,7 @@ var TimerMixin = require('react-timer-mixin');
 var LinearGradient = require('react-native-linear-gradient');
 var {
   AlertIOS,
+  Navigator,
   Image,
   LayoutAnimation,
   ListView,
@@ -33,20 +42,38 @@ var Thumb = React.createClass({
     return (
       <TouchableOpacity
         onPress={this.props.onPress}
-        style={[styles.friendRow,]}>
-        <Text style={styles.thumbText}>{this.props.text}</Text>
+        style={[styles.contentRow,]}>
+        <Icon name='textsms' size={40} color='#2ecc71' style={[styles.smallAvatar, ]}/>
+        <View style={[styles.thumbItem, styles.textContainer, ]}>
+          <View style={[styles.compositeItem, ]}>
+            <Text numberOfLines={1} style={[styles.thumbText, ]}>{this.props.data.name}</Text>
+            <Text style={[styles.thumbDate, ]}>{this.props.data.time}</Text>
+          </View>
+          <View style={[styles.textItem, ]}>
+            <Text numberOfLines={1} style={[styles.thumbText]}>{this.props.data.content}</Text>
+          </View>
+        </View>
       </TouchableOpacity>
     );
   }
+  // render: function() {
+  //   return (
+  //     <TouchableOpacity
+  //       onPress={this.props.onPress}
+  //       style={[styles.friendRow,]}>
+  //       <Text style={styles.thumbText}>{this.props.text}</Text>
+  //     </TouchableOpacity>
+  //   );
+  // }
 });
 
 var dataBlob = {};
-var sectionIds = "*ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-var rowIds = [];
-for (let sectionId of sectionIds) dataBlob[sectionId] = sectionId;
-for (let ii of sectionIds.keys()) { rowIds[ii] = []; }
-rowIds[0].push("btn_add_friend", "btn_add_group", "btn_join_talk");
-for (let item of list) { var rowId = item._id; dataBlob[rowId] = item; rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId); }
+// var sectionIds = "*ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+// var rowIds = [];
+// for (let sectionId of sectionIds) dataBlob[sectionId] = sectionId;
+// for (let ii of sectionIds.keys()) { rowIds[ii] = []; }
+// rowIds[0].push("btn_add_friend", "btn_add_group", "btn_join_talk");
+// for (let item of list) { var rowId = item._id; dataBlob[rowId] = item; rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId); }
 var PAGE_SIZE = 4;
 var AddNewFriendScreen = React.createClass({
   mixins: [TimerMixin],
@@ -55,53 +82,63 @@ var AddNewFriendScreen = React.createClass({
 
   getInitialState: function() {
     var dataSource = new ListView.DataSource({
-      getRowData: (dataBlob, sectionId, rowId) => dataBlob[rowId],
-      getSectionHeaderData: (dataBlob, sectionId) => dataBlob[sectionId],
-      rowHasChanged: (row1, row2) => row1 !== row2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+      rowHasChanged: (row1, row2) => row1._id !== row2._id,
     });
 
     return {
-      dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
-      textAlign: "center",
-      data: [],
+      dataSource: dataSource.cloneWithRows(list),
     };
   },
 
-  routeTalk: function(title) {
-    this.props.mainScreen.showNavBar();
+  // getInitialState: function() {
+  //   var dataSource = new ListView.DataSource({
+  //     getRowData: (dataBlob, sectionId, rowId) => dataBlob[rowId],
+  //     getSectionHeaderData: (dataBlob, sectionId) => dataBlob[sectionId],
+  //     rowHasChanged: (row1, row2) => row1 !== row2,
+  //     sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+  //   });
+  //
+  //   return {
+  //     dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
+  //     textAlign: "center",
+  //     data: [],
+  //   };
+  // },
 
-    this.props.navigator.push({id:"talk", title:title});
+  routeTalk: function(title) {
+    // this.props.mainScreen.showNavBar();
+    //
+    // this.props.navigator.push({id:"talk", title:title});
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    if (sectionId === "*") {
-      switch(rowId) {
-        case "btn_add_friend":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_add_group":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_join_talk":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-      }
-    }
+    // if (sectionId === "*") {
+    //   switch(rowId) {
+    //     case "btn_add_friend":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //     case "btn_add_group":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //     case "btn_join_talk":
+    //       return (
+    //       <TouchableOpacity style={[styles.friendRow,]}>
+    //         <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
+    //       </TouchableOpacity>
+    //       );
+    //     break;
+    //   }
+    // }
 
-    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
+    return rowData && (<Thumb data={rowData} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -137,7 +174,7 @@ var AddNewFriendScreen = React.createClass({
         style={styles.listview}
         dataSource={this.state.dataSource}
         renderHeader={this.renderHeader}
-        renderSectionHeader={this.renderSectionHeader}
+        // renderSectionHeader={this.renderSectionHeader}
         renderRow={this.renderRow}
         initialListSize={10}
         pageSize={PAGE_SIZE}
@@ -183,6 +220,7 @@ var AddNewFriendScreen = React.createClass({
 var styles = StyleSheet.create({
   listview: {
     backgroundColor: '#dde1dc',
+    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   },
   header: {
     height: 60,
