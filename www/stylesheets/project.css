@@ -1,0 +1,1293 @@
+.sideBarContainer.rightSide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Effect 1: Slide in on top */
+  /* Effect 2: Reveal */
+  /* Effect 4: Slide along */
+  /* Effect 5: Reverse slide out */
+  /* Effect 6: Rotate pusher */
+  /* Effect 7: 3D rotate in */
+  /* Effect 8: 3D rotate out */
+  /* Effect 9: Scale down pusher */
+  /* Effect 10: Scale up */
+  /* Effect 11: Scale and rotate pusher */
+  /* Effect 12: Open door */
+  /* Effect 13: Fall down */
+  /* Effect 14: Delayed 3D rotate */
+}
+.sideBarContainer.rightSide.overlay > .mainContent:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: rgba(204, 204, 204, 0.3);
+  content: '';
+  opacity: 1;
+}
+.sideBarContainer.rightSide.overlay.select > .mainContent:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.sideBarContainer.rightSide > .mainContent {
+  position: relative;
+  right: 0;
+  z-index: 99;
+  height: 100%;
+  background-color: #ffffff;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.rightSide > .mainContent > [name=mainContent] {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.rightSide > .barContent, .sideBarContainer.rightSide > .mainContent > .barContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 25%;
+  height: 100%;
+  display: none;
+  background-color: #1d5b8b;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.sideBarContainer.rightSide > .barContent > [name=barContent], .sideBarContainer.rightSide > .mainContent > .barContent > [name=barContent] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.rightSide.select > .barContent {
+  display: block;
+}
+.sideBarContainer.rightSide.slideInOnTop > .barContent {
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.slideInOnTop.select > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.reveal > .barContent {
+  z-index: 1;
+}
+.sideBarContainer.rightSide.reveal.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.reveal.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.rightSide.slideAlong > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(50%, 0, 0);
+  -webkit-transform: translate3d(50%, 0, 0);
+  transform: translate3d(50%, 0, 0);
+}
+.sideBarContainer.rightSide.slideAlong.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.slideAlong.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.rotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.rotatePusher > .mainContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotatePusher > .mainContent > .barContent {
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotatePusher.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  -ms-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  -webkit-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  transform: translate3d(-25%, 0, 0) rotateY(15deg);
+}
+.sideBarContainer.rightSide.rotatePusher.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  -ms-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  -webkit-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  transform: translate3d(0, 0, 0) rotateY(-15deg);
+}
+.sideBarContainer.rightSide.rotateIn3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.rotateIn3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateIn3D > .mainContent > .barContent {
+  -moz-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateIn3D.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.rotateIn3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.rightSide.rotateOut3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.rotateOut3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateOut3D > .mainContent > .barContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateOut3D.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.rotateOut3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.rightSide.scaleDownPusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.scaleDownPusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.scaleDownPusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleDownPusher.select > .mainContent {
+  -moz-transform: translate3d(0, 0, -300px);
+  -ms-transform: translate3d(0, 0, -300px);
+  -webkit-transform: translate3d(0, 0, -300px);
+  transform: translate3d(0, 0, -300px);
+}
+.sideBarContainer.rightSide.scaleDownPusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.scaleUp {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.scaleUp > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, 0, -25%);
+  -ms-transform: translate3d(0, 0, -25%);
+  -webkit-transform: translate3d(0, 0, -25%);
+  transform: translate3d(0, 0, -25%);
+}
+.sideBarContainer.rightSide.scaleUp.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleUp.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.scaleRotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.scaleRotatePusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.scaleRotatePusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleRotatePusher.select > .mainContent {
+  -moz-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  -ms-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  -webkit-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+}
+.sideBarContainer.rightSide.scaleRotatePusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.openDoor {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.openDoor > .mainContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.openDoor > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.openDoor.select > .mainContent {
+  -moz-transform: rotateY(10deg);
+  -webkit-transform: rotateY(10deg);
+  transform: rotateY(10deg);
+}
+.sideBarContainer.rightSide.openDoor.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.fallDown {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.fallDown > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.sideBarContainer.rightSide.fallDown.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.fallDown.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.delayed3DRotate {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.delayed3DRotate > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.delayed3DRotate > .mainContent > .barContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.delayed3DRotate.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.delayed3DRotate.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+
+.sideBarContainer.leftSide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Effect 1: Slide in on top */
+  /* Effect 2: Reveal */
+  /* Effect 4: Slide along */
+  /* Effect 5: Reverse slide out */
+  /* Effect 6: Rotate pusher */
+  /* Effect 7: 3D rotate in */
+  /* Effect 8: 3D rotate out */
+  /* Effect 9: Scale down pusher */
+  /* Effect 10: Scale up */
+  /* Effect 11: Scale and rotate pusher */
+  /* Effect 12: Open door */
+  /* Effect 13: Fall down */
+  /* Effect 14: Delayed 3D rotate */
+}
+.sideBarContainer.leftSide.overlay > .mainContent:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background: rgba(204, 204, 204, 0.3);
+  content: '';
+  opacity: 1;
+}
+.sideBarContainer.leftSide.overlay.select > .mainContent:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.sideBarContainer.leftSide > .mainContent {
+  position: relative;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  background-color: #ffffff;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.leftSide > .mainContent > [name=mainContent] {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.leftSide > .barContent, .sideBarContainer.leftSide > .mainContent > .barContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 25%;
+  height: 100%;
+  background-color: #1d5b8b;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.sideBarContainer.leftSide > .barContent > [name=barContent], .sideBarContainer.leftSide > .mainContent > .barContent > [name=barContent] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.leftSide.slideInOnTop > .barContent, .sideBarContainer.leftSide.slideInOnTop > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.slideInOnTop.select > .barContent, .sideBarContainer.leftSide.slideInOnTop.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.reveal > .barContent {
+  z-index: 1;
+}
+.sideBarContainer.leftSide.reveal.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.reveal.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.leftSide.slideAlong > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+.sideBarContainer.leftSide.slideAlong.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.slideAlong.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.rotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.rotatePusher > .mainContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotatePusher > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotatePusher.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  -ms-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  -webkit-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  transform: translate3d(25%, 0, 0) rotateY(-15deg);
+}
+.sideBarContainer.leftSide.rotatePusher.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  transform: translate3d(-100%, 0, 0) rotateY(15deg);
+}
+.sideBarContainer.leftSide.rotateIn3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.rotateIn3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateIn3D > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateIn3D.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.rotateIn3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.leftSide.rotateOut3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.rotateOut3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateOut3D > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateOut3D.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.rotateOut3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.leftSide.scaleDownPusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.scaleDownPusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.scaleDownPusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleDownPusher.select > .mainContent {
+  -moz-transform: translate3d(0, 0, -300px);
+  -ms-transform: translate3d(0, 0, -300px);
+  -webkit-transform: translate3d(0, 0, -300px);
+  transform: translate3d(0, 0, -300px);
+}
+.sideBarContainer.leftSide.scaleDownPusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.scaleUp {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.scaleUp > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, 0, -25%);
+  -ms-transform: translate3d(0, 0, -25%);
+  -webkit-transform: translate3d(0, 0, -25%);
+  transform: translate3d(0, 0, -25%);
+}
+.sideBarContainer.leftSide.scaleUp.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleUp.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.scaleRotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.scaleRotatePusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.scaleRotatePusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleRotatePusher.select > .mainContent {
+  -moz-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -ms-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+}
+.sideBarContainer.leftSide.scaleRotatePusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.openDoor {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.openDoor > .mainContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.openDoor > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.openDoor.select > .mainContent {
+  -moz-transform: rotateY(-10deg);
+  -webkit-transform: rotateY(-10deg);
+  transform: rotateY(-10deg);
+}
+.sideBarContainer.leftSide.openDoor.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.fallDown {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.fallDown > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.sideBarContainer.leftSide.fallDown.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.fallDown.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.delayed3DRotate {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.delayed3DRotate > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.delayed3DRotate > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.delayed3DRotate.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.delayed3DRotate.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+#projectContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+#projectContainer .topbar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 2em;
+  background: #033865;
+}
+#projectContainer .topbar .topbarButton {
+  position: relative;
+  float: left;
+  width: 2em;
+  height: 2em;
+  background-color: transparent;
+  color: #1d5b8b;
+  overflow: hidden;
+}
+#projectContainer .topbar .topbarButton:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .topbar .projectTitle {
+  position: relative;
+  float: left;
+  width: calc(100% - 2em);
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .topbar .projectTitle span {
+  width: 18em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+#projectContainer .sideBarContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: calc(100% - 2em);
+}
+#projectContainer .sideBarContainer .projectMainContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#projectContainer .sideBarContainer .projectMainContent > iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody {
+  -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+  -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton {
+  opacity: 1;
+  pointer-events: auto;
+  height: 2em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:before {
+  position: relative;
+  float: left;
+  width: 2em;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton span {
+  -webkit-flex: 1;
+  flex: 1;
+  height: 2em;
+  line-height: 2;
+  text-align: right;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 120px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .avatarImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: 10px;
+  background-image: url("../images/default_avatar_50.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .userName {
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .expandButton {
+  width: 2em;
+  height: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .expandButton:after {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianBody {
+  position: relative;
+  float: left;
+  width: 100%;
+  background: #114975;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianBody .projectButton {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 0px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent {
+  -webkit-flex: 1;
+  flex: 1;
+  position: relative;
+  float: left;
+  width: 100%;
+  background: white;
+  border-right: 1px solid #40bf6c;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs {
+  position: relative;
+  float: left;
+  width: 100%;
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input {
+  position: absolute;
+  z-index: 10;
+  width: 6em;
+  height: 2em;
+  opacity: 0;
+  cursor: pointer;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input#tab-2 {
+  left: 6em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label {
+  z-index: 6;
+  position: absolute;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  line-height: 2;
+  height: 2em;
+  width: 6em;
+  background: #40bf6c;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label:before {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: rgba(0, 0, 0, 0.3);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label.tab-label-2 {
+  left: 6em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input:checked + label {
+  z-index: 7;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input:checked + label:before {
+  background: transparent;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content {
+  position: relative;
+  float: left;
+  width: 100%;
+  z-index: 5;
+  top: 2em;
+  -webkit-flex: 1;
+  flex: 1;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content > div {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 2em);
+  opacity: 0;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  counter-reset: item;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList::-webkit-scrollbar {
+  display: none !important;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem {
+  position: relative;
+  float: left;
+  width: calc(100% - 20px);
+  height: 180px;
+  margin: 10px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:before {
+  counter-increment: item;
+  content: counter(item);
+  position: absolute;
+  left: -0.5em;
+  top: -0.5em;
+  width: 2em;
+  height: 2em;
+  line-height: 2;
+  text-align: center;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:after {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZWJlYiIvPjxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjZWJlYmViIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWJlYmViIiBzdG9wLW9wYWNpdHk9IjAuNCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ebebeb), color-stop(25%, #ebebeb), color-stop(100%, rgba(235, 235, 235, 0.4)));
+  background: -moz-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+  background: -webkit-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+  background: linear-gradient(to right, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-1:checked ~ .content .content-1,
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-2:checked ~ .content .content-2 {
+  z-index: 10;
+  opacity: 1;
+  -moz-transition: opacity 0.3s ease-out 0.2s;
+  -o-transition: opacity 0.3s ease-out 0.2s;
+  -webkit-transition: opacity 0.3s ease-out;
+  -webkit-transition-delay: 0.2s;
+  transition: opacity 0.3s ease-out 0.2s;
+}
