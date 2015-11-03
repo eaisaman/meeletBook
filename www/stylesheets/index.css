@@ -6704,7 +6704,7 @@ button.close {
   -webkit-user-select: none;
 }
 
-#rootBody #bg #loader.pageload-overlay {
+#rootBody #rootBg #loader.pageload-overlay {
   z-index: 1000;
   position: fixed;
   width: 100%;
@@ -6713,15 +6713,15 @@ button.close {
   left: 0;
   visibility: hidden;
 }
-#rootBody #bg #loader.show {
+#rootBody #rootBg #loader.show {
   visibility: visible;
 }
-#rootBody #bg #loader svg {
+#rootBody #rootBg #loader svg {
   position: absolute;
   top: 0;
   left: 0;
   pointer-events: none;
 }
-#rootBody #bg #loader svg path {
+#rootBody #rootBg #loader svg path {
   fill: #669933;
 }

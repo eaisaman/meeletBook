@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb548f9b-d988-4bf4-9088-04899e817ecf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/LocalAppManager.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/LocalAppManager.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/demo-files/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/demo-files/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/velocity/1.2.2/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/selection.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/velocity/1.2.2/velocity.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/velocity/1.2.2/velocity.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/velocity/1.2.2/velocity.ui.min.js" />
+    <list default="true" id="fb548f9b-d988-4bf4-9088-04899e817ecf" name="Default" comment="Lesson scree init commit.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/directive/ng.ui.include.replace.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/css/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/index.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common" afterPath="$PROJECT_DIR$/Common" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/app/Screens/LessonListScreen.js" afterPath="$PROJECT_DIR$/platforms/app/Screens/LessonListScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/app/Components/LocalImage.js" afterPath="$PROJECT_DIR$/platforms/app/Components/LocalImage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.h" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.m" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/js/common/extension.js" afterPath="$PROJECT_DIR$/Common/src/js/common/extension.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/LocalAppManager.m" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/LocalAppManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.xib" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/MainViewController.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/cordova/lib/copy-www-build-step.js" afterPath="$PROJECT_DIR$/platforms/ios/cordova/lib/copy-www-build-step.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/index.css" afterPath="$PROJECT_DIR$/www/stylesheets/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/index.ios.js" afterPath="$PROJECT_DIR$/platforms/index.ios.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/sass/index.scss" afterPath="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/directive/main.js" afterPath="$PROJECT_DIR$/www/directive/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/main.jsbundle" afterPath="$PROJECT_DIR$/platforms/ios/main.jsbundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/js/common/util.js" afterPath="$PROJECT_DIR$/Common/src/js/common/util.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meeletBook.iws" />
@@ -47,50 +37,7 @@
     <favorites_list name="meeletBook" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="project.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/project.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7860539">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/app/controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="60" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.666667">
-              <caret line="243" column="47" selection-start-line="243" selection-start-column="47" selection-end-line="243" selection-end-column="47" />
-              <folding>
-                <element signature="e#2735#3877#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_global.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/_global.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/page-Widget_1441260060886.html" />
         <option value="$PROJECT_DIR$/www/app/route.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/app/embedded/service.js" />
         <option value="$PROJECT_DIR$/www/book/55e69a54c57957980cf74584/app/browser/service.js" />
@@ -131,7 +77,6 @@
         <option value="$PROJECT_DIR$/platforms/index.ios.js" />
         <option value="$PROJECT_DIR$/platforms/app/Screens/Styles.js" />
         <option value="$PROJECT_DIR$/platforms/app/Screens/MainScreen.js" />
-        <option value="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
         <option value="$PROJECT_DIR$/www/app/main.js" />
         <option value="$PROJECT_DIR$/www/overview.html" />
         <option value="$PROJECT_DIR$/www/directive/ng.ui.modal-window.js" />
@@ -156,6 +101,8 @@
         <option value="$PROJECT_DIR$/www/stylesheets/sass/project.scss" />
         <option value="$PROJECT_DIR$/www/app/controller.js" />
         <option value="$PROJECT_DIR$/www/project.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
       </list>
     </option>
   </component>
@@ -194,9 +141,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,7 +173,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -357,7 +362,19 @@
       <option name="project" value="LOCAL" />
       <updated>1442732203770</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Lesson scree init commit.">
+      <created>1446392173142</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1446392173142</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Lesson scree init commit.">
+      <created>1446392808641</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1446392808641</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -378,17 +395,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2366958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -405,14 +422,41 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Init Commit of book platform." />
-    <option name="LAST_COMMIT_MESSAGE" value="Init Commit of book platform." />
+    <MESSAGE value="Lesson scree init commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson scree init commit." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/app/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="60" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="243" column="47" selection-start-line="243" selection-start-column="47" selection-end-line="243" selection-end-column="47" />
+          <folding>
+            <element signature="e#2735#3877#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/_global.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/app/Screens/MainScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65543646">
@@ -424,20 +468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14263074">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/preload.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35816166">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61806655">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -459,7 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47543582">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -474,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04754358">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -496,7 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -504,7 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36030534">
           <caret line="6798" column="34" selection-start-line="6798" selection-start-column="23" selection-end-line="6798" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -543,19 +569,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/project.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5812183">
-          <caret line="1038" column="26" selection-start-line="1038" selection-start-column="26" selection-end-line="1038" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/device/bootstrap_desktop.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4054054">
           <caret line="185" column="13" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -570,7 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45310014">
           <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,13 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55130166">
           <caret line="5926" column="21" selection-start-line="5926" selection-start-column="21" selection-end-line="5926" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5246423">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -676,12 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38034865">
           <caret line="423" column="28" selection-start-line="423" selection-start-column="28" selection-end-line="423" selection-end-column="28" />
-          <folding>
-            <element signature="e#494#11402#0" expanded="false" />
-            <element signature="e#14093#14594#0" expanded="false" />
-            <element signature="e#14664#15165#0" expanded="false" />
-            <element signature="e#15228#16091#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -715,19 +718,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/_global.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
+        <state vertical-scroll-proportion="0.19077902">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.666667">
-          <caret line="243" column="47" selection-start-line="243" selection-start-column="47" selection-end-line="243" selection-end-column="47" />
-          <folding>
-            <element signature="e#2735#3877#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,23 +728,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5206107">
           <caret line="1410" column="39" selection-start-line="1410" selection-start-column="39" selection-end-line="1410" selection-end-column="39" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/preload.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49122807">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34351146">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="60" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.47328246">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.046104927">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3598775">
+          <caret line="101" column="13" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/project.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8621746">
+          <caret line="1293" column="0" selection-start-line="1293" selection-start-column="0" selection-end-line="1293" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5246423">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5246423">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="e#2735#3877#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7860539">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.28616852">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

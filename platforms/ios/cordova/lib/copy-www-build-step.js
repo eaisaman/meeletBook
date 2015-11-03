@@ -65,14 +65,17 @@ shell.rm('-rf', path.join(dstDir, 'PkgInfo'));
 shell.rm('-rf', path.join(dstDir, 'embedded.mobileprovision'));
 
 // Copy www dir recursively
+
+
 if(!!COPY_HIDDEN) {
     shell.mkdir('-p', dstWwwDir);
     shell.cp('-r', glob.sync(srcDir + '/**', { dot: true }), dstWwwDir);
-    shell.cp('-rf', glob.sync(baseSrcDir + '/**', { dot: true, ignore: ['**/sass'] }), dstWwwDir);
 } else {
     shell.cp('-r', srcDir, dstDir);
-    shell.cp('-rf', baseSrcDir, dstDir);
 }
+
+shell.exec("cp -RLf " + baseSrcDir + " " + dstDir, {silent:true});
+shell.rm('-rf', glob.sync(dstWwwDir + '/**/sass'));
 
 // Copy the config.xml file.
 shell.cp('-f', path.join(path.dirname(PROJECT_FILE_PATH), path.basename(PROJECT_FILE_PATH, '.xcodeproj'), 'config.xml'),

@@ -2,6 +2,7 @@ requirejs.config(
     {
         paths: {
             "widget.anchor": DIRECTIVE_LIB_PATH + "widget.anchor",
+            "ng.ui.include.replace": DIRECTIVE_LIB_PATH + "ng.ui.include.replace",
             "ng.ui.data": DIRECTIVE_LIB_PATH + "ng.ui.data",
             "ng.ui.multi-transclude": DIRECTIVE_LIB_PATH + "ng.ui.multi-transclude",
             "ng.ui.modal-window": DIRECTIVE_LIB_PATH + "ng.ui.modal-window",
@@ -13,6 +14,7 @@ requirejs.config(
 define([
         "app-extension",
         "widget.anchor",
+        "ng.ui.include.replace",
         "ng.ui.data",
         "ng.ui.multi-transclude",
         "ng.ui.modal-window",
@@ -26,17 +28,20 @@ define([
             //widget-anchor directive
             directiveConfigs[0](appModule, extension);
 
-            //Data directive
-            directiveConfigs[1](appModule, extension);
+            //Include Replace directive
+            directiveConfigs[1](appModule);
 
-            //Multi transclude directive
+            //Data directive
             directiveConfigs[2](appModule, extension);
 
-            //Modal window directive
+            //Multi transclude directive
             directiveConfigs[3](appModule, extension);
 
-            //Side bar directive
+            //Modal window directive
             directiveConfigs[4](appModule, extension);
+
+            //Side bar directive
+            directiveConfigs[5](appModule, extension);
         }
     }
 );
