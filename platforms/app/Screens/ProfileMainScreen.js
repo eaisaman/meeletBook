@@ -74,7 +74,7 @@ var ProfileMainScreen = React.createClass({
             titleIconName = 'favorite';
             break;
           case "settings":
-            titleIconName = 'build';
+            titleIconName = 'settings';
             break;
         }
 

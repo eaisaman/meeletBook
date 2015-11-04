@@ -115,7 +115,7 @@ var ProfileScreen = React.createClass({
         case "btn_settings":
           return (
           <TouchableOpacity style={[styles.row,]} onPress={this.routeSettings}>
-            <View style={styles.btnRow}><Icon name='build' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>设置</Text></View>
+            <View style={styles.btnRow}><Icon name='settings' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>设置</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
             </View>
