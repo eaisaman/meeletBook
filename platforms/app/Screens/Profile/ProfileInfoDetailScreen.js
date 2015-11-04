@@ -5,85 +5,185 @@ var React = require('react-native');
 var {
   Navigator,
   StyleSheet,
+  ListView,
   Text,
   TouchableOpacity,
   View
 } = React;
 
+var rowIds = [["profilePhoto", "name", "id", "QRCode", "gender", "region", "signature"]];
+var dataBlob = {};
+var sectionIds = ["*"];
+for (let sectionId of sectionIds) {
+  dataBlob[sectionId] = sectionId;
+}
 
 var ProfileInfoDetailScreen = React.createClass({
   getInitialState: function() {
-    return {showNavBar:false};
-  },
+    var dataSource = new ListView.DataSource({
+      getRowData: (dataBlob, sectionId, rowId) => rowId,
+      getSectionHeaderData: (dataBlob, sectionId) => sectionId,
+      rowHasChanged: (row1, row2) => row1 !== row2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+    });
 
+    return {
+      dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
+      clicked: 'none'
+    };
+  },
+  renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
+    if (sectionId === "*") {
+      switch(rowId) {
+        case "profilePhoto":
+          return (
+            <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>头像</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+        case "name":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>昵称</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+        case "id":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>帐号</Text></View>
+          </TouchableOpacity>
+          );
+        break;
+        case "QRCode":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>二维码</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+        case "gender":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>性别</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+        case "region":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>地区</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+        case "signature":
+          return (
+          <TouchableOpacity style={[styles.row,]}>
+            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>个性签名</Text></View>
+            <View style={styles.arrow}>
+              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableOpacity>
+          );
+        break;
+      }
+    }
+
+    return rowData && (<Thumb text={rowData.name}/>) || null;
+  },
+  renderSectionHeader: function(sectionData: string, sectionId: string) {
+    return null;
+  },
   render: function() {
     return (
-      <View style={styles.test}><Text>123</Text></View>
+      <View style={styles.screen}>
+        <ListView
+            style={styles.listview}
+            dataSource={this.state.dataSource}
+            renderSectionHeader={this.renderSectionHeader}
+            renderRow={this.renderRow}
+            initialListSize={10}
+          ></ListView>
+        </View>
     );
   }
 });
 
 var styles = StyleSheet.create({
-   test: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-    backgroundColor: '#dde1dc',
-  },
   screen: {
+    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     flex: 1,
+    backgroundColor: '#dde1dc'
   },
-  scene: {
-    flex: 1,
+  listview: {
   },
-  navBar: {
-    backgroundColor: '#666666',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    opacity: 0,
-  },
-  navBarLeftButton: {
-    paddingLeft: 10,
-    width: 36,
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  navBarRightButton: {
-    paddingRight: 10,
-    width: 36,
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  navButtonIcon: {
-    flex: 1,
-    alignSelf: 'center',
-    color: "white",
-  },
-  title: {
-    width: 120,
-    alignSelf: 'center',
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
+  header: {
+    height: 80,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    backgroundColor: 'white',
     flexDirection: 'row',
+    marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
   },
-  titleText: {
+  avartar: {
     flex: 1,
-    fontSize: 18,
-    color: 'white',
-    textAlign: 'left',
-    fontWeight: 'bold',
-    marginHorizontal: 10,
   },
-  titleIconPlaceholder: {
-    width: 24,
-    height: Navigator.NavigationBar.Styles.General.NavBarHeight,
-    justifyContent: 'center',
+  nameList: {
+    flex: 1,
+    marginHorizontal: 5,
+  },
+  arrow: {
+    flex: 1,
+    justifyContent: 'flex-end',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: "transparent",
-  }
+  },
+  userName: {
+    fontSize: 16,
+    height: 24,
+    marginVertical: 3,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
+    backgroundColor: 'white',
+    borderRadius: 3,
+  },
+  btnRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 1,
+  },
+  btn: {
+    width: 40,
+    height: 40,
+  },
+  btnLabel: {
+    fontSize: 16,
+  },
 });
 
 module.exports = ProfileInfoDetailScreen;
