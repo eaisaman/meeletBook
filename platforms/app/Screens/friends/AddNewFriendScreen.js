@@ -40,51 +40,98 @@ var {
 var Thumb = React.createClass({
   getInitialState: function() {
     return {
-      btnValue:'accept'
+      btnValue:''
     };
     // return {};
   },
   componentDidMount: function () {
-    // if(this.props.data.status !== 'accept'){
-    //   this.state.opacity = 0;
-    // }
-    this.state.btnValue = this.props.data.status;
+    this.setState({btnValue: this.props.data.status});
   },
   onAccept: function(){
-    // alert('zzzz');
-    // this.state.btnValue = 'accept';
-    // alert(this.state.btnValue );
+    this.setState({btnValue: 'accept'});
   },
   render: function() {
     var TouchableElement = TouchableHighlight;
-    return (
-      <TouchableHighlight underlayColor='#dddddd'
-        onPress={()=> {
-            this.props.selectSubView(this.props.data.name);
-        }}>
-				<View>
-					<View style={styles.rowContainer}>
-						<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
-						<View style={styles.textContainer}>
-							<Text style={styles.name}>{this.props.data.name}</Text>
-							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
-						</View>
-            <View style={[styles.rowVertical]}>
-              {
-                this.props.data.status === 'accept' ?
-                  <Text style={styles.status} >已接受</Text> :
-                  <TouchableElement
-                    style={styles.btnWarp}
-                    onPress={()=>this.onAccept()}>
-                      <Text style={styles.btn}>未接受</Text>
-                  </TouchableElement>
-              }
-            </View>
-					</View>
-					<View style={styles.separator} />
-				</View>
-			</TouchableHighlight>
-    );
+    if (this.state.btnValue === 'accept'){
+      return (
+        <TouchableHighlight underlayColor='#dddddd'
+          onPress={()=> {
+              this.props.selectSubView(this.props.data.name);
+          }}>
+  				<View>
+  					<View style={styles.rowContainer}>
+  						<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
+  						<View style={styles.textContainer}>
+  							<Text style={styles.name}>{this.props.data.name}</Text>
+  							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
+  						</View>
+              <View style={[styles.rowVertical]}>
+                <Text style={styles.status} >已接受</Text>
+              </View>
+  					</View>
+  					<View style={styles.separator} />
+  				</View>
+  			</TouchableHighlight>
+      );
+    }else {
+      return (
+        <TouchableHighlight underlayColor='#dddddd'
+          onPress={()=> {
+              this.props.selectSubView(this.props.data.name);
+          }}>
+  				<View>
+  					<View style={styles.rowContainer}>
+  						<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
+  						<View style={styles.textContainer}>
+  							<Text style={styles.name}>{this.props.data.name}</Text>
+  							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
+  						</View>
+              <View style={[styles.rowVertical]}>
+              <TouchableElement
+                style={styles.btnWarp}
+                onPress={()=>this.onAccept()}>
+                  <Text style={styles.btn}>未接受</Text>
+              </TouchableElement>
+              </View>
+  					</View>
+  					<View style={styles.separator} />
+  				</View>
+  			</TouchableHighlight>
+      );
+    }
+
+    // var btn = function(){
+    //   if (this.props.data.status === 'accept'){
+    //     return   <Text style={styles.status} >已接受</Text>;
+    //   }else {
+        // <TouchableElement
+        //   style={styles.btnWarp}
+        //   onPress={()=>this.onAccept()}>
+        //     <Text style={styles.btn}>未接受</Text>
+        // </TouchableElement>
+    //   }
+    //
+    // };
+    // return (
+    //   <TouchableHighlight underlayColor='#dddddd'
+    //     onPress={()=> {
+    //         this.props.selectSubView(this.props.data.name);
+    //     }}>
+		// 		<View>
+		// 			<View style={styles.rowContainer}>
+		// 				<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
+		// 				<View style={styles.textContainer}>
+		// 					<Text style={styles.name}>{this.props.data.name}</Text>
+		// 					<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
+		// 				</View>
+    //         <View style={[styles.rowVertical]}>
+    //           ()
+    //         </View>
+		// 			</View>
+		// 			<View style={styles.separator} />
+		// 		</View>
+		// 	</TouchableHighlight>
+    // );
   }
   // render: function() {
   //   return (
