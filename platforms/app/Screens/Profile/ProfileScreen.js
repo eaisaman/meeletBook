@@ -95,7 +95,7 @@ var ProfileScreen = React.createClass({
         case "btn_album":
           return (
           <TouchableOpacity style={[styles.row,]} onPress={this.routePhotoAlbum}>
-            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>相册</Text></View>
+            <View style={styles.btnRow}><Icon name='local-see' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>相册</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
             </View>
@@ -105,7 +105,7 @@ var ProfileScreen = React.createClass({
         case "btn_collection":
           return (
           <TouchableOpacity style={[styles.row,]} onPress={this.routeFavorites}>
-            <View style={styles.btnRow}><Icon name='folder-special' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>收藏</Text></View>
+            <View style={styles.btnRow}><Icon name='favorite' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>收藏</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
             </View>
@@ -115,7 +115,7 @@ var ProfileScreen = React.createClass({
         case "btn_settings":
           return (
           <TouchableOpacity style={[styles.row,]} onPress={this.routeSettings}>
-            <View style={styles.btnRow}><Icon name='settings' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>设置</Text></View>
+            <View style={styles.btnRow}><Icon name='build' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>设置</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
             </View>
@@ -151,7 +151,7 @@ var ProfileScreen = React.createClass({
     if(this.state.loginedUser.loginName == null)
       this.setState({isModalOpen: true});
     else
-      this.routeProfileDetail("detail");
+      this.routeProfileDetail("个人详情");
   },
 
   closeModal() {
@@ -168,25 +168,21 @@ var ProfileScreen = React.createClass({
 
   routeProfileDetail: function(title) {
     this.props.mainScreen.showNavBar();
-
     this.props.navigator.push({id:"profileInfoDetail", title:title});
   },
 
   routePhotoAlbum: function(){
     this.props.mainScreen.showNavBar();
-
     this.props.navigator.push({id:"photoAlbum", title:"相册"});
   },
 
   routeFavorites: function(){
     this.props.mainScreen.showNavBar();
-
     this.props.navigator.push({id:"favorites", title:"收藏"});
   },
 
   routeSettings: function(){
     this.props.mainScreen.showNavBar();
-
     this.props.navigator.push({id:"settings", title:"设置"});
   },
 

@@ -65,7 +65,16 @@ var ProfileMainScreen = React.createClass({
             titleIconName = 'format-list-bulleted';
             break;
           case "profileInfoDetail":
-            titleIconName = 'textsms';
+            titleIconName = 'account-circle';
+            break;
+          case "photoAlbum":
+            titleIconName = 'local-see';
+            break;
+          case "favorites":
+            titleIconName = 'favorite';
+            break;
+          case "settings":
+            titleIconName = 'build';
             break;
         }
 
