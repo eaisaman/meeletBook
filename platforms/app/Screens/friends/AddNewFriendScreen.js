@@ -5,14 +5,16 @@ let list = [
   {
   "_id" : "52591a12c763d5e45855639a",
     "name" : "陈昌申",
-    "content" : "自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
-    "time": now.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+    "desc" : "通过xx查找加入",
+    "status": "accept",
+    "img_url":'book-1.png'
   },
   {
   "_id" : "52591a12c763d5r45855639a",
-    "name" : "昌申",
-    "content" : "自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
-    "time": now.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+  "name" : "张三",
+  "desc" : "我是xxxx",
+  "status": "request",
+  "img_url":'book-1.png'
   },
 
 ];
@@ -21,6 +23,7 @@ var React = require('react-native');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var TimerMixin = require('react-timer-mixin');
 var LinearGradient = require('react-native-linear-gradient');
+var FriendUserScreen = require('./FriendUserScreen');
 var {
   AlertIOS,
   Navigator,
@@ -30,30 +33,57 @@ var {
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
+  TouchableHighlight,
   View,
 } = React;
 
 var Thumb = React.createClass({
   getInitialState: function() {
-    return {};
+    return {
+      btnValue:'accept'
+    };
+    // return {};
+  },
+  componentDidMount: function () {
+    // if(this.props.data.status !== 'accept'){
+    //   this.state.opacity = 0;
+    // }
+    this.state.btnValue = this.props.data.status;
+  },
+  onAccept: function(){
+    // alert('zzzz');
+    // this.state.btnValue = 'accept';
+    // alert(this.state.btnValue );
   },
   render: function() {
+    var TouchableElement = TouchableHighlight;
     return (
-      <TouchableOpacity
-        onPress={this.props.onPress}
-        style={[styles.contentRow,]}>
-        <Icon name='textsms' size={40} color='#2ecc71' style={[styles.smallAvatar, ]}/>
-        <View style={[styles.thumbItem, styles.textContainer, ]}>
-          <View style={[styles.compositeItem, ]}>
-            <Text numberOfLines={1} style={[styles.thumbText, ]}>{this.props.data.name}</Text>
-            <Text style={[styles.thumbDate, ]}>{this.props.data.time}</Text>
-          </View>
-          <View style={[styles.textItem, ]}>
-            <Text numberOfLines={1} style={[styles.thumbText]}>{this.props.data.content}</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
+      <TouchableHighlight underlayColor='#dddddd'
+        onPress={()=> {
+            this.props.selectSubView(this.props.data.name);
+        }}>
+				<View>
+					<View style={styles.rowContainer}>
+						<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
+						<View style={styles.textContainer}>
+							<Text style={styles.name}>{this.props.data.name}</Text>
+							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
+						</View>
+            <View style={[styles.rowVertical]}>
+              {
+                this.props.data.status === 'accept' ?
+                  <Text style={styles.status} >已接受</Text> :
+                  <TouchableElement
+                    style={styles.btnWarp}
+                    onPress={()=>this.onAccept()}>
+                      <Text style={styles.btn}>未接受</Text>
+                  </TouchableElement>
+              }
+            </View>
+					</View>
+					<View style={styles.separator} />
+				</View>
+			</TouchableHighlight>
     );
   }
   // render: function() {
@@ -138,7 +168,7 @@ var AddNewFriendScreen = React.createClass({
     //   }
     // }
 
-    return rowData && (<Thumb data={rowData} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
+    return rowData && (<Thumb data={rowData} selectSubView={this.selectSubView}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -183,6 +213,14 @@ var AddNewFriendScreen = React.createClass({
     );
   },
 
+  selectSubView:function(title){
+    this.props.navigator.push({
+      title:title,
+      component:FriendUserScreen,
+      passProps:{navigator: this.props.navigator}
+    })
+  },
+
   updateSearchInput: function(text) {
     this.clearTimeout(this.timeoutId);
     this.timeoutId = this.setTimeout(() => this.doSearch(text), 100);
@@ -216,79 +254,125 @@ var AddNewFriendScreen = React.createClass({
     })
   }
 });
-
 var styles = StyleSheet.create({
   listview: {
-    backgroundColor: '#dde1dc',
     marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   },
-  header: {
-    height: 60,
+	thumb: {
+		width: 80,
+		height: 80,
+		marginRight: 10
+	},
+	textContainer: {
+		flex: 1
+	},
+	separator: {
+		height: 1,
+		backgroundColor: '#dddddd'
+	},
+	name: {
+		fontSize: 25,
+		fontWeight: 'bold',
+		color: '#48BBEC'
+	},
+	title: {
+		fontSize: 20,
+		color: '#656565'
+	},
+  status:{
+    marginRight:100,
+    // flexDirection: 'row',
+  },
+  rowVertical:{
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#dde1dc',
-    flexDirection: 'row',
+    height: 80,
   },
-  searchInput: {
-    backgroundColor: 'white',
-    borderColor: '#cccccc',
-    borderRadius: 3,
-    borderWidth: 0.5,
-    marginHorizontal: 10,
-    marginVertical: 10,
-    height: 40,
-    flex: 1,
-    fontSize: 24,
-    textAlign: "center",
-  },
-  thumbText: {
-    fontSize: 20,
-    color: '#888888',
-    textAlign: "left",
-  },
-  friendRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginHorizontal: 5,
-    marginVertical: 3,
-    padding: 5,
-    backgroundColor: 'white',
-    borderRadius: 3,
-  },
-  btnRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    flex: 1,
-  },
-  btn: {
-    width: 40,
-    height: 40,
-  },
-  btnLabel: {
-    fontSize: 16,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginHorizontal: 5,
-    backgroundColor: '#dde1dc',
-    borderRadius: 3,
-  },
-  linearGradient: {
-    flex: 1,
-    height: 40,
-  },
-  sectionTitle: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'left',
-    backgroundColor: 'transparent',
-    marginLeft: 10,
-    marginVertical: 12,
-  },
+	rowContainer: {
+		flexDirection: 'row',
+		padding: 10
+	},
+  btnWarp : {
+    	borderWidth : 1,
+    	padding : 5,
+    	borderColor : '#3164ce',
+    	borderRadius : 3
+    },
+    btn : {
+    	color : '#3164ce'
+    }
 });
+// var styles = StyleSheet.create({
+  // listview: {
+  //   backgroundColor: '#dde1dc',
+  //   marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+  // },
+//   header: {
+//     height: 60,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#dde1dc',
+//     flexDirection: 'row',
+//   },
+//   searchInput: {
+//     backgroundColor: 'white',
+//     borderColor: '#cccccc',
+//     borderRadius: 3,
+//     borderWidth: 0.5,
+//     marginHorizontal: 10,
+//     marginVertical: 10,
+//     height: 40,
+//     flex: 1,
+//     fontSize: 24,
+//     textAlign: "center",
+//   },
+//   thumbText: {
+//     fontSize: 20,
+//     color: '#888888',
+//     textAlign: "left",
+//   },
+//   friendRow: {
+//     flexDirection: 'row',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     marginHorizontal: 5,
+//     marginVertical: 3,
+//     padding: 5,
+//     backgroundColor: 'white',
+//     borderRadius: 3,
+//   },
+//   btnRow: {
+//     flexDirection: 'row',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     flex: 1,
+//   },
+//   btn: {
+//     width: 40,
+//     height: 40,
+//   },
+//   btnLabel: {
+//     fontSize: 16,
+//   },
+//   sectionHeader: {
+//     flexDirection: 'row',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     marginHorizontal: 5,
+//     backgroundColor: '#dde1dc',
+//     borderRadius: 3,
+//   },
+//   linearGradient: {
+//     flex: 1,
+//     height: 40,
+//   },
+//   sectionTitle: {
+//     color: 'white',
+//     fontSize: 16,
+//     textAlign: 'left',
+//     backgroundColor: 'transparent',
+//     marginLeft: 10,
+//     marginVertical: 12,
+//   },
+// });
 
 module.exports = AddNewFriendScreen;

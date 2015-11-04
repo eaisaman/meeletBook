@@ -5,6 +5,7 @@ var {
     AsyncStorage,
     StyleSheet,
     TabBarIOS,
+    NavigatorIOS,
     Text,
     View,
     } = React;
@@ -34,6 +35,16 @@ var MainScreen = React.createClass({
             </View>
         );
     },
+    _renderNavContent: function (title, component) {
+      return (
+        <NavigatorIOS
+          style = {styles.container}
+          initialRoute={{
+            title: title,
+            component: component
+          }} />
+      );
+    },
 
     render: function () {
         return (
@@ -58,7 +69,7 @@ var MainScreen = React.createClass({
                         this.setState({selectedTab: 'friendsTab',});
                     }}
                     >
-                    <FriendScreen></FriendScreen>
+                    {this._renderNavContent('组群', FriendScreen)}
                 </Icon.TabBarItem>
                 <Icon.TabBarItem
                     title="学习"
@@ -96,6 +107,9 @@ var styles = StyleSheet.create({
         color: 'white',
         margin: 50,
     },
+    container: {
+      flex: 1
+    }
 });
 
 module.exports = MainScreen;
