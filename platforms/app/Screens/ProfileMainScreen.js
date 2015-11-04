@@ -13,6 +13,9 @@ var {
 
 var ProfileScreen = require('./Profile/ProfileScreen');
 var ProfileInfoDetailScreen = require('./Profile/ProfileInfoDetailScreen');
+var PhotoAlbumScreen = require('./Profile/PhotoAlbumScreen');
+var FavoritesScreen = require('./Profile/FavoritesScreen');
+var SettingsScreen = require('./Profile/SettingsScreen');
 
 var ProfileMainScreen = React.createClass({
   getInitialState: function() {
@@ -84,6 +87,12 @@ var ProfileMainScreen = React.createClass({
             return <ProfileScreen navigator={nav} mainScreen={this} style={styles.scene}/>;
         case 'profileInfoDetail':
             return <ProfileInfoDetailScreen navigator={nav} style={styles.scene}/>;
+        case 'photoAlbum':
+            return <PhotoAlbumScreen navigator={nav} style={styles.scene}/>;
+        case 'favorites':
+            return <FavoritesScreen navigator={nav} style={styles.scene}/>;
+        case 'settings':
+            return <SettingsScreen navigator={nav} style={styles.scene}/>;
         default:
             return <View />;
     }
