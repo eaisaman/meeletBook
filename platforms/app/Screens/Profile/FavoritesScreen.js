@@ -3,6 +3,8 @@
 var React = require('react-native');
 
 var {
+  Animated,
+  Dimensions,
   Navigator,
   StyleSheet,
   Text,
@@ -219,6 +221,17 @@ var styles = StyleSheet.create({
   },
   btnLabel: {
     fontSize: 16,
+  },
+  searchInput: {
+    flex: 1,
+    alignSelf: "center",
+    color: "white",
+    backgroundColor: 'transparent',
+    borderRadius: 3,
+    marginLeft: 10,
+    height: 24,
+    fontSize: 18,
+    textAlign: "left",
   }
 });
 
