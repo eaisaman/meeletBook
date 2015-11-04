@@ -161,14 +161,24 @@ var {
 
 var Thumb = React.createClass({
   getInitialState: function() {
-    return {};
+    return {
+      checked:false
+    };
+  },
+  onCheck:function(){
+    this.setState({checked:!this.state.checked})
   },
   render: function() {
     return (
       <TouchableOpacity
-        onPress={this.props.onPress}
+        onPress={this.onCheck}
         style={[styles.friendRow,]}>
         <Text style={styles.thumbText}>{this.props.text}</Text>
+        <Text style={styles.mright}>
+        {
+          this.state.checked ? '选中' : ''
+        }
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -341,6 +351,7 @@ var styles = StyleSheet.create({
     fontSize: 20,
     color: '#888888',
     textAlign: "left",
+    flex:1
   },
   friendRow: {
     flexDirection: 'row',

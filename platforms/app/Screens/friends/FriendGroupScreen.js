@@ -162,14 +162,24 @@ var {
 
 var Thumb = React.createClass({
   getInitialState: function() {
-    return {};
+    return {
+      checked:false
+    };
+  },
+  onCheck:function(){
+    this.setState({checked:!this.state.checked})
   },
   render: function() {
     return (
       <TouchableOpacity
-        onPress={this.props.onPress}
+        onPress={this.onCheck}
         style={[styles.friendRow,]}>
         <Text style={styles.thumbText}>{this.props.text}</Text>
+        <Text style={styles.mright}>
+        {
+          this.state.checked ? '选中' : ''
+        }
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -203,38 +213,13 @@ var FriendGroupScreen = React.createClass({
     };
   },
 
-  routeTalk: function(title) {
-    this.props.mainScreen.showNavBar();
-
-    this.props.navigator.push({id:"talk", title:title});
-  },
+  // routeTalk: function(title) {
+  //   this.props.mainScreen.showNavBar();
+  //
+  //   this.props.navigator.push({id:"talk", title:title});
+  // },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    // if (sectionId === "*") {
-    //   switch(rowId) {
-    //     case "btn_add_friend":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //     case "btn_add_group":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //     case "btn_join_talk":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //   }
-    // }
 
     return rowData && (<Thumb text={rowData.name}/>) || null;
   },
@@ -327,6 +312,9 @@ var styles = StyleSheet.create({
     backgroundColor: '#dde1dc',
     flexDirection: 'row',
   },
+  mright:{
+    marginRight:100,
+  },
   searchInput: {
     backgroundColor: 'white',
     borderColor: '#cccccc',
@@ -343,6 +331,7 @@ var styles = StyleSheet.create({
     fontSize: 20,
     color: '#888888',
     textAlign: "left",
+    flex: 1
   },
   friendRow: {
     flexDirection: 'row',

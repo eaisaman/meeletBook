@@ -99,49 +99,7 @@ var Thumb = React.createClass({
   			</TouchableHighlight>
       );
     }
-
-    // var btn = function(){
-    //   if (this.props.data.status === 'accept'){
-    //     return   <Text style={styles.status} >已接受</Text>;
-    //   }else {
-        // <TouchableElement
-        //   style={styles.btnWarp}
-        //   onPress={()=>this.onAccept()}>
-        //     <Text style={styles.btn}>未接受</Text>
-        // </TouchableElement>
-    //   }
-    //
-    // };
-    // return (
-    //   <TouchableHighlight underlayColor='#dddddd'
-    //     onPress={()=> {
-    //         this.props.selectSubView(this.props.data.name);
-    //     }}>
-		// 		<View>
-		// 			<View style={styles.rowContainer}>
-		// 				<Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
-		// 				<View style={styles.textContainer}>
-		// 					<Text style={styles.name}>{this.props.data.name}</Text>
-		// 					<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
-		// 				</View>
-    //         <View style={[styles.rowVertical]}>
-    //           ()
-    //         </View>
-		// 			</View>
-		// 			<View style={styles.separator} />
-		// 		</View>
-		// 	</TouchableHighlight>
-    // );
   }
-  // render: function() {
-  //   return (
-  //     <TouchableOpacity
-  //       onPress={this.props.onPress}
-  //       style={[styles.friendRow,]}>
-  //       <Text style={styles.thumbText}>{this.props.text}</Text>
-  //     </TouchableOpacity>
-  //   );
-  // }
 });
 
 var dataBlob = {};
