@@ -32,7 +32,7 @@ var ProfileMainScreen = React.createClass({
         var titleIconName;
         switch(previousRoute.id) {
           case "list":
-            titleIconName = 'format-list-bulleted';
+            titleIconName = 'chevron-left';
             break;
           case "profileInfoDetail":
             titleIconName = 'textsms';
