@@ -141,7 +141,7 @@ var FavoritesScreen = React.createClass({
   render() {
     return (
       <ListView
-        style={styles.listview}
+        style={[styles.screen, styles.listview]}
         dataSource={this.state.dataSource}
         renderHeader={this.renderHeader}
         renderRow={this.renderRow}
