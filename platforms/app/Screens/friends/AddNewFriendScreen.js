@@ -56,7 +56,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name);
+              this.props.selectSubView(this.props.data.name,this.props.data._id);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -77,7 +77,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name);
+              this.props.selectSubView(this.props.data.name,this.props.data._id);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -147,32 +147,6 @@ var AddNewFriendScreen = React.createClass({
   },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    // if (sectionId === "*") {
-    //   switch(rowId) {
-    //     case "btn_add_friend":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //     case "btn_add_group":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //     case "btn_join_talk":
-    //       return (
-    //       <TouchableOpacity style={[styles.friendRow,]}>
-    //         <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
-    //       </TouchableOpacity>
-    //       );
-    //     break;
-    //   }
-    // }
-
     return rowData && (<Thumb data={rowData} selectSubView={this.selectSubView}/>) || null;
   },
 
@@ -218,12 +192,18 @@ var AddNewFriendScreen = React.createClass({
     );
   },
 
-  selectSubView:function(title){
+  selectSubView:function(title,uid){
     this.props.navigator.push({
       title:title,
       component:FriendUserScreen,
-      passProps:{navigator: this.props.navigator}
+      rightButtonTitle:'...',
+      onRightButtonPress:this.onClick,
+      passProps:{navigator: this.props.navigator,uid:uid}
     })
+  },
+
+  onClick:function(){
+    alert('xxx');
   },
 
   updateSearchInput: function(text) {

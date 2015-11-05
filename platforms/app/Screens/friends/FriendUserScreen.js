@@ -4,14 +4,10 @@ var _ = require('lodash')
 var React = require('react-native');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var BlurView = require('react-native-blur').BlurView;
-var TForm = require('tcomb-form-native');
-var Form = TForm.form.Form;
 var {
   AlertIOS,
   Image,
   LayoutAnimation,
-  ListView,
-  Modal,
   StyleSheet,
   Text,
   TextInput,
@@ -19,148 +15,57 @@ var {
   TouchableHighlight,
   View,
   Navigator,
+  ScrollView,
 } = React;
 
-var loginUser = {
-      "_id" : "52591a12c763d5e4585563b4",
-      "name" : "毕嘉利",
-      "loginName" : "bijiali14"
-    };
-var Account = TForm.struct({loginName:TForm.Str, password:TForm.Str}, "Account");
-var AccountOptions = {
-  fields: {
-    loginName: {
-      label: '用户名'
-    },
-    password: {
-      label: '密码',
-      password: true,
-      secureTextEntry: true,
-    },
-  },
-  stylesheet: _.cloneDeep(Form.stylesheet)
-};
-
-_.extend(_.property("textbox.normal")(AccountOptions.stylesheet), {
-  width: 300,
-  backgroundColor: "white",
-  borderColor: "#2ecc71",
-});
-
-var dataBlob = {};
-var sectionIds = ["*"];
-var rowIds = [["btn_album", "btn_collection", "btn_settings"]];
-for (let sectionId of sectionIds) dataBlob[sectionId] = sectionId;
 var FriendUserScreen = React.createClass({
   getInitialState: function() {
-    var dataSource = new ListView.DataSource({
-      getRowData: (dataBlob, sectionId, rowId) => rowId,
-      getSectionHeaderData: (dataBlob, sectionId) => sectionId,
-      rowHasChanged: (row1, row2) => row1 !== row2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
-    });
-
     return {
-      dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
-      isModalOpen: false,
+      userInfo:{
+        img_url:'book-1.png'
+      }
     };
   },
-
-  renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    if (sectionId === "*") {
-      switch(rowId) {
-        case "btn_album":
-          return (
-          <TouchableOpacity style={[styles.row,]}>
-            <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>相册</Text></View>
-            <View style={styles.arrow}>
-              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
-            </View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_collection":
-          return (
-          <TouchableOpacity style={[styles.row,]}>
-            <View style={styles.btnRow}><Icon name='folder-special' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>收藏</Text></View>
-            <View style={styles.arrow}>
-              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
-            </View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_settings":
-          return (
-          <TouchableOpacity style={[styles.row,]}>
-            <View style={styles.btnRow}><Icon name='settings' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>设置</Text></View>
-            <View style={styles.arrow}>
-              <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
-            </View>
-          </TouchableOpacity>
-          );
-        break;
-      }
-    }
-
-    return rowData && (<Thumb text={rowData.name}/>) || null;
+  componentDidMount: function () {
+    // alert(this.props.uid);
+    // this._fetchData(this.props.uid);
   },
-
-  renderSectionHeader: function(sectionData: string, sectionId: string) {
-    return null;
-  },
-
-  renderHeader: function() {
-    return (
-      <TouchableOpacity style={[styles.header,]} onPress={this.openModal}>
-        <Icon name='account-circle' size={60} color='#2ecc71' style={styles.avatar}/>
-        <View style={styles.nameList}>
-          <Text style={styles.userName}>{loginUser.name}</Text>
-          <Text style={styles.userName}>帐号: {loginUser.loginName}</Text>
-        </View>
-        <View style={styles.arrow}>
-          <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
-        </View>
-      </TouchableOpacity>
-    );
-  },
-
-  openModal() {
-    this.setState({isModalOpen: true});
-  },
-
-  closeModal() {
-    this.setState({isModalOpen: false});
-  },
+  // _fetchData: function (groupName) {
+  //   var that = this;
+  //   //todo get userInfo by uid
+  // },
 
   render: function() {
       return (
-        <View style={styles.screen}>
-          <ListView
-            style={styles.listview}
-            dataSource={this.state.dataSource}
-            renderHeader={this.renderHeader}
-            renderSectionHeader={this.renderSectionHeader}
-            renderRow={this.renderRow}
-            initialListSize={10}
-          />
-
-          <Modal animated={true} transparent={true} visible={this.state.isModalOpen}>
-            <BlurView style={styles.modalBackground} blurType="light">
-              <View style={styles.modalContent}>
-                <Icon name='wb-incandescent' size={80} color='#2ecc71' style={styles.modalItem}/>
-                <View style={[styles.modalItem, styles.formContainer, ]}>
-                  <Form ref="accountForm" type={Account} options={AccountOptions} style={styles.accountForm}/>
-                </View>
-                <TouchableHighlight style={[styles.button, styles.modalItem, ]} underlayColor='#27ae60'>
-                  <Text style={styles.buttonText}>登录</Text>
-                </TouchableHighlight>
-                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.closeModal} underlayColor='#27ae60'>
-                  <Text style={styles.buttonText}>取消</Text>
-                </TouchableHighlight>
-              </View>
-            </BlurView>
-          </Modal>
+        <ScrollView style={styles.screen}>
+        <TouchableOpacity style={[styles.header,]}>
+          <Icon name='account-circle' size={60} color='#2ecc71' style={styles.avatar}/>
+          <View style={styles.nameList}>
+            <Text style={styles.userName}>{this.props.uid}</Text>
+            <Text style={styles.userName}>帐号: sdf</Text>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.section}>
+          <View style={styles.row}>
+            <Text style={styles.txtLeft}>地区</Text>
+            <Text style={styles.txtLeft}>上海</Text>
+          </View>
+          <TouchableHighlight>
+            <View style={styles.row}>
+              <Text style={styles.txtLeft}>个人相册</Text>
+              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
+              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
+              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
+                <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+            </View>
+          </TouchableHighlight>
         </View>
+
+        <View>
+          <Text style={styles.button}>发消息</Text>
+        </View>
+
+        </ScrollView>
       );
     }
 })
@@ -169,9 +74,6 @@ var styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: '#dde1dc',
-  },
-  listview: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   },
   header: {
     height: 80,
@@ -183,13 +85,24 @@ var styles = StyleSheet.create({
     marginVertical: 3,
     padding: 5,
   },
-  avartar: {
-    flex: 1,
-  },
-  nameList: {
-    flex: 1,
+  section:{
+    justifyContent: 'flex-start',
+    flex:1,
+    flexDirection: 'column',
+    backgroundColor: 'white',
     marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
   },
+  txtLeft:{
+    marginRight:50,
+    flexDirection:'column'
+  },
+  thumb: {
+		width: 80,
+		height: 80,
+		marginRight: 10
+	},
   arrow: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -217,37 +130,6 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  btn: {
-    width: 40,
-    height: 40,
-  },
-  btnLabel: {
-    fontSize: 16,
-  },
-  modalBackground: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalItem: {
-    flex: 1,
-    marginBottom: 10,
-    alignSelf: 'center',
-  },
-  formContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  accountForm: {
-  },
   buttonText: {
     fontSize: 18,
     color: 'white',
@@ -262,7 +144,8 @@ var styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     alignSelf: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    textAlign:'center',
   },
 });
 

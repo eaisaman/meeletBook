@@ -135,6 +135,7 @@ var FriendMainScreen = React.createClass({
     this.props.navigator.push({
       title:subName,
       component:component,
+      rightButtonTitle:'sdfsdf',
       passProps:{navigator: this.props.navigator}
     })
 
