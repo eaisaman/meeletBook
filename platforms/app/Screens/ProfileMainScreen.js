@@ -12,6 +12,7 @@ var {
 
 
 var ProfileScreen = require('./Profile/ProfileScreen');
+var ProfileMenuListScreen = require('./Profile/ProfileMenuListScreen');
 var ProfileInfoDetailScreen = require('./Profile/ProfileInfoDetailScreen');
 var PhotoAlbumScreen = require('./Profile/PhotoAlbumScreen');
 var FavoritesScreen = require('./Profile/FavoritesScreen');
@@ -108,20 +109,21 @@ var ProfileMainScreen = React.createClass({
   },
 
   render: function() {
-    return (
-      <Navigator
-        debugOverlay={false}
-        style={styles.screen}
-        initialRoute={{ id: 'list', title: ''}}
-        renderScene={this.renderScene}
-        navigationBar={
-          <Navigator.NavigationBar
-            routeMapper={this._navBarRouteMapper}
-            style={[styles.navBar, this.state.showNavBar?{opacity:1}:{opacity:0}, ]}
-          />
-        }
-      />
-    );
+    return (<ProfileMenuListScreen style={styles.screen} selectSubView={this.selectSubView}></ProfileMenuListScreen>);
+    // return (
+    //   <Navigator
+    //     debugOverlay={false}
+    //     style={styles.screen}
+    //     initialRoute={{ id: 'list', title: ''}}
+    //     renderScene={this.renderScene}
+    //     navigationBar={
+    //       <Navigator.NavigationBar
+    //         routeMapper={this._navBarRouteMapper}
+    //         style={[styles.navBar, this.state.showNavBar?{opacity:1}:{opacity:0}, ]}
+    //       />
+    //     }
+    //   />
+    // );
   },
 
   showNavBar: function() {
@@ -130,12 +132,38 @@ var ProfileMainScreen = React.createClass({
 
   hideNavBar: function() {
     this.setState({showNavBar:false});
+  },
+
+  selectSubView:function(id){
+    let component = ProfileInfoDetailScreen;
+    let subName = "";
+    if (id === 'profileInfo'){
+      component = ProfileInfoDetailScreen;
+      subName = "个人详情";
+    }else if (id === 'photoAlbum'){
+      component = PhotoAlbumScreen;
+      subName = "相册";
+    }else if (id === 'favorites'){
+      component = FavoritesScreen;
+      subName = "收藏";
+    }else if (id==='settings'){
+      component = SettingsScreen;
+      subName = "设置";
+    }
+    this.showNavBar();
+    this.props.navigator.push({
+      id: id,
+      title:subName,
+      component:component,
+      passProps:{navigator: this.props.navigator}
+    })
   }
 });
 
 
 var styles = StyleSheet.create({
   screen: {
+    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     flex: 1,
   },
   scene: {

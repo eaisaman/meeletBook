@@ -17,6 +17,8 @@ var {
 var TimerMixin = require('react-timer-mixin');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 
+var testScreen = require('../TalkScreen');
+
 var PAGE_SIZE = 4;
 var now = new Date();
 let list = [ 
@@ -89,8 +91,11 @@ var Thumb = React.createClass({
   render: function() {
     return (
       <TouchableOpacity
-        onPress={this.props.onPress}
+        onPress={()=> {
+              this.props.selectSubView('test');
+          }}
         style={[styles.contentRow,]}>
+        <View>
         <Icon name='textsms' size={40} color='#2ecc71' style={[styles.smallAvatar, ]}/>
         <View style={[styles.thumbItem, styles.textContainer, ]}>
           <View style={[styles.compositeItem, ]}>
@@ -100,6 +105,7 @@ var Thumb = React.createClass({
           <View style={[styles.textItem, ]}>
             <Text numberOfLines={1} style={[styles.thumbText]}>{this.props.data.content}</Text>
           </View>
+        </View>
         </View>
       </TouchableOpacity>
     );
@@ -116,15 +122,9 @@ var FavoritesScreen = React.createClass({
       dataSource: dataSource.cloneWithRows(list),
     };
   },
-  routeTalk: function(title) {
-    this.props.mainScreen.showNavBar();
-
-    this.props.navigator.push({id:"talk", title:title});
-  },
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    return rowData && (<Thumb data={rowData} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
+    return rowData && (<Thumb data={rowData} selectSubView={this.routeFunc}/>) || null;
   },
-
   renderHeader: function() {
     return (
       <View style={styles.header}>
@@ -139,7 +139,6 @@ var FavoritesScreen = React.createClass({
       </View>
     );
   },
-
   render() {
     return (
       <ListView
@@ -152,15 +151,30 @@ var FavoritesScreen = React.createClass({
         scrollRenderAheadDistance={2000}></ListView>
     );
   },
-
   updateSearchInput: function(text) {
     this.clearTimeout(this.timeoutId);
     this.timeoutId = this.setTimeout(() => this.doSearch(text), 100);
   },
-
   doSearch: function(text) {
     this.timeoutId = null;
-  }
+  },
+  routeFunc: function(id) {
+    this.selectSubView(id);
+  },
+  selectSubView:function(id){
+    let component = testScreen;
+    let subName = "";
+    if(id === 'test'){
+      subName = "test";
+      component = testScreen;
+    }
+    this.props.navigator.push({
+      id: id,
+      title:subName,
+      component:component,
+      passProps:{navigator: this.props.navigator}
+    })
+  },
 });
 
 var styles = StyleSheet.create({
