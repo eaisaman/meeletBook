@@ -6,6 +6,7 @@ var {
     StyleSheet,
     TabBarIOS,
     NavigatorIOS,
+    Navigator,
     Text,
     View,
     } = React;
@@ -91,7 +92,7 @@ var MainScreen = React.createClass({
                           selectedTab: 'profileTab'});
                     }}
                     >
-                    <ProfileMainScreen></ProfileMainScreen>
+                    {this._renderNavContent('个人', ProfileMainScreen)}
                 </Icon.TabBarItem>
             </TabBarIOS>
         );
