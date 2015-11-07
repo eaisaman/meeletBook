@@ -25,4 +25,13 @@ RCT_EXPORT_METHOD(getResourcePath:(NSString*)fileName callback:(RCTResponseSende
     }
 }
 
+RCT_EXPORT_METHOD(getWebResourcePath:(NSString*)fileName callback:(RCTResponseSenderBlock)callback){
+    NSString *filePath = [[[NSBundle mainBundle] pathForResource:@"www" ofType:@""] stringByAppendingPathComponent:fileName];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        callback(@[[NSNull null], filePath]);
+    } else {
+        callback(@[[NSString stringWithFormat:@"File not found at path %@", filePath], [NSNull null]]);
+    }
+}
 @end

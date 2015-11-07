@@ -25,6 +25,7 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
+#import <Pods/JSONKit/JSONKit.h>
 #import "MainViewController.h"
 
 @interface MainViewController () {
@@ -84,6 +85,7 @@
     [super viewWillAppear:animated];
 }
 
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,13 +94,16 @@
     [pinchGestureRecognizer setDelegate:self];
     
     [self.view addGestureRecognizer:pinchGestureRecognizer];
+    
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(addEventDispatcher:) withObject:self];
 }
 
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(removeEventDispatcher:) withObject:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -145,6 +150,12 @@
     return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
 }
 */
+
+#pragma mark IEventDispatcher implementation
+- (void)sendAppEventWithName:(NSString *)name body:(NSDictionary*)body
+{
+    [self.commandDelegate evalJs:[NSString stringWithFormat:@"sendAppEventWithName && sendAppEventWithName('%@', %@)", name, [body JSONString]]];
+}
 
 @end
 

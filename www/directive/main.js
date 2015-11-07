@@ -2,7 +2,9 @@ requirejs.config(
     {
         paths: {
             "widget.anchor": DIRECTIVE_LIB_PATH + "widget.anchor",
+            "ng.ui.include": DIRECTIVE_LIB_PATH + "ng.ui.include",
             "ng.ui.include.replace": DIRECTIVE_LIB_PATH + "ng.ui.include.replace",
+            "ng.ui.link": DIRECTIVE_LIB_PATH + "ng.ui.link",
             "ng.ui.data": DIRECTIVE_LIB_PATH + "ng.ui.data",
             "ng.ui.multi-transclude": DIRECTIVE_LIB_PATH + "ng.ui.multi-transclude",
             "ng.ui.modal-window": DIRECTIVE_LIB_PATH + "ng.ui.modal-window",
@@ -14,7 +16,9 @@ requirejs.config(
 define([
         "app-extension",
         "widget.anchor",
+        "ng.ui.include",
         "ng.ui.include.replace",
+        "ng.ui.link",
         "ng.ui.data",
         "ng.ui.multi-transclude",
         "ng.ui.modal-window",
@@ -28,20 +32,26 @@ define([
             //widget-anchor directive
             directiveConfigs[0](appModule, extension);
 
-            //Include Replace directive
+            //Include Base directive
             directiveConfigs[1](appModule);
 
+            //Include Replace directive
+            directiveConfigs[2](appModule);
+
+            //Link Base directive
+            directiveConfigs[3](appModule);
+
             //Data directive
-            directiveConfigs[2](appModule, extension);
-
-            //Multi transclude directive
-            directiveConfigs[3](appModule, extension);
-
-            //Modal window directive
             directiveConfigs[4](appModule, extension);
 
-            //Side bar directive
+            //Multi transclude directive
             directiveConfigs[5](appModule, extension);
+
+            //Modal window directive
+            directiveConfigs[6](appModule, extension);
+
+            //Side bar directive
+            directiveConfigs[7](appModule, extension);
         }
     }
 );

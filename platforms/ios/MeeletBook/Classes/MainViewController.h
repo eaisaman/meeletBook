@@ -28,8 +28,9 @@
 #import <Cordova/CDVViewController.h>
 #import <Cordova/CDVCommandDelegateImpl.h>
 #import <Cordova/CDVCommandQueue.h>
+#import "Global.h"
 
-@interface MainViewController : CDVViewController<UIGestureRecognizerDelegate>
+@interface MainViewController : CDVViewController<UIGestureRecognizerDelegate, IEventDispatcher>
 
 @end
 

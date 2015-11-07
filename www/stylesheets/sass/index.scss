@@ -15,8 +15,19 @@
 }
 
 #rootBody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
     #rootBg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
         #rootMain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
 
         #loader {

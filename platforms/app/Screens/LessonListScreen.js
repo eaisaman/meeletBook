@@ -2,10 +2,12 @@
 
 var React = require('react-native');
 var {
+  AlertIOS,
   Animated,
   Dimensions,
   ListView,
   Navigator,
+  ProgressViewIOS,
   StyleSheet,
   Text,
   TextInput,
@@ -14,6 +16,7 @@ var {
   View,
   } = React;
 
+var _ = require('lodash');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var LinearGradient = require('react-native-linear-gradient');
 var SideMenu = require('react-native-side-menu');
@@ -33,7 +36,7 @@ var endTime = startTime.addMinutes(45);
 let list = [
     {
       "_id" : "52591a12c763d5e45855639a",
-      "bookId": "book-1",
+      "bookId": "56104bec2ac815961944b8bf",
       "bookName": "创建幸福教室的35个秘密",
       "creator" : "陈昌申",
       "title": "马当路小学三年级一班公开课",
@@ -43,7 +46,7 @@ let list = [
     },
     {
       "_id" : "52591a12c763d5e45855639c",
-      "bookId": "book-2",
+      "bookId": "book-1",
       "bookName": "青少年成长教育读本",
       "creator" : "冯智豪",
       "title": "马当路小学三年级一班公开课",
@@ -189,16 +192,50 @@ var LessonListView = React.createClass({
     };
   },
 
-  routeLesson: function(lesson) {
+  componentWillMount: function() {
+
+  },
+
+  //Project Item mode: 1.Wait Download; 2.Wait Refresh; 3. Download or Refresh in Progress
+  checkDownloadMode: function(lessonList) {
     return new Promise((resolve, reject) => {
-      LocalAppAPI.openLesson(lesson._id, function(err) {
-        if(typeof err === 'string') {
-          err = new Error(err);
+      LocalAppAPI.checkDownloadMode(_.pluck(lessonList, "bookId"), function(result) {
+        if (result && result.length === lessonList.length) {
+          lessonList.forEach(function(lesson, i) {
+            lesson.downloadMode = result[i].mode;
+            lesson.downloadProgress = result[i].progress;
+          });
         }
-        if(!err) {
-          return resolve();
-        }
-        reject(err);
+        resolve();
+      });
+    });
+  },
+
+  downloadBook: function({bookId}) {
+    return new Promise((resolve, reject) => {
+      LocalAppAPI.downloadProject(bookId, () => {
+        resolve();
+      });
+    });
+  },
+
+  routeLesson: function(lesson) {
+    return this.checkDownloadMode([lesson]).then(() => {
+      switch (lesson.downloadMode) {
+        case "waitDownload":
+        case "inProgress":
+          return this.downloadBook(lesson);
+        case "waitRefresh":
+          return new Promise((resolve, reject) => {
+            LocalAppAPI.openLesson(lesson._id,  lesson.bookId, () => {
+              resolve();
+            }, (error) => {
+              AlertIOS.alert("error", error);
+            });
+          });
+      }
+      return new Promise((resolve, reject) => {
+        reject(new Error("Unrecognizable download mode value " + lesson.downloadMode));
       });
     });
   },

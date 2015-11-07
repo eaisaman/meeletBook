@@ -8,9 +8,14 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Global.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, IEventDispatcher>
 
 @property (nonatomic, strong) UIWindow *window;
+
+
+-(void)addEventDispatcher:(id)dispatcher;
+-(void)removeEventDispatcher:(id)dispatcher;
 
 @end

@@ -2,9 +2,9 @@ define(
     ["angular", "jquery"],
     function () {
         return function (appModule) {
-            var inject = ["$compile", "$templateCache", "angularConstants", "uiUtilService"];
+            var inject = ["$compile", "$templateCache", "angularConstants"];
 
-            appModule.directive("widgetAnchor", _.union(inject, [function ($compile, $templateCache, angularConstants, uiUtilService) {
+            appModule.directive("widgetAnchor", _.union(inject, [function ($compile, $templateCache, angularConstants) {
                 'use strict';
 
                 return {

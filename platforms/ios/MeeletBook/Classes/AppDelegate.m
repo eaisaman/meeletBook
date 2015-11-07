@@ -8,11 +8,15 @@
  */
 
 #import "AppDelegate.h"
-#import "Global.h"
 #import "RCTRootView.h"
+#import "RCTEventDispatcher.h"
 #import <Cordova/CDVPlugin.h>
 
 @implementation AppDelegate
+{
+    NSMutableArray *_dispatcherArray;
+    dispatch_semaphore_t _eventDispatcherSemaphore;
+}
 
 - (id)init
 {
@@ -34,6 +38,26 @@
     
     self = [super init];
     return self;
+}
+
+- (void)addEventDispatcher:(id)dispatcher
+{
+    dispatch_semaphore_wait(_eventDispatcherSemaphore, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2));
+    
+    if ([_dispatcherArray indexOfObject:dispatcher] == NSNotFound) {
+        [_dispatcherArray addObject:dispatcher];
+    }
+
+    dispatch_semaphore_signal(_eventDispatcherSemaphore);
+}
+
+- (void)removeEventDispatcher:(id)dispatcher
+{
+    dispatch_semaphore_wait(_eventDispatcherSemaphore, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2));
+    
+    [_dispatcherArray removeObject:dispatcher];
+
+    dispatch_semaphore_signal(_eventDispatcherSemaphore);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -61,7 +85,7 @@
      * on the same Wi-Fi network.
      */
     
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+    jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.101:8081/index.ios.bundle?platform=ios&dev=true"];
     
     /**
      * OPTION 2
@@ -85,6 +109,17 @@
     rootViewController.view = rootView;
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
+    
+    _dispatcherArray = [NSMutableArray array];
+    _eventDispatcherSemaphore = dispatch_semaphore_create(0);
+    
+    RCTEventDispatcher *_eventDispatcher = [RCTEventDispatcher new];
+    ((id<RCTBridgeModule>)_eventDispatcher).bridge = rootView.bridge;
+    [self addEventDispatcher:_eventDispatcher];
+
+    [Global initEventDispatcher:self];
+    [Global initApplication];
+
     return YES;
 }
 
@@ -143,5 +178,21 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication*)application
 {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
+#pragma mark IEventDispatcher implementation
+- (void)sendAppEventWithName:(NSString *)name body:(NSDictionary*)body
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_semaphore_wait(_eventDispatcherSemaphore, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2));
+
+        [_dispatcherArray enumerateObjectsUsingBlock:^(id  _Nonnull dispatcher, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([dispatcher respondsToSelector:@selector(sendAppEventWithName:body:)]) {
+                [dispatcher performSelector:@selector(sendAppEventWithName:body:) withObject:name withObject:body];
+            }
+        }];
+
+        dispatch_semaphore_signal(_eventDispatcherSemaphore);
+    });
 }
 @end

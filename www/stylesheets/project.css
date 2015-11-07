@@ -965,6 +965,7 @@
   float: left;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 #projectContainer .topbar {
   position: relative;
@@ -1021,13 +1022,8 @@
   height: calc(100% - 2em);
 }
 #projectContainer .sideBarContainer .projectMainContent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-#projectContainer .sideBarContainer .projectMainContent > iframe {
-  position: absolute;
+  position: relative;
+  float: left;
   width: 100%;
   height: 100%;
 }

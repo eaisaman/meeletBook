@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var {
+    AlertIOS,
     AsyncStorage,
     StyleSheet,
     TabBarIOS,
@@ -19,6 +20,15 @@ var ProfileMainScreen = require('./ProfileMainScreen');
 var MainScreen = React.createClass({
     statics: {
         title: '<MainScreen>'
+    },
+
+    componentWillMount: function() {
+        //For Test use
+        LocalAppAPI.doLogin("wangxinyun28", "*", (userObj) => {
+            AlertIOS.alert('Info', "Login");            
+        }, (error) => {
+            AlertIOS.alert('Error', error);
+        });
     },
 
     getInitialState: function () {
