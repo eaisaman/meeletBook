@@ -53,7 +53,6 @@ var Thumb = React.createClass({
     this.setState({btnValue: 'accept'});
   },
   render: function() {
-    var TouchableElement = TouchableHighlight;
     if (this.state.btnValue === 'accept'){
       return (
         <TouchableHighlight underlayColor='#dddddd'
@@ -89,11 +88,11 @@ var Thumb = React.createClass({
   							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
   						</View>
               <View style={[styles.rowVertical]}>
-              <TouchableElement
-                style={styles.btnWarp}
-                onPress={()=>this.onAccept()}>
-                  <Text style={styles.btn}>未接受</Text>
-              </TouchableElement>
+                <TouchableHighlight
+                  style={styles.btnWarp}
+                  onPress={()=>this.onAccept()}>
+                    <Text style={styles.btn}>未接受</Text>
+                </TouchableHighlight>
               </View>
   					</View>
   					<View style={styles.separator} />
@@ -298,14 +297,15 @@ var styles = StyleSheet.create({
 		padding: 10
 	},
   btnWarp : {
-    	borderWidth : 1,
-    	padding : 5,
-    	borderColor : '#3164ce',
-    	borderRadius : 3
-    },
-    btn : {
-    	color : '#3164ce'
-    }
+    marginRight:90,
+  	borderWidth : 1,
+  	padding : 5,
+  	borderColor : '#3164ce',
+  	borderRadius : 3
+  },
+  btn : {
+  	color : '#3164ce'
+  }
 });
 // var styles = StyleSheet.create({
   // listview: {
