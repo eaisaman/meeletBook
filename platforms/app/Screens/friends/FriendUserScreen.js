@@ -86,7 +86,7 @@ var FriendUserScreen = React.createClass({
         </View>
 
         <View>
-          <Text style={styles.button}>发消息</Text>
+          <Text onPress={()=>{}} style={styles.button}>发消息</Text>
         </View>
 
         </ScrollView>
@@ -167,13 +167,14 @@ var styles = StyleSheet.create({
     alignSelf: 'center'
   },
   button: {
-    height: 36,
+    // height: 36,
     width: 200,
     backgroundColor: '#2ecc71',
     borderColor: '#2ecc71',
     borderWidth: 1,
     borderRadius: 8,
-    marginBottom: 10,
+    // marginBottom: 10,
+    padding:10,
     alignSelf: 'center',
     justifyContent: 'center',
     textAlign:'center',

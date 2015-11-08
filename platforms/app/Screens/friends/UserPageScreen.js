@@ -22,7 +22,7 @@ var {
 var list=[
   {
     "dateDate":"31",
-    "dateMonth":"10",
+    "dateMonth":"十月",
     "location":"shanghai",
     "items":[
       {
@@ -35,7 +35,7 @@ var list=[
   },
   {
     "dateDate":"11",
-    "dateMonth":"09",
+    "dateMonth":"九月",
     "location":"chengdu",
     "items":[
       {
@@ -95,10 +95,10 @@ var Thumb = React.createClass({
     return (
       <View style={styles.rowItem}>
         <View style={styles.dateContainer}>
-          <Text>
+          <Text style={styles.dateFont}>
             {this.props.data.dateDate}
           </Text>
-          <Text>
+          <Text style={styles.monthFont}>
             {this.props.data.dateMonth}
           </Text>
         </View>
@@ -152,8 +152,9 @@ var UserPageScreen = React.createClass({
             </View>
           </TouchableOpacity>
 
+          <View style={styles.listview}>
           {list.map(this.renderRow)}
-
+          </View>
         </ScrollView>
       );
     },
@@ -170,14 +171,25 @@ var styles = StyleSheet.create({
     flex:1
 	},
   listview:{
-    flexDirection:'row',
-    flex:1,
+    backgroundColor: 'white',
+    marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
   },
   rowItem:{
     flexDirection:'row',
   },
   dateContainer:{
     width:100,
+    flexDirection:'row',
+    alignItems:'flex-end'
+  },
+  dateFont:{
+    fontSize:40,
+    fontWeight:'bold',
+  },
+  monthFont:{
+    fontSize:24,
   },
   item:{
     flex:1,
