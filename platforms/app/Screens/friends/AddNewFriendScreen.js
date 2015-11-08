@@ -243,7 +243,26 @@ var AddNewFriendScreen = React.createClass({
 });
 var styles = StyleSheet.create({
   listview: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    // marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+  },
+  header: {
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#dde1dc',
+    flexDirection: 'row',
+  },
+  searchInput: {
+    backgroundColor: 'white',
+    borderColor: '#cccccc',
+    borderRadius: 3,
+    borderWidth: 0.5,
+    marginHorizontal: 10,
+    marginVertical: 10,
+    height: 40,
+    flex: 1,
+    fontSize: 24,
+    textAlign: "center",
   },
 	thumb: {
 		width: 80,
@@ -293,13 +312,13 @@ var styles = StyleSheet.create({
   //   backgroundColor: '#dde1dc',
   //   marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   // },
-//   header: {
-//     height: 60,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#dde1dc',
-//     flexDirection: 'row',
-//   },
+  // header: {
+  //   height: 60,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#dde1dc',
+  //   flexDirection: 'row',
+  // },
 //   searchInput: {
 //     backgroundColor: 'white',
 //     borderColor: '#cccccc',
