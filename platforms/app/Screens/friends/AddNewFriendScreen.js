@@ -79,7 +79,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data.name,this.props.data._id);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
