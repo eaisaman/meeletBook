@@ -177,7 +177,7 @@ var Thumb = React.createClass({
         <Text style={styles.thumbText}>{this.props.text}</Text>
         <Text style={styles.mright}>
         {
-          this.state.checked ? '选中' : ''
+          this.state.checked ?  <Icon name='check' size={18} color='#2ecc71'/> : ''
         }
         </Text>
       </TouchableOpacity>
