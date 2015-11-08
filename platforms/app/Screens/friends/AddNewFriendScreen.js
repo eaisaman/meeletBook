@@ -177,20 +177,6 @@ var AddNewFriendScreen = React.createClass({
     );
   },
 
-  // _renderCancel: function () {
-  //         alert(this.state.showFlag);
-  //       if (this.state.showFlag) {
-  //           return (
-  //               <View>
-  //                 <Text>sdfsdfsdf</Text>
-  //               </View>
-  //           );
-  //       }
-  //   },
-  onRightButtonPress: function() {
-    // alert('emmet');
-          AppEventEmitter.emit('myRightBtnEvent', { someArg: true });
-      },
   render: function() {
     return (
       <ScrollView>
@@ -211,18 +197,15 @@ var AddNewFriendScreen = React.createClass({
 
   selectUserView:function(title,uid){
     this.props.navigator.push({
-      title:title,
+      title:'详细资料',
       component:FriendUserScreen,
-      rightButtonTitle:'...',
-      onRightButtonPress:this.onRightButtonPress,
+      // rightButtonTitle:'...',
+      // onRightButtonPress:this.onRightButtonPress,
       passProps:{navigator: this.props.navigator,uid:uid}
     })
   },
-
-  onClick:function(){
-    // this.props.navigator.pop();
-    this.setState({showFlag:!this.state.showFlag});
-    // alert(this.state.showFlag);
+  onRightButtonPress: function() {
+      AppEventEmitter.emit('myRightBtnEvent', { someArg: true });
   },
 
   updateSearchInput: function(text) {

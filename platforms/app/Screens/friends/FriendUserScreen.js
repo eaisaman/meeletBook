@@ -4,6 +4,8 @@ var _ = require('lodash')
 var React = require('react-native');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var BlurView = require('react-native-blur').BlurView;
+var UserPageScreen = require('./UserPageScreen');
+
 var {
   AlertIOS,
   Image,
@@ -22,7 +24,8 @@ var FriendUserScreen = React.createClass({
   getInitialState: function() {
     return {
       userInfo:{
-        img_url:'book-1.png'
+        img_url:'book-1.png',
+        userName:'张三'
       },
       variable: false
     };
@@ -30,27 +33,17 @@ var FriendUserScreen = React.createClass({
   componentDidMount: function () {
     // alert(this.props.uid);
     // this._fetchData(this.props.uid);
-    // alert(this.props.navigator.props);
-    // this.props.navigator.initialRoute={
-    //   rightButtonTitle:'eeeeeee',
-    // };
-    // this.props.navigator.addListener(this.props.navigator.events, 'rightButtonPress', this._handleRightBtnPress);
-    // this.addListenerOn(this.props.navigator.events, 'rightButtonPress', this._handleRightBtnPress)
 
-    AppEventEmitter.addListener('myRightBtnEvent', this.miscFunction);
+    //just for test event emmiter
+    // AppEventEmitter.addListener('myRightBtnEvent', this.miscFunction);
   },
+
+  //just fot test
   miscFunction: function(args){
        this.setState({
            variable: args.someArg
        });
-      //  console.log('state='+this.state.variable);
-      //  console.log('args='+args.someArg);
-      //  alert(this.state.variable);
    },
-
-  _handleRightBtnPress:function(){
-    // alert('wtf');
-  },
   // _fetchData: function (groupName) {
   //   var that = this;
   //   //todo get userInfo by uid
@@ -81,7 +74,7 @@ var FriendUserScreen = React.createClass({
             <Text style={styles.txtLeft}>地区</Text>
             <Text style={styles.txtLeft}>上海</Text>
           </View>
-          <TouchableHighlight>
+          <TouchableHighlight onPress={()=>this.onShowUserPage(this.state.userInfo.userName,this.props.uid)}>
             <View style={styles.row}>
               <Text style={styles.txtLeft}>个人相册</Text>
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
@@ -96,10 +89,16 @@ var FriendUserScreen = React.createClass({
           <Text style={styles.button}>发消息</Text>
         </View>
 
-        {this._renderCancel()}
         </ScrollView>
       );
-    }
+    },
+    onShowUserPage:function(userName,uid){
+      this.props.navigator.push({
+        title:userName,
+        component:UserPageScreen,
+        passProps:{navigator: this.props.navigator,uid:uid}
+      })
+    },
 })
 
 var styles = StyleSheet.create({
