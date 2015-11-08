@@ -24,6 +24,7 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var TimerMixin = require('react-timer-mixin');
 var LinearGradient = require('react-native-linear-gradient');
 var FriendUserScreen = require('./FriendUserScreen');
+
 var {
   AlertIOS,
   Navigator,
@@ -35,6 +36,7 @@ var {
   TextInput,
   TouchableHighlight,
   View,
+  ScrollView
 } = React;
 
 var Thumb = React.createClass({
@@ -56,7 +58,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data.name,this.props.data._id);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -122,7 +124,11 @@ var AddNewFriendScreen = React.createClass({
 
     return {
       dataSource: dataSource.cloneWithRows(list),
+      showFlag:false,
     };
+  },
+
+  componentDidMount:function(){
   },
 
   // getInitialState: function() {
@@ -140,14 +146,8 @@ var AddNewFriendScreen = React.createClass({
   //   };
   // },
 
-  routeTalk: function(title) {
-    // this.props.mainScreen.showNavBar();
-    //
-    // this.props.navigator.push({id:"talk", title:title});
-  },
-
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    return rowData && (<Thumb data={rowData} selectSubView={this.selectSubView}/>) || null;
+    return rowData && (<Thumb data={rowData} selectUserView={this.selectUserView}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -177,33 +177,52 @@ var AddNewFriendScreen = React.createClass({
     );
   },
 
+  // _renderCancel: function () {
+  //         alert(this.state.showFlag);
+  //       if (this.state.showFlag) {
+  //           return (
+  //               <View>
+  //                 <Text>sdfsdfsdf</Text>
+  //               </View>
+  //           );
+  //       }
+  //   },
+  onRightButtonPress: function() {
+    // alert('emmet');
+          AppEventEmitter.emit('myRightBtnEvent', { someArg: true });
+      },
   render: function() {
     return (
-      <ListView
-        style={styles.listview}
-        dataSource={this.state.dataSource}
-        renderHeader={this.renderHeader}
-        // renderSectionHeader={this.renderSectionHeader}
-        renderRow={this.renderRow}
-        initialListSize={10}
-        pageSize={PAGE_SIZE}
-        scrollRenderAheadDistance={2000}
-      />
+      <ScrollView>
+        <ListView
+          style={styles.listview}
+          dataSource={this.state.dataSource}
+          renderHeader={this.renderHeader}
+          // renderSectionHeader={this.renderSectionHeader}
+          renderRow={this.renderRow}
+          initialListSize={10}
+          pageSize={PAGE_SIZE}
+          scrollRenderAheadDistance={2000}
+        />
+
+      </ScrollView>
     );
   },
 
-  selectSubView:function(title,uid){
+  selectUserView:function(title,uid){
     this.props.navigator.push({
       title:title,
       component:FriendUserScreen,
       rightButtonTitle:'...',
-      onRightButtonPress:this.onClick,
+      onRightButtonPress:this.onRightButtonPress,
       passProps:{navigator: this.props.navigator,uid:uid}
     })
   },
 
   onClick:function(){
-    alert('xxx');
+    // this.props.navigator.pop();
+    this.setState({showFlag:!this.state.showFlag});
+    // alert(this.state.showFlag);
   },
 
   updateSearchInput: function(text) {

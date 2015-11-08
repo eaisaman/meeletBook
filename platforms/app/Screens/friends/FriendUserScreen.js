@@ -23,17 +23,48 @@ var FriendUserScreen = React.createClass({
     return {
       userInfo:{
         img_url:'book-1.png'
-      }
+      },
+      variable: false
     };
   },
   componentDidMount: function () {
     // alert(this.props.uid);
     // this._fetchData(this.props.uid);
+    // alert(this.props.navigator.props);
+    // this.props.navigator.initialRoute={
+    //   rightButtonTitle:'eeeeeee',
+    // };
+    // this.props.navigator.addListener(this.props.navigator.events, 'rightButtonPress', this._handleRightBtnPress);
+    // this.addListenerOn(this.props.navigator.events, 'rightButtonPress', this._handleRightBtnPress)
+
+    AppEventEmitter.addListener('myRightBtnEvent', this.miscFunction);
+  },
+  miscFunction: function(args){
+       this.setState({
+           variable: args.someArg
+       });
+      //  console.log('state='+this.state.variable);
+      //  console.log('args='+args.someArg);
+      //  alert(this.state.variable);
+   },
+
+  _handleRightBtnPress:function(){
+    // alert('wtf');
   },
   // _fetchData: function (groupName) {
   //   var that = this;
   //   //todo get userInfo by uid
   // },
+  _renderCancel: function () {
+    // alert(this.props.showFlag);
+        if (this.state.variable) {
+            return (
+                <View>
+                  <Text>sdfsdfsdf</Text>
+                </View>
+            );
+        }
+    },
 
   render: function() {
       return (
@@ -65,6 +96,7 @@ var FriendUserScreen = React.createClass({
           <Text style={styles.button}>发消息</Text>
         </View>
 
+        {this._renderCancel()}
         </ScrollView>
       );
     }

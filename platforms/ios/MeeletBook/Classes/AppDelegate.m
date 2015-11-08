@@ -85,7 +85,7 @@
      * on the same Wi-Fi network.
      */
     
-    jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.101:8081/index.ios.bundle?platform=ios&dev=true"];
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
     
     /**
      * OPTION 2
@@ -186,7 +186,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         dispatch_semaphore_wait(_eventDispatcherSemaphore, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2));
 
-        [_dispatcherArray enumerateObjectsUsingBlock:^(id  _Nonnull dispatcher, NSUInteger idx, BOOL * _Nonnull stop) {
+        [_dispatcherArray enumerateObjectsUsingBlock:^(id dispatcher, NSUInteger idx, BOOL *stop) {
             if ([dispatcher respondsToSelector:@selector(sendAppEventWithName:body:)]) {
                 [dispatcher performSelector:@selector(sendAppEventWithName:body:) withObject:name withObject:body];
             }
