@@ -16,6 +16,7 @@ var {
   View,
   Navigator,
   ScrollView,
+  ListView,
 } = React;
 
 var list=[
@@ -26,8 +27,9 @@ var list=[
     "items":[
       {
         "_id" : "52591a12c763d5e45855639a",
-        "name" : "陈昌申",
         "img_url":'book-1.png',
+        "desc":"自2009年推出风愤怒的小鸟》游戏以来，R",
+        "desc_id":"52591a12c763d5e45855639a"
       }
     ]
   },
@@ -38,14 +40,15 @@ var list=[
     "items":[
       {
         "_id" : "52591a12c763d5e45855639e",
-        "name" : "梁天祐",
         "img_url":'book-1.png',
+        "desc":"自200一时《愤怒的小鸟》游戏以来，R",
+        "desc_id":"52591a12c763d5e45855639a"
       },
       {
         "_id" : "52591a12c763d5e4585563a0",
-        "name" : "李壮",
         "img_url":'book-1.png',
-
+        "desc":"自2009年推出风靡一时sf游戏以来，R",
+        "desc_id":"52591a12c763d5e45855639a"
       }
     ],
   },
@@ -57,39 +60,49 @@ var InfoThumb = React.createClass({
 
   render:function(){
     return (
-      <TouchableHighlight underlayColor='#dddddd'
-        onPress={()=> {
-            ;
-        }}>
-        <View style={styles.rowContainer}>
-          <Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
-          <View style={styles.textContainer}>
-            <Text style={styles.name}>{this.props.data.name}</Text>
+      <View style={styles.item}>
+        <TouchableHighlight underlayColor='#dddddd'
+          onPress={()=> {
+              ;
+          }}>
+          <View style={styles.rowContainer}>
+            <Image style={styles.thumb} source={{ uri: this.props.data.img_url }} />
             <Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
           </View>
+        </TouchableHighlight>
         </View>
-      </TouchableHighlight>
     )
   }
 });
 
 var Thumb = React.createClass({
   getInitialState:function(){
+    var dataSource = new ListView.DataSource({
+      rowHasChanged: (row1, row2) => row1._id !== row2._id,
+    });
+
     return {
+      dataSource: dataSource.cloneWithRows(this.props.data.items),
+      showFlag:false,
     };
   },
   renderRow:function(data,i){
     return (
-      <InfoThumb data={data}/>
+        <InfoThumb data={data}/>
     )
   },
   render:function(){
     return (
-      <View>
-        <Text>
-          {this.props.data.dateDate}/{this.props.data.dateMonth}
-        </Text>
-        <View>
+      <View style={styles.rowItem}>
+        <View style={styles.dateContainer}>
+          <Text>
+            {this.props.data.dateDate}
+          </Text>
+          <Text>
+            {this.props.data.dateMonth}
+          </Text>
+        </View>
+        <View style={styles.columnItem}>
           {this.props.data.items.map(this.renderRow)}
         </View>
       </View>
@@ -99,9 +112,14 @@ var Thumb = React.createClass({
 
 var UserPageScreen = React.createClass({
   getInitialState: function() {
-    return {
+      var dataSource = new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1._id !== row2._id,
+      });
 
-    };
+      return {
+        dataSource: dataSource.cloneWithRows(list),
+        showFlag:false,
+      };
   },
   componentDidMount: function () {
     // alert(this.props.uid);
@@ -119,6 +137,10 @@ var UserPageScreen = React.createClass({
     )
   },
 
+  // renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
+  //   return rowData && (<Thumb data={rowData}/>) || null;
+  // },
+
   render: function() {
       return (
         <ScrollView style={styles.screen}>
@@ -130,9 +152,8 @@ var UserPageScreen = React.createClass({
             </View>
           </TouchableOpacity>
 
-          <View>
-            {list.map(this.renderRow)}
-          </View>
+          {list.map(this.renderRow)}
+
         </ScrollView>
       );
     },
@@ -145,8 +166,30 @@ var styles = StyleSheet.create({
   },
   rowContainer: {
 		flexDirection: 'row',
-		padding: 10
+		// padding: 10,
+    flex:1
 	},
+  listview:{
+    flexDirection:'row',
+    flex:1,
+  },
+  rowItem:{
+    flexDirection:'row',
+  },
+  dateContainer:{
+    width:100,
+  },
+  item:{
+    flex:1,
+    marginHorizontal: 5,
+    marginVertical: 3,
+  },
+  columnItem:{
+    flexDirection:'column',
+    flex:1,
+    marginHorizontal: 5,
+    marginVertical: 3,
+  },
   header: {
     height: 80,
     justifyContent: 'flex-start',
