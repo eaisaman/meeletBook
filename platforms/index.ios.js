@@ -24,6 +24,8 @@ GLOBAL.LocalAppAPI=NativeModules.LocalAppManager;
 GLOBAL.LocalImage = require('./app/Components/LocalImage');
 GLOBAL.Icon = require('react-native-vector-icons/MaterialIcons');
 GLOBAL.AppEvents = require('./app/Screens/AppEvents');
+var EventEmitter = require('EventEmitter');
+GLOBAL.AppEventEmitter = new EventEmitter();
 
 if (typeof window !== 'undefined') {
     window.React = React;
