@@ -80,7 +80,7 @@ var FriendUserScreen = React.createClass({
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
-                <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
+              <Icon name='keyboard-arrow-right' style={styles.arrowEnd} size={40} color='#2ecc71'/>
             </View>
           </TouchableHighlight>
         </View>
@@ -132,7 +132,7 @@ var styles = StyleSheet.create({
   thumb: {
 		width: 80,
 		height: 80,
-		marginRight: 10
+		marginRight: 10,
 	},
   arrow: {
     flex: 1,
@@ -154,6 +154,7 @@ var styles = StyleSheet.create({
     padding: 5,
     backgroundColor: 'white',
     borderRadius: 3,
+    flex:1,
   },
   btnRow: {
     flexDirection: 'row',
@@ -179,6 +180,15 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign:'center',
   },
+  arrowEnd:{
+    // flex: 1,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
+    // flexDirection: 'row',
+    // flex: 1,
+    marginRight:90,
+    // marginRight:10,
+  }
 });
 
 module.exports = FriendUserScreen;
