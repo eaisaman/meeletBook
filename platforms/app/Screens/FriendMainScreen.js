@@ -31,19 +31,25 @@ var FriendMainScreen = React.createClass({
     );
   },
   selectSubView:function(subName){
-    let component = AddNewFriendScreen;
+    let component = AddNewFriendScreen,
+    title = '';
+
     if (subName === 'addUser'){
       component = AddNewFriendScreen;
+      title = '添加朋友';
     }else if (subName === 'group'){
       component = FriendGroupScreen;
+      title = '添加群';
     }else if (subName === 'discuss'){
       component = FriendDiscussScreen;
+      title = '添加讨论组';
     }else if (subName==='detail'){
       component = FriendUserScreen;
+      title = '详细资料';
     }
 
     this.props.navigator.push({
-      title:subName,
+      title:title,
       component:component,
       // rightButtonTitle:'sdfsdf',
       passProps:{navigator: this.props.navigator}
