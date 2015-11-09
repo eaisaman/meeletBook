@@ -5,6 +5,7 @@ var React = require('react-native');
 var Icon = require('react-native-vector-icons/MaterialIcons');
 var BlurView = require('react-native-blur').BlurView;
 var UserPageScreen = require('./UserPageScreen');
+var TalkScreen = require('../TalkScreen');
 
 var {
   AlertIOS,
@@ -86,7 +87,7 @@ var FriendUserScreen = React.createClass({
         </View>
 
         <View>
-          <Text onPress={()=>{}} style={styles.button}>发消息</Text>
+          <Text onPress={()=>{this.talkView(this.props.uid,this.state.userInfo.userName)}} style={styles.button}>发消息</Text>
         </View>
 
         </ScrollView>
@@ -99,6 +100,13 @@ var FriendUserScreen = React.createClass({
         passProps:{navigator: this.props.navigator,uid:uid}
       })
     },
+    talkView:function(uid,userName){
+      this.props.navigator.push({
+        title:userName,
+        component:TalkScreen,
+        passProps:{navigator: this.props.navigator,uid:uid}
+      })
+    }
 })
 
 var styles = StyleSheet.create({
