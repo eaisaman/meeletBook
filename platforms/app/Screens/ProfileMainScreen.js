@@ -163,8 +163,8 @@ var ProfileMainScreen = React.createClass({
 
 var styles = StyleSheet.create({
   screen: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-    flex: 1,
+    // marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    flex: 1
   },
   scene: {
     flex: 1,
