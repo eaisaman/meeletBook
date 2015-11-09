@@ -303,7 +303,7 @@ var FriendGroupScreen = React.createClass({
 var styles = StyleSheet.create({
   listview: {
     backgroundColor: '#dde1dc',
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    // marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   },
   header: {
     height: 60,
