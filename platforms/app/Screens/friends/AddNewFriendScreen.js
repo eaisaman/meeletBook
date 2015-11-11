@@ -5,18 +5,107 @@ let list = [
   {
   "_id" : "52591a12c763d5e45855639a",
     "name" : "陈昌申",
-    "desc" : "通过xx查找加入",
+    "desc" : "通过账号查找加入",
     "status": "accept",
+    "account":"cangkun.chen@163.com",
     "img_url":'book-1.png'
   },
   {
   "_id" : "52591a12c763d5r45855639a",
-  "name" : "张三",
-  "desc" : "我是xxxx",
+  "name" : "舒威",
+  "desc" : "我是舒威",
   "status": "request",
+  "account":"wei.shu@163.com",
   "img_url":'book-1.png'
   },
-
+  {
+    "_id" : "52591a12c763d5e4585563d0",
+    "name" : "王欣芸",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"xinyun.wang@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563bc",
+    "name" : "冯婷晖",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"tinghui.feng@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563be",
+    "name" : "管悦欣",
+    "desc" : "我是管悦欣",
+    "status": "request",
+    "account":"yuexin.guan@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c0",
+    "name" : "黄文轩",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"wenxuan.huang@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c2",
+    "name" : "倪晨怡",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"chenyi.ni@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c4",
+    "name" : "田奕霖",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yilin.tian@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c6",
+    "name" : "王昕",
+    "desc" : "我是王昕",
+    "status": "request",
+    "account":"xin.wangn@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c8",
+    "name" : "喻王玮",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"wangwei.yu@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563ca",
+    "name" : "殷奕蕊",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yixin.yin@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563cc",
+    "name" : "周璎泓",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yinghong.zhou@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563ce",
+    "name" : "许景凯",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"jingkai.xu163.com",
+    "img_url":'book-1.png'
+  }
 ];
 
 var React = require('react-native');
@@ -57,7 +146,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectUserView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -78,7 +167,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectUserView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -194,13 +283,13 @@ var AddNewFriendScreen = React.createClass({
     );
   },
 
-  selectUserView:function(title,uid){
+  selectUserView:function(info){
     this.props.navigator.push({
       title:'详细资料',
       component:FriendUserScreen,
       // rightButtonTitle:'...',
       // onRightButtonPress:this.onRightButtonPress,
-      passProps:{navigator: this.props.navigator,uid:uid}
+      passProps:{navigator: this.props.navigator,info:info}
     })
   },
   onRightButtonPress: function() {

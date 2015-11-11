@@ -176,7 +176,7 @@ var Thumb = React.createClass({
         <Text style={styles.thumbText}>{this.props.text}</Text>
         <Text style={styles.mright}>
         {
-          this.state.checked ? '选中' : ''
+          this.state.checked ?  <Icon name='check' size={18} color='#2ecc71'/> : ''
         }
         </Text>
       </TouchableOpacity>
@@ -209,6 +209,9 @@ var FriendDiscussScreen = React.createClass({
       dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds),
       textAlign: "center",
       data: [],
+      groupChecked:false,
+      myClassChecked:false,
+      discussChecked:false
     };
   },
 
@@ -217,35 +220,18 @@ var FriendDiscussScreen = React.createClass({
 
     this.props.navigator.push({id:"talk", title:title});
   },
+  clickGroup:function(val){
+    if(val==='group'){
+      this.setState({groupChecked:!this.state.groupChecked});
+    }else if(val==='myClass'){
+      this.setState({myClassChecked:!this.state.myClassChecked});
+    }else if(val==='discuss'){
+      this.setState({discussChecked:!this.state.discussChecked});
+    }
+  },
 
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    if (sectionId === "*") {
-      switch(rowId) {
-        case "btn_add_friend":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的朋友</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_add_group":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>新的群</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-        case "btn_join_talk":
-          return (
-          <TouchableOpacity style={[styles.friendRow,]}>
-            <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>讨论组</Text></View>
-          </TouchableOpacity>
-          );
-        break;
-      }
-    }
-
-    return rowData && (<Thumb text={rowData.name} onPress={() => { this.routeTalk(rowData.name); }}/>) || null;
+    return rowData && (<Thumb text={rowData.name}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -262,15 +248,43 @@ var FriendDiscussScreen = React.createClass({
 
   renderHeader: function() {
     return (
-      <View style={styles.header}>
-        <TextInput
-          autoCapitalize="none"
-          placeholder="搜索"
-          autoCorrect={false}
-          returnKeyType="search"
-          onSubmitEditing={(event) => this.updateSearchInput(event.nativeEvent.text) }
-          style={styles.searchInput}
-        />
+      <View>
+        <View>
+          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.clickGroup('group'); }}>
+            <View style={styles.btnRow}><Icon name='person-add' size={40} color='#2ecc71' style={styles.btn}/>
+            <Text style={styles.btnLabel}>王老师的群</Text>
+            <Text style={styles.mright}>
+            {
+              this.state.groupChecked ?  <Icon name='check' size={18} color='#2ecc71'/> : ''
+            }
+            </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.clickGroup('myClass'); }}>
+            <View style={styles.btnRow}><Icon name='group-add' size={40} color='#2ecc71' style={styles.btn}/>
+            <Text style={styles.btnLabel}>3班群</Text>
+            <Text style={styles.mright}>
+            {
+              this.state.myClassChecked ?  <Icon name='check' size={18} color='#2ecc71'/> : ''
+            }
+            </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={[styles.friendRow,]} onPress={() => { this.clickGroup('discuss'); }}>
+            <View style={styles.btnRow}><Icon name='local-florist' size={40} color='#2ecc71' style={styles.btn}/>
+            <Text style={styles.btnLabel}>数学课讨论</Text>
+            <Text style={styles.mright}>
+            {
+              this.state.discussChecked ?  <Icon name='check' size={18} color='#2ecc71'/> : ''
+            }
+            </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   },
@@ -373,8 +387,12 @@ var styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  mright:{
+    marginRight:100,
+  },
   btnLabel: {
     fontSize: 16,
+    flex: 1,
   },
   sectionHeader: {
     flexDirection: 'row',

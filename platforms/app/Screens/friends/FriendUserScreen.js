@@ -26,7 +26,7 @@ var FriendUserScreen = React.createClass({
     return {
       userInfo:{
         img_url:'book-1.png',
-        userName:'张三'
+        // userName:'张三'
       },
       variable: false
     };
@@ -66,8 +66,8 @@ var FriendUserScreen = React.createClass({
         <TouchableOpacity style={[styles.header,]}>
           <Icon name='account-circle' size={60} color='#2ecc71' style={styles.avatar}/>
           <View style={styles.nameList}>
-            <Text style={styles.userName}>{this.props.uid}</Text>
-            <Text style={styles.userName}>帐号: sdf</Text>
+            <Text style={styles.userName}>{this.props.info.name}</Text>
+            <Text style={styles.userName}>帐号: {this.props.info.account}</Text>
           </View>
         </TouchableOpacity>
         <View style={styles.section}>
@@ -75,7 +75,7 @@ var FriendUserScreen = React.createClass({
             <Text style={styles.txtLeft}>地区</Text>
             <Text style={styles.txtLeft}>上海</Text>
           </View>
-          <TouchableHighlight onPress={()=>this.onShowUserPage(this.state.userInfo.userName,this.props.uid)}>
+          <TouchableHighlight onPress={()=>this.onShowUserPage(this.props.info)}>
             <View style={styles.row}>
               <Text style={styles.txtLeft}>个人相册</Text>
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
@@ -87,17 +87,17 @@ var FriendUserScreen = React.createClass({
         </View>
 
         <View>
-          <Text onPress={()=>{this.talkView(this.props.uid,this.state.userInfo.userName)}} style={styles.button}>发消息</Text>
+          <Text onPress={()=>{this.talkView(this.props.info.uid,this.props.info.name)}} style={styles.button}>发消息</Text>
         </View>
 
         </ScrollView>
       );
     },
-    onShowUserPage:function(userName,uid){
+    onShowUserPage:function(info){
       this.props.navigator.push({
-        title:userName,
+        title:info.name,
         component:UserPageScreen,
-        passProps:{navigator: this.props.navigator,uid:uid}
+        passProps:{navigator: this.props.navigator,info:info}
       })
     },
     talkView:function(uid,userName){

@@ -30,7 +30,7 @@ var FriendMainScreen = React.createClass({
         <FriendListScreen  style={styles.scene} selectSubView={this.selectSubView}/>
     );
   },
-  selectSubView:function(subName){
+  selectSubView:function(subName,rowData){
     let component = AddNewFriendScreen,
     title = '';
 
@@ -52,7 +52,7 @@ var FriendMainScreen = React.createClass({
       title:title,
       component:component,
       // rightButtonTitle:'sdfsdf',
-      passProps:{navigator: this.props.navigator}
+      passProps:{navigator: this.props.navigator,info:rowData}
     })
 
 
