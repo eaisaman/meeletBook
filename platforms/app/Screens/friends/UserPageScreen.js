@@ -28,7 +28,7 @@ var list=[
       {
         "_id" : "52591a12c763d5e45855639a",
         "img_url":'book-1.png',
-        "desc":"自2009年推出风愤怒的小鸟》游戏以来，R",
+        "desc":"这是一张来自舒威分享的图片",
         "desc_id":"52591a12c763d5e45855639a"
       }
     ]
@@ -41,13 +41,13 @@ var list=[
       {
         "_id" : "52591a12c763d5e45855639e",
         "img_url":'book-1.png',
-        "desc":"自200一时《愤怒的小鸟》游戏以来，R",
+        "desc":"我在迪士尼拍的照片",
         "desc_id":"52591a12c763d5e45855639a"
       },
       {
         "_id" : "52591a12c763d5e4585563a0",
         "img_url":'book-1.png',
-        "desc":"自2009年推出风靡一时sf游戏以来，R",
+        "desc":"快来看，多美都风景啊",
         "desc_id":"52591a12c763d5e45855639a"
       }
     ],
@@ -147,8 +147,8 @@ var UserPageScreen = React.createClass({
           <TouchableOpacity style={[styles.header,]}>
             <Icon name='account-circle' size={60} color='#2ecc71' style={styles.avatar}/>
             <View style={styles.nameList}>
-              <Text style={styles.userName}>{this.props.uid}</Text>
-              <Text style={styles.userName}>帐号: sdf</Text>
+              <Text style={styles.userName}>{this.props.info.name}</Text>
+              <Text style={styles.userName}>帐号: {this.props.info.account}</Text>
             </View>
           </TouchableOpacity>
 
