@@ -53,8 +53,9 @@ define(
                         element.remove();
                     }
 
-                    serviceRegistry.makeGlobal();
-                    window.APP_PROJECT_PATH = projectId + "/";
+                    serviceRegistry.makeGlobal();//Called by snippets in project html
+                    window.APP_PROJECT_PATH = projectId + "/";//Used to set base url for project to be loaded
+
                     var styleElement = document.getElementById("mobileProjectStylesheet");
                     styleElement && styleElement.remove();
 
@@ -88,6 +89,7 @@ define(
                 }
 
                 $scope.displayPage = function (pageNum) {
+                    //BaseService's pageMeta contains page information of loaded project
                     return serviceRegistry.invoke("BaseService", "gotoPage")(pageNum);
                 }
 

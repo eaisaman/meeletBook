@@ -14,13 +14,17 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css"/>
 </head>
 <body id="rootBody" ng-controller="RootController">
+<div id="alertBar">
+    <div ng-repeat="alert in alertList"
+         class="alertBox fs-x-large fs-x-huge-before icon-index-before g{{alert.category}}"
+         ng-class="{'icon-index-success-before':alert.category === 1, 'icon-index-warn-before':alert.category === 2, 'icon-index-fail-before':alert.category === 3}"
+         ng-show="$index === 0"
+         ng-click="hideAlert(alert.id, $event)">
+        <span>{{alert.title}}</span>
+    </div>
+</div>
 <div id="rootBg">
     <div id="rootMain" ng-view>
-    </div>
-    <div id="loader" class="pageload-overlay">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="xMidYMid slice">
-            <path d="M -18 -26.90625 L -18 86.90625 L 98 86.90625 L 98 -26.90625 L -18 -26.90625 Z M 40 -25.6875 C 70.750092 -25.6875 95.6875 -0.7500919 95.6875 30 C 95.6875 60.750092 70.750092 85.6875 40 85.6875 C 9.2499078 85.6875 -15.6875 60.750092 -15.6875 30 C -15.6875 -0.7500919 9.2499078 -25.6875 40 -25.6875 Z"/>
-        </svg>
     </div>
 </div>
 </body>

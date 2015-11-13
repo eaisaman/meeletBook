@@ -5,105 +5,112 @@
 <script type="text/javascript" src="pomelo/pomeloclient.js"></script>
 
 <div id="projectContainer" class="fs-x-medium" ng-controller="ProjectController">
-    <div class="topbar">
-        <div class="topbarButton icon-mobile-book-before icon-mobile-book-dehaze-before"
-             ng-click="once(this, $event, 'toggleSelect', '.sideBarContainer')"></div>
-        <div class="projectTitle">
-            <span>马当路小学三年级一班公开课</span>
-        </div>
-    </div>
-
-    <div class="sideBarContainer leftSide overlay slideInOnTop"
-         ng-click="once(this, $event, 'toggleSelect', $event, false)">
-        <div class="barContent" ng-click="$event.stopPropagation()">
-            <div class="projectBarContent" name="barContent" ng-click="$event.stopPropagation()">
-                <div class="accordianGroup">
-                    <div class="accordianTitle col-as-12">
-                        <div class="avatarImg"/>
-                        <div class="userName">
-                            梁天祐
-                        </div>
-                        <div class="expandButton icon-mobile-book-after icon-mobile-book-chevron_right-after"
-                             ui-data="animo('select', 'rotateQuarterArc')"
-                             ng-click="once(this, $event, 'toggleUserAccordian', $event)"></div>
-                    </div>
-                    <div class="accordianBody">
-                        <div class="projectButton col-as-12">
-                            <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"></div>
-                            <span class="fs-x-small">邀请</span>
-                        </div>
-                        <div class="projectButton col-as-12">
-                            <div class="icon-mobile-book-before"
-                                 ng-class="{'icon-mobile-book-play_arrow-before':chatState!==1, 'icon-mobile-book-pause-before':chatState===1}"
-                                 ng-click="once(this, $event, 'startPauseChat')"></div>
-                            <div class="icon-mobile-book-before icon-mobile-book-stop-before"
-                                 ng-click="once(this, $event, 'stopChat')"></div>
-                            <span class="fs-x-small">开始/停止</span>
-                        </div>
-                    </div>
+    <div ui-modal-window transition="fadeInScaleUp">
+        <div name="mainContent">
+            <div class="topbar">
+                <div class="topbarButton icon-mobile-book-before icon-mobile-book-dehaze-before"
+                     ng-click="once(this, $event, 'toggleSelect', '.sideBarContainer')"></div>
+                <div class="projectTitle">
+                    <span>马当路小学三年级一班公开课</span>
                 </div>
-                <div class="barTabContent">
-                    <section class="tabs fs-x-small">
-                        <input id="tab-1" type="radio" name="tabRadio" class="tab-selector-1"
-                               checked="checked"/>
-                        <label class="tab-label-1">课程内容</label>
-                        <input id="tab-2" type="radio" name="tabRadio" class="tab-selector-2"/>
-                        <label class="tab-label-2" for="tab-2">课堂讨论</label>
+            </div>
 
-                        <div class="content">
-                            <div class="content-1">
-                                <div class="thumbList">
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-1.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 0)"/>
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-2.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 1)"/>
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-3.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 2)"/>
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-4.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 3)"/>
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-5.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 4)"/>
-                                    <div class="thumbItem fx-x-smaller-before"
-                                         ng-style="{'background-image':'url(images/thumb-6.png)'}"
-                                         ng-click="once(this, $event, 'displayPage', 5)"/>
+            <div class="sideBarContainer leftSide overlay slideInOnTop"
+                 ng-click="once(this, $event, 'toggleSelect', $event, false)">
+                <div class="barContent" ng-click="$event.stopPropagation()">
+                    <div class="projectBarContent" name="barContent" ng-click="$event.stopPropagation()">
+                        <div class="accordianGroup">
+                            <div class="accordianTitle col-as-12">
+                                <div class="avatarImg"/>
+                                <div class="userName">
+                                    梁天祐
+                                </div>
+                                <div class="expandButton icon-mobile-book-after icon-mobile-book-chevron_right-after"
+                                     ui-data="animo('select', 'rotateQuarterArc')"
+                                     ng-click="once(this, $event, 'toggleUserAccordian', $event)"></div>
+                            </div>
+                            <div class="accordianBody">
+                                <div class="projectButton col-as-12">
+                                    <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"></div>
+                                    <span class="fs-x-small">邀请</span>
+                                </div>
+                                <div class="projectButton col-as-12">
+                                    <div class="icon-mobile-book-before"
+                                         ng-class="{'icon-mobile-book-play_arrow-before':chatState!==1, 'icon-mobile-book-pause-before':chatState===1}"
+                                         ng-click="once(this, $event, 'startPauseChat')"></div>
+                                    <div class="icon-mobile-book-before icon-mobile-book-stop-before"
+                                         ng-click="once(this, $event, 'stopChat')"></div>
+                                    <span class="fs-x-small">开始/停止</span>
                                 </div>
                             </div>
-                            <div class="content-2">
-                                <div class="chatList fs-x-small">
-                                    <div class="chatItem" ng-repeat="chat in chatList">
-                                        <div class="timeChat" ng-if="chat.type === 'timeMark'">
-                                            <div class="chatContent">{{chat.content}}</div>
+                        </div>
+                        <div class="barTabContent">
+                            <section class="tabs fs-x-small">
+                                <input id="tab-1" type="radio" name="tabRadio" class="tab-selector-1"
+                                       checked="checked"/>
+                                <label class="tab-label-1">课程内容</label>
+                                <input id="tab-2" type="radio" name="tabRadio" class="tab-selector-2"/>
+                                <label class="tab-label-2" for="tab-2">课堂讨论</label>
+
+                                <div class="content">
+                                    <div class="content-1">
+                                        <div class="thumbList">
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-1.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 0)"/>
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-2.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 1)"/>
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-3.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 2)"/>
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-4.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 3)"/>
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-5.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 4)"/>
+                                            <div class="thumbItem fx-x-smaller-before"
+                                                 ng-style="{'background-image':'url(images/thumb-6.png)'}"
+                                                 ng-click="once(this, $event, 'displayPage', 5)"/>
                                         </div>
-                                        <div class="myChat" ng-if="chat.type === 'myTalk'">
-                                            <div class="chatAvatar col-as-2 no-padding"/>
-                                            <div class="chatContent col-as-8 no-padding">{{chat.content}}</div>
-                                            <div class="chatAvatar col-as-2 no-padding">
-                                                <div ng-style="{'background-image':'url(images/friend-avatar.png)'}"></div>
+                                    </div>
+                                    <div class="content-2">
+                                        <div class="chatList fs-x-small">
+                                            <div class="chatItem" ng-repeat="chat in chatList">
+                                                <div class="timeChat" ng-if="chat.type === 'timeMark'">
+                                                    <div class="chatContent">{{chat.content}}</div>
+                                                </div>
+                                                <div class="myChat" ng-if="chat.type === 'myTalk'">
+                                                    <div class="chatAvatar col-as-2 no-padding"/>
+                                                    <div class="chatContent col-as-8 no-padding">{{chat.content}}</div>
+                                                    <div class="chatAvatar col-as-2 no-padding">
+                                                        <div ng-style="{'background-image':'url(images/friend-avatar.png)'}"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="friendChat" ng-if="chat.type === 'friendTalk'">
+                                                    <div class="chatAvatar col-as-2 no-padding">
+                                                        <div ng-style="{'background-image':'url(images/friend-avatar.png)'}"></div>
+                                                    </div>
+                                                    <div class="chatContent col-as-8 no-padding">{{chat.content}}</div>
+                                                    <div class="chatAvatar col-as-2 no-padding"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="friendChat" ng-if="chat.type === 'friendTalk'">
-                                            <div class="chatAvatar col-as-2 no-padding">
-                                                <div ng-style="{'background-image':'url(images/friend-avatar.png)'}"></div>
-                                            </div>
-                                            <div class="chatContent col-as-8 no-padding">{{chat.content}}</div>
-                                            <div class="chatAvatar col-as-2 no-padding"/>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </section>
                         </div>
-                    </section>
+                    </div>
+                </div>
+                <div class="mainContent">
+                    <div class="projectMainContent" name="mainContent">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mainContent">
-            <div class="projectMainContent" name="mainContent">
-            </div>
+
+        <div name="modalContent">
         </div>
     </div>
 </div>

@@ -1,53 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb548f9b-d988-4bf4-9088-04899e817ecf" name="Default" comment="Lesson scree init commit.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-40@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-76.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-76@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/icon-small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/lessonBackground.imageset/lessonBackground.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/lessonBackground.imageset/lessonBackground@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/pomelo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/Brand Assets.launchimage/start.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/Brand Assets.launchimage/start@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/AppIcon.appiconset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/Brand Assets.launchimage/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Images.xcassets/lessonBackground.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/angular/1.4.5/angular-sanitize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/angular/1.4.5/angular-sanitize.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/angular/1.4.5/angular-sanitize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/jquery-plugins/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/jquery-plugins/sly/1.6.1/sly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/javascripts/jquery-plugins/sly/1.6.1/sly.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common" afterPath="$PROJECT_DIR$/Common" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.eot" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.ttf" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.woff" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.m" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Classes/AppDelegate.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/app/Screens/LessonListScreen.js" afterPath="$PROJECT_DIR$/platforms/app/Screens/LessonListScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/app/Screens/MainScreen.js" afterPath="$PROJECT_DIR$/platforms/app/Screens/MainScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/MeeletBook-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/MeeletBook-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/xcshareddata/xcschemes/MeeletBook.xcscheme" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/xcshareddata/xcschemes/MeeletBook.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Settings.bundle/Root.plist" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/Resources/Settings.bundle/Root.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/sass/_global.scss" afterPath="$PROJECT_DIR$/www/stylesheets/sass/_global.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook/config.xml" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook/config.xml" />
+    <list default="true" id="fb548f9b-d988-4bf4-9088-04899e817ecf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/controller.js" afterPath="$PROJECT_DIR$/www/app/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/demo.html" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.svg" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/icon-mobile-book.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/main.js" afterPath="$PROJECT_DIR$/www/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/main.js" afterPath="$PROJECT_DIR$/www/app/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/javascripts/angular/1.4.5/main.js" afterPath="$PROJECT_DIR$/www/javascripts/angular/1.4.5/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/main.jsbundle" afterPath="$PROJECT_DIR$/platforms/ios/main.jsbundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/project.css" afterPath="$PROJECT_DIR$/www/stylesheets/project.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/sass/index.scss" afterPath="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/preload.html" afterPath="$PROJECT_DIR$/www/preload.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/project.html" afterPath="$PROJECT_DIR$/www/project.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/platforms/ios/MeeletBook.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/stylesheets/sass/project.scss" afterPath="$PROJECT_DIR$/www/stylesheets/sass/project.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/selection.json" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/selection.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/icon-mobile-book/style.css" afterPath="$PROJECT_DIR$/www/fonts/icon-mobile-book/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/js/common/browser/service.js" afterPath="$PROJECT_DIR$/Common/src/js/common/browser/service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meeletBook.iws" />
@@ -68,7 +29,54 @@
     <favorites_list name="meeletBook" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/common/browser/service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1759" column="0" selection-start-line="1759" selection-start-column="0" selection-end-line="1759" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/app/controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/project.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23688394">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding>
+                <element signature="e#1240#2495#0" expanded="false" />
+                <element signature="e#2519#16567#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,12 +86,11 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Common" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/overview.html" />
         <option value="$PROJECT_DIR$/www/directive/ng.ui.modal-window.js" />
         <option value="$PROJECT_DIR$/www/directive/ng.ui.sidebar.js" />
         <option value="$PROJECT_DIR$/www/stylesheets/sass/animation/_app_animation_keyframes.scss" />
@@ -98,8 +105,6 @@
         <option value="$PROJECT_DIR$/www/javascripts/bootstrap/3.2.0/main.js" />
         <option value="$PROJECT_DIR$/www/include/_sidebar.html" />
         <option value="$PROJECT_DIR$/www/directive/ng.ui.multi-transclude.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
         <option value="$PROJECT_DIR$/www/56104bec2ac815961944b8bf/app/main.js" />
         <option value="$PROJECT_DIR$/www/56104bec2ac815961944b8bf/meta.json" />
         <option value="$PROJECT_DIR$/www/56104bec2ac815961944b8bf/common/mobile-main.js" />
@@ -125,15 +130,18 @@
         <option value="$PROJECT_DIR$/www2/javascripts/angular/1.4.5/main.js" />
         <option value="$PROJECT_DIR$/www2/javascripts/ionic/1.1.1/main.js" />
         <option value="$PROJECT_DIR$/www/stylesheets/sass/_global.scss" />
-        <option value="$PROJECT_DIR$/www/stylesheets/sass/project.scss" />
         <option value="$PROJECT_DIR$/www/fonts/icon-mobile-book/style.css" />
         <option value="$PROJECT_DIR$/www/common/browser/service.book.js" />
-        <option value="$PROJECT_DIR$/www/project.html" />
-        <option value="$PROJECT_DIR$/www/app/controller.js" />
-        <option value="$PROJECT_DIR$/www/common/browser/service.js" />
         <option value="$PROJECT_DIR$/www/common/embedded/service.js" />
         <option value="$PROJECT_DIR$/www/common/registry.json" />
         <option value="$PROJECT_DIR$/Common/src/js/common/registry.json" />
+        <option value="$PROJECT_DIR$/www/common/browser/service.js" />
+        <option value="$PROJECT_DIR$/www/app/controller.js" />
+        <option value="$PROJECT_DIR$/www/preload.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/stylesheets/sass/index.scss" />
+        <option value="$PROJECT_DIR$/www/project.html" />
+        <option value="$PROJECT_DIR$/www/stylesheets/sass/project.scss" />
       </list>
     </option>
   </component>
@@ -145,6 +153,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="12" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
@@ -218,6 +227,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeletBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -240,7 +289,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../meelet/public/common/browser/service.js" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="projec&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/project.scss&#10;service&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/common/browser/service.js&#10;service.js&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/common/embedded/service.js&#10;contro&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/app/controller.js&#10;global&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/_global.scss&#10;project.htm&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/project.html&#10;project.scss&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/project.scss&#10;ionic.bund&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/javascripts/ionic/1.1.1/js/ionic.bundle.js&#10;ionic.js&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/javascripts/ionic/1.1.1/js/ionic.js&#10;project.scs&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/stylesheets/sass/project.scss&#10;sly&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/javascripts/jquery-plugins/sly/1.6.1/sly.js&#10;chat.ht&#9;null&#9;null&#10;controll&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/app/controller.js&#10;project.ht&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/project.html&#10;_sid&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/_sidebar.scss&#10;index.scs&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/index.scss&#10;project.css&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/project.css" />
+    <property name="SearchEverywhereHistoryKey" value="project.&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/project.scss&#10;index.scss&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/index.scss&#10;contro&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/app/controller.js&#10;projec&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/project.scss&#10;service&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/common/browser/service.js&#10;service.js&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/common/embedded/service.js&#10;global&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/_global.scss&#10;project.htm&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/project.html&#10;project.scss&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/project.scss&#10;ionic.bund&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/javascripts/ionic/1.1.1/js/ionic.bundle.js&#10;ionic.js&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/javascripts/ionic/1.1.1/js/ionic.js&#10;project.scs&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www2/stylesheets/sass/project.scss&#10;sly&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/javascripts/jquery-plugins/sly/1.6.1/sly.js&#10;chat.ht&#9;null&#9;null&#10;controll&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/app/controller.js&#10;project.ht&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/project.html&#10;_sid&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/_sidebar.scss&#10;index.scs&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/sass/index.scss&#10;project.css&#9;FILE&#9;file:///Users/jill/workspace/WebStorm/meeletBook/www/stylesheets/project.css" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../../ios/meeletCommon" />
   </component>
   <component name="RecentsManager">
@@ -369,7 +418,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446569809820</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add background images, add pomelo libraries.">
+      <created>1447407286442</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1447407286442</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -382,23 +437,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <frame x="12" y="23" width="1280" height="773" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33821377" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21445592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21445592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -441,7 +496,8 @@
     <MESSAGE value="Init Commit of book platform." />
     <MESSAGE value="Lesson scree init commit." />
     <MESSAGE value="Display lesson screen in cordova." />
-    <option name="LAST_COMMIT_MESSAGE" value="Display lesson screen in cordova." />
+    <MESSAGE value="Add background images, add pomelo libraries." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add background images, add pomelo libraries." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -476,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38155803">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/stylesheets/project.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26493108">
@@ -501,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36641222">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35657686">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -600,24 +642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625">
-          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/fonts/icon-mobile-book/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/project.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16640253">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -646,13 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43644717">
           <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27480915">
-          <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -691,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/common/browser/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4274809">
-          <caret line="1763" column="38" selection-start-line="1763" selection-start-column="38" selection-end-line="1763" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/common/registry.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6228209">
@@ -709,6 +723,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59587955">
           <caret line="260" column="23" selection-start-line="260" selection-start-column="23" selection-end-line="260" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/common/browser/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1759" column="0" selection-start-line="1759" selection-start-column="0" selection-end-line="1759" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/preload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1446741">
+          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6438792">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59618443">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/project.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/stylesheets/sass/project.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23688394">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="e#1240#2495#0" expanded="false" />
+            <element signature="e#2519#16567#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
