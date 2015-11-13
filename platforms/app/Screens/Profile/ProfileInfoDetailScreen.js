@@ -9,6 +9,7 @@ var {
   StyleSheet,
   ListView,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
   SegmentedControlIOS
