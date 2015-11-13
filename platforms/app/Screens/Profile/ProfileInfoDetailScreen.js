@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+// var RCTActionSheetManager = require('NativeModules').ActionSheetManager;
 
 var {
   AsyncStorage,
@@ -12,6 +13,15 @@ var {
   View,
   SegmentedControlIOS
 } = React;
+var BUTTONS = [
+    'Option 0',
+    'Option 1',
+    'Option 2',
+    'Destruct',
+    'Cancel',
+];
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
 
 var loginedUser = null;
 
@@ -72,7 +82,7 @@ var ModifyGenderScreen = React.createClass({
   render() {
     return (
       <View style={styles.subView}>
-        <SegmentedControlIOS values={['男', '女']} selectedIndex={loginedUser.gender} 
+        <SegmentedControlIOS values={['男', '女']} selectedIndex={loginedUser.gender}
           onChange={this.changeGender}/>
       </View>
     );
@@ -163,6 +173,25 @@ var ProfileInfoDetailScreen = React.createClass({
       loginedUser: {}
     };
   },
+
+  showAction:function(){
+    // alert('xxx');
+    ActionSheetIOS.showActionSheetWithOptions({
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                destructiveButtonIndex: DESTRUCTIVE_INDEX,
+            }, (buttonIndex) => {
+                this.setState({
+                    clicked: BUTTONS[buttonIndex]
+                });
+            });
+
+            // RCTActionSheetManager.showActionSheetWithOptions(
+            //   options,
+            //   callback
+            // );
+  },
+
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
     if (sectionId === "*") {
       switch(rowId) {
@@ -265,7 +294,7 @@ var ProfileInfoDetailScreen = React.createClass({
         subName = "头像设置";
         component = ModifyPhotoScreen;
         break;
-      case 'nickname': 
+      case 'nickname':
         subName = "昵称设置";
         component = ModifyNicknameScreen;
         break;
