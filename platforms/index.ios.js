@@ -16,6 +16,10 @@ var {
     Text,
     View,
     } = React;
+
+
+GLOBAL.LOGIN_USER_STORAGE_KEY = "loginedUser";
+
 var MainScreen = require('./app/Screens/MainScreen');
 var LoadScreen = require('./app/Screens/LoadScreen');
 
@@ -46,7 +50,8 @@ var MeeletBook = React.createClass({
         NativeAppEventEmitter.once(AppEvents.downloadProjectModulesProgressEvent, ({progress}) => {
         });
 
-        LocalAppAPI.downloadModules(() => {});
+//TODO
+        // LocalAppAPI.downloadModules(() => {});
     },
     renderScene(route, nav) {
         switch (route.id) {
@@ -61,7 +66,8 @@ var MeeletBook = React.createClass({
     render: function () {
         return (
             <Navigator ref="navigator"
-                initialRoute={{ id: 'load', }}
+                // initialRoute={{ id: 'load', }}
+                initialRoute={{ id: 'main', }}
                 renderScene={this.renderScene}
                 configureScene={(route) => Navigator.SceneConfigs.FloatFromRight}/>
         );
