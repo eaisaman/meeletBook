@@ -50,8 +50,8 @@ var MeeletBook = React.createClass({
         NativeAppEventEmitter.once(AppEvents.downloadProjectModulesProgressEvent, ({progress}) => {
         });
 
-//TODO
-        // LocalAppAPI.downloadModules(() => {});
+        //TODO
+        LocalAppAPI.downloadModules(() => {});
     },
     renderScene(route, nav) {
         switch (route.id) {
@@ -66,8 +66,8 @@ var MeeletBook = React.createClass({
     render: function () {
         return (
             <Navigator ref="navigator"
-                // initialRoute={{ id: 'load', }}
-                initialRoute={{ id: 'main', }}
+                initialRoute={{ id: 'load', }}
+                // initialRoute={{ id: 'main', }}
                 renderScene={this.renderScene}
                 configureScene={(route) => Navigator.SceneConfigs.FloatFromRight}/>
         );
