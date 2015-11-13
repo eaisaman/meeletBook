@@ -1026,6 +1026,10 @@
   float: left;
   width: 100%;
   height: 100%;
+  background-image: url("../images/schoolBackground.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #projectContainer .sideBarContainer .projectBarContent {
   position: absolute;
@@ -1071,8 +1075,25 @@
   text-align: center;
   line-height: 2;
 }
-#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:active {
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:not(:last-child) {
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div {
+  width: 2em;
+  height: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div:active {
   opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div:before {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
 }
 #projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton span {
   -webkit-flex: 1;
@@ -1214,6 +1235,7 @@
   width: 100%;
   z-index: 5;
   top: 2em;
+  overflow: hidden;
   -webkit-flex: 1;
   flex: 1;
 }
@@ -1276,6 +1298,82 @@
   background: -moz-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
   background: -webkit-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
   background: linear-gradient(to right, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: #222;
+  margin-top: 1em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem:not(:last-child) {
+  margin-bottom: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .timeChat {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 3em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .timeChat .chatContent {
+  -webkit-flex: 1;
+  flex: 1;
+  max-width: 15em;
+  width: 15em;
+  height: 100%;
+  background: #6699a8;
+  color: #ecf0f1;
+  border-radius: 10px;
+  line-height: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatContent, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatContent {
+  position: relative;
+  float: left;
+  background: #a6c1ce;
+  border-radius: 5px;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatContent:active, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatContent:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatAvatar, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatAvatar {
+  position: relative;
+  float: left;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatAvatar div, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatAvatar div {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: calc(50% - 24px);
+  top: 0px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-1:checked ~ .content .content-1,
 #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-2:checked ~ .content .content-2 {

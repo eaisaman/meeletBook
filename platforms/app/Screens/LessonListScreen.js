@@ -5,6 +5,7 @@ var {
   AlertIOS,
   Animated,
   Dimensions,
+  Image,
   ListView,
   Navigator,
   ProgressViewIOS,
@@ -40,7 +41,7 @@ let list = [
       "bookName": "创建幸福教室的35个秘密",
       "creator" : "陈昌申",
       "title": "马当路小学三年级一班公开课",
-      "downloadMode": 2,
+      "downloadMode": 1,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -60,7 +61,7 @@ let list = [
       "bookName": "青少年成长教育读本",
       "creator" : "梁天祐",
       "title": "马当路小学三年级一班公开课",
-      "downloadMode": 1,
+      "downloadMode": 0,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -70,7 +71,7 @@ let list = [
       "bookName": "小学语文-义务教育课程标准",
       "creator" : "李壮",
       "title": "马当路小学三年级一班公开课",
-      "downloadMode": 2,
+      "downloadMode": 0,
       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
     },
@@ -82,63 +83,67 @@ var LessonListScreen = React.createClass({
     return {
       fadeAnim: new Animated.Value(0), // opacity 0
       touchToClose: false,
+      isModalOpen: true,
     };
+  },
+
+  componentWillMount: function() {
   },
 
   render: function() {
     return (
-      <SideMenu
-        menuPosition="right"
-        openMenuOffset={200}
-        menu={
-          <View style={styles.menuContainer}>
-            <TouchableOpacity style={[styles.menuRow, ]}>
-              <View style={styles.menuIconPlaceholder}>
-                <Icon name="history" size={24} style={[styles.menuIcon, ]}/>
-              </View>
-              <Text style={styles.menuText}>历史</Text>
-            </TouchableOpacity>
-            <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
-            <TouchableOpacity style={[styles.menuRow, ]}>
-              <View style={styles.menuIconPlaceholder}>
-                <Icon name="add-alarm" size={24} style={[styles.menuIcon, ]}/>
-              </View>
-              <Text style={styles.menuText}>将要开始</Text>
-            </TouchableOpacity>
-            <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
-            <TouchableOpacity style={[styles.menuRow, ]}>
-              <View style={styles.menuIconPlaceholder}>
-                <Icon name="av-timer" size={24} style={[styles.menuIcon, ]}/>
-              </View>
-              <Text style={styles.menuText}>正在进行</Text>
-            </TouchableOpacity>
-            <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
-          </View>
-        }
-        touchToClose={this.state.touchToClose}
-        onChange={this.handleChange}>
-        <View style={styles.screen}>
-          <Animated.View style={[styles.topContainer, {opacity: this.state.fadeAnim}]}>
-            <View style={[styles.searchContainer, ]}>
-              <Icon name="search" size={24} style={[styles.navButtonIcon, ]}/>
-              <TextInput
-                autoCapitalize="none"
-                placeholder="搜索"
-                autoCorrect={false}
-                returnKeyType="search"
-                onSubmitEditing={(event) => this.updateSearchInput(event.nativeEvent.text) }
-                style={styles.searchInput}
-              />
-              <TouchableOpacity
-                onPress={this.hideSearchInput}
-                style={styles.normalButton}>
-                <Text style={styles.buttonText}>取消</Text>
+        <SideMenu
+          menuPosition="right"
+          openMenuOffset={200}
+          menu={
+            <View style={styles.menuContainer}>
+              <TouchableOpacity style={[styles.menuRow, ]}>
+                <View style={styles.menuIconPlaceholder}>
+                  <Icon name="history" size={24} style={[styles.menuIcon, ]}/>
+                </View>
+                <Text style={styles.menuText}>历史</Text>
               </TouchableOpacity>
+              <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
+              <TouchableOpacity style={[styles.menuRow, ]}>
+                <View style={styles.menuIconPlaceholder}>
+                  <Icon name="add-alarm" size={24} style={[styles.menuIcon, ]}/>
+                </View>
+                <Text style={styles.menuText}>将要开始</Text>
+              </TouchableOpacity>
+              <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
+              <TouchableOpacity style={[styles.menuRow, ]}>
+                <View style={styles.menuIconPlaceholder}>
+                  <Icon name="av-timer" size={24} style={[styles.menuIcon, ]}/>
+                </View>
+                <Text style={styles.menuText}>正在进行</Text>
+              </TouchableOpacity>
+              <LinearGradient colors={["#ecf0f1", "#ccc"]} start={[0,0.5]} end={[1, 0.5]} locations={[0.5, 0.75]} style={styles.rowLinearGradient} />
             </View>
-          </Animated.View>
-        </View>
-        <LessonListView ref="listView" style={styles.listContainer} />
-      </SideMenu>
+          }
+          touchToClose={this.state.touchToClose}
+          onChange={this.handleChange}>
+          <View style={styles.screen}>
+            <Animated.View style={[styles.topContainer, {opacity: this.state.fadeAnim}]}>
+              <View style={[styles.searchContainer, ]}>
+                <Icon name="search" size={24} style={[styles.navButtonIcon, ]}/>
+                <TextInput
+                  autoCapitalize="none"
+                  placeholder="搜索"
+                  autoCorrect={false}
+                  returnKeyType="search"
+                  onSubmitEditing={(event) => this.updateSearchInput(event.nativeEvent.text) }
+                  style={styles.searchInput}
+                />
+                <TouchableOpacity
+                  onPress={this.hideSearchInput}
+                  style={styles.normalButton}>
+                  <Text style={styles.buttonText}>取消</Text>
+                </TouchableOpacity>
+              </View>
+            </Animated.View>
+          </View>
+          <LessonListView ref="listView" style={styles.listContainer} />
+        </SideMenu>
     );
   },
 
@@ -169,6 +174,19 @@ var LessonListScreen = React.createClass({
     this.refs.listView.context.menuActions.open();
     this.setState({
       touchToClose: true,
+    });
+  },
+
+  closeModal() {
+    this.setState({isModalOpen: false});
+  },
+
+  login() {
+    //For Test use
+    LocalAppAPI.doLogin("wangxinyun28", "*", (userObj) => {
+      this.closeModal();
+    }, (error) => {
+        AlertIOS.alert('Error', error);
     });
   },
 })
@@ -246,15 +264,18 @@ var LessonListView = React.createClass({
 
   render: function() {
     return (
-      <ListView
-        contentContainerStyle={styles.list}
-        style={styles.listview}
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}
-        initialListSize={10}
-        pageSize={PAGE_SIZE}
-        scrollRenderAheadDistance={2000}
-      />
+      <View style={styles.listHolder}>
+        <Image style={styles.backgroundImage} source={require('image!lessonBackground')}></Image>
+        <ListView
+          contentContainerStyle={styles.list}
+          style={styles.listview}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+          initialListSize={10}
+          pageSize={PAGE_SIZE}
+          scrollRenderAheadDistance={2000}
+        />
+      </View>
     );
   },
 });
@@ -398,9 +419,20 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
+  listHolder: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  backgroundImage: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+  },
   listview: {
     flex: 1,
-    backgroundColor: '#dde1dc',
+    backgroundColor: 'transparent',
   },
   list: {
     justifyContent: 'flex-start',

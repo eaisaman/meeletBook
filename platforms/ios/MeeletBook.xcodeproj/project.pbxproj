@@ -97,7 +97,7 @@
 		A1B101CE1BDDCD940021D129 /* fox-character.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B101CB1BDDCD940021D129 /* fox-character.png */; };
 		A1B101DE1BDDCF6F0021D129 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B101DD1BDDCF6F0021D129 /* Images.xcassets */; };
 		A1B3A8B21BE4561E007DA873 /* LocalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */; };
-		A1C83C0E1BD6864800D29F76 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C83C0D1BD6864300D29F76 /* libRNBlur.a */; };
+		A1D033B51BF0D66B00024A0C /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C83C0D1BD6864300D29F76 /* libRNBlur.a */; };
 		CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8F7F721944A798BD4FD75 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F37FD703F3164365B0C5CE33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638C09EDAA2942708E0D0C99 /* AVFoundation.framework */; };
@@ -356,7 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C83C0E1BD6864800D29F76 /* libRNBlur.a in Frameworks */,
+				A1D033B51BF0D66B00024A0C /* libRNBlur.a in Frameworks */,
 				A1133D9D1BD5ED0C0041746B /* libBVLinearGradient.a in Frameworks */,
 				A1877F701BD5321800EACBDB /* libRNOverlay.a in Frameworks */,
 				A14A4D9C1BD3731500651768 /* libRNVectorIcons.a in Frameworks */,
@@ -1144,11 +1144,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4417C82B30224E9EE73B8DA6 /* Pods-MeeletBook.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMMONS_LIBRARY_LDFLAGS = "-ObjC -fobjc-arc -lxml2 -framework MapKit -framework Security -framework SystemConfiguration -framework CoreGraphics -framework CFNetwork -framework CoreData";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Framework",
@@ -1175,7 +1178,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = "MeeletBook/MeeletBook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1208,11 +1211,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C6B14CFD49DAACA4644BD2C /* Pods-MeeletBook.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMMONS_LIBRARY_LDFLAGS = "-ObjC -fobjc-arc -lxml2 -framework MapKit -framework Security -framework SystemConfiguration -framework CoreGraphics -framework CFNetwork -framework CoreData";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Framework",
@@ -1237,7 +1243,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = "MeeletBook/MeeletBook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1263,6 +1269,7 @@
 				PRODUCT_NAME = MeeletBook;
 				PROVISIONING_PROFILE = "e0f85e00-10d7-40dc-bf3c-3b69cd35c2de";
 				TARGETED_DEVICE_FAMILY = 2;
+				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include";
 			};
 			name = Release;
 		};

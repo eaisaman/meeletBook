@@ -64,6 +64,18 @@
 }
 
 .icon-mobile-book-local_florist:before {
+    content: "\e905";
+}
+
+.icon-mobile-book-pause:before {
+    content: "\e907";
+}
+
+.icon-mobile-book-play_arrow:before {
+    content: "\e906";
+}
+
+.icon-mobile-book-stop:before {
     content: "\e904";
 }
 
@@ -84,6 +96,18 @@
 }
 
 .icon-mobile-book-local_florist-before:before {
+    content: "\e905";
+}
+
+.icon-mobile-book-pause-before:before {
+    content: "\e907";
+}
+
+.icon-mobile-book-play_arrow-before:before {
+    content: "\e906";
+}
+
+.icon-mobile-book-stop-before:before {
     content: "\e904";
 }
 
@@ -104,5 +128,18 @@
 }
 
 .icon-mobile-book-local_florist-after:after {
+    content: "\e905";
+}
+
+.icon-mobile-book-pause-after:after {
+    content: "\e907";
+}
+
+.icon-mobile-book-play_arrow-after:after {
+    content: "\e906";
+}
+
+.icon-mobile-book-stop-after:after {
     content: "\e904";
 }
+

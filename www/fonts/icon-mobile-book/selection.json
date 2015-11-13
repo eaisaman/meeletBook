@@ -28,7 +28,7 @@
 				"ligatures": "textsms"
 			},
 			"setIdx": 0,
-			"setId": 4,
+			"setId": 6,
 			"iconIdx": 0
 		},
 		{
@@ -58,7 +58,7 @@
 				"ligatures": "dehaze"
 			},
 			"setIdx": 0,
-			"setId": 4,
+			"setId": 6,
 			"iconIdx": 1
 		},
 		{
@@ -88,7 +88,7 @@
 				"ligatures": "chevron_right"
 			},
 			"setIdx": 0,
-			"setId": 4,
+			"setId": 6,
 			"iconIdx": 2
 		},
 		{
@@ -118,7 +118,7 @@
 				"ligatures": "view_list"
 			},
 			"setIdx": 0,
-			"setId": 4,
+			"setId": 6,
 			"iconIdx": 3
 		},
 		{
@@ -143,13 +143,103 @@
 				"order": 6,
 				"id": 477,
 				"prevSize": 24,
-				"code": 59652,
+				"code": 59653,
 				"name": "local_florist",
 				"ligatures": "local_florist"
 			},
 			"setIdx": 0,
-			"setId": 4,
+			"setId": 6,
 			"iconIdx": 4
+		},
+		{
+			"icon": {
+				"paths": [
+					"M598 214h170v596h-170v-596zM256 810v-596h170v596h-170z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"pause"
+				],
+				"defaultCode": 57368,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 7,
+				"id": 24,
+				"prevSize": 24,
+				"code": 59655,
+				"name": "pause",
+				"ligatures": "pause"
+			},
+			"setIdx": 0,
+			"setId": 6,
+			"iconIdx": 5
+		},
+		{
+			"icon": {
+				"paths": [
+					"M342 214l468 298-468 298v-596z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"play_arrow"
+				],
+				"defaultCode": 57371,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 6,
+				"id": 27,
+				"prevSize": 24,
+				"code": 59654,
+				"name": "play_arrow",
+				"ligatures": "play_arrow"
+			},
+			"setIdx": 0,
+			"setId": 6,
+			"iconIdx": 6
+		},
+		{
+			"icon": {
+				"paths": [
+					"M256 256h512v512h-512v-512z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"stop"
+				],
+				"defaultCode": 57386,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 5,
+				"id": 42,
+				"prevSize": 24,
+				"code": 59652,
+				"name": "stop",
+				"ligatures": "stop"
+			},
+			"setIdx": 0,
+			"setId": 6,
+			"iconIdx": 7
 		}
 	],
 	"height": 1024,

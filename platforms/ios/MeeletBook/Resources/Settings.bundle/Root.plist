@@ -12,13 +12,33 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>192.168.0.101:3000</string>
+			<string>52.24.249.194:3000</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>服务器地址</string>
 			<key>Key</key>
 			<string>server_url</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>52.24.249.194</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>交流服务器地址</string>
+			<key>Key</key>
+			<string>chat_server_host</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>3150</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>交流服务器端口</string>
+			<key>Key</key>
+			<string>chat_server_port</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

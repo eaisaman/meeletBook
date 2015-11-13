@@ -1,5 +1,5 @@
 __DEV__ = 
-false;
+true;
 
 
 __BUNDLE_START_TIME__ = Date.now();
@@ -1371,11 +1371,47 @@ throw new TypeError(
 
 var index=findIndex.call(this,predicate,context);
 return index === -1?undefined:this[index];}});}})();
-__d('MeeletBook/index.ios.js',["react-native/Libraries/react-native/react-native.js","MeeletBook/app/Screens/MainScreen.js"],function(global, require, module, exports) {  'use strict';
+(
+function(GLOBAL){
 
 
 
 
+
+
+
+function getInvalidGlobalUseError(name){
+return new Error(
+'You are trying to render the global ' + name + ' variable as a ' + 
+'React element. You probably forgot to require ' + name + '.');}
+
+
+GLOBAL.Text = {
+get defaultProps(){
+throw getInvalidGlobalUseError('Text');}};
+
+
+GLOBAL.Image = {
+get defaultProps(){
+throw getInvalidGlobalUseError('Image');}};
+
+
+
+if(GLOBAL.document){
+GLOBAL.document.createElement = null;}
+
+
+
+
+GLOBAL.MutationObserver = undefined;})(
+this);
+__d('MeeletBook/index.ios.js',["MeeletBook/app/Util/date.js","react-native/Libraries/react-native/react-native.js","MeeletBook/app/Screens/MainScreen.js","MeeletBook/app/Screens/LoadScreen.js","MeeletBook/app/Components/LocalImage.js","MaterialIcons","MeeletBook/app/Screens/AppEvents.js"],function(global, require, module, exports) {  'use strict';
+
+
+
+
+
+require('MeeletBook/app/Util/date.js');
 
 var React=require('react-native/Libraries/react-native/react-native.js');var 
 
@@ -1384,8 +1420,17 @@ AppRegistry=
 
 
 
-React.AppRegistry;var Navigator=React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;
+
+
+React.AppRegistry;var NativeAppEventEmitter=React.NativeAppEventEmitter;var NativeModules=React.NativeModules;var Navigator=React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var View=React.View;
 var MainScreen=require('MeeletBook/app/Screens/MainScreen.js');
+var LoadScreen=require('MeeletBook/app/Screens/LoadScreen.js');
+
+GLOBAL.LocalResourceAPI = NativeModules.LocalResourceManager;
+GLOBAL.LocalAppAPI = NativeModules.LocalAppManager;
+GLOBAL.LocalImage = require('MeeletBook/app/Components/LocalImage.js');
+GLOBAL.Icon = require('MaterialIcons');
+GLOBAL.AppEvents = require('MeeletBook/app/Screens/AppEvents.js');
 
 if(typeof window !== 'undefined'){
 window.React = React;}
@@ -1395,8 +1440,23 @@ var MeeletBook=React.createClass({displayName:'MeeletBook',
 getInitialState:function(){
 return {};},
 
+componentWillMount:function(){var _this=this;
+NativeAppEventEmitter.once(AppEvents.downloadProjectModulesDoneEvent,function(){
+_this.refs.navigator.replace({id:"main"});});
+
+
+NativeAppEventEmitter.once(AppEvents.downloadProjectModulesErrorEvent,function(_ref){var error=_ref.error;});
+
+
+NativeAppEventEmitter.once(AppEvents.downloadProjectModulesProgressEvent,function(_ref2){var progress=_ref2.progress;});
+
+
+LocalAppAPI.downloadModules(function(){});},
+
 renderScene:function(route,nav){
 switch(route.id){
+case 'load':
+return React.createElement(LoadScreen,{navigator:nav,url:'preload.html'});
 case 'main':
 return React.createElement(MainScreen,{navigator:nav});
 default:
@@ -1405,8 +1465,8 @@ return React.createElement(View,null);}},
 
 render:function(){
 return (
-React.createElement(Navigator,{
-initialRoute:{id:'main'},
+React.createElement(Navigator,{ref:'navigator',
+initialRoute:{id:'load'},
 renderScene:this.renderScene,
 configureScene:function(route){return Navigator.SceneConfigs.FloatFromRight;}}));}});
 
@@ -1414,6 +1474,111 @@ configureScene:function(route){return Navigator.SceneConfigs.FloatFromRight;}}))
 
 
 AppRegistry.registerComponent('MeeletBook',function(){return MeeletBook;});
+});
+__d('MeeletBook/app/Util/date.js',[],function(global, require, module, exports) {  Date.
+
+
+
+
+
+
+CultureInfo = {name:"en-US",englishName:"English (United States)",nativeName:"English (United States)",dayNames:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],abbreviatedDayNames:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],shortestDayNames:["Su","Mo","Tu","We","Th","Fr","Sa"],firstLetterDayNames:["S","M","T","W","T","F","S"],monthNames:["January","February","March","April","May","June","July","August","September","October","November","December"],abbreviatedMonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],amDesignator:"AM",pmDesignator:"PM",firstDayOfWeek:0,twoDigitYearMax:2029,dateElementOrder:"mdy",formatPatterns:{shortDate:"M/d/yyyy",longDate:"dddd, MMMM dd, yyyy",shortTime:"h:mm tt",longTime:"h:mm:ss tt",fullDateTime:"dddd, MMMM dd, yyyy h:mm:ss tt",sortableDateTime:"yyyy-MM-ddTHH:mm:ss",universalSortableDateTime:"yyyy-MM-dd HH:mm:ssZ",rfc1123:"ddd, dd MMM yyyy HH:mm:ss GMT",monthDay:"MMMM dd",yearMonth:"MMMM, yyyy"},regexPatterns:{jan:/^jan(uary)?/i,feb:/^feb(ruary)?/i,mar:/^mar(ch)?/i,apr:/^apr(il)?/i,may:/^may/i,jun:/^jun(e)?/i,jul:/^jul(y)?/i,aug:/^aug(ust)?/i,sep:/^sep(t(ember)?)?/i,oct:/^oct(ober)?/i,nov:/^nov(ember)?/i,dec:/^dec(ember)?/i,sun:/^su(n(day)?)?/i,mon:/^mo(n(day)?)?/i,tue:/^tu(e(s(day)?)?)?/i,wed:/^we(d(nesday)?)?/i,thu:/^th(u(r(s(day)?)?)?)?/i,fri:/^fr(i(day)?)?/i,sat:/^sa(t(urday)?)?/i,future:/^next/i,past:/^last|past|prev(ious)?/i,add:/^(\+|after|from)/i,subtract:/^(\-|before|ago)/i,yesterday:/^yesterday/i,today:/^t(oday)?/i,tomorrow:/^tomorrow/i,now:/^n(ow)?/i,millisecond:/^ms|milli(second)?s?/i,second:/^sec(ond)?s?/i,minute:/^min(ute)?s?/i,hour:/^h(ou)?rs?/i,week:/^w(ee)?k/i,month:/^m(o(nth)?s?)?/i,day:/^d(ays?)?/i,year:/^y((ea)?rs?)?/i,shortMeridian:/^(a|p)/i,longMeridian:/^(a\.?m?\.?|p\.?m?\.?)/i,timezone:/^((e(s|d)t|c(s|d)t|m(s|d)t|p(s|d)t)|((gmt)?\s*(\+|\-)\s*\d\d\d\d?)|gmt)/i,ordinalSuffix:/^\s*(st|nd|rd|th)/i,timeContext:/^\s*(\:|a|p)/i},abbreviatedTimeZoneStandard:{GMT:"-000",EST:"-0400",CST:"-0500",MST:"-0600",PST:"-0700"},abbreviatedTimeZoneDST:{GMT:"-000",EDT:"-0500",CDT:"-0600",MDT:"-0700",PDT:"-0800"}};
+Date.getMonthNumberFromName = function(name){var n=Date.CultureInfo.monthNames,m=Date.CultureInfo.abbreviatedMonthNames,s=name.toLowerCase();for(var i=0;i < n.length;i++) {if(n[i].toLowerCase() == s || m[i].toLowerCase() == s){return i;}}
+return -1;};Date.getDayNumberFromName = function(name){var n=Date.CultureInfo.dayNames,m=Date.CultureInfo.abbreviatedDayNames,o=Date.CultureInfo.shortestDayNames,s=name.toLowerCase();for(var i=0;i < n.length;i++) {if(n[i].toLowerCase() == s || m[i].toLowerCase() == s){return i;}}
+return -1;};Date.isLeapYear = function(year){return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;};Date.getDaysInMonth = function(year,month){return [31,Date.isLeapYear(year)?29:28,31,30,31,30,31,31,30,31,30,31][month];};Date.getTimezoneOffset = function(s,dst){return dst || false?Date.CultureInfo.abbreviatedTimeZoneDST[s.toUpperCase()]:Date.CultureInfo.abbreviatedTimeZoneStandard[s.toUpperCase()];};Date.getTimezoneAbbreviation = function(offset,dst){var n=dst || false?Date.CultureInfo.abbreviatedTimeZoneDST:Date.CultureInfo.abbreviatedTimeZoneStandard,p;for(p in n) {if(n[p] === offset){return p;}}
+return null;};Date.prototype.clone = function(){return new Date(this.getTime());};Date.prototype.compareTo = function(date){if(isNaN(this)){throw new Error(this);}
+if(date instanceof Date && !isNaN(date)){return this > date?1:this < date?-1:0;}else {throw new TypeError(date);}};Date.prototype.equals = function(date){return this.compareTo(date) === 0;};Date.prototype.between = function(start,end){var t=this.getTime();return t >= start.getTime() && t <= end.getTime();};Date.prototype.addMilliseconds = function(value){this.setMilliseconds(this.getMilliseconds() + value);return this;};Date.prototype.addSeconds = function(value){return this.addMilliseconds(value * 1000);};Date.prototype.addMinutes = function(value){return this.addMilliseconds(value * 60000);};Date.prototype.addHours = function(value){return this.addMilliseconds(value * 3600000);};Date.prototype.addDays = function(value){return this.addMilliseconds(value * 86400000);};Date.prototype.addWeeks = function(value){return this.addMilliseconds(value * 604800000);};Date.prototype.addMonths = function(value){var n=this.getDate();this.setDate(1);this.setMonth(this.getMonth() + value);this.setDate(Math.min(n,this.getDaysInMonth()));return this;};Date.prototype.addYears = function(value){return this.addMonths(value * 12);};Date.prototype.add = function(config){if(typeof config == "number"){this._orient = config;return this;}
+var x=config;if(x.millisecond || x.milliseconds){this.addMilliseconds(x.millisecond || x.milliseconds);}
+if(x.second || x.seconds){this.addSeconds(x.second || x.seconds);}
+if(x.minute || x.minutes){this.addMinutes(x.minute || x.minutes);}
+if(x.hour || x.hours){this.addHours(x.hour || x.hours);}
+if(x.month || x.months){this.addMonths(x.month || x.months);}
+if(x.year || x.years){this.addYears(x.year || x.years);}
+if(x.day || x.days){this.addDays(x.day || x.days);}
+return this;};Date._validate = function(value,min,max,name){if(typeof value != "number"){throw new TypeError(value + " is not a Number.");}else if(value < min || value > max){throw new RangeError(value + " is not a valid value for " + name + ".");}
+return true;};Date.validateMillisecond = function(n){return Date._validate(n,0,999,"milliseconds");};Date.validateSecond = function(n){return Date._validate(n,0,59,"seconds");};Date.validateMinute = function(n){return Date._validate(n,0,59,"minutes");};Date.validateHour = function(n){return Date._validate(n,0,23,"hours");};Date.validateDay = function(n,year,month){return Date._validate(n,1,Date.getDaysInMonth(year,month),"days");};Date.validateMonth = function(n){return Date._validate(n,0,11,"months");};Date.validateYear = function(n){return Date._validate(n,1,9999,"seconds");};Date.prototype.set = function(config){var x=config;if(!x.millisecond && x.millisecond !== 0){x.millisecond = -1;}
+if(!x.second && x.second !== 0){x.second = -1;}
+if(!x.minute && x.minute !== 0){x.minute = -1;}
+if(!x.hour && x.hour !== 0){x.hour = -1;}
+if(!x.day && x.day !== 0){x.day = -1;}
+if(!x.month && x.month !== 0){x.month = -1;}
+if(!x.year && x.year !== 0){x.year = -1;}
+if(x.millisecond != -1 && Date.validateMillisecond(x.millisecond)){this.addMilliseconds(x.millisecond - this.getMilliseconds());}
+if(x.second != -1 && Date.validateSecond(x.second)){this.addSeconds(x.second - this.getSeconds());}
+if(x.minute != -1 && Date.validateMinute(x.minute)){this.addMinutes(x.minute - this.getMinutes());}
+if(x.hour != -1 && Date.validateHour(x.hour)){this.addHours(x.hour - this.getHours());}
+if(x.month !== -1 && Date.validateMonth(x.month)){this.addMonths(x.month - this.getMonth());}
+if(x.year != -1 && Date.validateYear(x.year)){this.addYears(x.year - this.getFullYear());}
+if(x.day != -1 && Date.validateDay(x.day,this.getFullYear(),this.getMonth())){this.addDays(x.day - this.getDate());}
+if(x.timezone){this.setTimezone(x.timezone);}
+if(x.timezoneOffset){this.setTimezoneOffset(x.timezoneOffset);}
+return this;};Date.prototype.clearTime = function(){this.setHours(0);this.setMinutes(0);this.setSeconds(0);this.setMilliseconds(0);return this;};Date.prototype.isLeapYear = function(){var y=this.getFullYear();return y % 4 === 0 && y % 100 !== 0 || y % 400 === 0;};Date.prototype.isWeekday = function(){return !(this.is().sat() || this.is().sun());};Date.prototype.getDaysInMonth = function(){return Date.getDaysInMonth(this.getFullYear(),this.getMonth());};Date.prototype.moveToFirstDayOfMonth = function(){return this.set({day:1});};Date.prototype.moveToLastDayOfMonth = function(){return this.set({day:this.getDaysInMonth()});};Date.prototype.moveToDayOfWeek = function(day,orient){var diff=(day - this.getDay() + 7 * (orient || +1)) % 7;return this.addDays(diff === 0?diff += 7 * (orient || +1):diff);};Date.prototype.moveToMonth = function(month,orient){var diff=(month - this.getMonth() + 12 * (orient || +1)) % 12;return this.addMonths(diff === 0?diff += 12 * (orient || +1):diff);};Date.prototype.getDayOfYear = function(){return Math.floor((this - new Date(this.getFullYear(),0,1)) / 86400000);};Date.prototype.getWeekOfYear = function(firstDayOfWeek){var y=this.getFullYear(),m=this.getMonth(),d=this.getDate();var dow=firstDayOfWeek || Date.CultureInfo.firstDayOfWeek;var offset=7 + 1 - new Date(y,0,1).getDay();if(offset == 8){offset = 1;}
+var daynum=(Date.UTC(y,m,d,0,0,0) - Date.UTC(y,0,1,0,0,0)) / 86400000 + 1;var w=Math.floor((daynum - offset + 7) / 7);if(w === dow){y--;var prevOffset=7 + 1 - new Date(y,0,1).getDay();if(prevOffset == 2 || prevOffset == 8){w = 53;}else {w = 52;}}
+return w;};Date.prototype.isDST = function(){console.log('isDST');return this.toString().match(/(E|C|M|P)(S|D)T/)[2] == "D";};Date.prototype.getTimezone = function(){return Date.getTimezoneAbbreviation(this.getUTCOffset,this.isDST());};Date.prototype.setTimezoneOffset = function(s){var here=this.getTimezoneOffset(),there=Number(s) * -6 / 10;this.addMinutes(there - here);return this;};Date.prototype.setTimezone = function(s){return this.setTimezoneOffset(Date.getTimezoneOffset(s));};Date.prototype.getUTCOffset = function(){var n=this.getTimezoneOffset() * -10 / 6,r;if(n < 0){r = (n - 10000).toString();return r[0] + r.substr(2);}else {r = (n + 10000).toString();return "+" + r.substr(1);}};Date.prototype.getDayName = function(abbrev){return abbrev?Date.CultureInfo.abbreviatedDayNames[this.getDay()]:Date.CultureInfo.dayNames[this.getDay()];};Date.prototype.getMonthName = function(abbrev){return abbrev?Date.CultureInfo.abbreviatedMonthNames[this.getMonth()]:Date.CultureInfo.monthNames[this.getMonth()];};Date.prototype._toString = Date.prototype.toString;Date.prototype.toString = function(format){var self=this;var p=function p(s){return s.toString().length == 1?"0" + s:s;};return format?format.replace(/dd?d?d?|MM?M?M?|yy?y?y?|hh?|HH?|mm?|ss?|tt?|zz?z?/g,function(format){switch(format){case "hh":return p(self.getHours() < 13?self.getHours():self.getHours() - 12);case "h":return self.getHours() < 13?self.getHours():self.getHours() - 12;case "HH":return p(self.getHours());case "H":return self.getHours();case "mm":return p(self.getMinutes());case "m":return self.getMinutes();case "ss":return p(self.getSeconds());case "s":return self.getSeconds();case "yyyy":return self.getFullYear();case "yy":return self.getFullYear().toString().substring(2,4);case "dddd":return self.getDayName();case "ddd":return self.getDayName(true);case "dd":return p(self.getDate());case "d":return self.getDate().toString();case "MMMM":return self.getMonthName();case "MMM":return self.getMonthName(true);case "MM":return p(self.getMonth() + 1);case "M":return self.getMonth() + 1;case "t":return self.getHours() < 12?Date.CultureInfo.amDesignator.substring(0,1):Date.CultureInfo.pmDesignator.substring(0,1);case "tt":return self.getHours() < 12?Date.CultureInfo.amDesignator:Date.CultureInfo.pmDesignator;case "zzz":case "zz":case "z":return "";}}):this._toString();};
+Date.now = function(){return new Date();};Date.today = function(){return Date.now().clearTime();};Date.prototype._orient = +1;Date.prototype.next = function(){this._orient = +1;return this;};Date.prototype.last = Date.prototype.prev = Date.prototype.previous = function(){this._orient = -1;return this;};Date.prototype._is = false;Date.prototype.is = function(){this._is = true;return this;};Number.prototype._dateElement = "day";Number.prototype.fromNow = function(){var c={};c[this._dateElement] = this;return Date.now().add(c);};Number.prototype.ago = function(){var c={};c[this._dateElement] = this * -1;return Date.now().add(c);};(function(){var $D=Date.prototype,$N=Number.prototype;var dx="sunday monday tuesday wednesday thursday friday saturday".split(/\s/),mx="january february march april may june july august september october november december".split(/\s/),px="Millisecond Second Minute Hour Day Week Month Year".split(/\s/),de;var df=function(n){return function(){if(this._is){this._is = false;return this.getDay() == n;}
+return this.moveToDayOfWeek(n,this._orient);};};for(var i=0;i < dx.length;i++) {$D[dx[i]] = $D[dx[i].substring(0,3)] = df(i);}
+var mf=function(n){return function(){if(this._is){this._is = false;return this.getMonth() === n;}
+return this.moveToMonth(n,this._orient);};};for(var j=0;j < mx.length;j++) {$D[mx[j]] = $D[mx[j].substring(0,3)] = mf(j);}
+var ef=function(j){return function(){if(j.substring(j.length - 1) != "s"){j += "s";}
+return this["add" + j](this._orient);};};var nf=function(n){return function(){this._dateElement = n;return this;};};for(var k=0;k < px.length;k++) {de = px[k].toLowerCase();$D[de] = $D[de + "s"] = ef(px[k]);$N[de] = $N[de + "s"] = nf(de);}})();Date.prototype.toJSONString = function(){return this.toString("yyyy-MM-ddThh:mm:ssZ");};Date.prototype.toShortDateString = function(){return this.toString(Date.CultureInfo.formatPatterns.shortDatePattern);};Date.prototype.toLongDateString = function(){return this.toString(Date.CultureInfo.formatPatterns.longDatePattern);};Date.prototype.toShortTimeString = function(){return this.toString(Date.CultureInfo.formatPatterns.shortTimePattern);};Date.prototype.toLongTimeString = function(){return this.toString(Date.CultureInfo.formatPatterns.longTimePattern);};Date.prototype.getOrdinal = function(){switch(this.getDate()){case 1:case 21:case 31:return "st";case 2:case 22:return "nd";case 3:case 23:return "rd";default:return "th";}};
+(function(){Date.Parsing = {Exception:function(s){this.message = "Parse error at '" + s.substring(0,10) + " ...'";}};var $P=Date.Parsing;var _=$P.Operators = {rtoken:function(r){return function(s){var mx=s.match(r);if(mx){return [mx[0],s.substring(mx[0].length)];}else {throw new $P.Exception(s);}};},token:function(s){return function(s){return _.rtoken(new RegExp("^\s*" + s + "\s*"))(s);};},stoken:function(s){return _.rtoken(new RegExp("^" + s));},until:function(p){return function(s){var qx=[],rx=null;while(s.length) {try{rx = p.call(this,s);}catch(e) {qx.push(rx[0]);s = rx[1];continue;}
+break;}
+return [qx,s];};},many:function(p){return function(s){var rx=[],r=null;while(s.length) {try{r = p.call(this,s);}catch(e) {return [rx,s];}
+rx.push(r[0]);s = r[1];}
+return [rx,s];};},optional:function(p){return function(s){var r=null;try{r = p.call(this,s);}catch(e) {return [null,s];}
+return [r[0],r[1]];};},not:function(p){return function(s){try{p.call(this,s);}catch(e) {return [null,s];}
+throw new $P.Exception(s);};},ignore:function(p){return p?function(s){var r=null;r = p.call(this,s);return [null,r[1]];}:null;},product:function(){var px=arguments[0],qx=Array.prototype.slice.call(arguments,1),rx=[];for(var i=0;i < px.length;i++) {rx.push(_.each(px[i],qx));}
+return rx;},cache:function(rule){var cache={},r=null;return function(s){try{r = cache[s] = cache[s] || rule.call(this,s);}catch(e) {r = cache[s] = e;}
+if(r instanceof $P.Exception){throw r;}else {return r;}};},any:function(){var px=arguments;return function(s){var r=null;for(var i=0;i < px.length;i++) {if(px[i] == null){continue;}
+try{r = px[i].call(this,s);}catch(e) {r = null;}
+if(r){return r;}}
+throw new $P.Exception(s);};},each:function(){var px=arguments;return function(s){var rx=[],r=null;for(var i=0;i < px.length;i++) {if(px[i] == null){continue;}
+try{r = px[i].call(this,s);}catch(e) {throw new $P.Exception(s);}
+rx.push(r[0]);s = r[1];}
+return [rx,s];};},all:function(){var px=arguments,_=_;return _.each(_.optional(px));},sequence:function(px,d,c){d = d || _.rtoken(/^\s*/);c = c || null;if(px.length == 1){return px[0];}
+return function(s){var r=null,q=null;var rx=[];for(var i=0;i < px.length;i++) {try{r = px[i].call(this,s);}catch(e) {break;}
+rx.push(r[0]);try{q = d.call(this,r[1]);}catch(ex) {q = null;break;}
+s = q[1];}
+if(!r){throw new $P.Exception(s);}
+if(q){throw new $P.Exception(q[1]);}
+if(c){try{r = c.call(this,r[1]);}catch(ey) {throw new $P.Exception(r[1]);}}
+return [rx,r?r[1]:s];};},between:function(d1,p,d2){d2 = d2 || d1;var _fn=_.each(_.ignore(d1),p,_.ignore(d2));return function(s){var rx=_fn.call(this,s);return [[rx[0][0],r[0][2]],rx[1]];};},list:function(p,d,c){d = d || _.rtoken(/^\s*/);c = c || null;return p instanceof Array?_.each(_.product(p.slice(0,-1),_.ignore(d)),p.slice(-1),_.ignore(c)):_.each(_.many(_.each(p,_.ignore(d))),px,_.ignore(c));},set:function(px,d,c){d = d || _.rtoken(/^\s*/);c = c || null;return function(s){var r=null,p=null,q=null,rx=null,best=[[],s],last=false;for(var i=0;i < px.length;i++) {q = null;p = null;r = null;last = px.length == 1;try{r = px[i].call(this,s);}catch(e) {continue;}
+rx = [[r[0]],r[1]];if(r[1].length > 0 && !last){try{q = d.call(this,r[1]);}catch(ex) {last = true;}}else {last = true;}
+if(!last && q[1].length === 0){last = true;}
+if(!last){var qx=[];for(var j=0;j < px.length;j++) {if(i != j){qx.push(px[j]);}}
+p = _.set(qx,d).call(this,q[1]);if(p[0].length > 0){rx[0] = rx[0].concat(p[0]);rx[1] = p[1];}}
+if(rx[1].length < best[1].length){best = rx;}
+if(best[1].length === 0){break;}}
+if(best[0].length === 0){return best;}
+if(c){try{q = c.call(this,best[1]);}catch(ey) {throw new $P.Exception(best[1]);}
+best[1] = q[1];}
+return best;};},forward:function(gr,fname){return function(s){return gr[fname].call(this,s);};},replace:function(rule,repl){return function(s){var r=rule.call(this,s);return [repl,r[1]];};},process:function(rule,fn){return function(s){var r=rule.call(this,s);return [fn.call(this,r[0]),r[1]];};},min:function(min,rule){return function(s){var rx=rule.call(this,s);if(rx[0].length < min){throw new $P.Exception(s);}
+return rx;};}};var _generator=function(op){return function(){var args=null,rx=[];if(arguments.length > 1){args = Array.prototype.slice.call(arguments);}else if(arguments[0] instanceof Array){args = arguments[0];}
+if(args){for(var i=0,px=args.shift();i < px.length;i++) {args.unshift(px[i]);rx.push(op.apply(null,args));args.shift();return rx;}}else {return op.apply(null,arguments);}};};var gx="optional not ignore cache".split(/\s/);for(var i=0;i < gx.length;i++) {_[gx[i]] = _generator(_[gx[i]]);}
+var _vector=function(op){return function(){if(arguments[0] instanceof Array){return op.apply(null,arguments[0]);}else {return op.apply(null,arguments);}};};var vx="each any all".split(/\s/);for(var j=0;j < vx.length;j++) {_[vx[j]] = _vector(_[vx[j]]);}})();(function(){var flattenAndCompact=function(ax){var rx=[];for(var i=0;i < ax.length;i++) {if(ax[i] instanceof Array){rx = rx.concat(flattenAndCompact(ax[i]));}else {if(ax[i]){rx.push(ax[i]);}}}
+return rx;};Date.Grammar = {};Date.Translator = {hour:function(s){return function(){this.hour = Number(s);};},minute:function(s){return function(){this.minute = Number(s);};},second:function(s){return function(){this.second = Number(s);};},meridian:function(s){return function(){this.meridian = s.slice(0,1).toLowerCase();};},timezone:function(s){return function(){var n=s.replace(/[^\d\+\-]/g,"");if(n.length){this.timezoneOffset = Number(n);}else {this.timezone = s.toLowerCase();}};},day:function(x){var s=x[0];return function(){this.day = Number(s.match(/\d+/)[0]);};},month:function(s){return function(){this.month = s.length == 3?Date.getMonthNumberFromName(s):Number(s) - 1;};},year:function(s){return function(){var n=Number(s);this.year = s.length > 2?n:n + (n + 2000 < Date.CultureInfo.twoDigitYearMax?2000:1900);};},rday:function(s){return function(){switch(s){case "yesterday":this.days = -1;break;case "tomorrow":this.days = 1;break;case "today":this.days = 0;break;case "now":this.days = 0;this.now = true;break;}};},finishExact:function(x){x = x instanceof Array?x:[x];var now=new Date();this.year = now.getFullYear();this.month = now.getMonth();this.day = 1;this.hour = 0;this.minute = 0;this.second = 0;for(var i=0;i < x.length;i++) {if(x[i]){x[i].call(this);}}
+this.hour = this.meridian == "p" && this.hour < 13?this.hour + 12:this.hour;if(this.day > Date.getDaysInMonth(this.year,this.month)){throw new RangeError(this.day + " is not a valid value for days.");}
+var r=new Date(this.year,this.month,this.day,this.hour,this.minute,this.second);if(this.timezone){r.set({timezone:this.timezone});}else if(this.timezoneOffset){r.set({timezoneOffset:this.timezoneOffset});}
+return r;},finish:function(x){x = x instanceof Array?flattenAndCompact(x):[x];if(x.length === 0){return null;}
+for(var i=0;i < x.length;i++) {if(typeof x[i] == "function"){x[i].call(this);}}
+if(this.now){return new Date();}
+var today=Date.today();var method=null;var expression=!!(this.days != null || this.orient || this.operator);if(expression){var gap,mod,orient;orient = this.orient == "past" || this.operator == "subtract"?-1:1;if(this.weekday){this.unit = "day";gap = Date.getDayNumberFromName(this.weekday) - today.getDay();mod = 7;this.days = gap?(gap + orient * mod) % mod:orient * mod;}
+if(this.month){this.unit = "month";gap = this.month - today.getMonth();mod = 12;this.months = gap?(gap + orient * mod) % mod:orient * mod;this.month = null;}
+if(!this.unit){this.unit = "day";}
+if(this[this.unit + "s"] == null || this.operator != null){if(!this.value){this.value = 1;}
+if(this.unit == "week"){this.unit = "day";this.value = this.value * 7;}
+this[this.unit + "s"] = this.value * orient;}
+return today.add(this);}else {if(this.meridian && this.hour){this.hour = this.hour < 13 && this.meridian == "p"?this.hour + 12:this.hour;}
+if(this.weekday && !this.day){this.day = today.addDays(Date.getDayNumberFromName(this.weekday) - today.getDay()).getDate();}
+if(this.month && !this.day){this.day = 1;}
+return today.set(this);}}};var _=Date.Parsing.Operators,g=Date.Grammar,t=Date.Translator,_fn;g.datePartDelimiter = _.rtoken(/^([\s\-\.\,\/\x27]+)/);g.timePartDelimiter = _.stoken(":");g.whiteSpace = _.rtoken(/^\s*/);g.generalDelimiter = _.rtoken(/^(([\s\,]|at|on)+)/);var _C={};g.ctoken = function(keys){var fn=_C[keys];if(!fn){var c=Date.CultureInfo.regexPatterns;var kx=keys.split(/\s+/),px=[];for(var i=0;i < kx.length;i++) {px.push(_.replace(_.rtoken(c[kx[i]]),kx[i]));}
+fn = _C[keys] = _.any.apply(null,px);}
+return fn;};g.ctoken2 = function(key){return _.rtoken(Date.CultureInfo.regexPatterns[key]);};g.h = _.cache(_.process(_.rtoken(/^(0[0-9]|1[0-2]|[1-9])/),t.hour));g.hh = _.cache(_.process(_.rtoken(/^(0[0-9]|1[0-2])/),t.hour));g.H = _.cache(_.process(_.rtoken(/^([0-1][0-9]|2[0-3]|[0-9])/),t.hour));g.HH = _.cache(_.process(_.rtoken(/^([0-1][0-9]|2[0-3])/),t.hour));g.m = _.cache(_.process(_.rtoken(/^([0-5][0-9]|[0-9])/),t.minute));g.mm = _.cache(_.process(_.rtoken(/^[0-5][0-9]/),t.minute));g.s = _.cache(_.process(_.rtoken(/^([0-5][0-9]|[0-9])/),t.second));g.ss = _.cache(_.process(_.rtoken(/^[0-5][0-9]/),t.second));g.hms = _.cache(_.sequence([g.H,g.mm,g.ss],g.timePartDelimiter));g.t = _.cache(_.process(g.ctoken2("shortMeridian"),t.meridian));g.tt = _.cache(_.process(g.ctoken2("longMeridian"),t.meridian));g.z = _.cache(_.process(_.rtoken(/^(\+|\-)?\s*\d\d\d\d?/),t.timezone));g.zz = _.cache(_.process(_.rtoken(/^(\+|\-)\s*\d\d\d\d/),t.timezone));g.zzz = _.cache(_.process(g.ctoken2("timezone"),t.timezone));g.timeSuffix = _.each(_.ignore(g.whiteSpace),_.set([g.tt,g.zzz]));g.time = _.each(_.optional(_.ignore(_.stoken("T"))),g.hms,g.timeSuffix);g.d = _.cache(_.process(_.each(_.rtoken(/^([0-2]\d|3[0-1]|\d)/),_.optional(g.ctoken2("ordinalSuffix"))),t.day));g.dd = _.cache(_.process(_.each(_.rtoken(/^([0-2]\d|3[0-1])/),_.optional(g.ctoken2("ordinalSuffix"))),t.day));g.ddd = g.dddd = _.cache(_.process(g.ctoken("sun mon tue wed thu fri sat"),function(s){return function(){this.weekday = s;};}));g.M = _.cache(_.process(_.rtoken(/^(1[0-2]|0\d|\d)/),t.month));g.MM = _.cache(_.process(_.rtoken(/^(1[0-2]|0\d)/),t.month));g.MMM = g.MMMM = _.cache(_.process(g.ctoken("jan feb mar apr may jun jul aug sep oct nov dec"),t.month));g.y = _.cache(_.process(_.rtoken(/^(\d\d?)/),t.year));g.yy = _.cache(_.process(_.rtoken(/^(\d\d)/),t.year));g.yyy = _.cache(_.process(_.rtoken(/^(\d\d?\d?\d?)/),t.year));g.yyyy = _.cache(_.process(_.rtoken(/^(\d\d\d\d)/),t.year));_fn = function(){return _.each(_.any.apply(null,arguments),_.not(g.ctoken2("timeContext")));};g.day = _fn(g.d,g.dd);g.month = _fn(g.M,g.MMM);g.year = _fn(g.yyyy,g.yy);g.orientation = _.process(g.ctoken("past future"),function(s){return function(){this.orient = s;};});g.operator = _.process(g.ctoken("add subtract"),function(s){return function(){this.operator = s;};});g.rday = _.process(g.ctoken("yesterday tomorrow today now"),t.rday);g.unit = _.process(g.ctoken("minute hour day week month year"),function(s){return function(){this.unit = s;};});g.value = _.process(_.rtoken(/^\d\d?(st|nd|rd|th)?/),function(s){return function(){this.value = s.replace(/\D/g,"");};});g.expression = _.set([g.rday,g.operator,g.value,g.unit,g.orientation,g.ddd,g.MMM]);_fn = function(){return _.set(arguments,g.datePartDelimiter);};g.mdy = _fn(g.ddd,g.month,g.day,g.year);g.ymd = _fn(g.ddd,g.year,g.month,g.day);g.dmy = _fn(g.ddd,g.day,g.month,g.year);g.date = function(s){return (g[Date.CultureInfo.dateElementOrder] || g.mdy).call(this,s);};g.format = _.process(_.many(_.any(_.process(_.rtoken(/^(dd?d?d?|MM?M?M?|yy?y?y?|hh?|HH?|mm?|ss?|tt?|zz?z?)/),function(fmt){if(g[fmt]){return g[fmt];}else {throw Date.Parsing.Exception(fmt);}}),_.process(_.rtoken(/^[^dMyhHmstz]+/),function(s){return _.ignore(_.stoken(s));}))),function(rules){return _.process(_.each.apply(null,rules),t.finishExact);});var _F={};var _get=function(f){return _F[f] = _F[f] || g.format(f)[0];};g.formats = function(fx){if(fx instanceof Array){var rx=[];for(var i=0;i < fx.length;i++) {rx.push(_get(fx[i]));}
+return _.any.apply(null,rx);}else {return _get(fx);}};g._formats = g.formats(["yyyy-MM-ddTHH:mm:ss","ddd, MMM dd, yyyy H:mm:ss tt","ddd MMM d yyyy HH:mm:ss zzz","d"]);g._start = _.process(_.set([g.date,g.time,g.expression],g.generalDelimiter,g.whiteSpace),t.finish);g.start = function(s){try{var r=g._formats.call({},s);if(r[1].length === 0){return r;}}catch(e) {}
+return g._start.call({},s);};})();Date._parse = Date.parse;Date.parse = function(s){var r=null;if(!s){return null;}
+try{r = Date.Grammar.start.call({},s);}catch(e) {return null;}
+return r[1].length === 0?r[0]:null;};Date.getParseFunction = function(fx){var fn=Date.Grammar.formats(fx);return function(s){var r=null;try{r = fn.call({},s);}catch(e) {return null;}
+return r[1].length === 0?r[0]:null;};};Date.parseExact = function(s,fx){return Date.getParseFunction(fx)(s);};
 });
 __d('react-native/Libraries/react-native/react-native.js',["React","ActivityIndicatorIOS","DatePickerIOS","DrawerLayoutAndroid","Image","ListView","MapView","Modal","Navigator","NavigatorIOS","PickerIOS","ProgressBarAndroid","ProgressViewIOS","ScrollView","SegmentedControlIOS","SliderIOS","SwitchAndroid","SwitchIOS","TabBarIOS","Text","TextInput","ToastAndroid","ToolbarAndroid","TouchableHighlight","TouchableNativeFeedback","TouchableOpacity","TouchableWithoutFeedback","View","WebView","ActionSheetIOS","AdSupportIOS","AlertIOS","Animated","AppRegistry","AppStateIOS","AsyncStorage","BackAndroid","CameraRoll","Dimensions","Easing","ImagePickerIOS","InteractionManager","LayoutAnimation","LinkingIOS","NetInfo","PanResponder","PixelRatio","PushNotificationIOS","Settings","StatusBarIOS","StyleSheet","VibrationIOS","RCTDeviceEventEmitter","RCTNativeAppEventEmitter","NativeModules","Platform","processColor","requireNativeComponent","EdgeInsetsPropType","PointPropType","LinkedStateMixin","ReactComponentWithPureRenderMixin","NativeModules","ReactUpdates","cloneWithProps","ReactFragment","update","ReactDefaultPerf","ReactTestUtils"],function(global, require, module, exports) {  'use strict';
 
@@ -53600,24 +53765,31 @@ Object.keys(componentOrElement));}
 
 module.exports = findDOMNode;
 });
-__d('MeeletBook/app/Screens/MainScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","MeeletBook/app/Screens/TalkScreen.js","MeeletBook/app/Screens/FriendScreen.js","MeeletBook/app/Screens/StudyScreen.js","MeeletBook/app/Screens/ProfileScreen.js"],function(global, require, module, exports) {  'use strict';
+__d('MeeletBook/app/Screens/MainScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","MeeletBook/app/Screens/TalkMainScreen.js","MeeletBook/app/Screens/FriendMainScreen.js","MeeletBook/app/Screens/StudyMainScreen.js","MeeletBook/app/Screens/ProfileMainScreen.js"],function(global, require, module, exports) {  'use strict';
 
 var React=require('react-native/Libraries/react-native/react-native.js');var 
 
-StyleSheet=
+AlertIOS=
 
 
 
-React.StyleSheet;var TabBarIOS=React.TabBarIOS;var Text=React.Text;var View=React.View;
+
+
+
+
+React.AlertIOS;var AsyncStorage=React.AsyncStorage;var StyleSheet=React.StyleSheet;var TabBarIOS=React.TabBarIOS;var NavigatorIOS=React.NavigatorIOS;var Navigator=React.Navigator;var Text=React.Text;var View=React.View;
 var Icon=require('MaterialIcons');
-var TalkScreen=require('MeeletBook/app/Screens/TalkScreen.js');
-var FriendScreen=require('MeeletBook/app/Screens/FriendScreen.js');
-var StudyScreen=require('MeeletBook/app/Screens/StudyScreen.js');
-var ProfileScreen=require('MeeletBook/app/Screens/ProfileScreen.js');
+var TalkMainScreen=require('MeeletBook/app/Screens/TalkMainScreen.js');
+var FriendScreen=require('MeeletBook/app/Screens/FriendMainScreen.js');
+var StudyMainScreen=require('MeeletBook/app/Screens/StudyMainScreen.js');
+var ProfileMainScreen=require('MeeletBook/app/Screens/ProfileMainScreen.js');
 
 var MainScreen=React.createClass({displayName:'MainScreen',
 statics:{
 title:'<MainScreen>'},
+
+
+componentWillMount:function(){},
 
 
 getInitialState:function(){
@@ -53635,6 +53807,16 @@ React.createElement(Text,{style:styles.tabText},num,' re-renders of the ',pageTe
 
 
 
+_renderNavContent:function(title,component){
+return (
+React.createElement(NavigatorIOS,{
+style:styles.container,
+initialRoute:{
+title:title,
+component:component}}));},
+
+
+
 
 render:function(){var _this=this;
 return (
@@ -53649,7 +53831,7 @@ onPress:function(){
 _this.setState({selectedTab:'talkTab'});}},
 
 
-React.createElement(TalkScreen,null)),
+React.createElement(TalkMainScreen,{ref:'talkSummary'})),
 
 React.createElement(Icon.TabBarItem,{
 title:'好友',
@@ -53659,7 +53841,7 @@ onPress:function(){
 _this.setState({selectedTab:'friendsTab'});}},
 
 
-React.createElement(FriendScreen,{active:this.state.selectedTab === 'friendsTab'})),
+this._renderNavContent('组群',FriendScreen)),
 
 React.createElement(Icon.TabBarItem,{
 title:'学习',
@@ -53670,7 +53852,7 @@ _this.setState({
 selectedTab:'studyTab'});}},
 
 
-React.createElement(StudyScreen,null)),
+React.createElement(StudyMainScreen,null)),
 
 React.createElement(Icon.TabBarItem,{
 title:'个人',
@@ -53681,7 +53863,7 @@ _this.setState({
 selectedTab:'profileTab'});}},
 
 
-React.createElement(ProfileScreen,null))));}});
+this._renderNavContent('个人',ProfileMainScreen))));}});
 
 
 
@@ -53695,7 +53877,10 @@ alignItems:'center'},
 
 tabText:{
 color:'white',
-margin:50}});
+margin:50},
+
+container:{
+flex:1}});
 
 
 
@@ -67131,28 +67316,1257 @@ rotation:PropTypes.number}};
 
 module.exports = requireNativeComponent('RNTypefaceTextView',iface);
 });
-__d('MeeletBook/app/Screens/TalkScreen.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
+__d('MeeletBook/app/Screens/TalkMainScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","MeeletBook/app/Screens/TalkListScreen.js","MeeletBook/app/Screens/TalkScreen.js"],function(global, require, module, exports) {  'use strict';
 
 var React=require('react-native/Libraries/react-native/react-native.js');var 
 
-StyleSheet=
+Navigator=
 
 
 
-React.StyleSheet;var TabBarIOS=React.TabBarIOS;var Text=React.Text;var View=React.View;
 
-var TalkScreen=React.createClass({displayName:'TalkScreen',
+
+React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+var Icon=require('MaterialIcons');
+var TalkListScreen=require('MeeletBook/app/Screens/TalkListScreen.js');
+var TalkScreen=require('MeeletBook/app/Screens/TalkScreen.js');
+
+var TalkMainScreen=React.createClass({displayName:'TalkMainScreen',
+getInitialState:function(){
+return {showNavBar:false};},
+
+
+componentWillMount:function(){
+var self=this;
+
+this._navBarRouteMapper = {
+LeftButton:function(route,navigator,index,navState){
+if(index === 0){
+return null;}
+
+
+var previousRoute=navState.routeStack[index - 1];
+var titleIconName;
+switch(previousRoute.id){
+case "list":
+titleIconName = 'format-list-bulleted';
+break;
+case "talk":
+titleIconName = 'textsms';
+break;}
+
+
+return (
+React.createElement(TouchableOpacity,{
+onPress:function(){navigator.pop();previousRoute.id === "list" && self.hideNavBar();},
+style:styles.navBarLeftButton},
+React.createElement(Icon,{name:titleIconName,size:24,style:[styles.navButtonIcon]})));},
+
+
+
+
+RightButton:function(route,navigator,index,navState){
+return null;},
+
+
+Title:function(route,navigator,index,navState){
+if(route.id === "list")
+return;
+
+var titleIconName;
+switch(route.id){
+case "list":
+titleIconName = 'format-list-bulleted';
+break;
+case "talk":
+titleIconName = 'textsms';
+break;}
+
+
+return (
+React.createElement(View,{style:[styles.title]},
+React.createElement(View,{style:styles.titleIconPlaceholder},
+React.createElement(Icon,{name:titleIconName,size:24,style:[styles.navButtonIcon]})),
+
+React.createElement(Text,{style:styles.titleText},route.title)));}};},
+
+
+
+
+
+
+renderScene:function(route,nav){
+switch(route.id){
+case 'list':
+return React.createElement(TalkListScreen,{navigator:nav,mainScreen:this,style:styles.scene});
+case 'talk':
+return React.createElement(TalkScreen,{navigator:nav,style:styles.scene});
+default:
+return React.createElement(View,null);}},
+
+
+
 render:function(){
 return (
-React.createElement(View,null));}});
+React.createElement(Navigator,{
+debugOverlay:false,
+style:styles.screen,
+initialRoute:{id:'list',title:''},
+renderScene:this.renderScene,
+navigationBar:
+React.createElement(Navigator.NavigationBar,{
+routeMapper:this._navBarRouteMapper,
+style:[styles.navBar,this.state.showNavBar?{opacity:1}:{opacity:0}]})}));},
 
 
+
+
+
+
+showNavBar:function(){
+this.setState({showNavBar:true});},
+
+
+hideNavBar:function(){
+this.setState({showNavBar:false});}});
+
+
+
+var styles=StyleSheet.create({
+screen:{
+flex:1},
+
+scene:{
+flex:1},
+
+navBar:{
+backgroundColor:'#666666',
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+opacity:0},
+
+navBarLeftButton:{
+paddingLeft:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navBarRightButton:{
+paddingRight:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navButtonIcon:{
+flex:1,
+alignSelf:'center',
+color:"white"},
+
+title:{
+width:120,
+alignSelf:'center',
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-start',
+alignItems:'center',
+flexDirection:'row'},
+
+titleText:{
+flex:1,
+fontSize:18,
+color:'white',
+textAlign:'left',
+fontWeight:'bold',
+marginHorizontal:10},
+
+titleIconPlaceholder:{
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"}});
+
+
+
+module.exports = TalkMainScreen;
+});
+__d('MeeletBook/app/Screens/TalkListScreen.js',["react-native/Libraries/react-native/react-native.js","react-timer-mixin/TimerMixin.js","MaterialIcons"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+Image=
+
+
+
+
+
+
+
+
+
+
+React.Image;var ListView=React.ListView;var Modal=React.Modal;var Navigator=React.Navigator;var PixelRatio=React.PixelRatio;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var Icon=require('MaterialIcons');
+
+var now=new Date();
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"陈昌申",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"name":"冯智豪",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"name":"梁天祐",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"name":"李壮",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a2",
+"name":"林振远",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a4",
+"name":"钱辛杰",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a6",
+"name":"孙越凡",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a8",
+"name":"田奕恒",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563aa",
+"name":"王臻萱",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563ac",
+"name":"杨钧文",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")}];
+
+
+var PAGE_SIZE=4;
+
+var Thumb=React.createClass({displayName:'Thumb',
+getInitialState:function(){
+return {};},
+
+render:function(){
+return (
+React.createElement(TouchableOpacity,{
+onPress:this.props.onPress,
+style:[styles.contentRow]},
+React.createElement(Icon,{name:'textsms',size:40,color:'#2ecc71',style:[styles.smallAvatar]}),
+React.createElement(View,{style:[styles.thumbItem,styles.textContainer]},
+React.createElement(View,{style:[styles.compositeItem]},
+React.createElement(Text,{numberOfLines:1,style:[styles.thumbText]},this.props.data.name),
+React.createElement(Text,{style:[styles.thumbDate]},this.props.data.time)),
+
+React.createElement(View,{style:[styles.textItem]},
+React.createElement(Text,{numberOfLines:1,style:[styles.thumbText]},this.props.data.content)))));}});
+
+
+
+
+
+
+
+var TalkListScreen=React.createClass({displayName:'TalkListScreen',
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+
+routeTalk:function(title){
+this.props.mainScreen.showNavBar();
+
+this.props.navigator.push({id:"talk",title:title});},
+
+
+renderRow:function(rowData,sectionId,rowId){var _this=this;
+return rowData && React.createElement(Thumb,{data:rowData,onPress:function(){_this.routeTalk(rowData.name);}}) || null;},
+
+
+renderHeader:function(){var _this2=this;
+return (
+React.createElement(View,{style:styles.header},
+React.createElement(TextInput,{
+autoCapitalize:'none',
+placeholder:'搜索',
+autoCorrect:false,
+returnKeyType:'search',
+onSubmitEditing:function(event){return _this2.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput})));},
+
+
+
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000}));},
+
+
+
+
+updateSearchInput:function(text){var _this3=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this3.doSearch(text);},100);},
+
+
+doSearch:function(text){
+this.timeoutId = null;}});
+
+
+
+var styles=StyleSheet.create({
+listview:{
+backgroundColor:'#dde1dc'},
+
+header:{
+height:60,
+justifyContent:'center',
+alignItems:'center',
+backgroundColor:'#dde1dc',
+flexDirection:'row'},
+
+searchInput:{
+backgroundColor:'white',
+borderColor:'#cccccc',
+borderRadius:3,
+borderWidth:0.5,
+marginHorizontal:10,
+marginVertical:10,
+height:40,
+flex:1,
+fontSize:24,
+textAlign:"center"},
+
+contentRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3,
+height:80},
+
+thumbItem:{
+flex:1},
+
+smallAvatar:{
+width:60,
+height:60,
+margin:10},
+
+textContainer:{
+flexDirection:'column'},
+
+textItem:{
+height:40,
+justifyContent:'center',
+flexDirection:'column'},
+
+compositeItem:{
+height:40,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+thumbText:{
+flex:1,
+fontSize:18,
+color:'#888888'},
+
+thumbDate:{
+flex:1,
+fontSize:18,
+color:'#888888',
+textAlign:"right"}});
+
+
+
+module.exports = TalkListScreen;
+});
+__d('react-timer-mixin/TimerMixin.js',[],function(global, require, module, exports) {  'use strict';
+
+
+
+
+
+
+
+
+
+
+var GLOBAL=typeof window === 'undefined'?global:window;
+
+var setter=function(_setter,_clearer,array){
+return function(callback,delta){
+var id=_setter((function(){
+_clearer.call(this,id);
+callback.apply(this,arguments);}).
+bind(this),delta);
+
+if(!this[array]){
+this[array] = [id];}else 
+{
+this[array].push(id);}
+
+return id;};};
+
+
+
+var clearer=function(_clearer,array){
+return function(id){
+if(this[array]){
+var index=this[array].indexOf(id);
+if(index !== -1){
+this[array].splice(index,1);}}
+
+
+_clearer(id);};};
+
+
+
+var _timeouts='TimerMixin_timeouts';
+var _clearTimeout=clearer(GLOBAL.clearTimeout,_timeouts);
+var _setTimeout=setter(GLOBAL.setTimeout,_clearTimeout,_timeouts);
+
+var _intervals='TimerMixin_intervals';
+var _clearInterval=clearer(GLOBAL.clearInterval,_intervals);
+var _setInterval=setter(GLOBAL.setInterval,function(){},_intervals);
+
+var _immediates='TimerMixin_immediates';
+var _clearImmediate=clearer(GLOBAL.clearImmediate,_immediates);
+var _setImmediate=setter(GLOBAL.setImmediate,_clearImmediate,_immediates);
+
+var _rafs='TimerMixin_rafs';
+var _cancelAnimationFrame=clearer(GLOBAL.cancelAnimationFrame,_rafs);
+var _requestAnimationFrame=setter(GLOBAL.requestAnimationFrame,_cancelAnimationFrame,_rafs);
+
+var TimerMixin={
+componentWillUnmount:function(){
+this[_timeouts] && this[_timeouts].forEach(function(id){
+GLOBAL.clearTimeout(id);});
+
+this[_timeouts] = null;
+this[_intervals] && this[_intervals].forEach(function(id){
+GLOBAL.clearInterval(id);});
+
+this[_intervals] = null;
+this[_immediates] && this[_immediates].forEach(function(id){
+GLOBAL.clearImmediate(id);});
+
+this[_immediates] = null;
+this[_rafs] && this[_rafs].forEach(function(id){
+GLOBAL.cancelAnimationFrame(id);});
+
+this[_rafs] = null;},
+
+
+setTimeout:_setTimeout,
+clearTimeout:_clearTimeout,
+
+setInterval:_setInterval,
+clearInterval:_clearInterval,
+
+setImmediate:_setImmediate,
+clearImmediate:_clearImmediate,
+
+requestAnimationFrame:_requestAnimationFrame,
+cancelAnimationFrame:_cancelAnimationFrame};
+
+
+module.exports = TimerMixin;
+});
+__d('MeeletBook/app/Screens/TalkScreen.js',["image!default-avatar","image!default-avatar","react-native/Libraries/react-native/react-native.js","react-timer-mixin/TimerMixin.js","MaterialIcons","react-native-refreshable-listview/index.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+Image=
+
+
+
+
+
+
+
+
+React.Image;var ListView=React.ListView;var Navigator=React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var Icon=require('MaterialIcons');
+var RefreshableListView=require('react-native-refreshable-listview/index.js');
+
+var start=new Date(),end=start.addMinutes(1);
+var list=[
+{
+"type":"timeMark",
+"content":start.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午"),
+"start":start,
+"end":end},
+
+{
+"type":"myTalk",
+"content":"我在吃早饭",
+"userId":"66591a12c763d5e45855637e"},
+
+{
+"type":"myTalk",
+"content":"凤凰楼的点心好正点哦",
+"userId":"66591a12c763d5e45855637e"},
+
+{
+"type":"friendTalk",
+"content":"请客",
+"userId":"66591a12c763d5e45855637e"},
+
+{
+"type":"friendTalk",
+"content":"浙江将中医药知识纳入中小学课程",
+"userId":"66591a12c763d5e45855637e"},
+
+{
+"type":"friendTalk",
+"content":"Evernote似乎正在陷入危机之中。这家曾经被认为是“独角兽公司”最为完美的注脚的企业，在本月初宣布将裁员47人，并将关闭位于台湾、新加坡和莫斯科的三个办公室。此外，Evernote还关闭了一些运营不太顺利的功能，比如用于记录菜谱的“食记(Evernote Food)”。联系到今年七月的换帅和九月中国区总经理谷懿的辞职，以及意外停办的Evernote开发者大会，种种迹象都表明，这只独角兽已经处于泥潭的边缘。",
+"userId":"66591a12c763d5e45855637e"},
+
+{
+"type":"friendTalk",
+"content":"种子起源于3亿6千万年前，是种子植物产生的最为复杂的器官之一，为裸子植物和被子植物所特有。",
+"userId":"66591a12c763d5e45855637e"}];
+
+
+
+var Thumb=React.createClass({displayName:'Thumb',
+getInitialState:function(){
+return {};},
+
+render:function(){
+switch(this.props.data.type){
+case "timeMark":
+return (
+React.createElement(View,{
+style:[styles.contentRow]},
+React.createElement(View,{style:[styles.talkItem]},
+React.createElement(Text,{style:[styles.talkDate]},this.props.data.content))));
+
+
+
+break;
+case "myTalk":
+return (
+React.createElement(View,{
+style:[styles.contentRow]},
+React.createElement(View,{style:styles.avatarItem}),
+React.createElement(View,{style:[styles.talkItem,styles.talkTextContainer]},
+React.createElement(Text,{style:[styles.talkText,styles.myTalkText],numberOfLines:4},this.props.data.content)),
+
+React.createElement(View,{style:[styles.avatarItem,styles.myAvatar]},
+React.createElement(LocalImage,{style:[styles.avatarContainer],imgStyle:styles.avatarImg,source:'fox-character.png',alt:require('image!default-avatar')}))));
+
+
+
+break;
+case "friendTalk":
+return (
+React.createElement(View,{
+style:[styles.contentRow]},
+React.createElement(View,{style:styles.avatarItem},
+React.createElement(LocalImage,{style:[styles.avatarContainer],imgStyle:styles.avatarImg,source:'dog1-character.png',alt:require('image!default-avatar')})),
+
+React.createElement(View,{style:[styles.talkItem,styles.talkTextContainer]},
+React.createElement(Text,{style:[styles.talkText],numberOfLines:4},this.props.data.content)),
+
+React.createElement(View,{style:styles.avatarItem})));
+
+
+break;}}});
+
+
+
+
+var TalkScreen=React.createClass({displayName:'TalkScreen',
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+
+renderRow:function(rowData,sectionId,rowId){
+return rowData && React.createElement(Thumb,{style:[styles.thumb],data:rowData}) || null;},
+
+
+reloadTalk:function(){},
+
+
+
+render:function(){
+return (
+React.createElement(RefreshableListView,{style:styles.listview,
+dataSource:this.state.dataSource,
+renderRow:this.renderRow,
+loadData:this.reloadTalk,
+refreshDescription:'以前...'}));}});
+
+
+
+
+
+var styles=StyleSheet.create({
+listview:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+backgroundColor:'#dde1dc'},
+
+thumb:{
+flex:1},
+
+contentRow:{
+position:"relative",
+backgroundColor:'transparent',
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center',
+marginBottom:10},
+
+talkItem:{
+flex:1,
+flexDirection:'column',
+justifyContent:'flex-start',
+alignItems:'center',
+height:80,
+marginHorizontal:80,
+overflow:"hidden"},
+
+avatarItem:{
+position:"absolute",
+width:60,
+height:60,
+margin:10,
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'},
+
+myAvatar:{
+right:0},
+
+avatarContainer:{
+position:"absolute",
+left:0,
+top:0,
+right:0,
+height:60},
+
+avatarImg:{
+width:40,
+height:40},
+
+talkTextContainer:{},
+
+talkText:{
+position:"absolute",
+left:0,
+right:0,
+color:'#888',
+fontSize:18,
+height:80,
+lineHeight:20,
+right:0,
+textAlign:"left"},
+
+myTalkText:{
+textAlign:"right"},
+
+talkDate:{
+borderRadius:10,
+color:'#888',
+backgroundColor:'rgba(192, 192, 192, 0.4)',
+flex:1,
+fontSize:14,
+height:24,
+marginVertical:18,
+textAlign:"center",
+width:200}});
 
 
 
 module.exports = TalkScreen;
 });
-__d('MeeletBook/app/Screens/FriendScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-timer-mixin/TimerMixin.js","Overlay","LinearGradient"],function(global, require, module, exports) {  'use strict';
+__d('react-native-refreshable-listview/index.js',["react-native-refreshable-listview/lib/RefreshableListView.js"],function(global, require, module, exports) {  module.exports = require('react-native-refreshable-listview/lib/RefreshableListView.js');
+});
+__d('react-native-refreshable-listview/lib/RefreshableListView.js',["react-native/Libraries/react-native/react-native.js","is-promise/index.js","react-native-refreshable-listview/lib/delay.js","react-native-refreshable-listview/lib/ListView.js","react-native-refreshable-listview/lib/RefreshingIndicator.js","react-native-refreshable-listview/lib/ControlledRefreshableListView.js"],function(global, require, module, exports) {  var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key];}}}return target;};var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+PropTypes=
+React.PropTypes;
+var isPromise=require('is-promise/index.js');
+var delay=require('react-native-refreshable-listview/lib/delay.js');
+var ListView=require('react-native-refreshable-listview/lib/ListView.js');
+var RefreshingIndicator=require('react-native-refreshable-listview/lib/RefreshingIndicator.js');
+var ControlledRefreshableListView=require('react-native-refreshable-listview/lib/ControlledRefreshableListView.js');
+
+const LISTVIEW_REF='listview';
+
+var RefreshableListView=React.createClass({displayName:'RefreshableListView',
+propTypes:{
+loadData:PropTypes.func.isRequired,
+minDisplayTime:PropTypes.number,
+minBetweenTime:PropTypes.number,
+
+refreshDescription:PropTypes.oneOfType([PropTypes.string,PropTypes.element]),
+refreshingIndictatorComponent:PropTypes.oneOfType([PropTypes.func,PropTypes.element]),
+minPulldownDistance:PropTypes.number,
+renderHeaderWrapper:PropTypes.func},
+
+getDefaultProps:function(){
+return {
+minDisplayTime:300,
+minBetweenTime:300,
+minPulldownDistance:40,
+refreshingIndictatorComponent:RefreshingIndicator};},
+
+
+getInitialState:function(){
+return {
+isRefreshing:false};},
+
+
+handleRefresh:function(){var _this=this;
+if(this.willRefresh)return;
+
+this.willRefresh = true;
+
+var loadingDataPromise=new Promise(function(resolve){
+var loadDataReturnValue=_this.props.loadData(resolve);
+
+if(isPromise(loadDataReturnValue)){
+loadingDataPromise = loadDataReturnValue;}
+
+
+Promise.all([
+loadingDataPromise,
+new Promise(function(resolve){return _this.setState({isRefreshing:true},resolve);}),
+delay(_this.props.minDisplayTime)]).
+
+then(function(){return delay(_this.props.minBetweenTime);}).
+then(function(){
+_this.willRefresh = false;
+_this.setState({isRefreshing:false});});});},
+
+
+
+getScrollResponder:function(){
+return this.refs[LISTVIEW_REF].getScrollResponder();},
+
+setNativeProps:function(props){
+this.refs[LISTVIEW_REF].setNativeProps(props);},
+
+render:function(){
+return (
+React.createElement(ControlledRefreshableListView,_extends({},
+this.props,{
+ref:LISTVIEW_REF,
+onRefresh:this.handleRefresh,
+isRefreshing:this.state.isRefreshing})));}});
+
+
+
+
+
+RefreshableListView.DataSource = ListView.DataSource;
+RefreshableListView.RefreshingIndicator = RefreshingIndicator;
+
+module.exports = RefreshableListView;
+});
+__d('is-promise/index.js',[],function(global, require, module, exports) {  module.exports = isPromise;
+
+function isPromise(obj){
+return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';}
+});
+__d('react-native-refreshable-listview/lib/delay.js',[],function(global, require, module, exports) {  function delay(time){
+return new Promise(function(resolve){return setTimeout(resolve,time);});}
+
+
+module.exports = delay;
+});
+__d('react-native-refreshable-listview/lib/ListView.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var _require=require('react-native/Libraries/react-native/react-native.js');var ListView=_require.ListView;
+
+module.exports = ListView;
+});
+__d('react-native-refreshable-listview/lib/RefreshingIndicator.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+View=
+
+
+
+
+
+
+React.View;var Text=React.Text;var ActivityIndicatorIOS=React.ActivityIndicatorIOS;var PropTypes=React.PropTypes;var StyleSheet=React.StyleSheet;var isValidElement=React.isValidElement;var createElement=React.createElement;
+
+var RefreshingIndicator=React.createClass({displayName:'RefreshingIndicator',
+propTypes:{
+activityIndicatorComponent:PropTypes.oneOfType([PropTypes.func,PropTypes.element]),
+stylesheet:PropTypes.object,
+description:PropTypes.oneOfType([PropTypes.string,PropTypes.element])},
+
+getDefaultProps:function(){
+return {
+activityIndicatorComponent:ActivityIndicatorIOS};},
+
+
+renderActivityIndicator:function(style){
+var activityIndicator=this.props.activityIndicatorComponent;
+
+if(isValidElement(activityIndicator)){
+return activityIndicator;}else 
+{
+return createElement(activityIndicator,{style:style});}},
+
+
+render:function(){
+var styles=Object.assign({},stylesheet,this.props.stylesheet);
+
+return (
+React.createElement(View,{style:[styles.container,styles.wrapper]},
+React.createElement(View,{style:[styles.container,styles.loading,styles.content]},
+React.createElement(Text,{style:styles.description},
+this.props.description),
+
+this.renderActivityIndicator(styles.activityIndicator))));}});
+
+
+
+
+
+
+var stylesheet=StyleSheet.create({
+container:{
+flex:1,
+justifyContent:'space-around',
+alignItems:'center'},
+
+wrapper:{
+height:60,
+marginTop:10},
+
+content:{
+marginTop:10,
+height:60}});
+
+
+
+module.exports = RefreshingIndicator;
+});
+__d('react-native-refreshable-listview/lib/ControlledRefreshableListView.js',["react-native/Libraries/react-native/react-native.js","react-native-refreshable-listview/lib/ListView.js","react-native-refreshable-listview/lib/createElementFrom.js","react-native-refreshable-listview/lib/RefreshingIndicator.js"],function(global, require, module, exports) {  var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key];}}}return target;};var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+PropTypes=
+React.PropTypes;
+var ListView=require('react-native-refreshable-listview/lib/ListView.js');
+var createElementFrom=require('react-native-refreshable-listview/lib/createElementFrom.js');
+var RefreshingIndicator=require('react-native-refreshable-listview/lib/RefreshingIndicator.js');
+
+const SCROLL_EVENT_THROTTLE=32;
+const MIN_PULLDOWN_DISTANCE=40;
+
+const LISTVIEW_REF='listview';
+
+var ControlledRefreshableListView=React.createClass({displayName:'ControlledRefreshableListView',
+propTypes:{
+onRefresh:PropTypes.func.isRequired,
+isRefreshing:PropTypes.bool.isRequired,
+refreshDescription:PropTypes.oneOfType([PropTypes.string,PropTypes.element]),
+refreshingIndictatorComponent:PropTypes.oneOfType([PropTypes.func,PropTypes.element]),
+minPulldownDistance:PropTypes.number,
+ignoreInertialScroll:PropTypes.bool,
+scrollEventThrottle:PropTypes.number,
+onScroll:PropTypes.func,
+renderHeader:PropTypes.func,
+renderHeaderWrapper:PropTypes.func,
+onResponderGrant:PropTypes.func,
+onResponderRelease:PropTypes.func},
+
+getDefaultProps:function(){
+return {
+minPulldownDistance:MIN_PULLDOWN_DISTANCE,
+scrollEventThrottle:SCROLL_EVENT_THROTTLE,
+ignoreInertialScroll:true,
+refreshingIndictatorComponent:RefreshingIndicator};},
+
+
+handleScroll:function(e){
+var scrollY=e.nativeEvent.contentInset.top + e.nativeEvent.contentOffset.y;
+
+if(this.isTouching || !this.isTouching && !this.props.ignoreInertialScroll){
+if(scrollY < -this.props.minPulldownDistance){
+if(!this.props.isRefreshing){
+if(this.props.onRefresh){
+this.props.onRefresh();}}}}
+
+
+
+
+
+this.props.onScroll && this.props.onScroll(e);},
+
+handleResponderGrant:function(){
+this.isTouching = true;
+if(this.props.onResponderGrant){
+this.props.onResponderGrant.apply(null,arguments);}},
+
+
+handleResponderRelease:function(){
+this.isTouching = false;
+if(this.props.onResponderRelease){
+this.props.onResponderRelease.apply(null,arguments);}},
+
+
+getScrollResponder:function(){
+return this.refs[LISTVIEW_REF].getScrollResponder();},
+
+setNativeProps:function(props){
+this.refs[LISTVIEW_REF].setNativeProps(props);},
+
+renderHeader:function(){
+var description=this.props.refreshDescription;
+
+var refreshingIndictator;
+if(this.props.isRefreshing){
+refreshingIndictator = createElementFrom(this.props.refreshingIndictatorComponent,{description:description});}else 
+{
+refreshingIndictator = null;}
+
+
+if(this.props.renderHeaderWrapper){
+return this.props.renderHeaderWrapper(refreshingIndictator);}else 
+if(this.props.renderHeader){
+console.warn('renderHeader is deprecated. Use renderHeaderWrapper instead.');
+return this.props.renderHeader(refreshingIndictator);}else 
+{
+return refreshingIndictator;}},
+
+
+render:function(){
+return (
+React.createElement(ListView,_extends({},
+this.props,{
+ref:LISTVIEW_REF,
+onScroll:this.handleScroll,
+renderHeader:this.renderHeader,
+scrollEventThrottle:this.props.scrollEventThrottle,
+onResponderGrant:this.handleResponderGrant,
+onResponderRelease:this.handleResponderRelease})));}});
+
+
+
+
+
+ControlledRefreshableListView.DataSource = ListView.DataSource;
+ControlledRefreshableListView.RefreshingIndicator = RefreshingIndicator;
+
+module.exports = ControlledRefreshableListView;
+});
+__d('react-native-refreshable-listview/lib/createElementFrom.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+cloneElement=
+
+
+React.cloneElement;var createElement=React.createElement;var isValidElement=React.isValidElement;
+
+function createElementFrom(elementOrClass,props){
+if(isValidElement(elementOrClass)){
+return cloneElement(elementOrClass,props);}else 
+{
+return createElement(elementOrClass,props);}}
+
+
+
+module.exports = createElementFrom;
+});
+__d('image!default-avatar',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/jill/workspace/WebStorm/meeletBook/platforms/ios/MeeletBook/Resources/Images.xcassets/default-avatar.imageset/default-avatar@3x.png","uri":"default-avatar","width":32,"height":32,"deprecated":true};
+});
+__d('MeeletBook/app/Screens/FriendMainScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","MeeletBook/app/Screens/friends/FriendListScreen.js","MeeletBook/app/Screens/friends/FriendUserScreen.js","MeeletBook/app/Screens/friends/FriendGroupScreen.js","MeeletBook/app/Screens/friends/FriendDiscussScreen.js","MeeletBook/app/Screens/friends/AddNewFriendScreen.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+Navigator=
+
+
+
+
+
+React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+var Icon=require('MaterialIcons');
+var FriendListScreen=require('MeeletBook/app/Screens/friends/FriendListScreen.js');
+var FriendUserScreen=require('MeeletBook/app/Screens/friends/FriendUserScreen.js');
+var FriendGroupScreen=require('MeeletBook/app/Screens/friends/FriendGroupScreen.js');
+var FriendDiscussScreen=require('MeeletBook/app/Screens/friends/FriendDiscussScreen.js');
+var AddNewFriendScreen=require('MeeletBook/app/Screens/friends/AddNewFriendScreen.js');
+
+var FriendMainScreen=React.createClass({displayName:'FriendMainScreen',
+getInitialState:function(){
+return {showNavBar:false,value:'hello'};},
+
+
+componentWillMount:function(){},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+render:function(){
+return (
+React.createElement(FriendListScreen,{style:styles.scene,selectSubView:this.selectSubView}));},
+
+
+selectSubView:function(subName){
+var component=AddNewFriendScreen;
+if(subName === 'addUser'){
+component = AddNewFriendScreen;}else 
+if(subName === 'group'){
+component = FriendGroupScreen;}else 
+if(subName === 'discuss'){
+component = FriendDiscussScreen;}else 
+if(subName === 'detail'){
+component = FriendUserScreen;}
+
+
+this.props.navigator.push({
+title:subName,
+component:component,
+rightButtonTitle:'sdfsdf',
+passProps:{navigator:this.props.navigator}});}});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1,
+backgroundColor:'#666666'},
+
+scene:{
+flex:1},
+
+navBar:{
+backgroundColor:'#666666',
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+opacity:0},
+
+navBarLeftButton:{
+paddingLeft:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navBarRightButton:{
+paddingRight:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navButtonIcon:{
+flex:1,
+alignSelf:'center',
+color:"white"},
+
+title:{
+width:120,
+alignSelf:'center',
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-start',
+alignItems:'center',
+flexDirection:'row'},
+
+titleText:{
+flex:1,
+fontSize:18,
+color:'white',
+textAlign:'left',
+fontWeight:'bold',
+marginHorizontal:10},
+
+titleIconPlaceholder:{
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"}});
+
+
+
+module.exports = FriendMainScreen;
+});
+__d('MeeletBook/app/Screens/friends/FriendListScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-timer-mixin/TimerMixin.js","LinearGradient"],function(global, require, module, exports) {  'use strict';
 
 var list=[
 {
@@ -67300,7 +68714,6 @@ var list=[
 var React=require('react-native/Libraries/react-native/react-native.js');
 var Icon=require('MaterialIcons');
 var TimerMixin=require('react-timer-mixin/TimerMixin.js');
-var Overlay=require('Overlay');
 var LinearGradient=require('LinearGradient');var 
 
 AlertIOS=
@@ -67318,12 +68731,10 @@ var Thumb=React.createClass({displayName:"Thumb",
 getInitialState:function(){
 return {};},
 
-_onPressThumb:function(){},
-
 render:function(){
 return (
 React.createElement(TouchableOpacity,{
-onPress:this._onPressThumb,
+onPress:this.props.onPress,
 style:[styles.friendRow]},
 React.createElement(Text,{style:styles.thumbText},this.props.text)));}});
 
@@ -67359,26 +68770,34 @@ data:[]};},
 
 
 
-renderRow:function(rowData,sectionId,rowId){
+routeTalk:function(title,type){},
+
+
+
+
+
+
+
+renderRow:function(rowData,sectionId,rowId){var _this=this;
 if(sectionId === "*"){
 switch(rowId){
 case "btn_add_friend":
 return (
-React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(TouchableOpacity,{style:[styles.friendRow],onPress:function(){_this.props.selectSubView('addUser');}},
 React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"person-add",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"新的朋友"))));
 
 
 break;
 case "btn_add_group":
 return (
-React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(TouchableOpacity,{style:[styles.friendRow],onPress:function(){_this.props.selectSubView('group');}},
 React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"group-add",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"新的群"))));
 
 
 break;
 case "btn_join_talk":
 return (
-React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(TouchableOpacity,{style:[styles.friendRow],onPress:function(){_this.props.selectSubView('discuss');}},
 React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"local-florist",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"讨论组"))));
 
 
@@ -67386,7 +68805,7 @@ break;}}
 
 
 
-return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
+return rowData && React.createElement(Thumb,{text:rowData.name,onPress:function(){_this.props.selectSubView('detail');}}) || null;},
 
 
 renderSectionHeader:function(sectionData,sectionId){
@@ -67401,7 +68820,7 @@ sectionData))) ||
 null;},
 
 
-renderHeader:function(){var _this=this;
+renderHeader:function(){var _this2=this;
 return (
 React.createElement(View,{style:styles.header},
 React.createElement(TextInput,{
@@ -67409,7 +68828,7 @@ autoCapitalize:"none",
 placeholder:"搜索",
 autoCorrect:false,
 returnKeyType:"search",
-onSubmitEditing:function(event){return _this.updateSearchInput(event.nativeEvent.text);},
+onSubmitEditing:function(event){return _this2.updateSearchInput(event.nativeEvent.text);},
 style:styles.searchInput})));},
 
 
@@ -67431,9 +68850,9 @@ scrollRenderAheadDistance:2000}));},
 
 
 
-updateSearchInput:function(text){var _this2=this;
+updateSearchInput:function(text){var _this3=this;
 this.clearTimeout(this.timeoutId);
-this.timeoutId = this.setTimeout(function(){return _this2.doSearch(text);},100);},
+this.timeoutId = this.setTimeout(function(){return _this3.doSearch(text);},100);},
 
 
 doSearch:function(text){
@@ -67467,13 +68886,13 @@ dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds)});}})
 
 var styles=StyleSheet.create({
 listview:{
-backgroundColor:'#bdc3c7'},
+backgroundColor:'#dde1dc'},
 
 header:{
 height:60,
 justifyContent:'center',
 alignItems:'center',
-backgroundColor:'#ecf0f1',
+backgroundColor:'#dde1dc',
 flexDirection:'row'},
 
 searchInput:{
@@ -67500,7 +68919,7 @@ alignItems:'center',
 marginHorizontal:5,
 marginVertical:3,
 padding:5,
-backgroundColor:'#ecf0f1',
+backgroundColor:'white',
 borderRadius:3},
 
 btnRow:{
@@ -67521,7 +68940,7 @@ flexDirection:'row',
 justifyContent:'flex-start',
 alignItems:'center',
 marginHorizontal:5,
-backgroundColor:'#ecf0f1',
+backgroundColor:'#dde1dc',
 borderRadius:3},
 
 linearGradient:{
@@ -67538,201 +68957,7 @@ marginVertical:12}});
 
 
 
-var animations={
-layout:{
-spring:{
-duration:750,
-create:{
-duration:300,
-type:LayoutAnimation.Types.easeInEaseOut,
-property:LayoutAnimation.Properties.opacity},
-
-update:{
-type:LayoutAnimation.Types.spring,
-springDamping:0.4}},
-
-
-easeInEaseOut:{
-duration:300,
-create:{
-type:LayoutAnimation.Types.easeInEaseOut,
-property:LayoutAnimation.Properties.scaleXY},
-
-update:{
-delay:100,
-type:LayoutAnimation.Types.easeInEaseOut}}}};
-
-
-
-
-
 module.exports = FriendScreen;
-});
-__d('react-timer-mixin/TimerMixin.js',[],function(global, require, module, exports) {  'use strict';
-
-
-
-
-
-
-
-
-
-
-var GLOBAL=typeof window === 'undefined'?global:window;
-
-var setter=function(_setter,_clearer,array){
-return function(callback,delta){
-var id=_setter((function(){
-_clearer.call(this,id);
-callback.apply(this,arguments);}).
-bind(this),delta);
-
-if(!this[array]){
-this[array] = [id];}else 
-{
-this[array].push(id);}
-
-return id;};};
-
-
-
-var clearer=function(_clearer,array){
-return function(id){
-if(this[array]){
-var index=this[array].indexOf(id);
-if(index !== -1){
-this[array].splice(index,1);}}
-
-
-_clearer(id);};};
-
-
-
-var _timeouts='TimerMixin_timeouts';
-var _clearTimeout=clearer(GLOBAL.clearTimeout,_timeouts);
-var _setTimeout=setter(GLOBAL.setTimeout,_clearTimeout,_timeouts);
-
-var _intervals='TimerMixin_intervals';
-var _clearInterval=clearer(GLOBAL.clearInterval,_intervals);
-var _setInterval=setter(GLOBAL.setInterval,function(){},_intervals);
-
-var _immediates='TimerMixin_immediates';
-var _clearImmediate=clearer(GLOBAL.clearImmediate,_immediates);
-var _setImmediate=setter(GLOBAL.setImmediate,_clearImmediate,_immediates);
-
-var _rafs='TimerMixin_rafs';
-var _cancelAnimationFrame=clearer(GLOBAL.cancelAnimationFrame,_rafs);
-var _requestAnimationFrame=setter(GLOBAL.requestAnimationFrame,_cancelAnimationFrame,_rafs);
-
-var TimerMixin={
-componentWillUnmount:function(){
-this[_timeouts] && this[_timeouts].forEach(function(id){
-GLOBAL.clearTimeout(id);});
-
-this[_timeouts] = null;
-this[_intervals] && this[_intervals].forEach(function(id){
-GLOBAL.clearInterval(id);});
-
-this[_intervals] = null;
-this[_immediates] && this[_immediates].forEach(function(id){
-GLOBAL.clearImmediate(id);});
-
-this[_immediates] = null;
-this[_rafs] && this[_rafs].forEach(function(id){
-GLOBAL.cancelAnimationFrame(id);});
-
-this[_rafs] = null;},
-
-
-setTimeout:_setTimeout,
-clearTimeout:_clearTimeout,
-
-setInterval:_setInterval,
-clearInterval:_clearInterval,
-
-setImmediate:_setImmediate,
-clearImmediate:_clearImmediate,
-
-requestAnimationFrame:_requestAnimationFrame,
-cancelAnimationFrame:_cancelAnimationFrame};
-
-
-module.exports = TimerMixin;
-});
-__d('Overlay',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
-
-
-
-
-
-
-var React=require('react-native/Libraries/react-native/react-native.js');var 
-
-View=
-
-
-
-React.View;var PropTypes=React.PropTypes;var StyleSheet=React.StyleSheet;var requireNativeComponent=React.requireNativeComponent;
-
-
-
-
-
-var Overlay=React.createClass({displayName:'Overlay',
-propTypes:{
-
-
-
-
-aboveStatusBar:React.PropTypes.bool,
-
-
-
-
-
-isVisible:React.PropTypes.bool},
-
-
-getDefaultProps:function(){
-return {
-aboveStatusBar:false,
-isVisible:false};},
-
-
-
-render:function(){var 
-
-isVisible=
-this.props.isVisible;
-
-if(this.props.isVisible){
-return (
-React.createElement(RNOverlay,{isVisible:true,style:styles.container,pointerEvents:'none',aboveStatusBar:this.props.aboveStatusBar},
-React.Children.map(this.props.children,React.addons.cloneWithProps)));}else 
-
-
-{
-return React.createElement(View,null);}}});
-
-
-
-
-var RNOverlay=requireNativeComponent('RNOverlay',Overlay);
-
-var styles=StyleSheet.create({
-container:{
-position:'absolute',
-top:0,
-bottom:0,
-left:0,
-right:0,
-borderWidth:0,
-backgroundColor:'transparent'}});
-
-
-
-module.exports = Overlay;
 });
 __d('LinearGradient',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';var _require=
 
@@ -67746,36 +68971,12 @@ var LinearGradient=requireNativeComponent('BVLinearGradient',null);
 
 module.exports = LinearGradient;
 });
-__d('MeeletBook/app/Screens/StudyScreen.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
-
-var React=require('react-native/Libraries/react-native/react-native.js');var 
-
-StyleSheet=
-
-
-
-React.StyleSheet;var TabBarIOS=React.TabBarIOS;var Text=React.Text;var View=React.View;
-
-var StudyScreen=React.createClass({displayName:'StudyScreen',
-render:function(){
-return (
-React.createElement(View,null));}});
-
-
-
-
-
-module.exports = StudyScreen;
-});
-__d('MeeletBook/app/Screens/ProfileScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-native-blur/index.js","LinearGradient","tcomb-form-native/index.js","lodash/index.js"],function(global, require, module, exports) {  'use strict';
+__d('MeeletBook/app/Screens/friends/FriendUserScreen.js',["lodash/index.js","react-native/Libraries/react-native/react-native.js","MaterialIcons","react-native-blur/index.js"],function(global, require, module, exports) {  'use strict';
 
 var _=require('lodash/index.js');
 var React=require('react-native/Libraries/react-native/react-native.js');
 var Icon=require('MaterialIcons');
-var BlurView=require('react-native-blur/index.js').BlurView;
-var LinearGradient=require('LinearGradient');
-var TForm=require('tcomb-form-native/index.js');
-var Form=TForm.form.Form;var 
+var BlurView=require('react-native-blur/index.js').BlurView;var 
 
 AlertIOS=
 
@@ -67788,138 +68989,53 @@ AlertIOS=
 
 
 
-React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var Modal=React.Modal;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;
+React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;var Navigator=React.Navigator;var ScrollView=React.ScrollView;
 
-var loginUser={
-"_id":"52591a12c763d5e4585563b4",
-"name":"毕嘉利",
-"loginName":"bijiali14"};
-
-var Account=TForm.struct({loginName:TForm.Str,password:TForm.Str},"Account");
-var AccountOptions={
-fields:{
-loginName:{
-label:'用户名'},
-
-password:{
-label:'密码',
-password:true,
-secureTextEntry:true}},
-
-
-stylesheet:Form.stylesheet};
-
-var dataBlob={};
-var sectionIds=["*"];
-var rowIds=[["btn_album","btn_collection","btn_settings"]];
-for(var sectionId of sectionIds) {dataBlob[sectionId] = sectionId;}
-var ProfileScreen=React.createClass({displayName:'ProfileScreen',
+var FriendUserScreen=React.createClass({displayName:'FriendUserScreen',
 getInitialState:function(){
-var dataSource=new ListView.DataSource({
-getRowData:function(dataBlob,sectionId,rowId){return rowId;},
-getSectionHeaderData:function(dataBlob,sectionId){return sectionId;},
-rowHasChanged:function(row1,row2){return row1 !== row2;},
-sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
-
-
 return {
-dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
-isModalOpen:false};},
+userInfo:{
+img_url:'book-1.png'}};},
 
 
 
-renderRow:function(rowData,sectionId,rowId){
-if(sectionId === "*"){
-switch(rowId){
-case "btn_album":
-return (
-React.createElement(TouchableOpacity,{style:[styles.row]},
-React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'相册')),
-React.createElement(View,{style:styles.arrow},
-React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
-
-
-
-break;
-case "btn_collection":
-return (
-React.createElement(TouchableOpacity,{style:[styles.row]},
-React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'folder-special',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'收藏')),
-React.createElement(View,{style:styles.arrow},
-React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
-
-
-
-break;
-case "btn_settings":
-return (
-React.createElement(TouchableOpacity,{style:[styles.row]},
-React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'settings',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'设置')),
-React.createElement(View,{style:styles.arrow},
-React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
-
-
-
-break;}}
-
-
-
-return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
-
-
-renderSectionHeader:function(sectionData,sectionId){
-return null;},
-
-
-renderHeader:function(){
-return (
-React.createElement(TouchableOpacity,{style:[styles.header],onPress:this.openModal},
-React.createElement(Icon,{name:'account-circle',size:60,color:'#2ecc71',style:styles.avatar}),
-React.createElement(View,{style:styles.nameList},
-React.createElement(Text,{style:styles.userName},loginUser.name),
-React.createElement(Text,{style:styles.userName},'帐号: ',loginUser.loginName)),
-
-React.createElement(View,{style:styles.arrow},
-React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));},
+componentDidMount:function(){},
 
 
 
 
 
-openModal:function(){
-this.setState({isModalOpen:true});},
 
-
-closeModal:function(){
-this.setState({isModalOpen:false});},
 
 
 render:function(){
 return (
-React.createElement(View,{style:styles.screen},
-React.createElement(ListView,{
-style:styles.listview,
-dataSource:this.state.dataSource,
-renderHeader:this.renderHeader,
-renderSectionHeader:this.renderSectionHeader,
-renderRow:this.renderRow,
-initialListSize:10}),
+React.createElement(ScrollView,{style:styles.screen},
+React.createElement(TouchableOpacity,{style:[styles.header]},
+React.createElement(Icon,{name:'account-circle',size:60,color:'#2ecc71',style:styles.avatar}),
+React.createElement(View,{style:styles.nameList},
+React.createElement(Text,{style:styles.userName},this.props.uid),
+React.createElement(Text,{style:styles.userName},'帐号: sdf'))),
 
 
-React.createElement(Modal,{animated:true,transparent:true,visible:this.state.isModalOpen},
-React.createElement(BlurView,{style:styles.modalBackground,blurType:'light'},
-React.createElement(View,{style:styles.modalContent},
-React.createElement(Icon,{name:'wb-incandescent',size:80,color:'#2ecc71',style:styles.modalItem}),
-React.createElement(View,{style:[styles.modalItem,styles.formContainer]},
-React.createElement(Form,{ref:'accountForm',type:Account,options:AccountOptions,style:styles.accountForm})),
+React.createElement(View,{style:styles.section},
+React.createElement(View,{style:styles.row},
+React.createElement(Text,{style:styles.txtLeft},'地区'),
+React.createElement(Text,{style:styles.txtLeft},'上海')),
 
-React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],underlayColor:'#27ae60'},
-React.createElement(Text,{style:styles.buttonText},'登录')),
+React.createElement(TouchableHighlight,null,
+React.createElement(View,{style:styles.row},
+React.createElement(Text,{style:styles.txtLeft},'个人相册'),
+React.createElement(Image,{style:styles.thumb,source:{uri:this.state.userInfo.img_url}}),
+React.createElement(Image,{style:styles.thumb,source:{uri:this.state.userInfo.img_url}}),
+React.createElement(Image,{style:styles.thumb,source:{uri:this.state.userInfo.img_url}}),
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'})))),
 
-React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],onPress:this.closeModal,underlayColor:'#27ae60'},
-React.createElement(Text,{style:styles.buttonText},'取消')))))));}});
 
 
+
+React.createElement(View,null,
+React.createElement(Text,{style:styles.button},'发消息'))));}});
 
 
 
@@ -67930,26 +69046,35 @@ React.createElement(Text,{style:styles.buttonText},'取消')))))));}});
 var styles=StyleSheet.create({
 screen:{
 flex:1,
-backgroundColor:'#bdc3c7'},
-
-listview:{},
+backgroundColor:'#dde1dc'},
 
 header:{
 height:80,
 justifyContent:'flex-start',
 alignItems:'center',
-backgroundColor:'#ecf0f1',
+backgroundColor:'white',
 flexDirection:'row',
 marginHorizontal:5,
 marginVertical:3,
 padding:5},
 
-avartar:{
-flex:1},
-
-nameList:{
+section:{
+justifyContent:'flex-start',
 flex:1,
-marginHorizontal:5},
+flexDirection:'column',
+backgroundColor:'white',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+txtLeft:{
+marginRight:50,
+flexDirection:'column'},
+
+thumb:{
+width:80,
+height:80,
+marginRight:10},
 
 arrow:{
 flex:1,
@@ -67969,7 +69094,7 @@ alignItems:'center',
 marginHorizontal:5,
 marginVertical:3,
 padding:5,
-backgroundColor:'#ecf0f1',
+backgroundColor:'white',
 borderRadius:3},
 
 btnRow:{
@@ -67977,37 +69102,6 @@ flexDirection:'row',
 justifyContent:'flex-start',
 alignItems:'center',
 flex:1},
-
-btn:{
-width:40,
-height:40},
-
-btnLabel:{
-fontSize:16},
-
-modalBackground:{
-flex:1,
-flexDirection:'row',
-justifyContent:'center',
-alignItems:'center'},
-
-modalContent:{
-flex:1,
-flexDirection:'column',
-justifyContent:'center',
-alignItems:'center'},
-
-modalItem:{
-flex:1,
-marginBottom:10,
-alignSelf:'center'},
-
-formContainer:{
-flexDirection:'row',
-justifyContent:'center',
-alignItems:'center'},
-
-accountForm:{},
 
 buttonText:{
 fontSize:18,
@@ -68023,11 +69117,12 @@ borderWidth:1,
 borderRadius:8,
 marginBottom:10,
 alignSelf:'center',
-justifyContent:'center'}});
+justifyContent:'center',
+textAlign:'center'}});
 
 
 
-module.exports = ProfileScreen;
+module.exports = FriendUserScreen;
 });
 __d('lodash/index.js',[],function(global, require, module, exports) {  /**
  * @license
@@ -80428,6 +81523,2782 @@ const NativeVibrancyView=requireNativeComponent('VibrancyView',VibrancyView);
 
 module.exports = VibrancyView;
 });
+__d('MeeletBook/app/Screens/friends/FriendGroupScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-timer-mixin/TimerMixin.js","LinearGradient"],function(global, require, module, exports) {  'use strict';
+
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"陈昌申",
+"alphabet":"chenchangshen1"},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"name":"冯智豪",
+"alphabet":"fengzhihao2"},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"name":"梁天祐",
+"alphabet":"liangtianyou3"},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"name":"李壮",
+"alphabet":"lizhuang4"},
+
+{
+"_id":"52591a12c763d5e4585563a2",
+"name":"林振远",
+"alphabet":"linzhenyuan5"},
+
+{
+"_id":"52591a12c763d5e4585563a4",
+"name":"钱辛杰",
+"alphabet":"qianxinjie6"},
+
+{
+"_id":"52591a12c763d5e4585563a6",
+"name":"孙越凡",
+"alphabet":"sunyuefan7"},
+
+{
+"_id":"52591a12c763d5e4585563a8",
+"name":"田奕恒",
+"alphabet":"tianyiheng8"},
+
+{
+"_id":"52591a12c763d5e4585563aa",
+"name":"王臻萱",
+"alphabet":"wangzhenxuan9"},
+
+{
+"_id":"52591a12c763d5e4585563ac",
+"name":"杨钧文",
+"alphabet":"yangjunwen10"},
+
+{
+"_id":"52591a12c763d5e4585563ae",
+"name":"朱隽浩",
+"alphabet":"zhujuanhao11"},
+
+{
+"_id":"52591a12c763d5e4585563b0",
+"name":"周思杰",
+"alphabet":"zhousijie12"},
+
+{
+"_id":"52591a12c763d5e4585563b2",
+"name":"葛晟宏",
+"alphabet":"geshenghong13"},
+
+{
+"_id":"52591a12c763d5e4585563b4",
+"name":"毕嘉利",
+"alphabet":"bijiali14"},
+
+{
+"_id":"52591a12c763d5e4585563b6",
+"name":"陈羽",
+"alphabet":"chenyu15"},
+
+{
+"_id":"52591a12c763d5e4585563b8",
+"name":"陈妍文",
+"alphabet":"chenyanwen16"},
+
+{
+"_id":"52591a12c763d5e4585563ba",
+"name":"蔡智先",
+"alphabet":"caizhixian17"},
+
+{
+"_id":"52591a12c763d5e4585563bc",
+"name":"冯婷晖",
+"alphabet":"fengtinghui18"},
+
+{
+"_id":"52591a12c763d5e4585563be",
+"name":"管悦欣",
+"alphabet":"guanyuexin19"},
+
+{
+"_id":"52591a12c763d5e4585563c0",
+"name":"黄文轩",
+"alphabet":"huangwenxuan20"},
+
+{
+"_id":"52591a12c763d5e4585563c2",
+"name":"倪晨怡",
+"alphabet":"nichenyi21"},
+
+{
+"_id":"52591a12c763d5e4585563c4",
+"name":"田奕霖",
+"alphabet":"tianyilin22"},
+
+{
+"_id":"52591a12c763d5e4585563c6",
+"name":"王昕",
+"alphabet":"wangxin23"},
+
+{
+"_id":"52591a12c763d5e4585563c8",
+"name":"喻王玮",
+"alphabet":"yuwangwei24"},
+
+{
+"_id":"52591a12c763d5e4585563ca",
+"name":"殷奕蕊",
+"alphabet":"yinyirui25"},
+
+{
+"_id":"52591a12c763d5e4585563cc",
+"name":"周璎泓",
+"alphabet":"zhouyinghong26"},
+
+{
+"_id":"52591a12c763d5e4585563ce",
+"name":"许景凯",
+"alphabet":"xujingkai27"},
+
+{
+"_id":"52591a12c763d5e4585563d0",
+"name":"王欣芸",
+"alphabet":"wangxinyun28"}];
+
+
+
+var React=require('react-native/Libraries/react-native/react-native.js');
+var Icon=require('MaterialIcons');
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var LinearGradient=require('LinearGradient');var 
+
+AlertIOS=
+
+
+
+
+
+
+
+
+
+React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var Navigator=React.Navigator;var View=React.View;
+
+var Thumb=React.createClass({displayName:"Thumb",
+getInitialState:function(){
+return {
+checked:false};},
+
+
+onCheck:function(){
+this.setState({checked:!this.state.checked});},
+
+render:function(){
+return (
+React.createElement(TouchableOpacity,{
+onPress:this.onCheck,
+style:[styles.friendRow]},
+React.createElement(Text,{style:styles.thumbText},this.props.text),
+React.createElement(Text,{style:styles.mright},
+
+this.state.checked?'选中':'')));}});
+
+
+
+
+
+
+
+var dataBlob={};
+var sectionIds="*ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+var rowIds=[];
+for(var sectionId of sectionIds) {dataBlob[sectionId] = sectionId;}
+for(var ii of sectionIds.keys()) {rowIds[ii] = [];}
+rowIds[0].push("btn_add_friend","btn_add_group","btn_join_talk");
+for(var item of list) {var rowId=item._id;dataBlob[rowId] = item;rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId);}
+var PAGE_SIZE=4;
+var FriendGroupScreen=React.createClass({displayName:"FriendGroupScreen",
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return dataBlob[rowId];},
+getSectionHeaderData:function(dataBlob,sectionId){return dataBlob[sectionId];},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+return {
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
+textAlign:"center",
+data:[]};},
+
+
+
+
+
+
+
+
+
+renderRow:function(rowData,sectionId,rowId){
+
+return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
+
+
+renderSectionHeader:function(sectionData,sectionId){
+return sectionId !== "*" && 
+React.createElement(View,{style:[styles.sectionHeader]},
+React.createElement(LinearGradient,{colors:["#27ae60","#2ecc71"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.linearGradient},
+React.createElement(Text,{style:styles.sectionTitle},
+sectionData))) || 
+
+
+
+null;},
+
+
+renderHeader:function(){var _this=this;
+return (
+React.createElement(View,{style:styles.header},
+React.createElement(TextInput,{
+autoCapitalize:"none",
+placeholder:"搜索",
+autoCorrect:false,
+returnKeyType:"search",
+onSubmitEditing:function(event){return _this.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput})));},
+
+
+
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+
+renderSectionHeader:this.renderSectionHeader,
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000}));},
+
+
+
+
+updateSearchInput:function(text){var _this2=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this2.doSearch(text);},100);},
+
+
+doSearch:function(text){
+this.timeoutId = null;
+
+if(text && text.length){
+for(var item of list) {
+var rowId=item._id;
+if(item.name.startsWith(text)){
+dataBlob[rowId] = item;}else 
+{
+delete dataBlob[rowId];}}}else 
+
+
+{
+for(var item of list) {var rowId=item._id;dataBlob[rowId] = item;}}
+
+
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return dataBlob[rowId];},
+getSectionHeaderData:function(dataBlob,sectionId){return dataBlob[sectionId];},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+this.setState({
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds)});}});
+
+
+
+
+var styles=StyleSheet.create({
+listview:{
+backgroundColor:'#dde1dc',
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight},
+
+header:{
+height:60,
+justifyContent:'center',
+alignItems:'center',
+backgroundColor:'#dde1dc',
+flexDirection:'row'},
+
+mright:{
+marginRight:100},
+
+searchInput:{
+backgroundColor:'white',
+borderColor:'#cccccc',
+borderRadius:3,
+borderWidth:0.5,
+marginHorizontal:10,
+marginVertical:10,
+height:40,
+flex:1,
+fontSize:24,
+textAlign:"center"},
+
+thumbText:{
+fontSize:20,
+color:'#888888',
+textAlign:"left",
+flex:1},
+
+friendRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16},
+
+sectionHeader:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+backgroundColor:'#dde1dc',
+borderRadius:3},
+
+linearGradient:{
+flex:1,
+height:40},
+
+sectionTitle:{
+color:'white',
+fontSize:16,
+textAlign:'left',
+backgroundColor:'transparent',
+marginLeft:10,
+marginVertical:12}});
+
+
+
+module.exports = FriendGroupScreen;
+});
+__d('MeeletBook/app/Screens/friends/FriendDiscussScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-timer-mixin/TimerMixin.js","LinearGradient"],function(global, require, module, exports) {  'use strict';
+
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"陈昌申",
+"alphabet":"chenchangshen1"},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"name":"冯智豪",
+"alphabet":"fengzhihao2"},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"name":"梁天祐",
+"alphabet":"liangtianyou3"},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"name":"李壮",
+"alphabet":"lizhuang4"},
+
+{
+"_id":"52591a12c763d5e4585563a2",
+"name":"林振远",
+"alphabet":"linzhenyuan5"},
+
+{
+"_id":"52591a12c763d5e4585563a4",
+"name":"钱辛杰",
+"alphabet":"qianxinjie6"},
+
+{
+"_id":"52591a12c763d5e4585563a6",
+"name":"孙越凡",
+"alphabet":"sunyuefan7"},
+
+{
+"_id":"52591a12c763d5e4585563a8",
+"name":"田奕恒",
+"alphabet":"tianyiheng8"},
+
+{
+"_id":"52591a12c763d5e4585563aa",
+"name":"王臻萱",
+"alphabet":"wangzhenxuan9"},
+
+{
+"_id":"52591a12c763d5e4585563ac",
+"name":"杨钧文",
+"alphabet":"yangjunwen10"},
+
+{
+"_id":"52591a12c763d5e4585563ae",
+"name":"朱隽浩",
+"alphabet":"zhujuanhao11"},
+
+{
+"_id":"52591a12c763d5e4585563b0",
+"name":"周思杰",
+"alphabet":"zhousijie12"},
+
+{
+"_id":"52591a12c763d5e4585563b2",
+"name":"葛晟宏",
+"alphabet":"geshenghong13"},
+
+{
+"_id":"52591a12c763d5e4585563b4",
+"name":"毕嘉利",
+"alphabet":"bijiali14"},
+
+{
+"_id":"52591a12c763d5e4585563b6",
+"name":"陈羽",
+"alphabet":"chenyu15"},
+
+{
+"_id":"52591a12c763d5e4585563b8",
+"name":"陈妍文",
+"alphabet":"chenyanwen16"},
+
+{
+"_id":"52591a12c763d5e4585563ba",
+"name":"蔡智先",
+"alphabet":"caizhixian17"},
+
+{
+"_id":"52591a12c763d5e4585563bc",
+"name":"冯婷晖",
+"alphabet":"fengtinghui18"},
+
+{
+"_id":"52591a12c763d5e4585563be",
+"name":"管悦欣",
+"alphabet":"guanyuexin19"},
+
+{
+"_id":"52591a12c763d5e4585563c0",
+"name":"黄文轩",
+"alphabet":"huangwenxuan20"},
+
+{
+"_id":"52591a12c763d5e4585563c2",
+"name":"倪晨怡",
+"alphabet":"nichenyi21"},
+
+{
+"_id":"52591a12c763d5e4585563c4",
+"name":"田奕霖",
+"alphabet":"tianyilin22"},
+
+{
+"_id":"52591a12c763d5e4585563c6",
+"name":"王昕",
+"alphabet":"wangxin23"},
+
+{
+"_id":"52591a12c763d5e4585563c8",
+"name":"喻王玮",
+"alphabet":"yuwangwei24"},
+
+{
+"_id":"52591a12c763d5e4585563ca",
+"name":"殷奕蕊",
+"alphabet":"yinyirui25"},
+
+{
+"_id":"52591a12c763d5e4585563cc",
+"name":"周璎泓",
+"alphabet":"zhouyinghong26"},
+
+{
+"_id":"52591a12c763d5e4585563ce",
+"name":"许景凯",
+"alphabet":"xujingkai27"},
+
+{
+"_id":"52591a12c763d5e4585563d0",
+"name":"王欣芸",
+"alphabet":"wangxinyun28"}];
+
+
+
+var React=require('react-native/Libraries/react-native/react-native.js');
+var Icon=require('MaterialIcons');
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var LinearGradient=require('LinearGradient');var 
+
+AlertIOS=
+
+
+
+
+
+
+
+
+React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+var Thumb=React.createClass({displayName:"Thumb",
+getInitialState:function(){
+return {
+checked:false};},
+
+
+onCheck:function(){
+this.setState({checked:!this.state.checked});},
+
+render:function(){
+return (
+React.createElement(TouchableOpacity,{
+onPress:this.onCheck,
+style:[styles.friendRow]},
+React.createElement(Text,{style:styles.thumbText},this.props.text),
+React.createElement(Text,{style:styles.mright},
+
+this.state.checked?'选中':'')));}});
+
+
+
+
+
+
+
+var dataBlob={};
+var sectionIds="*ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+var rowIds=[];
+for(var sectionId of sectionIds) {dataBlob[sectionId] = sectionId;}
+for(var ii of sectionIds.keys()) {rowIds[ii] = [];}
+rowIds[0].push("btn_add_friend","btn_add_group","btn_join_talk");
+for(var item of list) {var rowId=item._id;dataBlob[rowId] = item;rowIds[sectionIds.indexOf(item.alphabet.charAt(0).toUpperCase())].push(rowId);}
+var PAGE_SIZE=4;
+var FriendDiscussScreen=React.createClass({displayName:"FriendDiscussScreen",
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return dataBlob[rowId];},
+getSectionHeaderData:function(dataBlob,sectionId){return dataBlob[sectionId];},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+return {
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
+textAlign:"center",
+data:[]};},
+
+
+
+routeTalk:function(title){
+this.props.mainScreen.showNavBar();
+
+this.props.navigator.push({id:"talk",title:title});},
+
+
+renderRow:function(rowData,sectionId,rowId){var _this=this;
+if(sectionId === "*"){
+switch(rowId){
+case "btn_add_friend":
+return (
+React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"person-add",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"新的朋友"))));
+
+
+break;
+case "btn_add_group":
+return (
+React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"group-add",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"新的群"))));
+
+
+break;
+case "btn_join_talk":
+return (
+React.createElement(TouchableOpacity,{style:[styles.friendRow]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:"local-florist",size:40,color:"#2ecc71",style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},"讨论组"))));
+
+
+break;}}
+
+
+
+return rowData && React.createElement(Thumb,{text:rowData.name,onPress:function(){_this.routeTalk(rowData.name);}}) || null;},
+
+
+renderSectionHeader:function(sectionData,sectionId){
+return sectionId !== "*" && 
+React.createElement(View,{style:[styles.sectionHeader]},
+React.createElement(LinearGradient,{colors:["#27ae60","#2ecc71"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.linearGradient},
+React.createElement(Text,{style:styles.sectionTitle},
+sectionData))) || 
+
+
+
+null;},
+
+
+renderHeader:function(){var _this2=this;
+return (
+React.createElement(View,{style:styles.header},
+React.createElement(TextInput,{
+autoCapitalize:"none",
+placeholder:"搜索",
+autoCorrect:false,
+returnKeyType:"search",
+onSubmitEditing:function(event){return _this2.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput})));},
+
+
+
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+renderSectionHeader:this.renderSectionHeader,
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000}));},
+
+
+
+
+updateSearchInput:function(text){var _this3=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this3.doSearch(text);},100);},
+
+
+doSearch:function(text){
+this.timeoutId = null;
+
+if(text && text.length){
+for(var item of list) {
+var rowId=item._id;
+if(item.name.startsWith(text)){
+dataBlob[rowId] = item;}else 
+{
+delete dataBlob[rowId];}}}else 
+
+
+{
+for(var item of list) {var rowId=item._id;dataBlob[rowId] = item;}}
+
+
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return dataBlob[rowId];},
+getSectionHeaderData:function(dataBlob,sectionId){return dataBlob[sectionId];},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+this.setState({
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds)});}});
+
+
+
+
+var styles=StyleSheet.create({
+listview:{
+backgroundColor:'#dde1dc'},
+
+header:{
+height:60,
+justifyContent:'center',
+alignItems:'center',
+backgroundColor:'#dde1dc',
+flexDirection:'row'},
+
+searchInput:{
+backgroundColor:'white',
+borderColor:'#cccccc',
+borderRadius:3,
+borderWidth:0.5,
+marginHorizontal:10,
+marginVertical:10,
+height:40,
+flex:1,
+fontSize:24,
+textAlign:"center"},
+
+thumbText:{
+fontSize:20,
+color:'#888888',
+textAlign:"left",
+flex:1},
+
+friendRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16},
+
+sectionHeader:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+backgroundColor:'#dde1dc',
+borderRadius:3},
+
+linearGradient:{
+flex:1,
+height:40},
+
+sectionTitle:{
+color:'white',
+fontSize:16,
+textAlign:'left',
+backgroundColor:'transparent',
+marginLeft:10,
+marginVertical:12}});
+
+
+
+module.exports = FriendDiscussScreen;
+});
+__d('MeeletBook/app/Screens/friends/AddNewFriendScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","react-timer-mixin/TimerMixin.js","LinearGradient","MeeletBook/app/Screens/friends/FriendUserScreen.js"],function(global, require, module, exports) {  'use strict';
+
+var now=new Date();
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"陈昌申",
+"desc":"通过xx查找加入",
+"status":"accept",
+"img_url":'book-1.png'},
+
+{
+"_id":"52591a12c763d5r45855639a",
+"name":"张三",
+"desc":"我是xxxx",
+"status":"request",
+"img_url":'book-1.png'}];
+
+
+
+
+var React=require('react-native/Libraries/react-native/react-native.js');
+var Icon=require('MaterialIcons');
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var LinearGradient=require('LinearGradient');
+var FriendUserScreen=require('MeeletBook/app/Screens/friends/FriendUserScreen.js');var 
+
+AlertIOS=
+
+
+
+
+
+
+
+
+
+React.AlertIOS;var Navigator=React.Navigator;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableHighlight=React.TouchableHighlight;var View=React.View;
+
+var Thumb=React.createClass({displayName:"Thumb",
+getInitialState:function(){
+return {
+btnValue:''};},
+
+
+
+componentDidMount:function(){
+this.setState({btnValue:this.props.data.status});},
+
+onAccept:function(){
+this.setState({btnValue:'accept'});},
+
+render:function(){var _this=this;
+var TouchableElement=TouchableHighlight;
+if(this.state.btnValue === 'accept'){
+return (
+React.createElement(TouchableHighlight,{underlayColor:"#dddddd",
+onPress:function(){
+_this.props.selectSubView(_this.props.data.name,_this.props.data._id);}},
+
+React.createElement(View,null,
+React.createElement(View,{style:styles.rowContainer},
+React.createElement(Image,{style:styles.thumb,source:{uri:this.props.data.img_url}}),
+React.createElement(View,{style:styles.textContainer},
+React.createElement(Text,{style:styles.name},this.props.data.name),
+React.createElement(Text,{style:styles.title,numberOfLines:1},this.props.data.desc)),
+
+React.createElement(View,{style:[styles.rowVertical]},
+React.createElement(Text,{style:styles.status},"已接受"))),
+
+
+React.createElement(View,{style:styles.separator}))));}else 
+
+
+
+{
+return (
+React.createElement(TouchableHighlight,{underlayColor:"#dddddd",
+onPress:function(){
+_this.props.selectSubView(_this.props.data.name,_this.props.data._id);}},
+
+React.createElement(View,null,
+React.createElement(View,{style:styles.rowContainer},
+React.createElement(Image,{style:styles.thumb,source:{uri:this.props.data.img_url}}),
+React.createElement(View,{style:styles.textContainer},
+React.createElement(Text,{style:styles.name},this.props.data.name),
+React.createElement(Text,{style:styles.title,numberOfLines:1},this.props.data.desc)),
+
+React.createElement(View,{style:[styles.rowVertical]},
+React.createElement(TouchableElement,{
+style:styles.btnWarp,
+onPress:function(){return _this.onAccept();}},
+React.createElement(Text,{style:styles.btn},"未接受")))),
+
+
+
+React.createElement(View,{style:styles.separator}))));}}});
+
+
+
+
+
+
+
+var dataBlob={};
+
+
+
+
+
+
+var PAGE_SIZE=4;
+var AddNewFriendScreen=React.createClass({displayName:"AddNewFriendScreen",
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+routeTalk:function(title){},
+
+
+
+
+
+renderRow:function(rowData,sectionId,rowId){
+return rowData && React.createElement(Thumb,{data:rowData,selectSubView:this.selectSubView}) || null;},
+
+
+renderSectionHeader:function(sectionData,sectionId){
+return sectionId !== "*" && 
+React.createElement(View,{style:[styles.sectionHeader]},
+React.createElement(LinearGradient,{colors:["#27ae60","#2ecc71"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.linearGradient},
+React.createElement(Text,{style:styles.sectionTitle},
+sectionData))) || 
+
+
+
+null;},
+
+
+renderHeader:function(){var _this2=this;
+return (
+React.createElement(View,{style:styles.header},
+React.createElement(TextInput,{
+autoCapitalize:"none",
+placeholder:"搜索",
+autoCorrect:false,
+returnKeyType:"search",
+onSubmitEditing:function(event){return _this2.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput})));},
+
+
+
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000}));},
+
+
+
+
+selectSubView:function(title,uid){
+this.props.navigator.push({
+title:title,
+component:FriendUserScreen,
+rightButtonTitle:'...',
+onRightButtonPress:this.onClick,
+passProps:{navigator:this.props.navigator,uid:uid}});},
+
+
+
+onClick:function(){
+alert('xxx');},
+
+
+updateSearchInput:function(text){var _this3=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this3.doSearch(text);},100);},
+
+
+doSearch:function(text){
+this.timeoutId = null;
+
+if(text && text.length){
+for(var item of list) {
+var rowId=item._id;
+if(item.name.startsWith(text)){
+dataBlob[rowId] = item;}else 
+{
+delete dataBlob[rowId];}}}else 
+
+
+{
+for(var item of list) {var rowId=item._id;dataBlob[rowId] = item;}}
+
+
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return dataBlob[rowId];},
+getSectionHeaderData:function(dataBlob,sectionId){return dataBlob[sectionId];},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+this.setState({
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds)});}});
+
+
+
+var styles=StyleSheet.create({
+listview:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight},
+
+thumb:{
+width:80,
+height:80,
+marginRight:10},
+
+textContainer:{
+flex:1},
+
+separator:{
+height:1,
+backgroundColor:'#dddddd'},
+
+name:{
+fontSize:25,
+fontWeight:'bold',
+color:'#48BBEC'},
+
+title:{
+fontSize:20,
+color:'#656565'},
+
+status:{
+marginRight:100},
+
+
+rowVertical:{
+justifyContent:'center',
+height:80},
+
+rowContainer:{
+flexDirection:'row',
+padding:10},
+
+btnWarp:{
+borderWidth:1,
+padding:5,
+borderColor:'#3164ce',
+borderRadius:3},
+
+btn:{
+color:'#3164ce'}});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = AddNewFriendScreen;
+});
+__d('MeeletBook/app/Screens/StudyMainScreen.js',["react-native/Libraries/react-native/react-native.js","MaterialIcons","MeeletBook/app/Screens/LessonListScreen.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+ActionSheetIOS=
+
+
+
+
+
+
+
+React.ActionSheetIOS;var Navigator=React.Navigator;var StyleSheet=React.StyleSheet;var TabBarIOS=React.TabBarIOS;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+var Icon=require('MaterialIcons');
+var LessonListScreen=require('MeeletBook/app/Screens/LessonListScreen.js');
+
+var StudyMainScreen=React.createClass({displayName:'StudyMainScreen',
+getInitialState:function(){
+return {
+showSearchInput:false};},
+
+
+
+componentWillMount:function(){
+var self=this;
+
+this._navBarRouteMapper = {
+LeftButton:function(route,navigator,index,navState){
+if(index === 0){
+return null;}
+
+
+var previousRoute=navState.routeStack[index - 1];
+var titleIconName;
+switch(previousRoute.id){
+case "list":
+titleIconName = 'view-comfy';
+break;}
+
+
+return (
+React.createElement(TouchableOpacity,{
+onPress:function(){navigator.pop();},
+style:styles.navBarLeftButton},
+React.createElement(Icon,{name:titleIconName,size:24,style:[styles.navButtonIcon]})));},
+
+
+
+
+RightButton:function(route,navigator,index,navState){
+switch(route.id){
+case "list":
+return (
+React.createElement(View,{style:[styles.navBarRightButton]},
+React.createElement(TouchableOpacity,{
+onPress:self.showSearchInput,
+style:styles.navButtonIconPlaceholder},
+React.createElement(Icon,{name:'search',size:24,style:[styles.navButtonIcon]})),
+
+React.createElement(TouchableOpacity,{
+onPress:self.showSearchCategory,
+style:styles.navButtonIconPlaceholder},
+React.createElement(Icon,{name:'dehaze',size:24,style:[styles.navButtonIcon]}))));
+
+
+
+break;}
+
+
+return null;},
+
+
+Title:function(route,navigator,index,navState){
+switch(route.id){
+case "list":
+return (
+React.createElement(View,{style:[styles.title]},
+React.createElement(View,{style:styles.titleIconPlaceholder},
+React.createElement(Icon,{name:'view-comfy',size:24,style:[styles.navButtonIcon]})),
+
+React.createElement(Text,{style:styles.titleText},route.title)));
+
+
+break;}
+
+
+return null;}};},
+
+
+
+
+renderScene:function(route,nav){
+switch(route.id){
+case 'list':
+return React.createElement(LessonListScreen,{ref:'listScreen',navigator:nav,mainScreen:this,showSearchInput:this.state.showSearchInput,style:styles.scene});
+default:
+return React.createElement(View,null);}},
+
+
+
+render:function(){
+return (
+React.createElement(Navigator,{
+ref:'navigator',
+debugOverlay:false,
+style:styles.screen,
+initialRoute:{id:'list',title:'全部课程'},
+renderScene:this.renderScene,
+navigationBar:
+React.createElement(Navigator.NavigationBar,{
+routeMapper:this._navBarRouteMapper,
+style:[styles.navBar,this.state.showSearchInput?{opacity:0}:{opacity:1}]})}));},
+
+
+
+
+
+
+showSearchInput:function(){
+this.refs.navigator.refs.listScreen.fadeInSearchInput();
+this.setState({showSearchInput:true});},
+
+
+hideSearchInput:function(){
+this.setState({showSearchInput:false});},
+
+
+showSearchCategory:function(){
+this.refs.navigator.refs.listScreen.showSideMenu();}});
+
+
+
+var styles=StyleSheet.create({
+screen:{
+flex:1},
+
+scene:{
+flex:1},
+
+navBar:{
+backgroundColor:'#666666',
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+navBarLeftButton:{
+paddingLeft:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navBarRightButton:{
+paddingRight:10,
+width:100,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-end',
+flexDirection:'row'},
+
+navButtonIcon:{
+flex:1,
+alignSelf:'center',
+color:"white"},
+
+title:{
+width:120,
+alignSelf:'center',
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-start',
+alignItems:'center',
+flexDirection:'row'},
+
+titleText:{
+flex:1,
+fontSize:18,
+color:'white',
+textAlign:'left',
+fontWeight:'bold',
+marginHorizontal:10},
+
+titleIconPlaceholder:{
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"},
+
+navButtonIconPlaceholder:{
+flex:1,
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"}});
+
+
+
+module.exports = StudyMainScreen;
+});
+__d('MeeletBook/app/Screens/LessonListScreen.js',["image!lessonBackground","image!default-lesson","react-native/Libraries/react-native/react-native.js","lodash/index.js","MaterialIcons","LinearGradient","react-native-side-menu/index.js","react-timer-mixin/TimerMixin.js","Dimensions"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+AlertIOS=
+
+
+
+
+
+
+
+
+
+
+
+
+React.AlertIOS;var Animated=React.Animated;var Dimensions=React.Dimensions;var Image=React.Image;var ListView=React.ListView;var Navigator=React.Navigator;var ProgressViewIOS=React.ProgressViewIOS;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableHighlight=React.TouchableHighlight;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+var _=require('lodash/index.js');
+var Icon=require('MaterialIcons');
+var LinearGradient=require('LinearGradient');
+var SideMenu=require('react-native-side-menu/index.js');
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+
+var Dimensions=require('Dimensions');
+var window=Dimensions.get('window');
+
+var downloadModeIcons=[
+'cloud-download',
+'cloud-done',
+'cloud-download'];
+
+
+var startTime=new Date();
+var endTime=startTime.addMinutes(45);
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"bookId":"56104bec2ac815961944b8bf",
+"bookName":"创建幸福教室的35个秘密",
+"creator":"陈昌申",
+"title":"马当路小学三年级一班公开课",
+"downloadMode":1,
+"startTime":startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午"),
+"endTime":endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"bookId":"book-1",
+"bookName":"青少年成长教育读本",
+"creator":"冯智豪",
+"title":"马当路小学三年级一班公开课",
+"downloadMode":0,
+"startTime":startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午"),
+"endTime":endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"bookId":"book-2",
+"bookName":"青少年成长教育读本",
+"creator":"梁天祐",
+"title":"马当路小学三年级一班公开课",
+"downloadMode":0,
+"startTime":startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午"),
+"endTime":endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"bookId":"book-4",
+"bookName":"小学语文-义务教育课程标准",
+"creator":"李壮",
+"title":"马当路小学三年级一班公开课",
+"downloadMode":0,
+"startTime":startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午"),
+"endTime":endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")}];
+
+
+var PAGE_SIZE=4;
+
+var LessonListScreen=React.createClass({displayName:'LessonListScreen',
+getInitialState:function(){
+return {
+fadeAnim:new Animated.Value(0),
+touchToClose:false,
+isModalOpen:true};},
+
+
+
+componentWillMount:function(){},
+
+
+render:function(){var _this=this;
+return (
+React.createElement(SideMenu,{
+menuPosition:'right',
+openMenuOffset:200,
+menu:
+React.createElement(View,{style:styles.menuContainer},
+React.createElement(TouchableOpacity,{style:[styles.menuRow]},
+React.createElement(View,{style:styles.menuIconPlaceholder},
+React.createElement(Icon,{name:'history',size:24,style:[styles.menuIcon]})),
+
+React.createElement(Text,{style:styles.menuText},'历史')),
+
+React.createElement(LinearGradient,{colors:["#ecf0f1","#ccc"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.rowLinearGradient}),
+React.createElement(TouchableOpacity,{style:[styles.menuRow]},
+React.createElement(View,{style:styles.menuIconPlaceholder},
+React.createElement(Icon,{name:'add-alarm',size:24,style:[styles.menuIcon]})),
+
+React.createElement(Text,{style:styles.menuText},'将要开始')),
+
+React.createElement(LinearGradient,{colors:["#ecf0f1","#ccc"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.rowLinearGradient}),
+React.createElement(TouchableOpacity,{style:[styles.menuRow]},
+React.createElement(View,{style:styles.menuIconPlaceholder},
+React.createElement(Icon,{name:'av-timer',size:24,style:[styles.menuIcon]})),
+
+React.createElement(Text,{style:styles.menuText},'正在进行')),
+
+React.createElement(LinearGradient,{colors:["#ecf0f1","#ccc"],start:[0,0.5],end:[1,0.5],locations:[0.5,0.75],style:styles.rowLinearGradient})),
+
+
+touchToClose:this.state.touchToClose,
+onChange:this.handleChange},
+React.createElement(View,{style:styles.screen},
+React.createElement(Animated.View,{style:[styles.topContainer,{opacity:this.state.fadeAnim}]},
+React.createElement(View,{style:[styles.searchContainer]},
+React.createElement(Icon,{name:'search',size:24,style:[styles.navButtonIcon]}),
+React.createElement(TextInput,{
+autoCapitalize:'none',
+placeholder:'搜索',
+autoCorrect:false,
+returnKeyType:'search',
+onSubmitEditing:function(event){return _this.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput}),
+
+React.createElement(TouchableOpacity,{
+onPress:this.hideSearchInput,
+style:styles.normalButton},
+React.createElement(Text,{style:styles.buttonText},'取消'))))),
+
+
+
+
+React.createElement(LessonListView,{ref:'listView',style:styles.listContainer})));},
+
+
+
+
+fadeInSearchInput:function(){
+Animated.timing(
+this.state.fadeAnim,
+{
+toValue:1,
+duration:500}).
+
+start();},
+
+
+hideSearchInput:function(){
+this.setState({fadeAnim:new Animated.Value(0)});
+this.props.mainScreen.hideSearchInput();},
+
+
+updateSearchInput:function(){},
+
+handleChange:function(){
+this.setState({
+touchToClose:false});},
+
+
+
+showSideMenu:function(){
+this.refs.listView.context.menuActions.open();
+this.setState({
+touchToClose:true});},
+
+
+
+closeModal:function(){
+this.setState({isModalOpen:false});},
+
+
+login:function(){var _this2=this;
+
+LocalAppAPI.doLogin("wangxinyun28","*",function(userObj){
+_this2.closeModal();},
+function(error){
+AlertIOS.alert('Error',error);});}});
+
+
+
+
+var LessonListView=React.createClass({displayName:'LessonListView',
+contextTypes:{
+menuActions:React.PropTypes.object.isRequired},
+
+
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+
+componentWillMount:function(){},
+
+
+
+
+checkDownloadMode:function(lessonList){
+return new Promise(function(resolve,reject){
+LocalAppAPI.checkDownloadMode(_.pluck(lessonList,"bookId"),function(result){
+if(result && result.length === lessonList.length){
+lessonList.forEach(function(lesson,i){
+lesson.downloadMode = result[i].mode;
+lesson.downloadProgress = result[i].progress;});}
+
+
+resolve();});});},
+
+
+
+
+downloadBook:function(_ref){var bookId=_ref.bookId;
+return new Promise(function(resolve,reject){
+LocalAppAPI.downloadProject(bookId,function(){
+resolve();});});},
+
+
+
+
+routeLesson:function(lesson){var _this3=this;
+return this.checkDownloadMode([lesson]).then(function(){
+switch(lesson.downloadMode){
+case "waitDownload":
+case "inProgress":
+return _this3.downloadBook(lesson);
+case "waitRefresh":
+return new Promise(function(resolve,reject){
+LocalAppAPI.openLesson(lesson._id,lesson.bookId,function(){
+resolve();},
+function(error){
+AlertIOS.alert("error",error);});});}
+
+
+
+return new Promise(function(resolve,reject){
+reject(new Error("Unrecognizable download mode value " + lesson.downloadMode));});});},
+
+
+
+
+renderRow:function(rowData,sectionId,rowId){var _this4=this;
+return rowData && React.createElement(LessonItemView,{data:rowData,onPress:function(){_this4.routeLesson(rowData);}}) || null;},
+
+
+render:function(){
+return (
+React.createElement(View,{style:styles.listHolder},
+React.createElement(Image,{style:styles.backgroundImage,source:require('image!lessonBackground')}),
+React.createElement(ListView,{
+contentContainerStyle:styles.list,
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000})));}});
+
+
+
+
+
+
+var LessonItemView=React.createClass({displayName:'LessonItemView',
+getInitialState:function(){
+return {};},
+
+render:function(){
+return (
+React.createElement(TouchableHighlight,{
+onPress:this.props.onPress,
+underlayColor:'rgba(192, 192, 192, 0.4)'},
+React.createElement(View,{style:styles.contentRow},
+React.createElement(Icon,{name:downloadModeIcons[this.props.data.downloadMode],size:36,style:[styles.downloadLessonIcon]}),
+React.createElement(View,{style:[styles.lessonTitle]},
+React.createElement(Text,{numberOfLines:2,style:[styles.titleText]},this.props.data.title)),
+
+React.createElement(LocalImage,{style:[styles.lessonImageContainer],imgStyle:styles.lessonImg,source:this.props.data.bookId + ".png",alt:require('image!default-lesson')}),
+React.createElement(View,{style:[styles.lessonTextContainer]},
+React.createElement(Text,{style:styles.lessonTextDesc},'书名'),
+React.createElement(Text,{numberOfLines:1,style:[styles.lessonText]},this.props.data.bookName)),
+
+React.createElement(View,{style:[styles.lessonTextContainer]},
+React.createElement(Text,{style:styles.lessonTextDesc},'创建人'),
+React.createElement(Text,{numberOfLines:1,style:[styles.lessonText]},this.props.data.creator)))));}});
+
+
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+left:0,
+right:0,
+height:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+backgroundColor:'#dde1dc',
+justifyContent:'center',
+alignItems:'flex-start',
+flexDirection:'row'},
+
+menuContainer:{
+flex:1,
+width:window.width,
+height:window.height,
+backgroundColor:'rgba(80, 80, 80, 0.4)',
+justifyContent:'flex-start',
+alignItems:'flex-end',
+flexDirection:'column',
+paddingTop:Navigator.NavigationBar.Styles.General.TotalNavHeight},
+
+topContainer:{
+flex:1,
+height:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+backgroundColor:'#ecf0f1',
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+searchContainer:{
+flex:1,
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight - Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-start',
+alignItems:'center',
+flexDirection:'row'},
+
+navButtonIcon:{
+alignSelf:'center',
+color:"#2ecc71",
+width:24,
+marginHorizontal:10},
+
+searchInput:{
+flex:1,
+alignSelf:"center",
+color:"white",
+backgroundColor:'transparent',
+borderRadius:3,
+marginLeft:10,
+height:24,
+fontSize:18,
+textAlign:"left"},
+
+normalButton:{
+width:120,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+backgroundColor:'transparent',
+flexDirection:'row'},
+
+buttonText:{
+flex:1,
+fontSize:18,
+color:'#2ecc71',
+textAlign:'right',
+marginRight:10},
+
+menuRow:{
+width:180,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+rowLinearGradient:{
+marginVertical:2,
+width:180,
+height:1},
+
+menuText:{
+flex:1,
+fontSize:18,
+color:'white',
+textAlign:'left',
+fontWeight:'bold',
+marginHorizontal:10},
+
+menuIconPlaceholder:{
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"},
+
+menuIcon:{
+flex:1,
+alignSelf:'center',
+color:"white"},
+
+listContainer:{
+position:"absolute",
+left:0,
+right:0,
+top:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+bottom:0,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+listHolder:{
+flex:1,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+backgroundImage:{
+position:"absolute",
+left:0,
+top:0},
+
+listview:{
+flex:1,
+backgroundColor:'transparent'},
+
+list:{
+justifyContent:'flex-start',
+flexDirection:'row',
+flexWrap:'wrap'},
+
+contentRow:{
+margin:10,
+width:300,
+height:360,
+backgroundColor:'white',
+alignItems:'center',
+justifyContent:'center',
+flexDirection:'column',
+shadowRadius:2,
+shadowColor:'black',
+shadowOpacity:0.2,
+shadowOffset:{height:5}},
+
+downloadLessonIcon:{
+position:'absolute',
+left:0,
+top:0,
+width:36,
+height:36,
+color:'#dde1dc'},
+
+lessonTitle:{
+flex:1,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row'},
+
+titleText:{
+flex:1,
+fontSize:18,
+lineHeight:24,
+width:200,
+textAlign:'center'},
+
+lessonContent:{
+flex:1},
+
+lessonImageContainer:{
+flex:1},
+
+lessonImg:{
+width:240,
+height:180},
+
+lessonTextContainer:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+lessonTextDesc:{
+width:60,
+marginRight:10,
+fontSize:18,
+lineHeight:24,
+textAlign:"left"},
+
+lessonText:{
+width:180,
+fontSize:18,
+lineHeight:24}});
+
+
+
+module.exports = LessonListScreen;
+});
+__d('react-native-side-menu/index.js',["react-native-side-menu/styles.js","react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var _extends=Object.assign || function(target){for(var i=1;i < arguments.length;i++) {var source=arguments[i];for(var key in source) {if(Object.prototype.hasOwnProperty.call(source,key)){target[key] = source[key];}}}return target;};var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined;}else {return get(parent,property,receiver);}}else if('value' in desc){return desc.value;}else {var getter=desc.get;if(getter === undefined){return undefined;}return getter.call(receiver);}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass;}const styles=require('react-native-side-menu/styles.js');
+const React=require('react-native/Libraries/react-native/react-native.js');const 
+Dimensions=React.Dimensions;const Animated=React.Animated;
+const deviceScreen=Dimensions.get('window');const 
+
+
+PanResponder=
+
+
+
+React.PanResponder;const View=React.View;const TouchableWithoutFeedback=React.TouchableWithoutFeedback;const Component=React.Component;
+
+
+
+
+
+
+const openMenuOffset=deviceScreen.width * 2 / 3;
+
+
+
+
+
+const hiddenMenuOffset=0;
+
+
+
+
+
+
+const edgeHitWidth=60;
+
+
+
+
+
+
+const barrierForward=deviceScreen.width / 4;
+
+
+
+
+
+
+
+function shouldOpenMenu(dx){
+return dx > barrierForward;}var 
+
+
+SideMenu=(function(_Component){_inherits(SideMenu,_Component);
+function SideMenu(props){_classCallCheck(this,SideMenu);
+_get(Object.getPrototypeOf(SideMenu.prototype),'constructor',this).call(this,props);
+
+
+
+
+this.isOpen = false;
+
+
+
+
+
+
+this.prevLeft = 0;
+
+this.state = {
+left:new Animated.Value(0)};}_createClass(SideMenu,[{key:'getChildContext',value:
+
+
+
+function getChildContext(){
+return {
+menuActions:this.getMenuActions()};}},{key:'componentWillMount',value:
+
+
+
+
+
+
+
+function componentWillMount(){
+this.responder = PanResponder.create({
+onStartShouldSetResponderCapture:this.props.onStartShouldSetResponderCapture.bind(this),
+onMoveShouldSetPanResponder:this.handleMoveShouldSetPanResponder.bind(this),
+onPanResponderMove:this.handlePanResponderMove.bind(this),
+onPanResponderRelease:this.handlePanResponderEnd.bind(this)});}},{key:'gesturesAreEnabled',value:
+
+
+
+
+
+
+
+function gesturesAreEnabled(){var 
+disableGestures=this.props.disableGestures;
+
+if(typeof disableGestures === 'function'){
+return !disableGestures();}
+
+
+return !disableGestures;}},{key:'handleMoveShouldSetPanResponder',value:
+
+
+
+
+
+
+function handleMoveShouldSetPanResponder(e,gestureState){
+if(this.gesturesAreEnabled()){
+const x=Math.round(Math.abs(gestureState.dx));
+const y=Math.round(Math.abs(gestureState.dy));
+
+const touchMoved=x > this.props.toleranceX && y < this.props.toleranceY;
+if(this.isOpen){
+return touchMoved;}else 
+{
+const withinEdgeHitWidth=this.props.menuPosition === 'right'?
+gestureState.moveX > deviceScreen.width - edgeHitWidth:
+gestureState.moveX < edgeHitWidth;
+const swipingToOpen=this.menuPositionMultiplier() * gestureState.dx > 0;
+return withinEdgeHitWidth && touchMoved && swipingToOpen;}}
+
+
+
+return false;}},{key:'handlePanResponderMove',value:
+
+
+
+
+
+
+
+
+function handlePanResponderMove(e,gestureState){
+if(this.menuPositionMultiplier() * (
+this.state.left.__getValue() + gestureState.dx) >= 0){
+
+this.state.left.setValue(this.prevLeft + gestureState.dx);}}},{key:'handlePanResponderEnd',value:
+
+
+
+
+
+
+
+
+
+function handlePanResponderEnd(e,gestureState){
+const currentLeft=this.state.left.__getValue();
+
+const shouldOpen=this.menuPositionMultiplier() * (
+currentLeft + gestureState.dx);
+
+if(shouldOpenMenu(shouldOpen)){
+this.openMenu();}else 
+{
+this.closeMenu();}}},{key:'menuPositionMultiplier',value:
+
+
+
+
+
+
+
+function menuPositionMultiplier(){
+return this.props.menuPosition === 'right'?-1:1;}},{key:'openMenu',value:
+
+
+
+
+
+
+function openMenu(){
+const openOffset=this.menuPositionMultiplier() * (
+this.props.openMenuOffset || openMenuOffset);
+
+this.props.
+animationFunction(this.state.left,openOffset).
+start();
+
+this.prevLeft = openOffset;
+
+if(!this.isOpen){
+this.isOpen = true;
+this.props.onChange(this.isOpen);
+
+
+if(this.props.touchToClose){
+this.forceUpdate();}}}},{key:'closeMenu',value:
+
+
+
+
+
+
+
+
+function closeMenu(){
+const closeOffset=this.menuPositionMultiplier() * (
+this.props.hiddenMenuOffset || hiddenMenuOffset);
+
+this.props.
+animationFunction(this.state.left,closeOffset).
+start();
+
+this.prevLeft = closeOffset;
+
+if(this.isOpen){
+this.isOpen = false;
+this.props.onChange(this.isOpen);
+
+
+if(this.props.touchToClose){
+this.forceUpdate();}}}},{key:'toggleMenu',value:
+
+
+
+
+
+
+
+
+function toggleMenu(){
+if(this.isOpen){
+this.closeMenu();}else 
+{
+this.openMenu();}}},{key:'getContentView',value:
+
+
+
+
+
+
+
+function getContentView(){var _this=this;
+var overlay=null;
+
+if(this.isOpen && this.props.touchToClose){
+overlay = 
+React.createElement(TouchableWithoutFeedback,{onPress:this.closeMenu.bind(this)},
+React.createElement(View,{style:styles.overlay}));}var _state=
+
+
+
+
+this.state;const width=_state.width;const height=_state.height;
+
+return (
+React.createElement(Animated.View,_extends({
+style:[styles.frontView,{width:width,height:height},this.props.animationStyle(this.state.left)],
+ref:function(sideMenu){return _this.sideMenu = sideMenu;}},
+this.responder.panHandlers),
+this.props.children,
+overlay));}},{key:'getMenuActions',value:
+
+
+
+
+
+
+
+
+
+function getMenuActions(){
+return {
+close:this.closeMenu.bind(this),
+toggle:this.toggleMenu.bind(this),
+open:this.openMenu.bind(this)};}},{key:'onLayoutChange',value:
+
+
+
+function onLayoutChange(e){var _e$nativeEvent$layout=
+e.nativeEvent.layout;const width=_e$nativeEvent$layout.width;const height=_e$nativeEvent$layout.height;
+this.setState({width:width,height:height});}},{key:'render',value:
+
+
+
+
+
+
+function render(){
+return (
+React.createElement(View,{style:styles.container,onLayout:this.onLayoutChange.bind(this)},
+React.createElement(View,{style:styles.menu},
+this.props.menu),
+
+this.getContentView()));}}]);return SideMenu;})(Component);
+
+
+
+
+
+SideMenu.childContextTypes = {
+menuActions:React.PropTypes.object.isRequired};
+
+
+SideMenu.propTypes = {
+toleranceX:React.PropTypes.number,
+toleranceY:React.PropTypes.number,
+menuPosition:React.PropTypes.oneOf(['left','right']),
+onChange:React.PropTypes.func,
+touchToClose:React.PropTypes.bool,
+disableGestures:React.PropTypes.oneOfType([React.PropTypes.func,React.PropTypes.bool]),
+animationFunction:React.PropTypes.func,
+onStartShouldSetResponderCapture:React.PropTypes.func};
+
+
+SideMenu.defaultProps = {
+toleranceY:10,
+toleranceX:10,
+touchToClose:false,
+onStartShouldSetResponderCapture:function(){return true;},
+onChange:function(){},
+animationStyle:function(value){
+return {
+transform:[{
+translateX:value}]};},
+
+
+
+animationFunction:function(prop,value){
+return Animated.spring(
+prop,
+{
+toValue:value,
+friction:8});}};
+
+
+
+
+
+module.exports = SideMenu;
+});
+__d('react-native-side-menu/styles.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+StyleSheet=
+React.StyleSheet;
+
+module.exports = StyleSheet.create({
+container:{
+flex:1,
+justifyContent:'center',
+alignItems:'center'},
+
+menu:{
+flex:1,
+backgroundColor:'transparent',
+position:'absolute',
+top:0,
+left:0},
+
+frontView:{
+flex:1,
+position:'absolute',
+left:0,
+top:0,
+backgroundColor:'transparent'},
+
+overlay:{
+position:'absolute',
+top:0,
+left:0,
+bottom:0,
+right:0,
+backgroundColor:'transparent'}});
+});
+__d('image!lessonBackground',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/jill/workspace/WebStorm/meeletBook/platforms/ios/MeeletBook/Resources/Images.xcassets/lessonBackground.imageset/lessonBackground@2x.png","uri":"lessonBackground","width":1024,"height":768,"deprecated":true};
+});
+__d('image!default-lesson',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/jill/workspace/WebStorm/meeletBook/platforms/ios/MeeletBook/Resources/Images.xcassets/default-lesson.imageset/default-lesson@3x.png","uri":"default-lesson","width":64,"height":64,"deprecated":true};
+});
+__d('MeeletBook/app/Screens/ProfileMainScreen.js',["react-native/Libraries/react-native/react-native.js","MeeletBook/app/Screens/Profile/ProfileScreen.js","MeeletBook/app/Screens/Profile/ProfileMenuListScreen.js","MeeletBook/app/Screens/Profile/ProfileInfoDetailScreen.js","MeeletBook/app/Screens/Profile/PhotoAlbumScreen.js","MeeletBook/app/Screens/Profile/FavoritesScreen.js","MeeletBook/app/Screens/Profile/SettingsScreen.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+Navigator=
+
+
+
+
+React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+
+var ProfileScreen=require('MeeletBook/app/Screens/Profile/ProfileScreen.js');
+var ProfileMenuListScreen=require('MeeletBook/app/Screens/Profile/ProfileMenuListScreen.js');
+var ProfileInfoDetailScreen=require('MeeletBook/app/Screens/Profile/ProfileInfoDetailScreen.js');
+var PhotoAlbumScreen=require('MeeletBook/app/Screens/Profile/PhotoAlbumScreen.js');
+var FavoritesScreen=require('MeeletBook/app/Screens/Profile/FavoritesScreen.js');
+var SettingsScreen=require('MeeletBook/app/Screens/Profile/SettingsScreen.js');
+
+var ProfileMainScreen=React.createClass({displayName:'ProfileMainScreen',
+getInitialState:function(){
+return {showNavBar:false};},
+
+
+componentWillMount:function(){
+var self=this;
+
+this._navBarRouteMapper = {
+LeftButton:function(route,navigator,index,navState){
+if(index === 0){
+return null;}
+
+
+var previousRoute=navState.routeStack[index - 1];
+var titleIconName;
+switch(previousRoute.id){
+case "list":
+titleIconName = 'chevron-left';
+break;
+case "profileInfoDetail":
+titleIconName = 'textsms';
+break;}
+
+
+return (
+React.createElement(TouchableOpacity,{
+onPress:function(){navigator.pop();previousRoute.id === "list" && self.hideNavBar();},
+style:styles.navBarLeftButton},
+React.createElement(Icon,{name:titleIconName,size:24,style:[styles.navButtonIcon]})));},
+
+
+
+
+RightButton:function(route,navigator,index,navState){
+return null;},
+
+
+Title:function(route,navigator,index,navState){
+if(route.id === "list")
+return;
+
+var titleIconName;
+switch(route.id){
+case "list":
+titleIconName = 'format-list-bulleted';
+break;
+case "profileInfoDetail":
+titleIconName = 'account-circle';
+break;
+case "photoAlbum":
+titleIconName = 'local-see';
+break;
+case "favorites":
+titleIconName = 'favorite';
+break;
+case "settings":
+titleIconName = 'settings';
+break;}
+
+
+return (
+React.createElement(View,{style:[styles.title]},
+React.createElement(View,{style:styles.titleIconPlaceholder},
+React.createElement(Icon,{name:titleIconName,size:24,style:[styles.navButtonIcon]})),
+
+React.createElement(Text,{style:styles.titleText},route.title)));}};},
+
+
+
+
+
+
+renderScene:function(route,nav){
+switch(route.id){
+case 'list':
+return React.createElement(ProfileScreen,{navigator:nav,mainScreen:this,style:styles.scene});
+case 'profileInfoDetail':
+return React.createElement(ProfileInfoDetailScreen,{navigator:nav,style:styles.scene});
+case 'photoAlbum':
+return React.createElement(PhotoAlbumScreen,{navigator:nav,style:styles.scene});
+case 'favorites':
+return React.createElement(FavoritesScreen,{navigator:nav,style:styles.scene});
+case 'settings':
+return React.createElement(SettingsScreen,{navigator:nav,style:styles.scene});
+default:
+return React.createElement(View,null);}},
+
+
+
+render:function(){
+return React.createElement(ProfileMenuListScreen,{style:styles.screen,selectSubView:this.selectSubView});},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+showNavBar:function(){
+this.setState({showNavBar:true});},
+
+
+hideNavBar:function(){
+this.setState({showNavBar:false});},
+
+
+selectSubView:function(id){
+var component=ProfileInfoDetailScreen;
+var subName="";
+if(id === 'profileInfo'){
+component = ProfileInfoDetailScreen;
+subName = "个人详情";}else 
+if(id === 'photoAlbum'){
+component = PhotoAlbumScreen;
+subName = "相册";}else 
+if(id === 'favorites'){
+component = FavoritesScreen;
+subName = "收藏";}else 
+if(id === 'settings'){
+component = SettingsScreen;
+subName = "设置";}
+
+this.showNavBar();
+this.props.navigator.push({
+id:id,
+title:subName,
+component:component,
+passProps:{navigator:this.props.navigator}});}});
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1},
+
+scene:{
+flex:1},
+
+navBar:{
+backgroundColor:'#666666',
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+opacity:0},
+
+navBarLeftButton:{
+paddingLeft:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navBarRightButton:{
+paddingRight:10,
+width:36,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+flexDirection:'row'},
+
+navButtonIcon:{
+flex:1,
+alignSelf:'center',
+color:"white"},
+
+title:{
+width:120,
+alignSelf:'center',
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'flex-start',
+alignItems:'center',
+flexDirection:'row'},
+
+titleText:{
+flex:1,
+fontSize:18,
+color:'white',
+textAlign:'left',
+fontWeight:'bold',
+marginHorizontal:10},
+
+titleIconPlaceholder:{
+width:24,
+height:Navigator.NavigationBar.Styles.General.NavBarHeight,
+justifyContent:'center',
+alignItems:'center',
+flexDirection:'row',
+backgroundColor:"transparent"}});
+
+
+
+module.exports = ProfileMainScreen;
+});
+__d('MeeletBook/app/Screens/Profile/ProfileScreen.js',["lodash/index.js","react-native/Libraries/react-native/react-native.js","react-native-blur/index.js","tcomb-form-native/index.js"],function(global, require, module, exports) {  'use strict';
+
+var _=require('lodash/index.js');
+var React=require('react-native/Libraries/react-native/react-native.js');
+var BlurView=require('react-native-blur/index.js').BlurView;
+var TForm=require('tcomb-form-native/index.js');
+
+var Form=TForm.form.Form;var 
+
+
+AsyncStorage=
+
+
+
+
+
+
+
+
+
+
+
+
+React.AsyncStorage;var AlertIOS=React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var Modal=React.Modal;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;var Navigator=React.Navigator;
+
+var loginUser={
+"_id":"52591a12c763d5e4585563b4",
+"name":"毕嘉利",
+"loginName":"bijiali14"};
+
+var Account=TForm.struct({loginName:TForm.Str,password:TForm.Str},"Account");
+var AccountOptions={
+fields:{
+loginName:{
+label:'用户名'},
+
+password:{
+label:'密码',
+password:true,
+secureTextEntry:true}},
+
+
+stylesheet:_.cloneDeep(Form.stylesheet)};
+
+
+_.extend(_.property("textbox.normal")(AccountOptions.stylesheet),{
+width:300,
+backgroundColor:"white",
+borderColor:"#2ecc71"});
+
+
+var STORAGE_KEY="loginedUser";
+var dataBlob={};
+var sectionIds=["*"];
+var rowIds=[["btn_album","btn_collection","btn_settings"]];
+for(var sectionId of sectionIds) {dataBlob[sectionId] = sectionId;}
+
+var ProfileScreen=React.createClass({displayName:'ProfileScreen',
+
+componentDidMount:function(){
+this._loadInitialState().done();},
+
+
+_loadInitialState:function callee$0$0(){var 
+
+value,
+
+entity;return regeneratorRuntime.async(function callee$0$0$(context$1$0){while(1) switch(context$1$0.prev = context$1$0.next){case 0:context$1$0.prev = 0;context$1$0.next = 3;return regeneratorRuntime.awrap(AsyncStorage.getItem(STORAGE_KEY));case 3:value = context$1$0.sent;if(value !== null){entity = JSON.parse(value);
+this.setState({loginedUser:entity});}context$1$0.next = 10;break;case 7:context$1$0.prev = 7;context$1$0.t0 = context$1$0['catch'](0);
+
+
+this._appendMessage('AsyncStorage error: ' + context$1$0.t0.message);case 10:case 'end':return context$1$0.stop();}},null,this,[[0,7]]);},
+
+
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return rowId;},
+getSectionHeaderData:function(dataBlob,sectionId){return sectionId;},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+return {
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
+isModalOpen:false,
+loginedUser:{},
+isTmp:false};},
+
+
+
+renderRow:function(rowData,sectionId,rowId){
+if(sectionId === "*"){
+switch(rowId){
+case "btn_album":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:this.routePhotoAlbum},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'local-see',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'相册')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "btn_collection":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:this.routeFavorites},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'favorite',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'收藏')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "btn_settings":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:this.routeSettings},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'settings',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'设置')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;}}
+
+
+
+return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
+
+
+renderSectionHeader:function(sectionData,sectionId){
+return null;},
+
+
+renderHeader:function(){
+return (
+React.createElement(TouchableOpacity,{style:[styles.header],onPress:this.openModal},
+React.createElement(Icon,{name:'account-circle',size:60,color:'#2ecc71',style:styles.avatar}),
+React.createElement(View,{style:styles.nameList},
+React.createElement(Text,{style:styles.userName},this.state.loginedUser.name),
+React.createElement(Text,{style:styles.userName},'帐号: ',this.state.loginedUser.loginName)),
+
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));},
+
+
+
+
+
+openModal:function(){
+if(this.state.loginedUser.loginName == null)
+this.setState({isModalOpen:true});else 
+
+this.routeProfileDetail("个人详情");},
+
+
+closeModal:function(){
+this.setState({isModalOpen:false});},
+
+
+login:function callee$0$0(){var 
+
+jsonStr;return regeneratorRuntime.async(function callee$0$0$(context$1$0){while(1) switch(context$1$0.prev = context$1$0.next){case 0:this.setState({loginedUser:loginUser});jsonStr = JSON.stringify(loginUser);context$1$0.next = 4;return regeneratorRuntime.awrap(
+
+AsyncStorage.setItem(STORAGE_KEY,jsonStr));case 4:
+this.closeModal();case 5:case 'end':return context$1$0.stop();}},null,this);},
+
+
+routeProfileDetail:function(title){
+this.props.mainScreen.showNavBar();
+this.props.navigator.push({id:"profileInfoDetail",title:title});},
+
+
+routePhotoAlbum:function(){
+this.props.mainScreen.showNavBar();
+this.props.navigator.push({id:"photoAlbum",title:"相册"});},
+
+
+routeFavorites:function(){
+this.props.mainScreen.showNavBar();
+this.props.navigator.push({id:"favorites",title:"收藏"});},
+
+
+routeSettings:function(){
+this.props.mainScreen.showNavBar();
+this.props.navigator.push({id:"settings",title:"设置"});},
+
+
+render:function(){
+return (
+React.createElement(View,{style:styles.screen},
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+renderSectionHeader:this.renderSectionHeader,
+renderRow:this.renderRow,
+initialListSize:10}),
+
+
+React.createElement(Modal,{animated:true,transparent:true,visible:this.state.isModalOpen},
+React.createElement(BlurView,{style:styles.modalBackground,blurType:'light'},
+React.createElement(View,{style:styles.modalContent},
+React.createElement(Icon,{name:'wb-incandescent',size:80,color:'#2ecc71',style:styles.modalItem}),
+React.createElement(View,{style:[styles.modalItem,styles.formContainer]},
+React.createElement(Form,{ref:'accountForm',type:Account,options:AccountOptions,style:styles.accountForm})),
+
+React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],onPress:this.login,underlayColor:'#27ae60'},
+React.createElement(Text,{style:styles.buttonText},'登录')),
+
+React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],onPress:this.closeModal,underlayColor:'#27ae60'},
+React.createElement(Text,{style:styles.buttonText},'取消')))))));}});
+
+
+
+
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+flex:1,
+backgroundColor:'#dde1dc'},
+
+listview:{},
+
+header:{
+height:80,
+justifyContent:'flex-start',
+alignItems:'center',
+backgroundColor:'white',
+flexDirection:'row',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+avartar:{
+flex:1},
+
+nameList:{
+flex:1,
+marginHorizontal:5},
+
+arrow:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+userName:{
+fontSize:16,
+height:24,
+marginVertical:3},
+
+row:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16},
+
+modalBackground:{
+flex:1,
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'},
+
+modalContent:{
+flex:1,
+flexDirection:'column',
+justifyContent:'center',
+alignItems:'center'},
+
+modalItem:{
+flex:1,
+marginBottom:10,
+alignSelf:'center'},
+
+formContainer:{
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'},
+
+accountForm:{},
+
+buttonText:{
+fontSize:18,
+color:'white',
+alignSelf:'center'},
+
+button:{
+height:36,
+width:200,
+backgroundColor:'#2ecc71',
+borderColor:'#2ecc71',
+borderWidth:1,
+borderRadius:8,
+marginBottom:10,
+alignSelf:'center',
+justifyContent:'center'}});
+
+
+
+module.exports = ProfileScreen;
+});
 __d('tcomb-form-native/index.js',["tcomb-form-native/lib/index.js","tcomb-form-native/lib/templates/bootstrap.js","tcomb-form-native/lib/stylesheets/bootstrap.js"],function(global, require, module, exports) {  var t=require('tcomb-form-native/lib/index.js');
 var templates=require('tcomb-form-native/lib/templates/bootstrap.js');
 var stylesheet=require('tcomb-form-native/lib/stylesheets/bootstrap.js');
@@ -82402,5 +86273,1111 @@ marginBottom:4}}});
 
 module.exports = stylesheet;
 });
+__d('MeeletBook/app/Screens/Profile/ProfileMenuListScreen.js',["lodash/index.js","react-native/Libraries/react-native/react-native.js","react-native-blur/index.js","tcomb-form-native/index.js"],function(global, require, module, exports) {  'use strict';
+
+var _=require('lodash/index.js');
+var React=require('react-native/Libraries/react-native/react-native.js');
+var BlurView=require('react-native-blur/index.js').BlurView;
+var TForm=require('tcomb-form-native/index.js');
+
+var Form=TForm.form.Form;var 
+
+
+AsyncStorage=
+
+
+
+
+
+
+
+
+
+
+
+
+React.AsyncStorage;var AlertIOS=React.AlertIOS;var Image=React.Image;var LayoutAnimation=React.LayoutAnimation;var ListView=React.ListView;var Modal=React.Modal;var StyleSheet=React.StyleSheet;var Text=React.Text;var TextInput=React.TextInput;var TouchableOpacity=React.TouchableOpacity;var TouchableHighlight=React.TouchableHighlight;var View=React.View;var Navigator=React.Navigator;
+
+var loginUser={
+"_id":"52591a12c763d5e4585563b4",
+"name":"毕嘉利",
+"loginName":"bijiali14"};
+
+var Account=TForm.struct({loginName:TForm.Str,password:TForm.Str},"Account");
+var AccountOptions={
+fields:{
+loginName:{
+label:'用户名'},
+
+password:{
+label:'密码',
+password:true,
+secureTextEntry:true}},
+
+
+stylesheet:_.cloneDeep(Form.stylesheet)};
+
+
+_.extend(_.property("textbox.normal")(AccountOptions.stylesheet),{
+width:300,
+backgroundColor:"white",
+borderColor:"#2ecc71"});
+
+
+var STORAGE_KEY="loginedUser";
+var dataBlob={};
+var sectionIds=["*"];
+var rowIds=[["btn_album","btn_collection","btn_settings"]];
+for(var sectionId of sectionIds) {dataBlob[sectionId] = sectionId;}
+
+var ProfileScreen=React.createClass({displayName:'ProfileScreen',
+
+componentDidMount:function(){
+this._loadInitialState().done();},
+
+
+_loadInitialState:function callee$0$0(){var 
+
+value,
+
+entity;return regeneratorRuntime.async(function callee$0$0$(context$1$0){while(1) switch(context$1$0.prev = context$1$0.next){case 0:context$1$0.prev = 0;context$1$0.next = 3;return regeneratorRuntime.awrap(AsyncStorage.getItem(STORAGE_KEY));case 3:value = context$1$0.sent;if(value !== null){entity = JSON.parse(value);
+this.setState({loginedUser:entity});}context$1$0.next = 10;break;case 7:context$1$0.prev = 7;context$1$0.t0 = context$1$0['catch'](0);
+
+
+this._appendMessage('AsyncStorage error: ' + context$1$0.t0.message);case 10:case 'end':return context$1$0.stop();}},null,this,[[0,7]]);},
+
+
+
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return rowId;},
+getSectionHeaderData:function(dataBlob,sectionId){return sectionId;},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+return {
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
+isModalOpen:false,
+loginedUser:{},
+isTmp:false};},
+
+
+
+renderRow:function(rowData,sectionId,rowId){var _this=this;
+if(sectionId === "*"){
+switch(rowId){
+case "btn_album":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:function(){_this.routeFunc('photoAlbum');}},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'local-see',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'相册')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "btn_collection":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:function(){_this.routeFunc('favorites');}},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'favorite',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'收藏')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "btn_settings":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row],onPress:function(){_this.routeFunc('settings');}},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'settings',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'设置')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;}}
+
+
+
+return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
+
+
+renderSectionHeader:function(sectionData,sectionId){
+return null;},
+
+
+renderHeader:function(){
+return (
+React.createElement(TouchableOpacity,{style:[styles.header],onPress:this.openModal},
+React.createElement(Icon,{name:'account-circle',size:60,color:'#2ecc71',style:styles.avatar}),
+React.createElement(View,{style:styles.nameList},
+React.createElement(Text,{style:styles.userName},this.state.loginedUser.name),
+React.createElement(Text,{style:styles.userName},'帐号: ',this.state.loginedUser.loginName)),
+
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));},
+
+
+
+
+
+openModal:function(){
+if(this.state.loginedUser.loginName == null)
+this.setState({isModalOpen:true});else 
+
+this.routeFunc("profileInfo");},
+
+
+closeModal:function(){
+this.setState({isModalOpen:false});},
+
+
+login:function callee$0$0(){var 
+
+jsonStr;return regeneratorRuntime.async(function callee$0$0$(context$1$0){while(1) switch(context$1$0.prev = context$1$0.next){case 0:this.setState({loginedUser:loginUser});jsonStr = JSON.stringify(loginUser);context$1$0.next = 4;return regeneratorRuntime.awrap(
+
+AsyncStorage.setItem(STORAGE_KEY,jsonStr));case 4:
+this.closeModal();case 5:case 'end':return context$1$0.stop();}},null,this);},
+
+
+routeFunc:function(id){
+this.props.selectSubView(id);},
+
+
+render:function(){
+return (
+React.createElement(View,{style:styles.screen},
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+renderSectionHeader:this.renderSectionHeader,
+renderRow:this.renderRow,
+initialListSize:10}),
+
+
+React.createElement(Modal,{animated:true,transparent:true,visible:this.state.isModalOpen},
+React.createElement(BlurView,{style:styles.modalBackground,blurType:'light'},
+React.createElement(View,{style:styles.modalContent},
+React.createElement(Icon,{name:'wb-incandescent',size:80,color:'#2ecc71',style:styles.modalItem}),
+React.createElement(View,{style:[styles.modalItem,styles.formContainer]},
+React.createElement(Form,{ref:'accountForm',type:Account,options:AccountOptions,style:styles.accountForm})),
+
+React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],onPress:this.login,underlayColor:'#27ae60'},
+React.createElement(Text,{style:styles.buttonText},'登录')),
+
+React.createElement(TouchableHighlight,{style:[styles.button,styles.modalItem],onPress:this.closeModal,underlayColor:'#27ae60'},
+React.createElement(Text,{style:styles.buttonText},'取消')))))));}});
+
+
+
+
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+flex:1,
+backgroundColor:'#dde1dc'},
+
+listview:{},
+
+header:{
+height:80,
+justifyContent:'flex-start',
+alignItems:'center',
+backgroundColor:'white',
+flexDirection:'row',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+avartar:{
+flex:1},
+
+nameList:{
+flex:1,
+marginHorizontal:5},
+
+arrow:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+userName:{
+fontSize:16,
+height:24,
+marginVertical:3},
+
+row:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16},
+
+modalBackground:{
+flex:1,
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'},
+
+modalContent:{
+flex:1,
+flexDirection:'column',
+justifyContent:'center',
+alignItems:'center'},
+
+modalItem:{
+flex:1,
+marginBottom:10,
+alignSelf:'center'},
+
+formContainer:{
+flexDirection:'row',
+justifyContent:'center',
+alignItems:'center'},
+
+accountForm:{},
+
+buttonText:{
+fontSize:18,
+color:'white',
+alignSelf:'center'},
+
+button:{
+height:36,
+width:200,
+backgroundColor:'#2ecc71',
+borderColor:'#2ecc71',
+borderWidth:1,
+borderRadius:8,
+marginBottom:10,
+alignSelf:'center',
+justifyContent:'center'}});
+
+
+
+module.exports = ProfileScreen;
+});
+__d('MeeletBook/app/Screens/Profile/ProfileInfoDetailScreen.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+Navigator=
+
+
+
+
+
+React.Navigator;var StyleSheet=React.StyleSheet;var ListView=React.ListView;var Text=React.Text;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+var rowIds=[["profilePhoto","name","id","QRCode","gender","region","signature"]];
+var dataBlob={};
+var sectionIds=["*"];
+for(var sectionId of sectionIds) {
+dataBlob[sectionId] = sectionId;}
+
+
+var ProfileInfoDetailScreen=React.createClass({displayName:'ProfileInfoDetailScreen',
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+getRowData:function(dataBlob,sectionId,rowId){return rowId;},
+getSectionHeaderData:function(dataBlob,sectionId){return sectionId;},
+rowHasChanged:function(row1,row2){return row1 !== row2;},
+sectionHeaderHasChanged:function(s1,s2){return s1 !== s2;}});
+
+
+return {
+dataSource:dataSource.cloneWithRowsAndSections(dataBlob,sectionIds,rowIds),
+clicked:'none'};},
+
+
+renderRow:function(rowData,sectionId,rowId){
+if(sectionId === "*"){
+switch(rowId){
+case "profilePhoto":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'头像')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "name":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'昵称')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "id":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'帐号'))));
+
+
+break;
+case "QRCode":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'二维码')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "gender":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'性别')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "region":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'地区')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;
+case "signature":
+return (
+React.createElement(TouchableOpacity,{style:[styles.row]},
+React.createElement(View,{style:styles.btnRow},React.createElement(Icon,{name:'photo-album',size:40,color:'#2ecc71',style:styles.btn}),React.createElement(Text,{style:styles.btnLabel},'个性签名')),
+React.createElement(View,{style:styles.arrow},
+React.createElement(Icon,{name:'keyboard-arrow-right',size:40,color:'#2ecc71'}))));
+
+
+
+break;}}
+
+
+
+return rowData && React.createElement(Thumb,{text:rowData.name}) || null;},
+
+renderSectionHeader:function(sectionData,sectionId){
+return null;},
+
+render:function(){
+return (
+React.createElement(View,{style:styles.screen},
+React.createElement(ListView,{
+style:styles.listview,
+dataSource:this.state.dataSource,
+renderSectionHeader:this.renderSectionHeader,
+renderRow:this.renderRow,
+initialListSize:10})));}});
+
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1,
+backgroundColor:'#dde1dc'},
+
+listview:{},
+
+header:{
+height:80,
+justifyContent:'flex-start',
+alignItems:'center',
+backgroundColor:'white',
+flexDirection:'row',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+avartar:{
+flex:1},
+
+nameList:{
+flex:1,
+marginHorizontal:5},
+
+arrow:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+userName:{
+fontSize:16,
+height:24,
+marginVertical:3},
+
+row:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16}});
+
+
+
+module.exports = ProfileInfoDetailScreen;
+});
+__d('MeeletBook/app/Screens/Profile/PhotoAlbumScreen.js',["react-native/Libraries/react-native/react-native.js","react-timer-mixin/TimerMixin.js","MaterialIcons"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+Navigator=
+
+
+
+
+
+
+React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TouchableOpacity=React.TouchableOpacity;var View=React.View;var ListView=React.ListView;var TextInput=React.TextInput;
+
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var Icon=require('MaterialIcons');
+
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"book-1"},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"name":"book-2"},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"name":"book-3"},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"name":"book-1"},
+
+{
+"_id":"52591a12c763d5e4585563a2",
+"name":"book-2"},
+
+{
+"_id":"52591a12c763d5e4585563a4",
+"name":"book-3"},
+
+{
+"_id":"52591a12c763d5e4585563a6",
+"name":"book-1"},
+
+{
+"_id":"52591a12c763d5e4585563a8",
+"name":"book-2"},
+
+{
+"_id":"52591a12c763d5e4585563aa",
+"name":"book-3"},
+
+{
+"_id":"52591a12c763d5e4585563ac",
+"name":"book-1"}];
+
+
+
+
+var Thumb=React.createClass({displayName:'Thumb',
+getInitialState:function(){
+return {};},
+
+render:function(){
+return (
+React.createElement(TouchableOpacity,{
+onPress:this.props.onPress,
+style:[styles.contentRow]},
+React.createElement(LocalImage,{source:this.props.data.name + ".png"})));}});
+
+
+
+
+
+var PhotoAlbumScreen=React.createClass({displayName:'PhotoAlbumScreen',
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+renderRow:function(rowData,sectionId,rowId){
+return rowData && React.createElement(Thumb,{data:rowData,onPress:function(){}}) || null;},
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+contentContainerStyle:styles.list,
+style:[styles.screen,styles.listview],
+dataSource:this.state.dataSource,
+renderRow:this.renderRow,
+initialListSize:10,
+scrollRenderAheadDistance:2000}));},
+
+
+
+updateSearchInput:function(text){var _this=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this.doSearch(text);},100);},
+
+
+doSearch:function(text){
+this.timeoutId = null;}});
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1,
+backgroundColor:'#dde1dc'},
+
+listview:{},
+
+
+list:{
+justifyContent:'flex-start',
+flexDirection:'row',
+flexWrap:'wrap'},
+
+header:{
+height:80,
+justifyContent:'flex-start',
+alignItems:'center',
+backgroundColor:'white',
+flexDirection:'row',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+avartar:{
+flex:1},
+
+nameList:{
+flex:1,
+marginHorizontal:5},
+
+arrow:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+userName:{
+fontSize:16,
+height:24,
+marginVertical:3},
+
+contentRow:{
+justifyContent:'center',
+padding:5,
+margin:3,
+width:100,
+height:100,
+backgroundColor:'#F6F6F6',
+alignItems:'center',
+borderWidth:1,
+borderRadius:5,
+borderColor:'#CCC'},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16}});
+
+
+
+module.exports = PhotoAlbumScreen;
+});
+__d('MeeletBook/app/Screens/Profile/FavoritesScreen.js',["react-native/Libraries/react-native/react-native.js","react-timer-mixin/TimerMixin.js","MaterialIcons","MeeletBook/app/Screens/TalkScreen.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+Animated=
+
+
+
+
+
+
+
+
+React.Animated;var Dimensions=React.Dimensions;var Navigator=React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TouchableOpacity=React.TouchableOpacity;var View=React.View;var ListView=React.ListView;var TextInput=React.TextInput;
+
+var TimerMixin=require('react-timer-mixin/TimerMixin.js');
+var Icon=require('MaterialIcons');
+
+var testScreen=require('MeeletBook/app/Screens/TalkScreen.js');
+
+var PAGE_SIZE=4;
+var now=new Date();
+var list=[
+{
+"_id":"52591a12c763d5e45855639a",
+"name":"陈昌申",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639c",
+"name":"冯智豪",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e45855639e",
+"name":"梁天祐",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a0",
+"name":"李壮",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a2",
+"name":"林振远",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a4",
+"name":"钱辛杰",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a6",
+"name":"孙越凡",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563a8",
+"name":"田奕恒",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563aa",
+"name":"王臻萱",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")},
+
+{
+"_id":"52591a12c763d5e4585563ac",
+"name":"杨钧文",
+"content":"自2009年推出风靡一时《愤怒的小鸟》游戏以来，Rovio至今并未推出一款能与之匹敌的新游戏。去年12月，Rovio已经宣布裁员110人，占员工总数的14%。",
+"time":now.toString("yyyy年MM月dd日tthh:mm").replace("AM","上午").replace("PM","下午")}];
+
+
+
+var Thumb=React.createClass({displayName:'Thumb',
+getInitialState:function(){
+return {};},
+
+render:function(){var _this=this;
+return (
+React.createElement(TouchableOpacity,{
+onPress:function(){
+_this.props.selectSubView('test');},
+
+style:[styles.contentRow]},
+React.createElement(View,null,
+React.createElement(Icon,{name:'textsms',size:40,color:'#2ecc71',style:[styles.smallAvatar]}),
+React.createElement(View,{style:[styles.thumbItem,styles.textContainer]},
+React.createElement(View,{style:[styles.compositeItem]},
+React.createElement(Text,{numberOfLines:1,style:[styles.thumbText]},this.props.data.name),
+React.createElement(Text,{style:[styles.thumbDate]},this.props.data.time)),
+
+React.createElement(View,{style:[styles.textItem]},
+React.createElement(Text,{numberOfLines:1,style:[styles.thumbText]},this.props.data.content))))));}});
+
+
+
+
+
+
+
+
+var FavoritesScreen=React.createClass({displayName:'FavoritesScreen',
+getInitialState:function(){
+var dataSource=new ListView.DataSource({
+rowHasChanged:function(row1,row2){return row1._id !== row2._id;}});
+
+
+return {
+dataSource:dataSource.cloneWithRows(list)};},
+
+
+renderRow:function(rowData,sectionId,rowId){
+return rowData && React.createElement(Thumb,{data:rowData,selectSubView:this.routeFunc}) || null;},
+
+renderHeader:function(){var _this2=this;
+return (
+React.createElement(View,{style:styles.header},
+React.createElement(TextInput,{
+autoCapitalize:'none',
+placeholder:'搜索',
+autoCorrect:false,
+returnKeyType:'search',
+onSubmitEditing:function(event){return _this2.updateSearchInput(event.nativeEvent.text);},
+style:styles.searchInput})));},
+
+
+
+
+render:function(){
+return (
+React.createElement(ListView,{
+style:[styles.screen,styles.listview],
+dataSource:this.state.dataSource,
+renderHeader:this.renderHeader,
+renderRow:this.renderRow,
+initialListSize:10,
+pageSize:PAGE_SIZE,
+scrollRenderAheadDistance:2000}));},
+
+
+updateSearchInput:function(text){var _this3=this;
+this.clearTimeout(this.timeoutId);
+this.timeoutId = this.setTimeout(function(){return _this3.doSearch(text);},100);},
+
+doSearch:function(text){
+this.timeoutId = null;},
+
+routeFunc:function(id){
+this.selectSubView(id);},
+
+selectSubView:function(id){
+var component=testScreen;
+var subName="";
+if(id === 'test'){
+subName = "test";
+component = testScreen;}
+
+this.props.navigator.push({
+id:id,
+title:subName,
+component:component,
+passProps:{navigator:this.props.navigator}});}});
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1,
+backgroundColor:'#dde1dc'},
+
+listview:{},
+
+header:{
+height:80,
+justifyContent:'flex-start',
+alignItems:'center',
+backgroundColor:'white',
+flexDirection:'row',
+marginHorizontal:5,
+marginVertical:3,
+padding:5},
+
+avartar:{
+flex:1},
+
+nameList:{
+flex:1,
+marginHorizontal:5},
+
+arrow:{
+flex:1,
+justifyContent:'flex-end',
+alignItems:'center',
+flexDirection:'row'},
+
+userName:{
+fontSize:16,
+height:24,
+marginVertical:3},
+
+row:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+marginHorizontal:5,
+marginVertical:3,
+padding:5,
+backgroundColor:'white',
+borderRadius:3},
+
+btnRow:{
+flexDirection:'row',
+justifyContent:'flex-start',
+alignItems:'center',
+flex:1},
+
+btn:{
+width:40,
+height:40},
+
+btnLabel:{
+fontSize:16},
+
+searchInput:{
+flex:1,
+alignSelf:"center",
+color:"white",
+backgroundColor:'transparent',
+borderRadius:3,
+marginLeft:10,
+height:24,
+fontSize:18,
+textAlign:"left"}});
+
+
+
+module.exports = FavoritesScreen;
+});
+__d('MeeletBook/app/Screens/Profile/SettingsScreen.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+
+Navigator=
+
+
+
+
+React.Navigator;var StyleSheet=React.StyleSheet;var Text=React.Text;var TouchableOpacity=React.TouchableOpacity;var View=React.View;
+
+var SettingsScreen=React.createClass({displayName:'SettingsScreen',
+getInitialState:function(){
+return {};},
+
+
+
+render:function(){
+return (
+React.createElement(View,{style:styles.screen},
+React.createElement(Text,null,'SettingsScreen')));}});
+
+
+
+
+
+var styles=StyleSheet.create({
+screen:{
+marginTop:Navigator.NavigationBar.Styles.General.TotalNavHeight,
+flex:1,
+backgroundColor:'#dde1dc'}});
+
+
+
+module.exports = SettingsScreen;
+});
+__d('MeeletBook/app/Screens/LoadScreen.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  'use strict';
+
+
+
+
+
+var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+StyleSheet=
+
+
+
+React.StyleSheet;var TimerMixin=React.TimerMixin;var View=React.View;var WebView=React.WebView;
+
+var LoadScreen=React.createClass({displayName:'LoadScreen',
+mixins:[TimerMixin],
+
+timeoutId:null,
+
+componentWillMount:function(){
+var self=this;
+
+LocalResourceAPI.getWebResourcePath(this.props.url,function(err,path){
+if(!err && path){
+self.setState({url:path});}});},
+
+
+
+
+getInitialState:function(){
+return {
+url:""};},
+
+
+
+render:function(){
+return (
+React.createElement(WebView,{
+automaticallyAdjustContentInsets:false,
+style:styles.webView,
+url:this.state.url,
+javaScriptEnabledAndroid:true,
+startInLoadingState:true,
+scalesPageToFit:true}));}});
+
+
+
+
+
+var styles=StyleSheet.create({
+webView:{}});
+
+
+
+
+module.exports = LoadScreen;
+});
+__d('MeeletBook/app/Components/LocalImage.js',["react-native/Libraries/react-native/react-native.js"],function(global, require, module, exports) {  var React=require('react-native/Libraries/react-native/react-native.js');var 
+
+Image=
+
+
+React.Image;var StyleSheet=React.StyleSheet;var View=React.View;
+
+var imageSourceCache={};
+var LocalImage=React.createClass({displayName:'LocalImage',
+getInitialState:function(){
+return {};},
+
+
+componentDidMount:function(){var _this=this;
+this.fetch(this.props.source).then(function(source){_this.setState({source:source});},function(){_this.setState({source:null});});},
+
+
+fetch:function(source){
+return new Promise(function(resolve,reject){
+var cached=imageSourceCache[source];
+if(typeof cached !== 'undefined'){
+if(!cached || cached instanceof Error){reject(cached);}
+return resolve({uri:cached});}
+
+LocalResourceAPI.getResourcePath(source,function(err,image){
+if(typeof err === 'string'){
+err = new Error(err);}
+
+imageSourceCache[source] = image || err || false;
+if(!err && image){
+return resolve({uri:image});}
+
+reject(err);});});},
+
+
+
+
+render:function(){
+return (
+React.createElement(Image,{source:this.state.source || this.props.alt,style:[styles.base,this.props.imgStyle]}));}});
+
+
+
+
+var styles=StyleSheet.create({
+base:{
+width:64,
+height:64,
+resizeMode:Image.resizeMode.contain}});
+
+
+
+module.exports = LocalImage;
+});
+__d('MeeletBook/app/Screens/AppEvents.js',[],function(global, require, module, exports) {  'use strict';
+
+
+
+
+
+var AppEvents={
+normalScanEvent:"normalScan",
+projectScanEvent:"projectScan",
+getProjectErrorEvent:"getProjectError",
+getProjectModulesErrorEvent:"getProjectModulesError",
+deleteLocalProjectEvent:"deleteLocalProject",
+downloadProjectStartEvent:"downloadProjectStart",
+downloadProjectStopEvent:"downloadProjectStop",
+downloadProjectDoneEvent:"downloadProjectDone",
+downloadProjectErrorEvent:"downloadProjectError",
+downloadProjectProgressEvent:"downloadProjectProgress",
+downloadProjectModulesStartEvent:"downloadProjectModulesStart",
+downloadProjectModulesDoneEvent:"downloadProjectModulesDone",
+downloadProjectModulesErrorEvent:"downloadProjectModulesError",
+downloadProjectModulesProgressEvent:"downloadProjectModulesProgress"};
+
+
+module.exports = AppEvents;
+});
 ;require("MeeletBook/index.ios.js");
-//@ sourceMappingURL=/index.ios.map?platform=ios&dev=false
+//@ sourceMappingURL=/index.ios.map?platform=ios&dev=true

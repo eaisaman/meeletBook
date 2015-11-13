@@ -5,6 +5,7 @@ var ANGULAR_LIB_PATH = MODULES_PATH + "/angular/1.4.5/",
     ANGULAR_PLUGINS_LIB_PATH = MODULES_PATH + "/angular-plugins/",
     HAMMER_LIB_PATH = MODULES_PATH + "/hammer/2.0.4/",
     JQUERY_LIB_PATH = MODULES_PATH + "/jquery/2.1.1/",
+    JQUERY_PLUGINS_LIB_PATH = "javascripts/jquery-plugins/",
     UNDERSCORE_LIB_PATH = MODULES_PATH + "/underscore/1.6.0/",
     MODERNIZR_LIB_PATH = MODULES_PATH + "/modernizr/",
     STRING_LIB_PATH = MODULES_PATH + "/String/",
@@ -13,6 +14,7 @@ var ANGULAR_LIB_PATH = MODULES_PATH + "/angular/1.4.5/",
     FABRIC_LIB_PATH = MODULES_PATH + "/fabric/1.5.0/",
     CHART_LIB_PATH = MODULES_PATH + "/Chart.js/1.0.2/",
     EDGE_LIB_PATH = MODULES_PATH + "/edge/5.0.1/",
+    POMELO_LIB_PATH = MODULES_PATH + "/pomelo-client/1.2.0/",
     APP_LIB_PATH = "app/",
     APP_COMMON_LIB_PATH = "common/",
     DIRECTIVE_LIB_PATH = "directive/",
@@ -29,6 +31,7 @@ requirejs.config({
         "angular-plugins-lib": ANGULAR_PLUGINS_LIB_PATH + "main",
         "hammer-lib": HAMMER_LIB_PATH + "main",
         "jquery-lib": JQUERY_LIB_PATH + "main",
+        "jquery-plugins-lib": JQUERY_PLUGINS_LIB_PATH + "main",
         "underscore-lib": UNDERSCORE_LIB_PATH + "main",
         "modernizr-lib": MODERNIZR_LIB_PATH + "main",
         "string-lib": STRING_LIB_PATH + "main",
@@ -37,6 +40,7 @@ requirejs.config({
         "fabric-lib": FABRIC_LIB_PATH + "main",
         "chart-lib": CHART_LIB_PATH + "main",
         "edge-lib": EDGE_LIB_PATH + "main",
+        "pomelo-lib": POMELO_LIB_PATH + "main",
         "app-common-lib": APP_COMMON_LIB_PATH + "main",
         "app-lib": APP_LIB_PATH + "main",
         "directive-lib": DIRECTIVE_LIB_PATH + "main"
@@ -47,7 +51,7 @@ requirejs.config({
     }
 });
 
-requirejs(["angular-lib", "angular-modules-lib", "hammer-lib", "jquery-lib", "underscore-lib", "modernizr-lib", "string-lib", "snap-svg-lib", "velocity-lib", "fabric-lib", "chart-lib", "edge-lib"], function () {
+requirejs(["angular-lib", "angular-modules-lib", "hammer-lib", "jquery-lib", "jquery-plugins-lib", "underscore-lib", "modernizr-lib", "string-lib", "snap-svg-lib", "velocity-lib", "fabric-lib", "chart-lib", "edge-lib", "pomelo-lib"], function () {
     if (isBrowser) {
         window.appModule = angular.module(APP_MODULE_NAME, APP_MODULE_DEPS);
         window.appModule.value("angularEventTypes", {

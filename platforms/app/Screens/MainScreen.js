@@ -23,12 +23,6 @@ var MainScreen = React.createClass({
     },
 
     componentWillMount: function() {
-        //For Test use
-        LocalAppAPI.doLogin("wangxinyun28", "*", (userObj) => {
-            AlertIOS.alert('Info', "Login");            
-        }, (error) => {
-            AlertIOS.alert('Error', error);
-        });
     },
 
     getInitialState: function () {
