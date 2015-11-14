@@ -40,13 +40,13 @@ var list=[
     "items":[
       {
         "_id" : "52591a12c763d5e45855639e",
-        "img_url":'book-1.png',
+        "img_url":'book-2.png',
         "desc":"我在迪士尼拍的照片",
         "desc_id":"52591a12c763d5e45855639a"
       },
       {
         "_id" : "52591a12c763d5e4585563a0",
-        "img_url":'book-1.png',
+        "img_url":'book-3.png',
         "desc":"快来看，多美都风景啊",
         "desc_id":"52591a12c763d5e45855639a"
       }
