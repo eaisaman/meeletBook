@@ -26,6 +26,8 @@ var FriendUserScreen = React.createClass({
     return {
       userInfo:{
         img_url:'book-1.png',
+        img_url2:'book-2.png',
+        img_url3:'book-3.png',
         // userName:'张三'
       },
       variable: false
@@ -38,7 +40,6 @@ var FriendUserScreen = React.createClass({
     //just for test event emmiter
     // AppEventEmitter.addListener('myRightBtnEvent', this.miscFunction);
   },
-
   //just fot test
   miscFunction: function(args){
        this.setState({
@@ -79,17 +80,16 @@ var FriendUserScreen = React.createClass({
             <View style={styles.row}>
               <Text style={styles.txtLeft}>个人相册</Text>
               <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
-              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
-              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url }} />
+              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url2 }} />
+              <Image style={styles.thumb} source={{ uri: this.state.userInfo.img_url3 }} />
               <Icon name='keyboard-arrow-right' style={styles.arrowEnd} size={40} color='#2ecc71'/>
             </View>
           </TouchableHighlight>
         </View>
 
-        <View>
+        <View style={{opacity:0}}>
           <Text onPress={()=>{this.talkView(this.props.info.uid,this.props.info.name)}} style={styles.button}>发消息</Text>
         </View>
-
         </ScrollView>
       );
     },

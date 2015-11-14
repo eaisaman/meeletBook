@@ -32,7 +32,8 @@ var FriendMainScreen = React.createClass({
   },
   selectSubView:function(subName,rowData){
     let component = AddNewFriendScreen,
-    title = '';
+    title = '',
+    rihgtTitle='';
 
     if (subName === 'addUser'){
       component = AddNewFriendScreen;
@@ -40,9 +41,11 @@ var FriendMainScreen = React.createClass({
     }else if (subName === 'group'){
       component = FriendGroupScreen;
       title = '添加群';
+      rihgtTitle='添加';
     }else if (subName === 'discuss'){
       component = FriendDiscussScreen;
       title = '添加讨论组';
+      rihgtTitle='添加';
     }else if (subName==='detail'){
       component = FriendUserScreen;
       title = '详细资料';
@@ -51,7 +54,7 @@ var FriendMainScreen = React.createClass({
     this.props.navigator.push({
       title:title,
       component:component,
-      // rightButtonTitle:'sdfsdf',
+      rightButtonTitle:rihgtTitle,
       passProps:{navigator: this.props.navigator,info:rowData}
     })
 
