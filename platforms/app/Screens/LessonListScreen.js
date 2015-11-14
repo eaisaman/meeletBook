@@ -15,6 +15,7 @@ var {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  NativeAppEventEmitter,
   } = React;
 
 var _ = require('lodash');
@@ -280,10 +281,35 @@ var LessonListView = React.createClass({
   },
 });
 
-var LessonItemView = React.createClass({  
+var LessonItemView = React.createClass({
   getInitialState: function() {
-    return {};
+    return {
+      progress:0,
+      isDownload:false
+    };
   },
+  componentWillMount: function() {
+      NativeAppEventEmitter.addListener(AppEvents.downloadProjectProgressEvent, (eventObj) => {
+        if (this.props.data.bookId === eventObj.projectId){
+          this.setState({ isDownload:true });
+          this.updateProgress(eventObj.progress);
+        }
+      });
+  },
+  updateProgress:function(progress) {
+    // console.log(progress);
+    this.setState({ progress:progress/100 });
+  },
+  _renderProgress:function(){
+    if(this.state.isDownload){
+      return (
+        <View style={styles.progressViewContainer}>
+          <ProgressViewIOS style={styles.progressView} progress={this.state.progress}/>
+        </View>
+      );
+    }
+  },
+
   render: function() {
     return (
       <TouchableHighlight
@@ -303,6 +329,7 @@ var LessonItemView = React.createClass({
             <Text style={styles.lessonTextDesc}>创建人</Text>
             <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.creator}</Text>
           </View>
+          {this._renderProgress()}
         </View>
       </TouchableHighlight>
     );
@@ -501,6 +528,17 @@ var styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
   },
+  progressView: {
+    height:20,
+    flex:1,
+  },
+  progressViewContainer:{
+    position: "absolute",
+    left:10,
+    right:10,
+    bottom:5,
+    height:20
+  }
 });
 
 module.exports = LessonListScreen;
