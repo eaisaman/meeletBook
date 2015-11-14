@@ -291,15 +291,11 @@ var LessonItemView = React.createClass({
   componentWillMount: function() {
       NativeAppEventEmitter.addListener(AppEvents.downloadProjectProgressEvent, (eventObj) => {
         if (this.props.data.bookId === eventObj.projectId){
-          this.setState({ isDownload:true });
-          this.updateProgress(eventObj.progress);
+          this.setState({ isDownload : true, progress : eventObj.progress/100 });
         }
       });
   },
-  updateProgress:function(progress) {
-    // console.log(progress);
-    this.setState({ progress:progress/100 });
-  },
+
   _renderProgress:function(){
     if(this.state.isDownload){
       return (
