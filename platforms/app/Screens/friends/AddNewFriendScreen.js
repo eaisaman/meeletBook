@@ -5,18 +5,107 @@ let list = [
   {
   "_id" : "52591a12c763d5e45855639a",
     "name" : "陈昌申",
-    "desc" : "通过xx查找加入",
+    "desc" : "通过账号查找加入",
     "status": "accept",
+    "account":"cangkun.chen@163.com",
     "img_url":'book-1.png'
   },
   {
   "_id" : "52591a12c763d5r45855639a",
-  "name" : "张三",
-  "desc" : "我是xxxx",
+  "name" : "舒威",
+  "desc" : "我是舒威",
   "status": "request",
+  "account":"wei.shu@163.com",
   "img_url":'book-1.png'
   },
-
+  {
+    "_id" : "52591a12c763d5e4585563d0",
+    "name" : "王欣芸",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"xinyun.wang@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563bc",
+    "name" : "冯婷晖",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"tinghui.feng@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563be",
+    "name" : "管悦欣",
+    "desc" : "我是管悦欣",
+    "status": "request",
+    "account":"yuexin.guan@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c0",
+    "name" : "黄文轩",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"wenxuan.huang@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c2",
+    "name" : "倪晨怡",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"chenyi.ni@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c4",
+    "name" : "田奕霖",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yilin.tian@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c6",
+    "name" : "王昕",
+    "desc" : "我是王昕",
+    "status": "request",
+    "account":"xin.wangn@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563c8",
+    "name" : "喻王玮",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"wangwei.yu@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563ca",
+    "name" : "殷奕蕊",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yixin.yin@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563cc",
+    "name" : "周璎泓",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"yinghong.zhou@163.com",
+    "img_url":'book-1.png'
+  },
+  {
+    "_id" : "52591a12c763d5e4585563ce",
+    "name" : "许景凯",
+    "desc" : "通过账号查找加入",
+    "status": "accept",
+    "account":"jingkai.xu163.com",
+    "img_url":'book-1.png'
+  }
 ];
 
 var React = require('react-native');
@@ -24,6 +113,7 @@ var Icon = require('react-native-vector-icons/MaterialIcons');
 var TimerMixin = require('react-timer-mixin');
 var LinearGradient = require('react-native-linear-gradient');
 var FriendUserScreen = require('./FriendUserScreen');
+
 var {
   AlertIOS,
   Navigator,
@@ -35,6 +125,7 @@ var {
   TextInput,
   TouchableHighlight,
   View,
+  ScrollView
 } = React;
 
 var Thumb = React.createClass({
@@ -51,12 +142,11 @@ var Thumb = React.createClass({
     this.setState({btnValue: 'accept'});
   },
   render: function() {
-    var TouchableElement = TouchableHighlight;
     if (this.state.btnValue === 'accept'){
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -77,7 +167,7 @@ var Thumb = React.createClass({
       return (
         <TouchableHighlight underlayColor='#dddddd'
           onPress={()=> {
-              this.props.selectSubView(this.props.data.name,this.props.data._id);
+              this.props.selectUserView(this.props.data);
           }}>
   				<View>
   					<View style={styles.rowContainer}>
@@ -87,11 +177,11 @@ var Thumb = React.createClass({
   							<Text style={styles.title} numberOfLines={1}>{this.props.data.desc}</Text>
   						</View>
               <View style={[styles.rowVertical]}>
-              <TouchableElement
-                style={styles.btnWarp}
-                onPress={()=>this.onAccept()}>
-                  <Text style={styles.btn}>未接受</Text>
-              </TouchableElement>
+                <TouchableHighlight
+                  style={styles.btnWarp}
+                  onPress={()=>this.onAccept()}>
+                    <Text style={styles.btn}>未接受</Text>
+                </TouchableHighlight>
               </View>
   					</View>
   					<View style={styles.separator} />
@@ -122,7 +212,11 @@ var AddNewFriendScreen = React.createClass({
 
     return {
       dataSource: dataSource.cloneWithRows(list),
+      showFlag:false,
     };
+  },
+
+  componentDidMount:function(){
   },
 
   // getInitialState: function() {
@@ -140,14 +234,8 @@ var AddNewFriendScreen = React.createClass({
   //   };
   // },
 
-  routeTalk: function(title) {
-    // this.props.mainScreen.showNavBar();
-    //
-    // this.props.navigator.push({id:"talk", title:title});
-  },
-
   renderRow: function(rowData: string, sectionId: string, rowId: string): ReactElement {
-    return rowData && (<Thumb data={rowData} selectSubView={this.selectSubView}/>) || null;
+    return rowData && (<Thumb data={rowData} selectUserView={this.selectUserView}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {
@@ -179,31 +267,33 @@ var AddNewFriendScreen = React.createClass({
 
   render: function() {
     return (
-      <ListView
-        style={styles.listview}
-        dataSource={this.state.dataSource}
-        renderHeader={this.renderHeader}
-        // renderSectionHeader={this.renderSectionHeader}
-        renderRow={this.renderRow}
-        initialListSize={10}
-        pageSize={PAGE_SIZE}
-        scrollRenderAheadDistance={2000}
-      />
+      <ScrollView>
+        <ListView
+          style={styles.listview}
+          dataSource={this.state.dataSource}
+          renderHeader={this.renderHeader}
+          // renderSectionHeader={this.renderSectionHeader}
+          renderRow={this.renderRow}
+          initialListSize={10}
+          pageSize={PAGE_SIZE}
+          scrollRenderAheadDistance={2000}
+        />
+
+      </ScrollView>
     );
   },
 
-  selectSubView:function(title,uid){
+  selectUserView:function(info){
     this.props.navigator.push({
-      title:title,
+      title:'详细资料',
       component:FriendUserScreen,
-      rightButtonTitle:'...',
-      onRightButtonPress:this.onClick,
-      passProps:{navigator: this.props.navigator,uid:uid}
+      // rightButtonTitle:'...',
+      // onRightButtonPress:this.onRightButtonPress,
+      passProps:{navigator: this.props.navigator,info:info}
     })
   },
-
-  onClick:function(){
-    alert('xxx');
+  onRightButtonPress: function() {
+      AppEventEmitter.emit('myRightBtnEvent', { someArg: true });
   },
 
   updateSearchInput: function(text) {
@@ -241,7 +331,26 @@ var AddNewFriendScreen = React.createClass({
 });
 var styles = StyleSheet.create({
   listview: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+    // marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
+  },
+  header: {
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#dde1dc',
+    flexDirection: 'row',
+  },
+  searchInput: {
+    backgroundColor: 'white',
+    borderColor: '#cccccc',
+    borderRadius: 3,
+    borderWidth: 0.5,
+    marginHorizontal: 10,
+    marginVertical: 10,
+    height: 40,
+    flex: 1,
+    fontSize: 24,
+    textAlign: "center",
   },
 	thumb: {
 		width: 80,
@@ -277,27 +386,28 @@ var styles = StyleSheet.create({
 		padding: 10
 	},
   btnWarp : {
-    	borderWidth : 1,
-    	padding : 5,
-    	borderColor : '#3164ce',
-    	borderRadius : 3
-    },
-    btn : {
-    	color : '#3164ce'
-    }
+    marginRight:90,
+  	borderWidth : 1,
+  	padding : 5,
+  	borderColor : '#3164ce',
+  	borderRadius : 3
+  },
+  btn : {
+  	color : '#3164ce'
+  }
 });
 // var styles = StyleSheet.create({
   // listview: {
   //   backgroundColor: '#dde1dc',
   //   marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
   // },
-//   header: {
-//     height: 60,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#dde1dc',
-//     flexDirection: 'row',
-//   },
+  // header: {
+  //   height: 60,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#dde1dc',
+  //   flexDirection: 'row',
+  // },
 //   searchInput: {
 //     backgroundColor: 'white',
 //     borderColor: '#cccccc',

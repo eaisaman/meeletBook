@@ -179,7 +179,6 @@ var FavoritesScreen = React.createClass({
 
 var styles = StyleSheet.create({
   screen: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
     flex: 1,
     backgroundColor: '#dde1dc'
   },

@@ -4,141 +4,169 @@ let list = [
     {
       "_id" : "52591a12c763d5e45855639a",
       "name" : "陈昌申",
+      "account":"cangkun.chen@163.com",
       "alphabet" : "chenchangshen1"
     },
     {
       "_id" : "52591a12c763d5e45855639c",
       "name" : "冯智豪",
+      "account":"zhihao.feng@163.com",
       "alphabet" : "fengzhihao2"
     },
     {
       "_id" : "52591a12c763d5e45855639e",
       "name" : "梁天祐",
+      "account":"tianyou.liang163.com",
       "alphabet" : "liangtianyou3"
     },
     {
       "_id" : "52591a12c763d5e4585563a0",
       "name" : "李壮",
+      "account":"zhuang.li@163.com",
       "alphabet" : "lizhuang4"
     },
     {
       "_id" : "52591a12c763d5e4585563a2",
       "name" : "林振远",
+      "account":"zhenyuan.lin@163.com",
       "alphabet" : "linzhenyuan5"
     },
     {
       "_id" : "52591a12c763d5e4585563a4",
       "name" : "钱辛杰",
+      "account":"xinjie.qian@163.com",
       "alphabet" : "qianxinjie6"
     },
     {
       "_id" : "52591a12c763d5e4585563a6",
+      "account":"yuefan.sun@163.com",
       "name" : "孙越凡",
       "alphabet" : "sunyuefan7"
     },
     {
       "_id" : "52591a12c763d5e4585563a8",
       "name" : "田奕恒",
+      "account":"yiheng.tian@163.com",
       "alphabet" : "tianyiheng8"
     },
     {
       "_id" : "52591a12c763d5e4585563aa",
       "name" : "王臻萱",
+      "account":"zhenxuan.wang@163.com",
       "alphabet" : "wangzhenxuan9"
     },
     {
       "_id" : "52591a12c763d5e4585563ac",
       "name" : "杨钧文",
+      "account":"junwen.yang163.com",
       "alphabet" : "yangjunwen10"
     },
     {
       "_id" : "52591a12c763d5e4585563ae",
       "name" : "朱隽浩",
+      "account":"xiehao.zhu@163.com",
       "alphabet" : "zhujuanhao11"
     },
     {
       "_id" : "52591a12c763d5e4585563b0",
       "name" : "周思杰",
+      "account":"sijie.zhou@163.com",
       "alphabet" : "zhousijie12"
     },
     {
       "_id" : "52591a12c763d5e4585563b2",
       "name" : "葛晟宏",
+      "account":"chenghong.ge@163.com",
       "alphabet" : "geshenghong13"
     },
     {
       "_id" : "52591a12c763d5e4585563b4",
       "name" : "毕嘉利",
+      "account":"jiali.bi@163.com",
       "alphabet" : "bijiali14"
     },
     {
       "_id" : "52591a12c763d5e4585563b6",
       "name" : "陈羽",
+      "account":"yu.chen@163.com",
       "alphabet" : "chenyu15"
     },
     {
       "_id" : "52591a12c763d5e4585563b8",
       "name" : "陈妍文",
+      "account":"yanwen.chen@163.com",
       "alphabet" : "chenyanwen16"
     },
     {
       "_id" : "52591a12c763d5e4585563ba",
       "name" : "蔡智先",
+      "account":"zhixian.cai@163.com",
       "alphabet" : "caizhixian17"
     },
     {
       "_id" : "52591a12c763d5e4585563bc",
       "name" : "冯婷晖",
+      "account":"tinghui.fengn@163.com",
       "alphabet" : "fengtinghui18"
     },
     {
       "_id" : "52591a12c763d5e4585563be",
       "name" : "管悦欣",
+      "account":"yuexin.guan@163.com",
       "alphabet" : "guanyuexin19"
     },
     {
       "_id" : "52591a12c763d5e4585563c0",
       "name" : "黄文轩",
+      "account":"wenxuan.huang@163.com",
       "alphabet" : "huangwenxuan20"
     },
     {
       "_id" : "52591a12c763d5e4585563c2",
       "name" : "倪晨怡",
+      "account":"chenyi.ni@163.com",
       "alphabet" : "nichenyi21"
     },
     {
       "_id" : "52591a12c763d5e4585563c4",
       "name" : "田奕霖",
+      "account":"yilin.tian@163.com",
       "alphabet" : "tianyilin22"
     },
     {
       "_id" : "52591a12c763d5e4585563c6",
       "name" : "王昕",
+      "account":"xin.wang@163.com",
       "alphabet" : "wangxin23"
     },
     {
       "_id" : "52591a12c763d5e4585563c8",
       "name" : "喻王玮",
+      "account":"wangwei.yu@163.com",
       "alphabet" : "yuwangwei24"
     },
     {
       "_id" : "52591a12c763d5e4585563ca",
       "name" : "殷奕蕊",
+      "account":"yixin.yin@163.com",
       "alphabet" : "yinyirui25"
     },
     {
       "_id" : "52591a12c763d5e4585563cc",
       "name" : "周璎泓",
+      "account":"yinghong.zhou@163.com",
       "alphabet" : "zhouyinghong26"
     },
     {
       "_id" : "52591a12c763d5e4585563ce",
       "name" : "许景凯",
+      "account":"jingkai.xu@163.com",
       "alphabet" : "xujingkai27"
     },
     {
       "_id" : "52591a12c763d5e4585563d0",
       "name" : "王欣芸",
+      "account":"xinyun.wang@163.com",
       "alphabet" : "wangxinyun28"
     }
 ];
@@ -237,7 +265,7 @@ var FriendScreen = React.createClass({
       }
     }
 
-    return rowData && (<Thumb text={rowData.name} onPress={() => { this.props.selectSubView('detail'); }}/>) || null;
+    return rowData && (<Thumb text={rowData.name} onPress={() => { this.props.selectSubView('detail',rowData); }}/>) || null;
   },
 
   renderSectionHeader: function(sectionData: string, sectionId: string) {

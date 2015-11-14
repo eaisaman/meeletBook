@@ -49,7 +49,6 @@ _.extend(_.property("textbox.normal")(AccountOptions.stylesheet), {
   borderColor: "#2ecc71",
 });
 
-var STORAGE_KEY = "loginedUser";
 var dataBlob = {};
 var sectionIds = ["*"];
 var rowIds = [["btn_album", "btn_collection", "btn_settings"]];
@@ -63,7 +62,7 @@ var ProfileScreen = React.createClass({
 
   async _loadInitialState() {
     try {
-      var value = await AsyncStorage.getItem(STORAGE_KEY);
+      var value = await AsyncStorage.getItem(GLOBAL.LOGIN_USER_STORAGE_KEY);
       if (value !== null){
         var entity = JSON.parse(value);
         this.setState({loginedUser: entity});
@@ -162,7 +161,7 @@ var ProfileScreen = React.createClass({
     this.setState({loginedUser: loginUser});
     var jsonStr = JSON.stringify(loginUser)
 
-    await AsyncStorage.setItem(STORAGE_KEY, jsonStr);
+    await AsyncStorage.setItem(GLOBAL.LOGIN_USER_STORAGE_KEY, jsonStr);
     this.closeModal();
   },
 

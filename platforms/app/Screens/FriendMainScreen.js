@@ -22,147 +22,42 @@ var FriendMainScreen = React.createClass({
   },
 
   componentWillMount: function() {
-    // let self = this;
-    //
-    // this._navBarRouteMapper = {
-    //   LeftButton: function(route, navigator, index, navState) {
-    //     if (index === 0) {
-    //       return null;
-    //     }
-    //
-    //     var previousRoute = navState.routeStack[index - 1];
-    //     var titleIconName;
-    //     switch(previousRoute.id) {
-    //       case "list":
-    //         titleIconName = 'format-list-bulleted';
-    //         break;
-    //       case "user":
-    //         titleIconName = 'textsms';
-    //         break;
-    //       case "group":
-    //         titleIconName = 'textsms';
-    //         break;
-    //       case "discuss":
-    //         titleIconName = 'textsms';
-    //         break;
-    //       case "newFriend":
-    //         titleIconName = 'textsms';
-    //         break;
-    //     }
-    //
-    //     return (
-    //       <TouchableOpacity
-    //         onPress={() => {navigator.pop();previousRoute.id === "list" && self.hideNavBar();}}
-    //         style={styles.navBarLeftButton}>
-    //         <Icon name={titleIconName} size={24} style={[styles.navButtonIcon, ]}/>
-    //       </TouchableOpacity>
-    //     );
-    //   },
-    //
-    //   RightButton: function(route, navigator, index, navState) {
-    //     return null;
-    //   },
-    //
-    //   Title: function(route, navigator, index, navState) {
-    //     if (route.id === "list")
-    //       return;
-    //
-    //     var titleIconName;
-    //     switch(route.id) {
-    //       case "list":
-    //         titleIconName = 'format-list-bulleted';
-    //         break;
-    //       case "user":
-    //         titleIconName = 'textsms';
-    //         break;
-    //       case "group":
-    //           titleIconName = 'textsms';
-    //         break;
-    //       case "discuss":
-    //           titleIconName = 'textsms';
-    //         break;
-    //       case "newFriend":
-    //           titleIconName = 'textsms';
-    //         break;
-    //     }
-    //
-    //     return (
-    //       <View style={[styles.title, ]}>
-    //         <View style={styles.titleIconPlaceholder}>
-    //           <Icon name={titleIconName} size={24} style={[styles.navButtonIcon, ]}/>
-    //         </View>
-    //         <Text style={styles.titleText}>{route.title}</Text>
-    //       </View>
-    //     );
-    //   },
-    // };
-  },
 
-  // renderScene(route, nav) {
-  //   switch (route.id) {
-  //       case 'list':
-  //           return <FriendListScreen navigator={nav} mainScreen={this} style={styles.scene}/>;
-  //       case 'group':
-  //           return <FriendGroupScreen navigator={nav} style={styles.scene}/>;
-  //       case 'user':
-  //           return <FriendUserScreen navigator={nav} style={styles.scene}/>;
-  //       case 'discuss':
-  //           return <FriendDiscussScreen navigator={nav} style={styles.scene}/>;
-  //       case 'newFriend':
-  //           return <AddNewFriendScreen navigator={nav} style={styles.scene}/>;
-  //       default:
-  //           return <View />;
-  //   }
-  // },
+  },
 
   render: function() {
     return (
         <FriendListScreen  style={styles.scene} selectSubView={this.selectSubView}/>
     );
   },
-  selectSubView:function(subName){
-    let component = AddNewFriendScreen;
+  selectSubView:function(subName,rowData){
+    let component = AddNewFriendScreen,
+    title = '';
+
     if (subName === 'addUser'){
       component = AddNewFriendScreen;
+      title = '添加朋友';
     }else if (subName === 'group'){
       component = FriendGroupScreen;
+      title = '添加群';
     }else if (subName === 'discuss'){
       component = FriendDiscussScreen;
+      title = '添加讨论组';
     }else if (subName==='detail'){
       component = FriendUserScreen;
+      title = '详细资料';
     }
 
     this.props.navigator.push({
-      title:subName,
+      title:title,
       component:component,
-      rightButtonTitle:'sdfsdf',
-      passProps:{navigator: this.props.navigator}
+      // rightButtonTitle:'sdfsdf',
+      passProps:{navigator: this.props.navigator,info:rowData}
     })
 
 
-    // return (
-    //   <Navigator
-    //     debugOverlay={false}
-    //     style={styles.screen}
-    //     initialRoute={{ id: 'list', title: ''}}
-    //     renderScene={this.renderScene}
-    //     navigationBar={
-    //       <Navigator.NavigationBar
-    //         routeMapper={this._navBarRouteMapper}
-    //         style={[styles.navBar, this.state.showNavBar?{opacity:1}:{opacity:0}, ]}
-    //       />
-    //     }
-    //   />
-    // );
   },
 
-  // showNavBar: function() {
-  //   this.setState({showNavBar:true});
-  // },
-  //
-  // hideNavBar: function() {
-  //   this.setState({showNavBar:false});
-  // },
 })
 
 var styles = StyleSheet.create({

@@ -11,7 +11,6 @@ var {
 } = React;
 
 
-var ProfileScreen = require('./Profile/ProfileScreen');
 var ProfileMenuListScreen = require('./Profile/ProfileMenuListScreen');
 var ProfileInfoDetailScreen = require('./Profile/ProfileInfoDetailScreen');
 var PhotoAlbumScreen = require('./Profile/PhotoAlbumScreen');
@@ -110,20 +109,6 @@ var ProfileMainScreen = React.createClass({
 
   render: function() {
     return (<ProfileMenuListScreen style={styles.screen} selectSubView={this.selectSubView}></ProfileMenuListScreen>);
-    // return (
-    //   <Navigator
-    //     debugOverlay={false}
-    //     style={styles.screen}
-    //     initialRoute={{ id: 'list', title: ''}}
-    //     renderScene={this.renderScene}
-    //     navigationBar={
-    //       <Navigator.NavigationBar
-    //         routeMapper={this._navBarRouteMapper}
-    //         style={[styles.navBar, this.state.showNavBar?{opacity:1}:{opacity:0}, ]}
-    //       />
-    //     }
-    //   />
-    // );
   },
 
   showNavBar: function() {
@@ -163,8 +148,7 @@ var ProfileMainScreen = React.createClass({
 
 var styles = StyleSheet.create({
   screen: {
-    marginTop: Navigator.NavigationBar.Styles.General.TotalNavHeight,
-    flex: 1,
+    flex: 1
   },
   scene: {
     flex: 1,
