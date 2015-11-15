@@ -67,6 +67,10 @@ define(
                 };
 
                 function initMaster() {
+                    function registerControllers() {
+                        appService.$controllerProvider.register('ProjectController', ["$scope", "$rootScope", "$q", "$timeout", "$compile", "$http", "$log", "$exceptionHandler", "angularEventTypes", "angularConstants", "appService", "serviceRegistry", "urlService", "utilService", ProjectController]);
+                    }
+
                     return $q.all([
                         appService.getServerUrl(),
                         appService.getChatServerHost(),
@@ -85,6 +89,9 @@ define(
                             port: chatServerPort,
                             route: angularConstants.pomeloRoute.defaultChatRoute
                         };
+
+                        registerControllers();
+                        
                         return utilService.getResolveDefer();
                     });
                 }
@@ -921,8 +928,7 @@ define(
             }
 
             appModule.
-                controller('RootController', ["$scope", "$rootScope", "$q", "$timeout", "angularEventTypes", "angularConstants", "appService", "serviceRegistry", "urlService", "utilService", RootController]).
-                controller('ProjectController', ["$scope", "$rootScope", "$q", "$timeout", "$compile", "$http", "$log", "$exceptionHandler", "angularEventTypes", "angularConstants", "appService", "serviceRegistry", "urlService", "utilService", ProjectController]);
+                controller('RootController', ["$scope", "$rootScope", "$q", "$timeout", "angularEventTypes", "angularConstants", "appService", "serviceRegistry", "urlService", "utilService", RootController]);
         }
     }
 )
