@@ -227,7 +227,7 @@ var LessonListView = React.createClass({
           return this.downloadBook(lesson);
         case "waitRefresh":
           return new Promise((resolve, reject) => {
-            LocalAppAPI.openLesson(lesson._id,  lesson.projectId, () => {
+            LocalAppAPI.openLesson(lesson, () => {
               resolve();
             }, (error) => {
               AlertIOS.alert("error", error);
