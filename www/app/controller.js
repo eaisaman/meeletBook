@@ -897,25 +897,22 @@ define(
                         $scope.unregisterPomeloListeners();
                     });
 
-                    return $q.all([
-                        function () {
-                            if ($scope.chatContent.joinType === "invitation" || $scope.chatContent.joinType === "chat") {
-                                return $scope.connectChat();
-                            }
-
-                            return utilService.getResolveDefer();
-                        },
-                        function () {
-                            return appService.getSameGroupUsers($rootScope.loginUser._id).then(
+                    var arr = [];
+                    if ($scope.chatContent.joinType === "invitation" || $scope.chatContent.joinType === "chat") {
+                        arr.push($scope.connectChat());
+                    }
+                    arr.push(
+                        appService.getSameGroupUsers($rootScope.loginUser._id).then(
                                 function (arr) {
                                     $scope.inviteeList = arr || $scope.inviteeList;
                                     return utilService.getResolveDefer();
                                 }, function (err) {
                                     return utilService.getRejectDefer(err);
                                 }
-                            );
-                        }
-                    ]).then(function (result) {
+                            )
+                    );
+
+                    return $q.all(arr).then(function (result) {
                         return utilService.getResolveDefer();
                     });
                 }
