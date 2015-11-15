@@ -160,12 +160,14 @@ RCT_EXPORT_METHOD(getProject:(NSString *)projectFilter successCallback:(RCTRespo
     }
 }
 
-RCT_EXPORT_METHOD(getJoinItems:(NSString *)projectId successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseSenderBlock)failureCallback){
-    if (projectId) {
-        [[Global engine] getJoinItems:projectId codeBlock:^(NSString *record) {
+RCT_EXPORT_METHOD(getJoinItems:(NSString *)userId successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseSenderBlock)failureCallback){
+    if (userId) {
+        [[Global engine] getJoinItems:userId codeBlock:^(NSString *record) {
             NSMutableDictionary *recordDict = [@{} mutableCopy];
             [recordDict addEntriesFromDictionary:[record objectFromJSONString]];
             NSArray *arr = [recordDict objectForKey:@"resultValue"];
+            
+            [Global dispatchEvent:getJoinItemsEvent eventObj:@{@"result":arr}];
             
             successCallback(@[arr]);
         } onError:^(CommonNetworkOperation *completedOperation, NSString *prevResponsePath, NSError *error) {
