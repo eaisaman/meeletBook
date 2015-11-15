@@ -166,6 +166,19 @@ RCT_EXPORT_METHOD(getJoinItems:(NSString *)userId successCallback:(RCTResponseSe
             NSMutableDictionary *recordDict = [@{} mutableCopy];
             [recordDict addEntriesFromDictionary:[record objectFromJSONString]];
             NSArray *arr = [recordDict objectForKey:@"resultValue"];
+
+            if (arr && arr.count) {
+                NSMutableArray *result = [NSMutableArray array];
+                for (NSDictionary* item in arr) {
+                    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:item];
+                    NSString *projectId = [dict objectForKey:@"projectId"];
+                    NSString *mode = [Global projectMode:projectId];
+                    NSUInteger progress = [Global projectProgress:projectId];
+                    [dict addEntriesFromDictionary:@{@"mode":mode, @"progress":[NSNumber numberWithUnsignedInteger:progress]}];
+                    [result addObject:dict];
+                }
+                arr = result;
+            }
             
             [Global dispatchEvent:getJoinItemsEvent eventObj:@{@"result":arr}];
             

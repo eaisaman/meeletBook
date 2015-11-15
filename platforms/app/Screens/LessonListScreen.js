@@ -27,11 +27,11 @@ var TimerMixin = require('react-timer-mixin');
 var Dimensions = require('Dimensions');
 var window = Dimensions.get('window');
 
-var downloadModeIcons = [
-  'cloud-download',// Wait Download
-  'cloud-done',// Wait Refresh
-  'cloud-download',// In Progress
-];
+var downloadModeIcons = {
+  'waitDownload':'cloud-download',
+  'waitRefresh':'cloud-done',
+  'inProgress':'cloud-download',
+}
 
 var startTime = new Date();
 var endTime = startTime.addMinutes(45);
@@ -42,7 +42,7 @@ var endTime = startTime.addMinutes(45);
 //       "projectName": "创建幸福教室的35个秘密",
 //       "creator" : "陈昌申",
 //       "title": "马当路小学三年级一班公开课",
-//       "downloadMode": 1,
+//       "mode": 1,
 //       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
 //       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
 //     }
@@ -60,21 +60,7 @@ var LessonListScreen = React.createClass({
     };
   },
 
-  componentWillMount: function() {
-    var self = this;
 
-    NativeAppEventEmitter.addListener(AppEvents.getJoinItemsEvent, (result) => {
-        list = result;
-
-        var dataSource = new ListView.DataSource({
-          rowHasChanged: (row1, row2) => row1._id !== row2._id,
-        });
-
-        self.setState({
-          dataSource: dataSource.cloneWithRows(list),
-        });
-    });
-  },
 
   render: function() {
     return (
@@ -189,7 +175,19 @@ var LessonListView = React.createClass({
   },
 
   componentWillMount: function() {
+    var self = this;
 
+    NativeAppEventEmitter.addListener(AppEvents.getJoinItemsEvent, ({result}) => {
+        list = result;
+
+        var dataSource = new ListView.DataSource({
+          rowHasChanged: (row1, row2) => row1._id !== row2._id,
+        });
+
+        self.setState({
+          dataSource: dataSource.cloneWithRows(list),
+        });
+    });
   },
 
   //Project Item mode: 1.Wait Download; 2.Wait Refresh; 3. Download or Refresh in Progress
@@ -198,7 +196,7 @@ var LessonListView = React.createClass({
       LocalAppAPI.checkDownloadMode(_.pluck(lessonList, "projectId"), function(result) {
         if (result && result.length === lessonList.length) {
           lessonList.forEach(function(lesson, i) {
-            lesson.downloadMode = result[i].mode;
+            lesson.mode = result[i].mode;
             lesson.downloadProgress = result[i].progress;
           });
         }
@@ -217,7 +215,7 @@ var LessonListView = React.createClass({
 
   routeLesson: function(lesson) {
     return this.checkDownloadMode([lesson]).then(() => {
-      switch (lesson.downloadMode) {
+      switch (lesson.mode) {
         case "waitDownload":
         case "inProgress":
           return this.downloadBook(lesson);
@@ -231,7 +229,7 @@ var LessonListView = React.createClass({
           });
       }
       return new Promise((resolve, reject) => {
-        reject(new Error("Unrecognizable download mode value " + lesson.downloadMode));
+        reject(new Error("Unrecognizable download mode value " + lesson.mode));
       });
     });
   },
@@ -289,7 +287,7 @@ var LessonItemView = React.createClass({
         onPress={this.props.onPress}
         underlayColor='rgba(192, 192, 192, 0.4)'>
         <View style={styles.contentRow}>
-          <Icon name={downloadModeIcons[this.props.data.downloadMode]} size={36} style={[styles.downloadLessonIcon, ]}/>
+          <Icon name={downloadModeIcons[this.props.data.mode]} size={36} style={[styles.downloadLessonIcon, ]}/>
           <View style={[styles.lessonTitle, ]}>
             <Text numberOfLines={2} style={[styles.titleText]}>{this.props.data.title}</Text>
           </View>
