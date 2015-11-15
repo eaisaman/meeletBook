@@ -25,30 +25,27 @@
                                      ui-data="animo('select', 'rotateQuarterArc')"
                                      ng-click="once(this, $event, 'toggleUserAccordian', $event)"></div>
                             </div>
-                            <div class="accordianBody" ng-if="isContentSet">
-                                <div class="projectButton col-as-12" ng-if="canInvite(chatContent)">
+                            <div class="accordianBody">
+                                <div id="inviteButton" class="projectButton col-as-12">
                                     <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"
                                          ng-click="once(this, $event, 'invite')"></div>
                                     <span class="fs-x-small">邀请</span>
                                 </div>
-                                <div class="projectButton col-as-12"
-                                     ng-if="canToggle(chatContent)">
-                                    <div class="icon-mobile-book-before" ng-if="canStart(chatContent)"
+                                <div id="toggleButton" class="projectButton col-as-12">
+                                    <div id="startPauseButton" class="icon-mobile-book-before"
                                          ng-class="{'icon-mobile-book-play_arrow-before':chatContent.chatState!==1, 'icon-mobile-book-pause-before':chatContent.chatState===1}"
                                          ng-click="once(this, $event, 'startPause')"></div>
-                                    <div class="icon-mobile-book-before icon-mobile-book-stop-before"
-                                         ng-if="canStop(chatContent)"
+                                    <div id="stopButton" class="icon-mobile-book-before icon-mobile-book-stop-before"
                                          ng-click="once(this, $event, 'stopChat')"></div>
                                     <span class="fs-x-small">开始/停止</span>
                                 </div>
                             </div>
-                            <div class="accordianBody" ng-if="isContentSet && canToggleTopic(chatContent)">
-                                <div class="projectButton col-as-12"
-                                     ng-if="canToggle(chatContent)">
-                                    <div class="icon-mobile-book-before"
+                            <div id="toggleTopicButton" class="accordianBody">
+                                <div class="projectButton col-as-12">
+                                    <div id="startPauseTopicButton" class="icon-mobile-book-before"
                                          ng-class="{'icon-mobile-book-timer-before':chatContent.topicState!==11, 'icon-mobile-book-timer_off-before':chatContent.topicState===11}"
                                          ng-click="once(this, $event, 'startPauseTopic')"></div>
-                                    <div class="icon-mobile-book-before icon-mobile-book-stop-before"
+                                    <div id="stopTopicButton" class="icon-mobile-book-before icon-mobile-book-stop-before"
                                          ng-click="once(this, $event, 'stopTopic')"></div>
                                     <span class="fs-x-small">讨论</span>
                                 </div>

@@ -113,16 +113,7 @@ define(
                             $scope.toggleSelect(event),
                             $scope.toggleSelect(".projectBarContent > .accordianGroup")
                         ]
-                    ).then(function() {
-                        if ($(".projectBarContent > .accordianGroup").hasClass("select")) {
-                            $scope.isContentSet = false;
-                            $timeout(function() {
-                                return $scope.isContentSet = true;
-                            });
-                        }
-
-                        return utilService.getResolveDefer();
-                    });
+                    );
                 };
 
                 $scope.loadProject = function (projectId) {
@@ -319,6 +310,7 @@ define(
                         delete $scope.chatContent.chatId;
                         delete window.pomeloContext.chatId;
                         $scope.chatContent = $scope.chatProject;
+                        $scope.onSetChatContent();
 
                         $scope.unregisterPomeloListeners();
 
@@ -654,7 +646,7 @@ define(
 
                 $scope.canInvite = function () {
                     if ($scope.chatContent) {
-                        switch (content.joinType) {
+                        switch ($scope.chatContent.joinType) {
                             case "project":
                                 return false;
                             case "chat":
@@ -669,7 +661,7 @@ define(
 
                 $scope.canToggle = function () {
                     if ($scope.chatContent) {
-                        switch (content.joinType) {
+                        switch ($scope.chatContent.joinType) {
                             case "project":
                                 return true;
                             case "chat":
@@ -684,7 +676,7 @@ define(
 
                 $scope.canToggleTopic = function () {
                     if ($scope.chatContent) {
-                        switch (content.joinType) {
+                        switch ($scope.chatContent.joinType) {
                             case "chat":
                                 return content.chatState !== 3;
                             default:
@@ -697,7 +689,7 @@ define(
 
                 $scope.canStart = function () {
                     if ($scope.chatContent) {
-                        switch (content.joinType) {
+                        switch ($scope.chatContent.joinType) {
                             case "project":
                                 return true;
                             case "chat":
@@ -712,7 +704,7 @@ define(
 
                 $scope.canStop = function () {
                     if ($scope.chatContent) {
-                        switch (content.joinType) {
+                        switch ($scope.chatContent.joinType) {
                             case "project":
                                 return false;
                             case "chat":
@@ -753,6 +745,26 @@ define(
                     }
 
                     return false;
+                }
+
+                $scope.onSetChatContent = function() {
+                  utilService.whilst(
+                      function () {
+                          return !document.getElementById("inviteButton");
+                      }, function (err) {
+                          if (!err) {
+                            $scope.canInvite() && $("#inviteButton").show() || $("#inviteButton").hide();
+                            $scope.canToggle() && $("#toggleButton").show() || $("#toggleButton").hide();
+                            $scope.canStart() && $("#startPauseButton").show() || $("#startPauseButton").hide();
+                            $scope.canStop() && $("#stopButton").show() || $("#stopButton").hide();
+                            $scope.canToggleTopic() && $("#toggleTopicButton").show() || $("#toggleTopicButton").hide();
+                            $scope.canToggle() && $("#startPauseTopicButton").show() || $("#startPauseTopicButton").hide();
+                          }
+                      },
+                      angularConstants.loadCheckInterval,
+                      "ProjectController.onSetChatContent",
+                      angularConstants.loadRenderTimeout
+                  );
                 }
 
                 function initMaster() {
@@ -893,6 +905,7 @@ define(
                     };
                     //$scope.chatContent = demoChatItem;
                     $scope.chatContent = joinItem;
+                    $scope.onSetChatContent();
                     if (joinItem.joinType === "project" || joinItem.joinType === "chat") {
                         $scope.chatProject = _.pick(joinItem, ["projectId", "projectName", "time", "userId", "joinType"]);
                     }
