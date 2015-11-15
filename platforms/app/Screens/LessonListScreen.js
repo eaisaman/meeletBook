@@ -33,7 +33,7 @@ var downloadModeIcons = {
   'inProgress':'cloud-download',
 }
 
-var joinTypeModeIcons = {
+let joinTypeModeIcons = {
   'project':'local-library',
   'chat':'book',
   'invitation':'local-florist',

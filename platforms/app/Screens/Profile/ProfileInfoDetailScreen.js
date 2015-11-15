@@ -71,6 +71,18 @@ var GENDER_OPTIONS = {
     name: '女'
   }
 };
+var ModifyPhotoScreen = React.createClass({
+  getInitialState: function() {
+    return {
+    };
+  },
+  render() {
+    return (
+      <View style={styles.subView}>
+      </View>
+    );
+  }
+});
 
 var ModifyGenderScreen = React.createClass({
   getInitialState: function() {
