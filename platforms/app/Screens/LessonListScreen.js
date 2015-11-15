@@ -33,6 +33,12 @@ var downloadModeIcons = {
   'inProgress':'cloud-download',
 }
 
+var joinTypeModeIcons = {
+  'project':'local-library',
+  'chat':'book',
+  'invitation':'local-florist',
+}
+
 var startTime = new Date();
 var endTime = startTime.addMinutes(45);
 // let list = [
@@ -288,6 +294,7 @@ var LessonItemView = React.createClass({
         underlayColor='rgba(192, 192, 192, 0.4)'>
         <View style={styles.contentRow}>
           <Icon name={downloadModeIcons[this.props.data.mode]} size={36} style={[styles.downloadLessonIcon, ]}/>
+          <Icon name={joinTypeModeIcons[this.props.data.joinType]} size={36} style={[styles.joinTypeIcon ]}/>
           <View style={[styles.lessonTitle, ]}>
             <Text numberOfLines={2} style={[styles.titleText]}>{this.props.data.title}</Text>
           </View>
@@ -457,6 +464,14 @@ var styles = StyleSheet.create({
     width: 36,
     height: 36,
     color: '#dde1dc',
+  },
+  joinTypeIcon: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: 36,
+    height: 36,
+    color: '#449fdb',
   },
   lessonTitle: {
     flex: 1,
