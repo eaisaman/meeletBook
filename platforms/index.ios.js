@@ -19,10 +19,6 @@ var {
 
 
 GLOBAL.LOGIN_USER_STORAGE_KEY = "loginedUser";
-
-var MainScreen = require('./app/Screens/MainScreen');
-var LoadScreen = require('./app/Screens/LoadScreen');
-
 GLOBAL.LocalResourceAPI=NativeModules.LocalResourceManager;
 GLOBAL.LocalAppAPI=NativeModules.LocalAppManager;
 GLOBAL.LocalImage = require('./app/Components/LocalImage');
@@ -31,10 +27,10 @@ GLOBAL.AppEvents = require('./app/Screens/AppEvents');
 var AppService = require('./app/Screens/AppService');
 var EventEmitter = require('EventEmitter');
 GLOBAL.AppEventEmitter = new EventEmitter();
-var AppContext = {
-    joinItems: []
-};
-GLOBAL.AppContext = AppContext;
+GLOBAL.AppContext = require('./app/Screens/AppContext');
+
+var MainScreen = require('./app/Screens/MainScreen');
+var LoadScreen = require('./app/Screens/LoadScreen');
 
 if (typeof window !== 'undefined') {
     window.React = React;
@@ -45,12 +41,12 @@ var MeeletBook = React.createClass({
         return {}
     },
     componentWillMount: function() {
-        NativeAppEventEmitter.addEventListener(AppEvents.loginEvent, (userObj) => {
+        NativeAppEventEmitter.addListener(AppEvents.loginEvent, (userObj) => {
             //Join item include book or lesson created by user, and invitaiton sent to user
             AppService.getJoinItems(userObj.id);
         });
 
-        NativeAppEventEmitter.addEventListener(AppEvents.logoutEvent, () => {
+        NativeAppEventEmitter.addListener(AppEvents.logoutEvent, () => {
             AppContext.joinItems && AppContext.joinItems.splice(0);
         });
 
