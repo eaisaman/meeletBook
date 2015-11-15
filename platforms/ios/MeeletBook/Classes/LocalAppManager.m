@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(openLesson:(NSDictionary*)lesson successCallback:(RCTResponseS
     
     //Save join item to local json for later use by cordova web content.
     NSString *jsonString = [lesson JSONString];
-    NSString *path = [[Global projectContentPath:projectId] stringByAppendingPathComponent:@"joinItem.json"];
+    NSString *path = [[Global projectsHostPath] stringByAppendingPathComponent:@"www/joinItem.json"];
     [jsonString writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
 
     [Global showHostProject:projectId codeBlock:^{
