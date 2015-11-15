@@ -1,8 +1,4 @@
 <link rel="stylesheet" type="text/css" href="stylesheets/project.css"/>
-<link rel="stylesheet" type="text/css" href="fonts/icon-mobile-book/style.css"/>
-<link rel="stylesheet" type="text/css" href="fonts/icon-mobile-app/style.css"/>
-<script type="text/javascript" src="pomelo/socket.io.js"></script>
-<script type="text/javascript" src="pomelo/pomeloclient.js"></script>
 
 <div id="projectContainer" class="fs-x-medium" ng-controller="ProjectController">
     <div ui-modal-window transition="fadeInScaleUp">
@@ -30,15 +26,18 @@
                                      ng-click="once(this, $event, 'toggleUserAccordian', $event)"></div>
                             </div>
                             <div class="accordianBody">
-                                <div class="projectButton col-as-12">
-                                    <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"></div>
+                                <div class="projectButton col-as-12" ng-if="canInvite(chatContent)">
+                                    <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"
+                                         ng-click="once(this, $event, 'invite')"></div>
                                     <span class="fs-x-small">邀请</span>
                                 </div>
-                                <div class="projectButton col-as-12">
-                                    <div class="icon-mobile-book-before"
-                                         ng-class="{'icon-mobile-book-play_arrow-before':chatState!==1, 'icon-mobile-book-pause-before':chatState===1}"
-                                         ng-click="once(this, $event, 'startPauseChat')"></div>
+                                <div class="projectButton col-as-12"
+                                     ng-if="canToggle(chatContent)">
+                                    <div class="icon-mobile-book-before" ng-if="canStart(chatContent)"
+                                         ng-class="{'icon-mobile-book-play_arrow-before':chatContent.chatState!==1, 'icon-mobile-book-pause-before':chatContent.chatState===1}"
+                                         ng-click="once(this, $event, 'startPause')"></div>
                                     <div class="icon-mobile-book-before icon-mobile-book-stop-before"
+                                         ng-if="canStop(chatContent)"
                                          ng-click="once(this, $event, 'stopChat')"></div>
                                     <span class="fs-x-small">开始/停止</span>
                                 </div>
@@ -55,24 +54,9 @@
                                 <div class="content">
                                     <div class="content-1">
                                         <div class="thumbList">
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-1.png)'}"
+                                            <div class="thumbItem fx-x-smaller-before" ng-repeat="item in thumbList"
+                                                 ng-style="{'background-image':'url({{item}})'}"
                                                  ng-click="once(this, $event, 'displayPage', 0)"/>
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-2.png)'}"
-                                                 ng-click="once(this, $event, 'displayPage', 1)"/>
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-3.png)'}"
-                                                 ng-click="once(this, $event, 'displayPage', 2)"/>
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-4.png)'}"
-                                                 ng-click="once(this, $event, 'displayPage', 3)"/>
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-5.png)'}"
-                                                 ng-click="once(this, $event, 'displayPage', 4)"/>
-                                            <div class="thumbItem fx-x-smaller-before"
-                                                 ng-style="{'background-image':'url(images/thumb-6.png)'}"
-                                                 ng-click="once(this, $event, 'displayPage', 5)"/>
                                         </div>
                                     </div>
                                     <div class="content-2">
@@ -111,6 +95,83 @@
         </div>
 
         <div name="modalContent">
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'chatCreation'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after">确定要创建新的课程吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'createChat')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'chatToggle'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after"
+                          ng-if="chatContent.chatState !== 1">确定继续课程吗</span>
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after"
+                          ng-if="chatContent.chatState === 1">确定暂停课程吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'startPauseChat')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'chatStop'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after">确定结束课程吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'stopChat')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatInvitationPanel fs-x-medium" ng-if="modalUsage === 'chatInvite'">
+                <div class="invitationBar">
+                    <div class="toggleSelectionButton icon-mobile-book-before icon-mobile-book-exit-before"
+                         ng-click="once(this, $event, 'hideProjectModal')">
+                        <span class="fs-x-large">取消</span>
+                    </div>
+                    <div class="toggleSelectionButton icon-mobile-book-before icon-mobile-book-invitation-before"
+                         ng-click="once(this, $event, 'sendChatInvitation', inviteeList)">
+                        <span class="fs-x-large">确定</span>
+                    </div>
+                    <div class="toggleSelectionButton icon-mobile-book-before"
+                         ng-class="{'icon-mobile-book-square-before':hasNoSelection(inviteeList), 'icon-mobile-book-square-check-before':hasAllSelection(inviteeList), 'icon-mobile-book-square-check-before partialSelect':hasPartialSelection(inviteeList)}"
+                         ng-click="once(this, $event, 'toggleInviteeSelection', inviteeList)">
+                        <span class="fs-x-large">选择</span>
+                    </div>
+                </div>
+                <div class="inviteeList">
+                    <div class="inviteeItem icon-mobile-book-after icon-mobile-book-local_florist-after"
+                         ng-repeat="inviteeItem in inviteeList" ng-attr-id="{{inviteeItem._id}}"
+                         ng-click="once(this, $event, 'toggleInviteeItem', inviteeItem)"
+                         ng-class="{'selected':inviteeItem.selected}">
+                        <div class="inviteePhoto icon-mobile-book-before icon-mobile-book-person_outline-before"></div>
+                        <div class="inviteeName"><span>{{inviteeItem.name}}</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

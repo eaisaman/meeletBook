@@ -3,6 +3,8 @@
 @import "bootstrap";
 @import "compass/css3";
 @import "global";
+@import "animation/app_animation";
+@import "animation/app_animation_keyframes";
 
 * {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */

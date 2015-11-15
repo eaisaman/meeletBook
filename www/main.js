@@ -14,7 +14,7 @@ var ANGULAR_LIB_PATH = MODULES_PATH + "/angular/1.4.5/",
     FABRIC_LIB_PATH = MODULES_PATH + "/fabric/1.5.0/",
     CHART_LIB_PATH = MODULES_PATH + "/Chart.js/1.0.2/",
     EDGE_LIB_PATH = MODULES_PATH + "/edge/5.0.1/",
-    POMELO_LIB_PATH = MODULES_PATH + "/pomelo-client/1.2.0/",
+    POMELO_LIB_PATH = "pomelo/",
     APP_LIB_PATH = "app/",
     APP_COMMON_LIB_PATH = "common/",
     DIRECTIVE_LIB_PATH = "directive/",
@@ -90,6 +90,44 @@ requirejs(["angular-lib", "angular-modules-lib", "hammer-lib", "jquery-lib", "jq
                 loadExternalSuccessClass: "loadExternalSuccess",
                 loadExternalFailClass: "loadExternalFailClass"
             },
+            pomeloSignal: {
+                inviteSignal: 1001,
+                connectSignal: 1002,
+                disconnectSignal: 1003,
+                pauseSignal: 1004,
+                resumeSignal: 1005,
+                messageSignal: 1006,
+                topicInviteSignal: 2001,
+                topicPauseSignal: 2002,
+                topicResumeSignal: 2003,
+                topicMessageSignal: 2004,
+                topicCloseSignal: 2005,
+                topicDisconnectSignal: 2006
+            },
+            pomeloMemberCategory: {
+                creatorCategory: 1,
+                guestCategory: 2
+            },
+            pomeloMemberType: {
+                userMemberType: 1,
+                topicMemberType: 2
+            },
+            pomeloState: {
+                chatOpenState: 1,
+                chatPauseState: 2,
+                chatDestroyState: 2,
+                topicOpenState: 11,
+                topicPauseState: 12,
+                topicDestroyState: 13
+            },
+            pomeloRoute: {
+                defaultChatRoute: 'SIRIUS_CHAT_ROUTE'
+            },
+            pomeloChannel: {
+                loginChannel: "SIRIUS_LOGIN_CHANNEL"
+            },
+            pomeloInitTimeout: 500,
+            pomeloPushTimeout: 800,
             anchorAttr: "widget-anchor",
             repoWidgetClass: "ui-widget",
             stateGroupEventPattern: "State Change Event of State Group {0}",
