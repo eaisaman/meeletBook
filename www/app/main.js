@@ -10,14 +10,14 @@ requirejs.config(
 );
 
 define(
-    ["app-extension", "date", "app-filter", "app-controller"],
-    function (extension) {
-        var appConfigs = Array.prototype.slice.call(arguments, 2);
+    ["app-extension", "date", "json!joinItem.json", "app-filter", "app-controller"],
+    function (extension, datejs, joinItem) {
+        var appConfigs = Array.prototype.slice.call(arguments, 3);
 
         return function (appModule, callback) {
             if (isBrowser) {
                 appConfigs.forEach(function (config) {
-                    config(appModule, extension);
+                    config(appModule, extension, joinItem);
                 });
             }
 

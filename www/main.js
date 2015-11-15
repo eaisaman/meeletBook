@@ -142,6 +142,7 @@ requirejs(["angular-lib", "angular-modules-lib", "hammer-lib", "jquery-lib", "jq
             unresponsiveInterval: 40,
             eventThrottleInterval: 300,
             renderTimeout: 3000,
+            appTimeout: 3000,
             loadRenderTimeout: 6000,
             loadTimeout: 10000
         });

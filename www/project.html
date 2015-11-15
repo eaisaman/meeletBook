@@ -7,7 +7,7 @@
                 <div class="topbarButton icon-mobile-book-before icon-mobile-book-dehaze-before"
                      ng-click="once(this, $event, 'toggleSelect', '.sideBarContainer')"></div>
                 <div class="projectTitle">
-                    <span>马当路小学三年级一班公开课</span>
+                    <span>{{chatContent.projectName}}</span>
                 </div>
             </div>
 
@@ -42,6 +42,17 @@
                                     <span class="fs-x-small">开始/停止</span>
                                 </div>
                             </div>
+                            <div class="accordianBody" ng-if="canToggleTopic(chatContent)">
+                                <div class="projectButton col-as-12"
+                                     ng-if="canToggle(chatContent)">
+                                    <div class="icon-mobile-book-before"
+                                         ng-class="{'icon-mobile-book-timer-before':chatContent.topicState!==11, 'icon-mobile-book-timer_off-before':chatContent.topicState===11}"
+                                         ng-click="once(this, $event, 'startPauseTopic')"></div>
+                                    <div class="icon-mobile-book-before icon-mobile-book-stop-before"
+                                         ng-click="once(this, $event, 'stopTopic')"></div>
+                                    <span class="fs-x-small">讨论</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="barTabContent">
                             <section class="tabs fs-x-small">
@@ -61,7 +72,8 @@
                                     </div>
                                     <div class="content-2">
                                         <div class="chatList fs-x-small">
-                                            <div class="chatItem" ng-repeat="chat in chatList">
+                                            <div class="chatItem" ng-repeat="chat in chatList"
+                                                 ng-click="selectedChat=chat">
                                                 <div class="timeChat" ng-if="chat.type === 'timeMark'">
                                                     <div class="chatContent">{{chat.content}}</div>
                                                 </div>
@@ -79,6 +91,16 @@
                                                     <div class="chatContent col-as-8 no-padding">{{chat.content}}</div>
                                                     <div class="chatAvatar col-as-2 no-padding"/>
                                                 </div>
+                                                <div class="myChat topicChat" ng-if="chat.type === 'topicTalk'">
+                                                    <div class="chatAvatar col-as-2 no-padding">
+                                                        <div ng-style="{'background-image':'url(images/friend-avatar.png)'}"></div>
+                                                    </div>
+                                                    <div class="chatContent col-as-8 no-padding"
+                                                         ng-click="once(this, null, 'handleTopic', chat)">
+                                                        <span class="fs-x-medium-before icon-mobile-book-before icon-mobile-book-timer-before">{{chat.content}}</span>
+                                                    </div>
+                                                    <div class="chatAvatar col-as-2 no-padding"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mainContent">
+                <div class="mainContent" ng-click="$event.stopPropagation()">
                     <div class="projectMainContent" name="mainContent">
                     </div>
                 </div>
@@ -122,7 +144,26 @@
                 <div class="confirmBar fs-x-medium">
                     <div class="confirmButton">
                         <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
-                              ng-click="once(this, $event, 'startPauseChat')">确定</span>
+                              ng-click="once(this, $event, 'toggleChat')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'topicToggle'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after"
+                          ng-if="chatContent.topicState !== 11">确定继续讨论吗</span>
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after"
+                          ng-if="chatContent.topicState === 11">确定暂停讨论吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'toggleTopic')">确定</span>
                     </div>
                     <div class="confirmButton">
                         <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
@@ -138,7 +179,39 @@
                 <div class="confirmBar fs-x-medium">
                     <div class="confirmButton">
                         <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
-                              ng-click="once(this, $event, 'stopChat')">确定</span>
+                              ng-click="once(this, $event, 'closeChat')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'topicStop'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after">确定结束讨论吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'closeTopic')">确定</span>
+                    </div>
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
+                              ng-click="once(this, $event, 'hideProjectModal')">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatConfirmPanel fs-x-large" ng-if="modalUsage === 'resendTopic'">
+                <div class="confirmContent">
+                    <span class="icon-mobile-book-after icon-mobile-book-question-after">确定重新发送讨论邀请吗</span>
+                </div>
+
+                <div class="confirmBar fs-x-medium">
+                    <div class="confirmButton">
+                        <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-check-before"
+                              ng-click="once(this, $event, 'inviteTopic', selectedChat && selectedChat.topicId)">确定</span>
                     </div>
                     <div class="confirmButton">
                         <span class="fs-x-large-before icon-mobile-book-before icon-mobile-book-close-before"
@@ -153,7 +226,7 @@
                         <span class="fs-x-large">取消</span>
                     </div>
                     <div class="toggleSelectionButton icon-mobile-book-before icon-mobile-book-invitation-before"
-                         ng-click="once(this, $event, 'sendChatInvitation', inviteeList)">
+                         ng-click="once(this, $event, 'inviteChat', inviteeList)">
                         <span class="fs-x-large">确定</span>
                     </div>
                     <div class="toggleSelectionButton icon-mobile-book-before"

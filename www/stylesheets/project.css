@@ -2107,6 +2107,18 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .topicChat .chatContent {
+  color: #fa5440;
+  background: #ecf0f1;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .topicChat .chatContent span:before {
+  position: relative;
+  float: left;
+  width: 2em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
 #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-1:checked ~ .content .content-1,
 #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-2:checked ~ .content .content-2 {
   z-index: 10;

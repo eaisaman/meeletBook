@@ -18,7 +18,14 @@
 @synthesize bridge = _bridge;
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(openLesson:(NSString*)lessonId projectId:(NSString *)projectId successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseSenderBlock)failureCallback){
+RCT_EXPORT_METHOD(openLesson:(NSDictionary*)lesson successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseSenderBlock)failureCallback){
+    NSString *projectId = [lesson objectForKey:@"projectId"];
+    
+    //Save join item to local json for later use by cordova web content.
+    NSString *jsonString = [lesson JSONString];
+    NSString *path = [[Global projectContentPath:projectId] stringByAppendingPathComponent:@"joinItem.json"];
+    [jsonString writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+
     [Global showHostProject:projectId codeBlock:^{
         successCallback(@[]);
     } errorBlock:^(NSError *error) {

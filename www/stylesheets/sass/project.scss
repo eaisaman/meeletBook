@@ -445,6 +445,7 @@ $modalColor: #27ae60;
                                             opacity: $touchOpacity;
                                         }
                                     }
+
                                     .chatAvatar {
                                         position: relative;
                                         float: left;
@@ -458,6 +459,22 @@ $modalColor: #27ae60;
                                             background-position: center center;
                                             background-size: contain;
                                             background-repeat: no-repeat;
+                                        }
+                                    }
+                                }
+
+                                > .topicChat {
+                                    .chatContent {
+                                        color: rgb(250, 84, 64);
+                                        background: $lightColor;
+
+                                        span:before {
+                                            position: relative;
+                                            float: left;
+                                            width: 2em;
+                                            height: 1em;
+                                            line-height: 1;
+                                            text-align: center;
                                         }
                                     }
                                 }

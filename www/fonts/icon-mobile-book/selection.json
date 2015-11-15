@@ -26,7 +26,7 @@
 				"name": "exit"
 			},
 			"setIdx": 0,
-			"setId": 14,
+			"setId": 4,
 			"iconIdx": 0
 		},
 		{
@@ -50,9 +50,9 @@
 				"code": 58881,
 				"name": "square-check"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 1
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 0
 		},
 		{
 			"icon": {
@@ -80,9 +80,9 @@
 				"name": "textsms",
 				"ligatures": "textsms"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 2
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 1
 		},
 		{
 			"icon": {
@@ -110,9 +110,9 @@
 				"name": "dehaze",
 				"ligatures": "dehaze"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 3
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 2
 		},
 		{
 			"icon": {
@@ -140,9 +140,9 @@
 				"name": "chevron_right",
 				"ligatures": "chevron_right"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 4
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 3
 		},
 		{
 			"icon": {
@@ -170,9 +170,9 @@
 				"name": "view_list",
 				"ligatures": "view_list"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 5
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 4
 		},
 		{
 			"icon": {
@@ -200,9 +200,9 @@
 				"name": "local_florist",
 				"ligatures": "local_florist"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 6
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 5
 		},
 		{
 			"icon": {
@@ -230,9 +230,9 @@
 				"name": "pause",
 				"ligatures": "pause"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 7
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 6
 		},
 		{
 			"icon": {
@@ -260,9 +260,9 @@
 				"name": "play_arrow",
 				"ligatures": "play_arrow"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 8
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 7
 		},
 		{
 			"icon": {
@@ -290,9 +290,9 @@
 				"name": "stop",
 				"ligatures": "stop"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 9
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 8
 		},
 		{
 			"icon": {
@@ -320,9 +320,9 @@
 				"name": "check",
 				"ligatures": "check"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 10
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 9
 		},
 		{
 			"icon": {
@@ -350,9 +350,9 @@
 				"name": "close",
 				"ligatures": "close"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 11
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 10
 		},
 		{
 			"icon": {
@@ -380,9 +380,9 @@
 				"name": "question",
 				"ligatures": "help_outline"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 12
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 11
 		},
 		{
 			"icon": {
@@ -410,9 +410,9 @@
 				"name": "person_outline",
 				"ligatures": "person_outline"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 13
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 12
 		},
 		{
 			"icon": {
@@ -440,9 +440,9 @@
 				"name": "square",
 				"ligatures": "crop_square"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 14
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 13
 		},
 		{
 			"icon": {
@@ -470,9 +470,69 @@
 				"name": "invitation",
 				"ligatures": "group_add"
 			},
-			"setIdx": 0,
-			"setId": 14,
-			"iconIdx": 15
+			"setIdx": 1,
+			"setId": 3,
+			"iconIdx": 14
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 854q124 0 211-88t87-212-87-211-211-87-211 87-87 211 87 212 211 88zM812 316q84 106 84 238 0 158-112 271t-272 113-272-113-112-271 112-271 272-113q130 0 240 86l60-62q32 26 60 60zM470 598v-256h84v256h-84zM640 42v86h-256v-86h256z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"timer"
+				],
+				"defaultCode": 57782,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 19,
+				"id": 438,
+				"prevSize": 24,
+				"code": 57782,
+				"name": "timer",
+				"ligatures": "timer"
+			},
+			"setIdx": 2,
+			"setId": 2,
+			"iconIdx": 438
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 854q78 0 150-42l-408-408q-40 68-40 150 0 124 87 212t211 88zM128 170l758 758-54 54-108-108q-100 64-212 64-160 0-272-113t-112-271q0-116 64-212l-118-118zM470 402v-60h84v146zM640 42v86h-256v-86h256zM812 194l60 60-60 62q84 106 84 238 0 116-64 212l-62-62q40-68 40-150 0-124-87-211t-211-87q-80 0-148 40l-64-62q96-64 212-64 134 0 240 84z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"timer_off"
+				],
+				"defaultCode": 57783,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 20,
+				"id": 439,
+				"prevSize": 24,
+				"code": 57783,
+				"name": "timer_off",
+				"ligatures": "timer_off"
+			},
+			"setIdx": 2,
+			"setId": 2,
+			"iconIdx": 439
 		}
 	],
 	"height": 1024,

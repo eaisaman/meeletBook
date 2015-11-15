@@ -111,6 +111,14 @@
     content: "\e246";
 }
 
+.icon-mobile-book-timer:before {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off:before {
+    content: "\e1b7";
+}
+
 .icon-mobile-book-exit-before:before {
     content: "\e600";
 }
@@ -175,6 +183,14 @@
     content: "\e246";
 }
 
+.icon-mobile-book-timer-before:before {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off-before:before {
+    content: "\e1b7";
+}
+
 .icon-mobile-book-exit-after:after {
     content: "\e600";
 }
@@ -237,5 +253,13 @@
 
 .icon-mobile-book-invitation-after:after {
     content: "\e246";
+}
+
+.icon-mobile-book-timer-after:after {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off-after:after {
+    content: "\e1b7";
 }
 
