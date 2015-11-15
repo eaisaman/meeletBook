@@ -240,7 +240,7 @@ var SettingsScreen = React.createClass({
         break;
         case "notification":
           return (
-          <TouchableOpacity style={[styles.row,]} onPress={() => {this.selectSubView('notify')}}>
+          <TouchableOpacity style={[styles.row,]} onPress={() => {}}>
             <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>消息&通知</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
@@ -250,7 +250,7 @@ var SettingsScreen = React.createClass({
         break;
         case "privacy":
           return (
-          <TouchableOpacity style={[styles.row,]} onPress={() => {this.selectSubView('private')}}>
+          <TouchableOpacity style={[styles.row,]} onPress={() => {}}>
             <View style={styles.btnRow}><Icon name='photo-album' size={40} color='#2ecc71' style={styles.btn}/><Text style={styles.btnLabel}>隐私</Text></View>
             <View style={styles.arrow}>
               <Icon name='keyboard-arrow-right' size={40} color='#2ecc71'/>
