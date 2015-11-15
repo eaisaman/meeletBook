@@ -21,6 +21,7 @@ var AppEvents = {
   downloadProjectModulesDoneEvent: "downloadProjectModulesDone",
   downloadProjectModulesErrorEvent: "downloadProjectModulesError",
   downloadProjectModulesProgressEvent: "downloadProjectModulesProgress",
+  getJoinItemsEvent: "getJoinItems",
 }
 
 module.exports = AppEvents;

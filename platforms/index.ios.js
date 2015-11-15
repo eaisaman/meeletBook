@@ -24,7 +24,7 @@ GLOBAL.LocalAppAPI=NativeModules.LocalAppManager;
 GLOBAL.LocalImage = require('./app/Components/LocalImage');
 GLOBAL.Icon = require('react-native-vector-icons/MaterialIcons');
 GLOBAL.AppEvents = require('./app/Screens/AppEvents');
-var AppService = require('./app/Screens/AppService');
+GLOBAL.AppService = require('./app/Screens/AppService');
 var EventEmitter = require('EventEmitter');
 GLOBAL.AppEventEmitter = new EventEmitter();
 GLOBAL.AppContext = require('./app/Screens/AppContext');
@@ -43,7 +43,7 @@ var MeeletBook = React.createClass({
     componentWillMount: function() {
         NativeAppEventEmitter.addListener(AppEvents.loginEvent, (userObj) => {
             //Join item include book or lesson created by user, and invitaiton sent to user
-            AppService.getJoinItems(userObj.id);
+            AppService.getJoinItems(userObj._id);
         });
 
         NativeAppEventEmitter.addListener(AppEvents.logoutEvent, () => {

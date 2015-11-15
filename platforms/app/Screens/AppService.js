@@ -19,9 +19,9 @@ AppServiceClass.prototype.getJoinItems = function (userId) {
 	        Array.prototype.splice.apply(AppContext.joinItems, result);
 	    }
 	    resolve(result);
-	  });
-	}, function(err) {
-	    reject(err);
+	  }, function(err) {
+  	    reject(err);
+  	});
 	});
 }
 
@@ -43,9 +43,9 @@ AppServiceClass.prototype.doLogin = function (loginName, plainPassword) {
 	    	AppContext.loginUser = result;
 	    }
 	    resolve(result);
-	  });
-	}, function(err) {
-	    reject(err);
+	  }, function(err) {
+  	    reject(err);
+  	});
 	});
 }
 

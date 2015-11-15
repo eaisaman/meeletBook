@@ -157,8 +157,9 @@ var ProfileScreen = React.createClass({
     this.setState({isModalOpen: false});
   },
 
-  login(accountObj) {
-    var self = this;
+  login() {
+    var self = this,
+        accountObj = this.refs.accountForm.getValue();
 
     AppService.doLogin(accountObj.loginName, accountObj.password).then(
       function(result) {
@@ -199,7 +200,7 @@ var ProfileScreen = React.createClass({
                 <View style={[styles.modalItem, styles.formContainer, ]}>
                   <Form ref="accountForm" type={Account} options={AccountOptions} style={styles.accountForm}/>
                 </View>
-                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.login(this.accountForm.getValue())} underlayColor='#27ae60'>
+                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.login} underlayColor='#27ae60'>
                   <Text style={styles.buttonText}>登录</Text>
                 </TouchableHighlight>
                 <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.closeModal} underlayColor='#27ae60'>

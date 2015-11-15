@@ -61,6 +61,19 @@ var LessonListScreen = React.createClass({
   },
 
   componentWillMount: function() {
+    var self = this;
+
+    NativeAppEventEmitter.addListener(AppEvents.getJoinItemsEvent, (result) => {
+        list = result;
+
+        var dataSource = new ListView.DataSource({
+          rowHasChanged: (row1, row2) => row1._id !== row2._id,
+        });
+
+        self.setState({
+          dataSource: dataSource.cloneWithRows(list),
+        });
+    });
   },
 
   render: function() {
