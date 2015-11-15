@@ -35,48 +35,20 @@ var downloadModeIcons = [
 
 var startTime = new Date();
 var endTime = startTime.addMinutes(45);
-let list = [
-    {
-      "_id" : "52591a12c763d5e45855639a",
-      "bookId": "56104bec2ac815961944b8bf",
-      "bookName": "创建幸福教室的35个秘密",
-      "creator" : "陈昌申",
-      "title": "马当路小学三年级一班公开课",
-      "downloadMode": 1,
-      "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-      "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-    },
-    {
-      "_id" : "52591a12c763d5e45855639c",
-      "bookId": "book-1",
-      "bookName": "青少年成长教育读本",
-      "creator" : "冯智豪",
-      "title": "马当路小学三年级一班公开课",
-      "downloadMode": 0,
-      "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-      "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-    },
-    {
-      "_id" : "52591a12c763d5e45855639e",
-      "bookId": "book-2",
-      "bookName": "青少年成长教育读本",
-      "creator" : "梁天祐",
-      "title": "马当路小学三年级一班公开课",
-      "downloadMode": 0,
-      "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-      "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-    },
-    {
-      "_id" : "52591a12c763d5e4585563a0",
-      "bookId": "book-4",
-      "bookName": "小学语文-义务教育课程标准",
-      "creator" : "李壮",
-      "title": "马当路小学三年级一班公开课",
-      "downloadMode": 0,
-      "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-      "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
-    },
-];
+// let list = [
+//     {
+//       "_id" : "52591a12c763d5e45855639a",
+//       "projectId": "56104bec2ac815961944b8bf",
+//       "projectName": "创建幸福教室的35个秘密",
+//       "creator" : "陈昌申",
+//       "title": "马当路小学三年级一班公开课",
+//       "downloadMode": 1,
+//       "startTime": startTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+//       "endTime": endTime.toString("yyyy年MM月dd日tthh:mm").replace("AM", "上午").replace("PM", "下午"),
+//     }
+// ];
+let list = AppContext.joinItems;
+
 var PAGE_SIZE = 4;
 
 var LessonListScreen = React.createClass({
@@ -180,16 +152,8 @@ var LessonListScreen = React.createClass({
 
   closeModal() {
     this.setState({isModalOpen: false});
-  },
+  }
 
-  login() {
-    //For Test use
-    LocalAppAPI.doLogin("wangxinyun28", "*", (userObj) => {
-      this.closeModal();
-    }, (error) => {
-        AlertIOS.alert('Error', error);
-    });
-  },
 })
 
 var LessonListView = React.createClass({
@@ -218,7 +182,7 @@ var LessonListView = React.createClass({
   //Project Item mode: 1.Wait Download; 2.Wait Refresh; 3. Download or Refresh in Progress
   checkDownloadMode: function(lessonList) {
     return new Promise((resolve, reject) => {
-      LocalAppAPI.checkDownloadMode(_.pluck(lessonList, "bookId"), function(result) {
+      LocalAppAPI.checkDownloadMode(_.pluck(lessonList, "projectId"), function(result) {
         if (result && result.length === lessonList.length) {
           lessonList.forEach(function(lesson, i) {
             lesson.downloadMode = result[i].mode;
@@ -230,9 +194,9 @@ var LessonListView = React.createClass({
     });
   },
 
-  downloadBook: function({bookId}) {
+  downloadBook: function({projectId}) {
     return new Promise((resolve, reject) => {
-      LocalAppAPI.downloadProject(bookId, () => {
+      LocalAppAPI.downloadProject(projectId, () => {
         resolve();
       });
     });
@@ -246,7 +210,7 @@ var LessonListView = React.createClass({
           return this.downloadBook(lesson);
         case "waitRefresh":
           return new Promise((resolve, reject) => {
-            LocalAppAPI.openLesson(lesson._id,  lesson.bookId, () => {
+            LocalAppAPI.openLesson(lesson._id,  lesson.projectId, () => {
               resolve();
             }, (error) => {
               AlertIOS.alert("error", error);
@@ -290,7 +254,7 @@ var LessonItemView = React.createClass({
   },
   componentWillMount: function() {
       NativeAppEventEmitter.addListener(AppEvents.downloadProjectProgressEvent, (eventObj) => {
-        if (this.props.data.bookId === eventObj.projectId){
+        if (this.props.data.projectId === eventObj.projectId){
           this.setState({ isDownload : true, progress : eventObj.progress/100 });
         }
       });
@@ -316,14 +280,14 @@ var LessonItemView = React.createClass({
           <View style={[styles.lessonTitle, ]}>
             <Text numberOfLines={2} style={[styles.titleText]}>{this.props.data.title}</Text>
           </View>
-          <LocalImage style={[styles.lessonImageContainer, ]} imgStyle={styles.lessonImg} source={this.props.data.bookId + ".png"} alt={require('image!default-lesson')}/>
+          <LocalImage style={[styles.lessonImageContainer, ]} imgStyle={styles.lessonImg} source={this.props.data.thumbnail} alt={require('image!default-lesson')}/>
           <View style={[styles.lessonTextContainer, ]}>
             <Text style={styles.lessonTextDesc}>书名</Text>
-            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.bookName}</Text>
+            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.projectName}</Text>
           </View>
           <View style={[styles.lessonTextContainer, ]}>
-            <Text style={styles.lessonTextDesc}>创建人</Text>
-            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.creator}</Text>
+            <Text style={styles.lessonTextDesc}>{this.props.data.joinType=='invitation'?'邀请人':'创建人'}</Text>
+            <Text numberOfLines={1} style={[styles.lessonText, ]}>{this.props.data.userName}</Text>
           </View>
           {this._renderProgress()}
         </View>

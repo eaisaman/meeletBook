@@ -12,7 +12,13 @@ var LocalImage = React.createClass({
   },
 
   componentDidMount: function() {
-    this.fetch(this.props.source).then(source => {this.setState({source});}, () => {this.setState({source:null})});
+    if (this.props.source) {
+      if (/^http/.test(this.props.source)) {
+        this.setState({source:{uri:this.props.source}});
+      } else {
+        this.fetch(this.props.source).then(source => {this.setState({source});}, () => {this.setState({source:null})});
+      }
+    }
   },
 
   fetch: function(source) {
@@ -37,7 +43,7 @@ var LocalImage = React.createClass({
 
   render: function() {
     return (
-        <Image source={this.state.source || this.props.alt} style={[styles.base, this.props.imgStyle, ]} />
+        <Image source={this.state.source || this.props.alt} defaultSource={this.props.alt} style={[styles.base, this.props.imgStyle, ]} />
     );
   }
 });

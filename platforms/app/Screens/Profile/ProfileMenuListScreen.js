@@ -157,12 +157,23 @@ var ProfileScreen = React.createClass({
     this.setState({isModalOpen: false});
   },
 
-  async login() {
-    this.setState({loginedUser: loginUser});
-    var jsonStr = JSON.stringify(loginUser)
+  login(accountObj) {
+    var self = this;
 
-    await AsyncStorage.setItem(GLOBAL.LOGIN_USER_STORAGE_KEY, jsonStr);
-    this.closeModal();
+    AppService.doLogin(accountObj.loginName, accountObj.password).then(
+      function(result) {
+        if (result) {
+          self.setState({loginedUser: result});
+          var jsonStr = JSON.stringify(result)
+
+          //await AsyncStorage.setItem(GLOBAL.LOGIN_USER_STORAGE_KEY, jsonStr);
+          self.closeModal();
+        }
+      },
+      function(err) {
+          self.closeModal();
+      }
+    );
   },
 
   routeFunc: function(id){
@@ -188,7 +199,7 @@ var ProfileScreen = React.createClass({
                 <View style={[styles.modalItem, styles.formContainer, ]}>
                   <Form ref="accountForm" type={Account} options={AccountOptions} style={styles.accountForm}/>
                 </View>
-                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.login} underlayColor='#27ae60'>
+                <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.login(this.accountForm.getValue())} underlayColor='#27ae60'>
                   <Text style={styles.buttonText}>登录</Text>
                 </TouchableHighlight>
                 <TouchableHighlight style={[styles.button, styles.modalItem, ]} onPress={this.closeModal} underlayColor='#27ae60'>

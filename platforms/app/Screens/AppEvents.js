@@ -5,6 +5,8 @@
 'use strict';
 
 var AppEvents = {
+  loginEvent: "login",
+  logoutEvent: "logout",
   normalScanEvent: "normalScan",
   projectScanEvent: "projectScan",
   getProjectErrorEvent: "getProjectError",

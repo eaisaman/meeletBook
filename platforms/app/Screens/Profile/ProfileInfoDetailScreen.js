@@ -151,14 +151,13 @@ var ProfileInfoDetailScreen = React.createClass({
   },
   async _loadInitialState() {
     try {
-      var value = await AsyncStorage.getItem(GLOBAL.LOGIN_USER_STORAGE_KEY);
+      var value = await AppService.restoreUserFromStorage();
       if (value !== null){
-        var entity = JSON.parse(value);
-        loginedUser = entity;
-        this.setState({loginedUser: entity});
+        loginedUser = value;
+        this.setState({loginedUser: value});
       }
     } catch (error) {
-      this._appendMessage('AsyncStorage error: ' + error.message);
+      this._appendMessage('restoreUserFromStorage error: ' + error.message);
     }
   },
   getInitialState: function() {

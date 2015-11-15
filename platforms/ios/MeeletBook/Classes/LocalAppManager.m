@@ -79,6 +79,10 @@ RCT_EXPORT_METHOD(doLogin:(NSString*)loginName plainPassword:(NSString*)plainPas
             NSDictionary *userObj = arr[0];
             [Global setLoginUser:loginName plainPassword:plainPassword userObj:userObj];
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [Global dispatchEvent:loginEvent eventObj:userObj];
+            });
+            
             successCallback(@[userObj]);
         } else {
             failureCallback(@[@"User object not returned."]);
@@ -103,6 +107,10 @@ RCT_EXPORT_METHOD(doLogout:(RCTResponseSenderBlock)callback){
     }
     
     [Global setLoginUser:nil plainPassword:nil userObj:nil];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [Global dispatchEvent:logoutEvent eventObj:@{}];
+    });
 
     callback(@[]);
 }
@@ -144,6 +152,22 @@ RCT_EXPORT_METHOD(getProject:(NSString *)projectFilter successCallback:(RCTRespo
                 failureCallback(@[@"Project object not returned."]);
             }
             
+        } onError:^(CommonNetworkOperation *completedOperation, NSString *prevResponsePath, NSError *error) {
+            failureCallback(@[[error localizedDescription]]);
+        }];
+    } else {
+        failureCallback(@[@"Empty query condition."]);
+    }
+}
+
+RCT_EXPORT_METHOD(getJoinItems:(NSString *)projectId successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseSenderBlock)failureCallback){
+    if (projectId) {
+        [[Global engine] getJoinItems:projectId codeBlock:^(NSString *record) {
+            NSMutableDictionary *recordDict = [@{} mutableCopy];
+            [recordDict addEntriesFromDictionary:[record objectFromJSONString]];
+            NSArray *arr = [recordDict objectForKey:@"resultValue"];
+            
+            successCallback(@[arr]);
         } onError:^(CommonNetworkOperation *completedOperation, NSString *prevResponsePath, NSError *error) {
             failureCallback(@[[error localizedDescription]]);
         }];

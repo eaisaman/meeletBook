@@ -98,6 +98,7 @@
 		A1B101DE1BDDCF6F0021D129 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B101DD1BDDCF6F0021D129 /* Images.xcassets */; };
 		A1B3A8B21BE4561E007DA873 /* LocalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */; };
 		A1D033B51BF0D66B00024A0C /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C83C0D1BD6864300D29F76 /* libRNBlur.a */; };
+		A1E0632A1BF7768500F01A47 /* modules.zip in Resources */ = {isa = PBXBuildFile; fileRef = A1E063291BF7768500F01A47 /* modules.zip */; };
 		CE739B2ABA07434F987D0BEF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8F7F721944A798BD4FD75 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F37FD703F3164365B0C5CE33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638C09EDAA2942708E0D0C99 /* AVFoundation.framework */; };
@@ -342,6 +343,7 @@
 		A1B3A8B11BE4561E007DA873 /* LocalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAppManager.m; sourceTree = "<group>"; };
 		A1B3A8C11BE45631007DA873 /* LocalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAppManager.h; sourceTree = "<group>"; };
 		A1C83C081BD6864300D29F76 /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
+		A1E063291BF7768500F01A47 /* modules.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = modules.zip; sourceTree = "<group>"; };
 		BD9F39DD87664A3C9D04478D /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVJpegHeaderWriter.h; path = "cordova-plugin-camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		DCE6B992D4B5483D81004619 /* UIImage+CropScaleOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropScaleOrientation.m"; path = "cordova-plugin-camera/UIImage+CropScaleOrientation.m"; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1E063291BF7768500F01A47 /* modules.zip */,
 				A17A48181BE36B4800205CDE /* book-1.png */,
 				A17A48191BE36B4800205CDE /* book-2.png */,
 				A17A481A1BE36B4800205CDE /* book-3.png */,
@@ -1017,6 +1020,7 @@
 				7E7966DE1810823500FA85AD /* icon-40.png in Resources */,
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				A12252991BDF7129000CFD8C /* MaterialIcons.js in Resources */,
+				A1E0632A1BF7768500F01A47 /* modules.zip in Resources */,
 				7E7966E21810823500FA85AD /* icon-60.png in Resources */,
 				A1926F641B96F529000686B7 /* Settings.bundle in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,

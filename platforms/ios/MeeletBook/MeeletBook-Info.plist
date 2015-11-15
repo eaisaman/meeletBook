@@ -53,5 +53,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>io.cordova.meeletBook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>meeletBook</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
