@@ -510,7 +510,7 @@ var styles = StyleSheet.create({
     left:10,
     right:10,
     bottom:5,
-    height:20
+    height:5
   }
 });
 
