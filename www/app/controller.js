@@ -882,8 +882,8 @@ define(
                         joinType: "invitation",
                         route: "SIRIUS_CHAT_ROUTE"
                     };
-                    $scope.chatContent = demoChatItem;
-                    //$scope.chatContent = joinItem;
+                    //$scope.chatContent = demoChatItem;
+                    $scope.chatContent = joinItem;
                     if (joinItem.joinType === "project" || joinItem.joinType === "chat") {
                         $scope.chatProject = _.pick(joinItem, ["projectId", "projectName", "time", "userId", "joinType"]);
                     }
