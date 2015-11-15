@@ -25,7 +25,7 @@
                                      ui-data="animo('select', 'rotateQuarterArc')"
                                      ng-click="once(this, $event, 'toggleUserAccordian', $event)"></div>
                             </div>
-                            <div class="accordianBody">
+                            <div class="accordianBody" ng-if="isContentSet">
                                 <div class="projectButton col-as-12" ng-if="canInvite(chatContent)">
                                     <div class="icon-mobile-book-before icon-mobile-book-local_florist-before"
                                          ng-click="once(this, $event, 'invite')"></div>
@@ -42,7 +42,7 @@
                                     <span class="fs-x-small">开始/停止</span>
                                 </div>
                             </div>
-                            <div class="accordianBody" ng-if="canToggleTopic(chatContent)">
+                            <div class="accordianBody" ng-if="isContentSet && canToggleTopic(chatContent)">
                                 <div class="projectButton col-as-12"
                                      ng-if="canToggle(chatContent)">
                                     <div class="icon-mobile-book-before"

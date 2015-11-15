@@ -113,7 +113,16 @@ define(
                             $scope.toggleSelect(event),
                             $scope.toggleSelect(".projectBarContent > .accordianGroup")
                         ]
-                    );
+                    ).then(function() {
+                        if ($(".projectBarContent > .accordianGroup").hasClass("select")) {
+                            $scope.isContentSet = false;
+                            $timeout(function() {
+                                return $scope.isContentSet = true;
+                            });
+                        }
+
+                        return utilService.getResolveDefer();
+                    });
                 };
 
                 $scope.loadProject = function (projectId) {
@@ -643,8 +652,8 @@ define(
                     return utilService.getResolveDefer();
                 }
 
-                $scope.canInvite = function (content) {
-                    if (content) {
+                $scope.canInvite = function () {
+                    if ($scope.chatContent) {
                         switch (content.joinType) {
                             case "project":
                                 return false;
@@ -658,8 +667,8 @@ define(
                     return false;
                 }
 
-                $scope.canToggle = function (content) {
-                    if (content) {
+                $scope.canToggle = function () {
+                    if ($scope.chatContent) {
                         switch (content.joinType) {
                             case "project":
                                 return true;
@@ -673,8 +682,8 @@ define(
                     return false;
                 }
 
-                $scope.canToggleTopic = function (content) {
-                    if (content) {
+                $scope.canToggleTopic = function () {
+                    if ($scope.chatContent) {
                         switch (content.joinType) {
                             case "chat":
                                 return content.chatState !== 3;
@@ -686,8 +695,8 @@ define(
                     return false;
                 }
 
-                $scope.canStart = function (content) {
-                    if (content) {
+                $scope.canStart = function () {
+                    if ($scope.chatContent) {
                         switch (content.joinType) {
                             case "project":
                                 return true;
@@ -701,8 +710,8 @@ define(
                     return false;
                 }
 
-                $scope.canStop = function (content) {
-                    if (content) {
+                $scope.canStop = function () {
+                    if ($scope.chatContent) {
                         switch (content.joinType) {
                             case "project":
                                 return false;
