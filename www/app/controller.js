@@ -747,24 +747,37 @@ define(
                     return false;
                 }
 
-                $scope.onSetChatContent = function() {
-                  utilService.whilst(
-                      function () {
-                          return !document.getElementById("inviteButton");
-                      }, function (err) {
-                          if (!err) {
-                            $scope.canInvite() && $("#inviteButton").show() || $("#inviteButton").hide();
-                            $scope.canToggle() && $("#toggleButton").show() || $("#toggleButton").hide();
-                            $scope.canStart() && $("#startPauseButton").show() || $("#startPauseButton").hide();
-                            $scope.canStop() && $("#stopButton").show() || $("#stopButton").hide();
-                            $scope.canToggleTopic() && $("#toggleTopicButton").show() || $("#toggleTopicButton").hide();
-                            $scope.canToggle() && $("#startPauseTopicButton").show() || $("#startPauseTopicButton").hide();
-                          }
-                      },
-                      angularConstants.loadCheckInterval,
-                      "ProjectController.onSetChatContent",
-                      angularConstants.loadRenderTimeout
-                  );
+                $scope.onSetChatContent = function () {
+                    utilService.whilst(
+                        function () {
+                            return !document.getElementById("inviteButton");
+                        }, function (err) {
+                            if (!err) {
+                                $scope.canInvite() && $("#inviteButton").show() || $("#inviteButton").hide();
+                                $scope.canToggle() && $("#toggleButton").show() || $("#toggleButton").hide();
+                                $scope.canStart() && $("#startPauseButton").show() || $("#startPauseButton").hide();
+                                $scope.canStop() && $("#stopButton").show() || $("#stopButton").hide();
+                                $scope.canToggleTopic() && $("#toggleTopicButton").show() || $("#toggleTopicButton").hide();
+                                $scope.canToggle() && $("#startPauseTopicButton").show() || $("#startPauseTopicButton").hide();
+                            }
+                        },
+                        angularConstants.loadCheckInterval,
+                        "ProjectController.onSetChatContent",
+                        angularConstants.loadRenderTimeout
+                    );
+                }
+
+                $scope.selectTab = function (event) {
+                    var $el = $(event.target),
+                        idx = $el.attr("tab-idx");
+
+                    $el.addClass('selected');
+                    $el.siblings().removeClass('selected');
+
+                    $(".content-" + idx).siblings().removeClass('selected');
+                    $(".content-" + idx).addClass('selected');
+
+                    return utilService.getResolveDefer();
                 }
 
                 function initMaster() {
@@ -925,13 +938,13 @@ define(
                     }
                     arr.push(
                         appService.getSameGroupUsers($rootScope.loginUser._id).then(
-                                function (arr) {
-                                    $scope.inviteeList = arr || $scope.inviteeList;
-                                    return utilService.getResolveDefer();
-                                }, function (err) {
-                                    return utilService.getRejectDefer(err);
-                                }
-                            )
+                            function (arr) {
+                                $scope.inviteeList = arr || $scope.inviteeList;
+                                return utilService.getResolveDefer();
+                            }, function (err) {
+                                return utilService.getRejectDefer(err);
+                            }
+                        )
                     );
 
                     return $q.all(arr).then(function (result) {
