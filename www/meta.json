@@ -1,0 +1,35 @@
+{
+  "animoStyles": {
+    "rotateQuarterArc": {
+      "animation": {
+        "from": {
+          "rotateZ": 0
+        },
+        "to": {
+          "rotateZ": 90
+        }
+      },
+      "settings": {
+        "duration": 300
+      }
+    }
+  },
+  "locations": [
+    "project"
+  ],
+  "pageTransition": {
+    "artifactSpec": {
+      "type": "effect",
+      "directiveName": "ui-effect-page-transition",
+      "libraryName": "pageTransition",
+      "artifactName": "Page Transition",
+      "artifactId": "55759ea5708048bb000041a7",
+      "version": "1.0.0"
+    },
+    "effect": {
+      "name": "foldLeftMoveFromRight",
+      "type": "Animation",
+      "options": {}
+    }
+  }
+}

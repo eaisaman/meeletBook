@@ -1,0 +1,2346 @@
+.modalWindowContainer > .md-modal.show.slit3D > [name=modalContent], .modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .modalOverlay, .modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .modalOverlay {
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: none;
+  -moz-backface-visibility: none;
+  -o-backface-visibility: none;
+  backface-visibility: none;
+}
+
+.modalWindowContainer > .md-modal.show.slit3D > [name=modalContent] {
+  -moz-animation-name: modalWindow_slit;
+  -webkit-animation-name: modalWindow_slit;
+  animation-name: modalWindow_slit;
+  -moz-animation-duration: 0.7s;
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -moz-animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -moz-animation-direction: forwards;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+}
+
+.modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .modalOverlay {
+  -moz-animation-name: modalWindow_rotateRightSideFirst;
+  -webkit-animation-name: modalWindow_rotateRightSideFirst;
+  animation-name: modalWindow_rotateRightSideFirst;
+  -moz-animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -moz-animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -moz-animation-direction: forwards;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+}
+
+.modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .modalOverlay {
+  -moz-animation-name: modalWindow_openTop;
+  -webkit-animation-name: modalWindow_openTop;
+  animation-name: modalWindow_openTop;
+  -moz-animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -moz-animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -moz-animation-direction: forwards;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+}
+
+@-webkit-keyframes modalWindow_slit {
+  50% {
+    -webkit-transform: translateZ(-250px) rotateY(89deg);
+    opacity: .5;
+    -webkit-animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+@-moz-keyframes modalWindow_slit {
+  50% {
+    -moz-transform: translateZ(-250px) rotateY(89deg);
+    opacity: .5;
+    -moz-animation-timing-function: ease-out;
+  }
+  100% {
+    -moz-transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes modalWindow_slit {
+  50% {
+    transform: translateZ(-250px) rotateY(89deg);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes modalWindow_rotateRightSideFirst {
+  50% {
+    -webkit-transform: translateZ(-50px) rotateY(5deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateZ(-200px);
+  }
+}
+@-moz-keyframes modalWindow_rotateRightSideFirst {
+  50% {
+    -moz-transform: translateZ(-50px) rotateY(5deg);
+    -moz-animation-timing-function: ease-out;
+  }
+  100% {
+    -moz-transform: translateZ(-200px);
+  }
+}
+@keyframes modalWindow_rotateRightSideFirst {
+  50% {
+    transform: translateZ(-50px) rotateY(5deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
+@-webkit-keyframes modalWindow_openTop {
+  50% {
+    -webkit-transform: rotateX(10deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+}
+@-moz-keyframes modalWindow_openTop {
+  50% {
+    -moz-transform: rotateX(10deg);
+    -moz-animation-timing-function: ease-out;
+  }
+}
+@keyframes modalWindow_openTop {
+  50% {
+    transform: rotateX(10deg);
+    animation-timing-function: ease-out;
+  }
+}
+.sideBarContainer.rightSide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Effect 1: Slide in on top */
+  /* Effect 2: Reveal */
+  /* Effect 4: Slide along */
+  /* Effect 5: Reverse slide out */
+  /* Effect 6: Rotate pusher */
+  /* Effect 7: 3D rotate in */
+  /* Effect 8: 3D rotate out */
+  /* Effect 9: Scale down pusher */
+  /* Effect 10: Scale up */
+  /* Effect 11: Scale and rotate pusher */
+  /* Effect 12: Open door */
+  /* Effect 13: Fall down */
+  /* Effect 14: Delayed 3D rotate */
+}
+.sideBarContainer.rightSide.overlay > .mainContent:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: rgba(204, 204, 204, 0.3);
+  content: '';
+  opacity: 1;
+}
+.sideBarContainer.rightSide.overlay.select > .mainContent:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.sideBarContainer.rightSide > .mainContent {
+  position: relative;
+  right: 0;
+  z-index: 99;
+  height: 100%;
+  background-color: #ffffff;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.rightSide > .mainContent > [name=mainContent] {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.rightSide > .barContent, .sideBarContainer.rightSide > .mainContent > .barContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 25%;
+  height: 100%;
+  display: none;
+  background-color: #1d5b8b;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.sideBarContainer.rightSide > .barContent > [name=barContent], .sideBarContainer.rightSide > .mainContent > .barContent > [name=barContent] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.rightSide.select > .barContent {
+  display: block;
+}
+.sideBarContainer.rightSide.slideInOnTop > .barContent {
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.slideInOnTop.select > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.reveal > .barContent {
+  z-index: 1;
+}
+.sideBarContainer.rightSide.reveal.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.reveal.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.rightSide.slideAlong > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(50%, 0, 0);
+  -webkit-transform: translate3d(50%, 0, 0);
+  transform: translate3d(50%, 0, 0);
+}
+.sideBarContainer.rightSide.slideAlong.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.slideAlong.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.reverseSlideOut.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.rotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.rotatePusher > .mainContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotatePusher > .mainContent > .barContent {
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotatePusher.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  -ms-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  -webkit-transform: translate3d(-25%, 0, 0) rotateY(15deg);
+  transform: translate3d(-25%, 0, 0) rotateY(15deg);
+}
+.sideBarContainer.rightSide.rotatePusher.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  -ms-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  -webkit-transform: translate3d(0, 0, 0) rotateY(-15deg);
+  transform: translate3d(0, 0, 0) rotateY(-15deg);
+}
+.sideBarContainer.rightSide.rotateIn3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.rotateIn3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateIn3D > .mainContent > .barContent {
+  -moz-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateIn3D.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.rotateIn3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.rightSide.rotateOut3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.rotateOut3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateOut3D > .mainContent > .barContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.rotateOut3D.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.rotateOut3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.rightSide.scaleDownPusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.scaleDownPusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.scaleDownPusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleDownPusher.select > .mainContent {
+  -moz-transform: translate3d(0, 0, -300px);
+  -ms-transform: translate3d(0, 0, -300px);
+  -webkit-transform: translate3d(0, 0, -300px);
+  transform: translate3d(0, 0, -300px);
+}
+.sideBarContainer.rightSide.scaleDownPusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.scaleUp {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.scaleUp > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, 0, -25%);
+  -ms-transform: translate3d(0, 0, -25%);
+  -webkit-transform: translate3d(0, 0, -25%);
+  transform: translate3d(0, 0, -25%);
+}
+.sideBarContainer.rightSide.scaleUp.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleUp.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.scaleRotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.scaleRotatePusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.scaleRotatePusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.scaleRotatePusher.select > .mainContent {
+  -moz-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  -ms-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  -webkit-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+}
+.sideBarContainer.rightSide.scaleRotatePusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.openDoor {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.rightSide.openDoor > .mainContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.openDoor > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.sideBarContainer.rightSide.openDoor.select > .mainContent {
+  -moz-transform: rotateY(10deg);
+  -webkit-transform: rotateY(10deg);
+  transform: rotateY(10deg);
+}
+.sideBarContainer.rightSide.openDoor.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.fallDown {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.fallDown > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.sideBarContainer.rightSide.fallDown.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.fallDown.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.rightSide.delayed3DRotate {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.rightSide.delayed3DRotate > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.delayed3DRotate > .mainContent > .barContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.rightSide.delayed3DRotate.select > .mainContent {
+  -moz-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+}
+.sideBarContainer.rightSide.delayed3DRotate.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+
+.sideBarContainer.leftSide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Effect 1: Slide in on top */
+  /* Effect 2: Reveal */
+  /* Effect 4: Slide along */
+  /* Effect 5: Reverse slide out */
+  /* Effect 6: Rotate pusher */
+  /* Effect 7: 3D rotate in */
+  /* Effect 8: 3D rotate out */
+  /* Effect 9: Scale down pusher */
+  /* Effect 10: Scale up */
+  /* Effect 11: Scale and rotate pusher */
+  /* Effect 12: Open door */
+  /* Effect 13: Fall down */
+  /* Effect 14: Delayed 3D rotate */
+}
+.sideBarContainer.leftSide.overlay > .mainContent:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background: rgba(204, 204, 204, 0.3);
+  content: '';
+  opacity: 1;
+}
+.sideBarContainer.leftSide.overlay.select > .mainContent:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.sideBarContainer.leftSide > .mainContent {
+  position: relative;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  background-color: #ffffff;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.leftSide > .mainContent > [name=mainContent] {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.leftSide > .barContent, .sideBarContainer.leftSide > .mainContent > .barContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 25%;
+  height: 100%;
+  background-color: #1d5b8b;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.sideBarContainer.leftSide > .barContent > [name=barContent], .sideBarContainer.leftSide > .mainContent > .barContent > [name=barContent] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.sideBarContainer.leftSide.slideInOnTop > .barContent, .sideBarContainer.leftSide.slideInOnTop > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.slideInOnTop.select > .barContent, .sideBarContainer.leftSide.slideInOnTop.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.reveal > .barContent {
+  z-index: 1;
+}
+.sideBarContainer.leftSide.reveal.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.reveal.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.sideBarContainer.leftSide.slideAlong > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+.sideBarContainer.leftSide.slideAlong.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.slideAlong.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut > .barContent {
+  z-index: 1;
+  -moz-transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.reverseSlideOut.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.rotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.rotatePusher > .mainContent {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotatePusher > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotatePusher.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  -ms-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  -webkit-transform: translate3d(25%, 0, 0) rotateY(-15deg);
+  transform: translate3d(25%, 0, 0) rotateY(-15deg);
+}
+.sideBarContainer.leftSide.rotatePusher.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(15deg);
+  transform: translate3d(-100%, 0, 0) rotateY(15deg);
+}
+.sideBarContainer.leftSide.rotateIn3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.rotateIn3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateIn3D > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateIn3D.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.rotateIn3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.leftSide.rotateOut3D {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.rotateOut3D > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateOut3D > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.rotateOut3D.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.rotateOut3D.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+.sideBarContainer.leftSide.scaleDownPusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.scaleDownPusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.scaleDownPusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleDownPusher.select > .mainContent {
+  -moz-transform: translate3d(0, 0, -300px);
+  -ms-transform: translate3d(0, 0, -300px);
+  -webkit-transform: translate3d(0, 0, -300px);
+  transform: translate3d(0, 0, -300px);
+}
+.sideBarContainer.leftSide.scaleDownPusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.scaleUp {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.scaleUp > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, 0, -25%);
+  -ms-transform: translate3d(0, 0, -25%);
+  -webkit-transform: translate3d(0, 0, -25%);
+  transform: translate3d(0, 0, -25%);
+}
+.sideBarContainer.leftSide.scaleUp.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleUp.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.scaleRotatePusher {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.scaleRotatePusher > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.scaleRotatePusher > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.scaleRotatePusher.select > .mainContent {
+  -moz-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -ms-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+}
+.sideBarContainer.leftSide.scaleRotatePusher.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.openDoor {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+.sideBarContainer.leftSide.openDoor > .mainContent {
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.openDoor > .barContent {
+  opacity: 1;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.sideBarContainer.leftSide.openDoor.select > .mainContent {
+  -moz-transform: rotateY(-10deg);
+  -webkit-transform: rotateY(-10deg);
+  transform: rotateY(-10deg);
+}
+.sideBarContainer.leftSide.openDoor.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.fallDown {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.fallDown > .barContent {
+  z-index: 1;
+  opacity: 1;
+  -moz-transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.sideBarContainer.leftSide.fallDown.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.fallDown.select > .barContent {
+  visibility: visible;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.sideBarContainer.leftSide.delayed3DRotate {
+  -moz-perspective: 1500px;
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -moz-perspective-origin: 0% 50%;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+.sideBarContainer.leftSide.delayed3DRotate > .mainContent {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.delayed3DRotate > .mainContent > .barContent {
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.sideBarContainer.leftSide.delayed3DRotate.select > .mainContent {
+  -moz-transform: translate3d(25%, 0, 0);
+  -ms-transform: translate3d(25%, 0, 0);
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+.sideBarContainer.leftSide.delayed3DRotate.select > .mainContent > .barContent {
+  visibility: visible;
+  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+.modalWindowContainer.md-perspective {
+  -moz-perspective: 600px;
+  -webkit-perspective: 600px;
+  perspective: 600px;
+}
+.modalWindowContainer .mainContent {
+  min-height: 100%;
+}
+.modalWindowContainer .mainContent [name=mainContent] {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.modalWindowContainer > .md-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  min-width: 320px;
+  height: auto;
+  z-index: 2000;
+  visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  /* Individual modal styles with animations/transitions */
+  /* Effect 1: Fade in and scale up */
+  /* Effect 2: Slide from the right */
+  /* Effect 3: Slide from the bottom */
+  /* Effect 4: Newspaper */
+  /* Effect 5: fall */
+  /* Effect 6: side fall */
+  /* Effect 7:  slide and stick to top */
+  /* Effect 8: 3D flip horizontal */
+  /* Effect 9: 3D flip vertical */
+  /* Effect 10: 3D sign */
+  /* Effect 11: Super scaled */
+  /* Effect 12:  Just me */
+  /* Effect 13: 3D slit */
+  /* Effect 14:  3D Rotate from bottom */
+  /* Effect 15:  3D Rotate in from left */
+  /* Effect 16:  Blur */
+  /* Effect 17:  Slide in from bottom with perspective on container */
+  /* Effect 18:  Slide from right with perspective on container */
+  /* Effect 19:  Slip in from the top with perspective on container */
+}
+.modalWindowContainer > .md-modal.show {
+  visibility: visible;
+}
+.modalWindowContainer > .md-modal.fadeInScaleUp > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.fadeInScaleUp > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.modalWindowContainer > .md-modal.slideFromRight > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateX(20%);
+  -ms-transform: translateX(20%);
+  -webkit-transform: translateX(20%);
+  transform: translateX(20%);
+  -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.modalWindowContainer > .md-modal.show.slideFromRight > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.modalWindowContainer > .md-modal.slideFromBottom > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateY(20%);
+  -ms-transform: translateY(20%);
+  -webkit-transform: translateY(20%);
+  transform: translateY(20%);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.slideFromBottom > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.modalWindowContainer > .md-modal.newspaper > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: scale(0) rotate(720deg);
+  -ms-transform: scale(0) rotate(720deg);
+  -webkit-transform: scale(0) rotate(720deg);
+  transform: scale(0) rotate(720deg);
+}
+.modalWindowContainer > .md-modal.show.newspaper ~ .modalOverlay,
+.modalWindowContainer > .md-modal .newspaper > [name=modalContent] {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.modalWindowContainer > .md-modal.show.newspaper > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  -webkit-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
+}
+.modalWindowContainer > .md-modal.fall {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.fall > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: translateZ(600px) rotateX(20deg);
+  -ms-transform: translateZ(600px) rotateX(20deg);
+  -webkit-transform: translateZ(600px) rotateX(20deg);
+  transform: translateZ(600px) rotateX(20deg);
+}
+.modalWindowContainer > .md-modal.show.fall > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateZ(0px) rotateX(0deg);
+  -ms-transform: translateZ(0px) rotateX(0deg);
+  -webkit-transform: translateZ(0px) rotateX(0deg);
+  transform: translateZ(0px) rotateX(0deg);
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.modalWindowContainer > .md-modal.sideFall {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.sideFall > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: translate(30%) translateZ(600px) rotate(10deg);
+  -ms-transform: translate(30%) translateZ(600px) rotate(10deg);
+  -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
+  transform: translate(30%) translateZ(600px) rotate(10deg);
+}
+.modalWindowContainer > .md-modal.show.sideFall > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translate(0%) translateZ(0) rotate(0deg);
+  -ms-transform: translate(0%) translateZ(0) rotate(0deg);
+  -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
+  transform: translate(0%) translateZ(0) rotate(0deg);
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.modalWindowContainer > .md-modal.slideStickTop {
+  top: 0;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.modalWindowContainer > .md-modal.slideStickTop > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.slideStickTop > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  border-radius: 0 0 3px 3px;
+}
+.modalWindowContainer > .md-modal.flipHorizontal3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.flipHorizontal3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: rotateY(-70deg);
+  -ms-transform: rotateY(-70deg);
+  -webkit-transform: rotateY(-70deg);
+  transform: rotateY(-70deg);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.flipHorizontal3D > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.modalWindowContainer > .md-modal.flipVertical3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.flipVertical3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: rotateX(-70deg);
+  -ms-transform: rotateX(-70deg);
+  -webkit-transform: rotateX(-70deg);
+  transform: rotateX(-70deg);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.flipVertical3D > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+.modalWindowContainer > .md-modal.sign3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.sign3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: rotateX(-60deg);
+  -ms-transform: rotateX(-60deg);
+  -webkit-transform: rotateX(-60deg);
+  transform: rotateX(-60deg);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -moz-transform-origin: 50% 0 50%;
+  -ms-transform-origin: 50% 0 50%;
+  -webkit-transform-origin: 50% 0 50%;
+  transform-origin: 50% 0 50%;
+}
+.modalWindowContainer > .md-modal.show.sign3D > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+.modalWindowContainer > .md-modal.superScaled > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.superScaled > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.modalWindowContainer > .md-modal.justMe > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.justMe ~ .modalOverlay {
+  background: #e74c3c;
+}
+.modalWindowContainer > .md-modal.justMe > [name=modalContent] h3, .modalWindowContainer > .md-modal.justMe > [name=modalContent] {
+  background: transparent;
+}
+.modalWindowContainer > .md-modal.show.justMe > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.modalWindowContainer > .md-modal.slit3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.slit3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: translateZ(-3000px) rotateY(90deg);
+  -ms-transform: translateZ(-3000px) rotateY(90deg);
+  -webkit-transform: translateZ(-3000px) rotateY(90deg);
+  transform: translateZ(-3000px) rotateY(90deg);
+}
+.modalWindowContainer > .md-modal.rotateFromBottom3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.rotateFromBottom3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: translateY(100%) rotateX(90deg);
+  -ms-transform: translateY(100%) rotateX(90deg);
+  -webkit-transform: translateY(100%) rotateX(90deg);
+  transform: translateY(100%) rotateX(90deg);
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -moz-transform-origin: 0 100% 50%;
+  -ms-transform-origin: 0 100% 50%;
+  -webkit-transform-origin: 0 100% 50%;
+  transform-origin: 0 100% 50%;
+}
+.modalWindowContainer > .md-modal.show.rotateFromBottom3D > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0%) rotateX(0deg);
+  -ms-transform: translateY(0%) rotateX(0deg);
+  -webkit-transform: translateY(0%) rotateX(0deg);
+  transform: translateY(0%) rotateX(0deg);
+}
+.modalWindowContainer > .md-modal.rotateFromLeft3D {
+  -moz-perspective: 1300px;
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.modalWindowContainer > .md-modal.rotateFromLeft3D > [name=modalContent] {
+  opacity: 0;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  -ms-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -moz-transform-origin: 0 100% 50%;
+  -ms-transform-origin: 0 100% 50%;
+  -webkit-transform-origin: 0 100% 50%;
+  transform-origin: 0 100% 50%;
+}
+.modalWindowContainer > .md-modal.show.rotateFromLeft3D > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  -ms-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  transform: translateZ(0px) translateX(0%) rotateY(0deg);
+}
+.modalWindowContainer > .md-modal.show.blur ~ .modalOverlay {
+  background: rgba(180, 46, 32, 0.5);
+}
+.modalWindowContainer > .md-modal.show.blur ~ .mainContent {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.blur > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateY(-5%);
+  -ms-transform: translateY(-5%);
+  -webkit-transform: translateY(-5%);
+  transform: translateY(-5%);
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show.blur > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.modalWindowContainer > .md-modal.show.slideFromBottomPerspective ~ .mainContent {
+  height: 100%;
+  overflow: hidden;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+.modalWindowContainer > .md-modal.show.slideFromBottomPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slideFromBottomPerspective ~ .modalOverlay {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform: rotateX(-2deg);
+  -ms-transform: rotateX(-2deg);
+  -webkit-transform: rotateX(-2deg);
+  transform: rotateX(-2deg);
+  -moz-transform-origin: 50% 0% 50%;
+  -ms-transform-origin: 50% 0% 50%;
+  -webkit-transform-origin: 50% 0% 50%;
+  transform-origin: 50% 0% 50%;
+}
+.modalWindowContainer > .md-modal.slideFromBottomPerspective > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
+}
+.modalWindowContainer > .md-modal.show.slideFromBottomPerspective > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -moz-transition: all 0.3s 0.2s;
+  -o-transition: all 0.3s 0.2s;
+  -webkit-transition: all 0.3s;
+  -webkit-transition-delay: 0.2s;
+  transition: all 0.3s 0.2s;
+}
+.modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .mainContent {
+  height: 100%;
+  overflow: hidden;
+}
+.modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .modalOverlay {
+  background: rgba(143, 27, 15, 0.8);
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slideFromRightPerspective ~ .modalOverlay {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform-origin: 0% 50% 50%;
+  -ms-transform-origin: 0% 50% 50%;
+  -webkit-transform-origin: 0% 50% 50%;
+  transform-origin: 0% 50% 50%;
+}
+.modalWindowContainer > .md-modal.slideFromRightPerspective > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+}
+.modalWindowContainer > .md-modal.show.slideFromRightPerspective > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -moz-transition: all 0.5s 0.1s;
+  -o-transition: all 0.5s 0.1s;
+  -webkit-transition: all 0.5s;
+  -webkit-transition-delay: 0.1s;
+  transition: all 0.5s 0.1s;
+}
+.modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .mainContent {
+  height: 100%;
+  overflow: hidden;
+}
+.modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .modalOverlay {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .mainContent, .modalWindowContainer > .md-modal.show.slipFromTopPerspective ~ .modalOverlay {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform-origin: 50% 100% 50%;
+  -ms-transform-origin: 50% 100% 50%;
+  -webkit-transform-origin: 50% 100% 50%;
+  transform-origin: 50% 100% 50%;
+}
+.modalWindowContainer > .md-modal.slipFromTopPerspective > [name=modalContent] {
+  opacity: 0;
+  -moz-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+}
+.modalWindowContainer > .md-modal.show.slipFromTopPerspective > [name=modalContent] {
+  opacity: 1;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -moz-transition: all 0.5s 0.1s;
+  -o-transition: all 0.5s 0.1s;
+  -webkit-transition: all 0.5s;
+  -webkit-transition-delay: 0.1s;
+  transition: all 0.5s 0.1s;
+}
+.modalWindowContainer > .modalOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modalWindowContainer > .md-modal.show ~ .modalOverlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+#projectContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#projectContainer .modalWindowContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+#projectContainer .modalWindowContainer > .md-modal {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+#projectContainer .modalWindowContainer > .modalOverlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+#projectContainer .modalWindowContainer [name=mainContent] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#projectContainer .modalWindowContainer [name=modalContent] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#projectContainer .topbar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 2em;
+  background: #033865;
+}
+#projectContainer .topbar .topbarButton {
+  position: relative;
+  float: left;
+  width: 2em;
+  height: 2em;
+  background-color: transparent;
+  color: #1d5b8b;
+  overflow: hidden;
+}
+#projectContainer .topbar .topbarButton:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .topbar .projectTitle {
+  position: relative;
+  float: left;
+  width: calc(100% - 2em);
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .topbar .projectTitle span {
+  width: 18em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+#projectContainer .sideBarContainer {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: calc(100% - 2em);
+}
+#projectContainer .sideBarContainer .projectMainContent {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/schoolBackground.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody {
+  -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+  -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton {
+  opacity: 1;
+  pointer-events: auto;
+  height: 2em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:before {
+  position: relative;
+  float: left;
+  width: 2em;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton:not(:last-child) {
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div {
+  width: 2em;
+  height: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton div:before {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup.select .accordianBody .projectButton span {
+  -webkit-flex: 1;
+  flex: 1;
+  height: 2em;
+  line-height: 2;
+  text-align: right;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 120px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .avatarImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: 10px;
+  background-image: url("../images/default_avatar_50.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .userName {
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: right;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .expandButton {
+  width: 2em;
+  height: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianTitle .expandButton:after {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  line-height: 2;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianBody {
+  position: relative;
+  float: left;
+  width: 100%;
+  background: #114975;
+}
+#projectContainer .sideBarContainer .projectBarContent .accordianGroup .accordianBody .projectButton {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 0px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent {
+  -webkit-flex: 1;
+  flex: 1;
+  position: relative;
+  float: left;
+  width: 100%;
+  background: white;
+  border-right: 1px solid #40bf6c;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs {
+  position: relative;
+  float: left;
+  width: 100%;
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input {
+  position: absolute;
+  z-index: 10;
+  width: 6em;
+  height: 2em;
+  opacity: 0;
+  cursor: pointer;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input#tab-2 {
+  left: 6em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label {
+  z-index: 6;
+  position: absolute;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  line-height: 2;
+  height: 2em;
+  width: 6em;
+  background: #40bf6c;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label:before {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: rgba(0, 0, 0, 0.3);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > label.tab-label-2 {
+  left: 6em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input:checked + label {
+  z-index: 7;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input:checked + label:before {
+  background: transparent;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content {
+  position: relative;
+  float: left;
+  width: 100%;
+  z-index: 5;
+  top: 2em;
+  overflow: hidden;
+  -webkit-flex: 1;
+  flex: 1;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content > div {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 2em);
+  opacity: 0;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  counter-reset: item;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList::-webkit-scrollbar {
+  display: none !important;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem {
+  position: relative;
+  float: left;
+  width: calc(100% - 20px);
+  height: 180px;
+  margin: 10px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:before {
+  counter-increment: item;
+  content: counter(item);
+  position: absolute;
+  left: -0.5em;
+  top: -0.5em;
+  width: 2em;
+  height: 2em;
+  line-height: 2;
+  text-align: center;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .thumbList .thumbItem:after {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZWJlYiIvPjxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjZWJlYmViIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWJlYmViIiBzdG9wLW9wYWNpdHk9IjAuNCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ebebeb), color-stop(25%, #ebebeb), color-stop(100%, rgba(235, 235, 235, 0.4)));
+  background: -moz-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+  background: -webkit-linear-gradient(left, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+  background: linear-gradient(to right, #ebebeb 0%, #ebebeb 25%, rgba(235, 235, 235, 0.4) 100%);
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: #222;
+  margin-top: 1em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem:not(:last-child) {
+  margin-bottom: 2em;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .timeChat {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 3em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .timeChat .chatContent {
+  -webkit-flex: 1;
+  flex: 1;
+  max-width: 15em;
+  width: 15em;
+  height: 100%;
+  background: #6699a8;
+  color: #ecf0f1;
+  border-radius: 10px;
+  line-height: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatContent, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatContent {
+  position: relative;
+  float: left;
+  background: #a6c1ce;
+  border-radius: 5px;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatContent:active, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatContent:active {
+  opacity: 0.4;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatAvatar, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatAvatar {
+  position: relative;
+  float: left;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .myChat .chatAvatar div, #projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem .friendChat .chatAvatar div {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: calc(50% - 24px);
+  top: 0px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .topicChat .chatContent {
+  color: #fa5440;
+  background: #ecf0f1;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > .content .chatList .chatItem > .topicChat .chatContent span:before {
+  position: relative;
+  float: left;
+  width: 2em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-1:checked ~ .content .content-1,
+#projectContainer .sideBarContainer .projectBarContent .barTabContent > .tabs > input.tab-selector-2:checked ~ .content .content-2 {
+  z-index: 10;
+  opacity: 1;
+  -moz-transition: opacity 0.3s ease-out 0.2s;
+  -o-transition: opacity 0.3s ease-out 0.2s;
+  -webkit-transition: opacity 0.3s ease-out;
+  -webkit-transition-delay: 0.2s;
+  transition: opacity 0.3s ease-out 0.2s;
+}
+#projectContainer .chatConfirmPanel {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 25%;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.7);
+}
+#projectContainer .chatConfirmPanel .confirmContent {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50%;
+}
+#projectContainer .chatConfirmPanel .confirmContent span {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 3em;
+  top: calc(50% - 1.5em);
+  line-height: 3;
+  text-align: center;
+  font-weight: 600;
+}
+#projectContainer .chatConfirmPanel .confirmContent span:after {
+  position: absolute;
+  width: 1.5em;
+  height: 1em;
+  top: calc(50% - 0.6em);
+  text-align: center;
+  font-size: 48px;
+}
+#projectContainer .chatConfirmPanel .confirmBar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 50%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .chatConfirmPanel .confirmBar .confirmButton {
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .chatConfirmPanel .confirmBar .confirmButton span {
+  -webkit-flex: 1;
+  flex: 1;
+  min-width: 7em;
+  max-width: 7em;
+  width: 7em;
+  height: 2em;
+  line-height: 2;
+  text-align: center;
+  font-weight: 600;
+  margin: 0 1em;
+  background: #aaa;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+#projectContainer .chatConfirmPanel .confirmBar .confirmButton span:active {
+  opacity: 0.4;
+}
+#projectContainer .chatConfirmPanel .confirmBar .confirmButton span:before {
+  position: relative;
+  float: left;
+  top: calc(50% - 0.5em);
+  width: 2em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
+#projectContainer .chatInvitationPanel {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.7);
+}
+#projectContainer .chatInvitationPanel .invitationBar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 4em;
+  background: #033865;
+  color: lightgray;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .chatInvitationPanel .invitationBar .toggleSelectionButton {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 32px;
+  width: 4em;
+  max-width: 4em;
+  height: 2em;
+  max-height: 2em;
+}
+#projectContainer .chatInvitationPanel .invitationBar .toggleSelectionButton:before {
+  position: relative;
+  float: left;
+  width: 2em;
+  height: 100%;
+  line-height: 2;
+  text-align: center;
+}
+#projectContainer .chatInvitationPanel .invitationBar .toggleSelectionButton:active {
+  opacity: 0.4;
+}
+#projectContainer .chatInvitationPanel .invitationBar .toggleSelectionButton.partialSelect:before {
+  color: #666;
+}
+#projectContainer .chatInvitationPanel .invitationBar .toggleSelectionButton span {
+  position: relative;
+  float: left;
+  text-align: center;
+  height: 1em;
+  line-height: 1;
+  top: calc(50% - 0.5em);
+}
+#projectContainer .chatInvitationPanel .inviteeList {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: calc(100% - 4em);
+  overflow: auto;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 150px;
+  margin: 15px;
+  overflow: visible;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem:active {
+  opacity: 0.4;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+  opacity: 0;
+  color: #033865;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem.selected:after {
+  opacity: 1;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem .inviteePhoto {
+  position: relative;
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  color: #a6c1ce;
+  background: #ecf0f1;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem .inviteePhoto:before {
+  position: relative;
+  left: calc(50% - 0.5em);
+  top: calc(50% - 0.5em);
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  font-size: 32px;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem .inviteeName {
+  -webkit-flex: 1;
+  flex: 1;
+}
+#projectContainer .chatInvitationPanel .inviteeList .inviteeItem .inviteeName span {
+  position: relative;
+  float: left;
+  width: 100%;
+  line-height: 3;
+  height: 3em;
+}

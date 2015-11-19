@@ -1,0 +1,47 @@
+@import "base";
+@import "magic_animation";
+@import "../global";
+
+/*
+ * Found in index.html
+ */
+@include baseAnimation(vanishIn);
+
+/*
+ * Found in index.html
+ */
+@include baseAnimation(vanishOut);
+
+/* Scale from to 100% size
+ * Used by directive ng.ui.color-picker, ng.ui.gradient-editor
+ * Found in _color_picker.html, _gradient_editor.html
+ */
+@include baseAnimation(swashIn);
+
+/* Add sonar ring-out effect.
+ * Used by directive ng.ui.shape
+ * Found in _shape.html
+ */
+@include baseAnimation(sonarEffect);
+
+/*
+ * Used by directive ng.ui.project
+ * Found in project.html
+ */
+@include baseAnimation(puffIn);
+
+/*
+ * Used by directive ng.ui.project
+ * Found in project.html
+ */
+@include baseAnimation(puffOut);
+
+/*
+ * Found in frameSketch.html
+ */
+@include baseAnimation(bounceEffect);
+
+/*
+ * Found in frameSketch.html
+ */
+@include baseAnimation(tinLeftOut);

@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'icon-mobile-book';
+    src: url('icon-mobile-book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-mobile-book:before {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-before:before {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-after:after {
+    font-family: 'icon-mobile-book';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-book-exit:before {
+    content: "\e600";
+}
+
+.icon-mobile-book-square-check:before {
+    content: "\e601";
+}
+
+.icon-mobile-book-textsms:before {
+    content: "\e602";
+}
+
+.icon-mobile-book-dehaze:before {
+    content: "\e603";
+}
+
+.icon-mobile-book-chevron_right:before {
+    content: "\e604";
+}
+
+.icon-mobile-book-view_list:before {
+    content: "\e605";
+}
+
+.icon-mobile-book-local_florist:before {
+    content: "\e606";
+}
+
+.icon-mobile-book-pause:before {
+    content: "\e607";
+}
+
+.icon-mobile-book-play_arrow:before {
+    content: "\e608";
+}
+
+.icon-mobile-book-stop:before {
+    content: "\e609";
+}
+
+.icon-mobile-book-check:before {
+    content: "\e60b";
+}
+
+.icon-mobile-book-close:before {
+    content: "\e60a";
+}
+
+.icon-mobile-book-question:before {
+    content: "\e90a";
+}
+
+.icon-mobile-book-person_outline:before {
+    content: "\e255";
+}
+
+.icon-mobile-book-square:before {
+    content: "\e15b";
+}
+
+.icon-mobile-book-invitation:before {
+    content: "\e246";
+}
+
+.icon-mobile-book-timer:before {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off:before {
+    content: "\e1b7";
+}
+
+.icon-mobile-book-exit-before:before {
+    content: "\e600";
+}
+
+.icon-mobile-book-square-check-before:before {
+    content: "\e601";
+}
+
+.icon-mobile-book-textsms-before:before {
+    content: "\e602";
+}
+
+.icon-mobile-book-dehaze-before:before {
+    content: "\e603";
+}
+
+.icon-mobile-book-chevron_right-before:before {
+    content: "\e604";
+}
+
+.icon-mobile-book-view_list-before:before {
+    content: "\e605";
+}
+
+.icon-mobile-book-local_florist-before:before {
+    content: "\e606";
+}
+
+.icon-mobile-book-pause-before:before {
+    content: "\e607";
+}
+
+.icon-mobile-book-play_arrow-before:before {
+    content: "\e608";
+}
+
+.icon-mobile-book-stop-before:before {
+    content: "\e609";
+}
+
+.icon-mobile-book-check-before:before {
+    content: "\e60b";
+}
+
+.icon-mobile-book-close-before:before {
+    content: "\e60a";
+}
+
+.icon-mobile-book-question-before:before {
+    content: "\e90a";
+}
+
+.icon-mobile-book-person_outline-before:before {
+    content: "\e255";
+}
+
+.icon-mobile-book-square-before:before {
+    content: "\e15b";
+}
+
+.icon-mobile-book-invitation-before:before {
+    content: "\e246";
+}
+
+.icon-mobile-book-timer-before:before {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off-before:before {
+    content: "\e1b7";
+}
+
+.icon-mobile-book-exit-after:after {
+    content: "\e600";
+}
+
+.icon-mobile-book-square-check-after:after {
+    content: "\e601";
+}
+
+.icon-mobile-book-textsms-after:after {
+    content: "\e602";
+}
+
+.icon-mobile-book-dehaze-after:after {
+    content: "\e603";
+}
+
+.icon-mobile-book-chevron_right-after:after {
+    content: "\e604";
+}
+
+.icon-mobile-book-view_list-after:after {
+    content: "\e605";
+}
+
+.icon-mobile-book-local_florist-after:after {
+    content: "\e606";
+}
+
+.icon-mobile-book-pause-after:after {
+    content: "\e607";
+}
+
+.icon-mobile-book-play_arrow-after:after {
+    content: "\e608";
+}
+
+.icon-mobile-book-stop-after:after {
+    content: "\e609";
+}
+
+.icon-mobile-book-check-after:after {
+    content: "\e60b";
+}
+
+.icon-mobile-book-close-after:after {
+    content: "\e60a";
+}
+
+.icon-mobile-book-question-after:after {
+    content: "\e90a";
+}
+
+.icon-mobile-book-person_outline-after:after {
+    content: "\e255";
+}
+
+.icon-mobile-book-square-after:after {
+    content: "\e15b";
+}
+
+.icon-mobile-book-invitation-after:after {
+    content: "\e246";
+}
+
+.icon-mobile-book-timer-after:after {
+    content: "\e1b6";
+}
+
+.icon-mobile-book-timer_off-after:after {
+    content: "\e1b7";
+}
+

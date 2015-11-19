@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g id="Layer_1">
+</g>
+<g id="Colors">
+	<rect x="-779" y="-512" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" width="267" height="267"/>
+	<rect x="-779" y="-244" fill="#FBD50A" stroke="#231F20" stroke-miterlimit="10" width="267" height="267"/>
+	<rect x="-779" y="23" fill="#C61934" stroke="#231F20" stroke-miterlimit="10" width="267" height="267"/>
+	<rect x="-779" y="290" fill="#96212C" stroke="#231F20" stroke-miterlimit="10" width="267" height="267"/>
+	<rect x="-779" y="557" fill="#202C3C" stroke="#231F20" stroke-miterlimit="10" width="267" height="267"/>
+</g>
+<g id="Layer_4">
+	<path fill="#D2D3D5" d="M326.752,433.293c0,3.428-31.12,4.707-70.125,4.707s-71.125-1.279-71.125-4.707s31.62-4.043,70.625-4.043
+		S326.752,429.865,326.752,433.293z"/>
+	<polygon fill="#D2D3D5" points="310.15,433.625 200.35,433.625 209.5,391.75 301,391.75 	"/>
+	<polygon fill="#A8A9AA" points="259.583,436.538 199.823,435.766 208.583,392.538 302.583,392.538 	"/>
+	<path fill="#D2D3D5" d="M55.338,126.172c0-6.756,5.413-12.233,12.09-12.233h377.144c6.677,0,12.09,5.477,12.09,12.233v255.93
+		c0,6.756-5.413,12.232-12.09,12.232H67.428c-6.677,0-12.09-5.477-12.09-12.232V126.172z"/>
+	<path fill="#181818" d="M456.662,358V125.939c0-6.627-5.373-12-12-12H67.338c-6.627,0-12,5.373-12,12V358"/>
+	<g>
+		<path fill="#EAEDF1" d="M73,337c0,2.209,1.791,4,4,4h357.086c2.209,0,4-1.791,4-4V138c0-2.209-1.791-4-4-4H77
+			c-2.209,0-4,1.791-4,4V337z"/>
+	</g>
+	<g>
+		<path fill="#D8D8D8" d="M73,142c0,2.209,1.791,4,4,4h357.086c2.209,0,4-1.791,4-4v-4c0-2.209-1.791-4-4-4H77c-2.209,0-4,1.791-4,4
+			V142z"/>
+	</g>
+	<circle fill="#C61934" cx="82.25" cy="140.25" r="3"/>
+	<circle fill="#FBD50A" cx="92.25" cy="140.25" r="3"/>
+	<circle fill="#39B54A" cx="102.25" cy="140.25" r="3"/>
+	<path fill="#A8A9AA" d="M257.748,432.833c7.669,2.417,4.835,2.917-35.749,3.667c-19.74,0.365-35.749-1.953-35.749-3.667
+		s16.005-2.583,35.749-2.583S256.113,432.318,257.748,432.833z"/>
+</g>
+</svg>

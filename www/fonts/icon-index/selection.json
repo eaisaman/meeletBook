@@ -1,0 +1,133 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M512 1024c282.77 0 512-229.23 512-512s-229.23-512-512-512-512 229.23-512 512 229.23 512 512 512zM512 96c229.75 0 416 186.25 416 416s-186.25 416-416 416-416-186.25-416-416 186.25-416 416-416zM256 320c0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64s-64-28.654-64-64zM640 320c0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64s-64-28.654-64-64zM319.902 780.74l-82.328-49.396c55.962-93.070 157.916-155.344 274.426-155.344 116.508 0 218.462 62.274 274.426 155.344l-82.328 49.396c-39.174-65.148-110.542-108.74-192.098-108.74-81.558 0-152.924 43.592-192.098 108.74z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"sad",
+					"emoticon",
+					"smiley",
+					"face"
+				],
+				"defaultCode": 58148,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 900,
+				"order": 14,
+				"prevSize": 32,
+				"code": 58880,
+				"ligatures": "sad, emoticon7",
+				"name": "fail"
+			},
+			"setIdx": 0,
+			"setId": 111,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 1024c282.77 0 512-229.23 512-512s-229.23-512-512-512-512 229.23-512 512 229.23 512 512 512zM512 96c229.75 0 416 186.25 416 416s-186.25 416-416 416-416-186.25-416-416 186.25-416 416-416zM800 256c17.6 0 32 14.4 32 32v96c0 35.2-28.8 64-64 64h-128c-35.2 0-64-28.8-64-64h-128c0 35.2-28.8 64-64 64h-128c-35.2 0-64-28.8-64-64v-96c0-17.6 14.4-32 32-32h192c17.6 0 32 14.4 32 32v32h128v-32c0-17.6 14.4-32 32-32h192zM512 768c93.208 0 174.772-49.818 219.546-124.278l54.88 32.934c-55.966 93.070-157.916 155.344-274.426 155.344-48.458 0-94.384-10.796-135.54-30.082l33.162-55.278c31.354 13.714 65.964 21.36 102.378 21.36z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"cool",
+					"emoticon",
+					"smiley",
+					"face"
+				],
+				"defaultCode": 58154,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 906,
+				"order": 15,
+				"prevSize": 32,
+				"code": 58881,
+				"ligatures": "cool, emoticon13",
+				"name": "success"
+			},
+			"setIdx": 0,
+			"setId": 111,
+			"iconIdx": 1
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 1024c282.77 0 512-229.23 512-512s-229.23-512-512-512-512 229.23-512 512 229.23 512 512 512zM512 96c229.75 0 416 186.25 416 416s-186.25 416-416 416-416-186.25-416-416 186.25-416 416-416zM384 704c0-70.692 57.308-128 128-128s128 57.308 128 128c0 70.692-57.308 128-128 128s-128-57.308-128-128zM640 352c0-53.019 28.654-96 64-96s64 42.981 64 96c0 53.019-28.654 96-64 96s-64-42.981-64-96zM256 352c0-53.019 28.654-96 64-96s64 42.981 64 96c0 53.019-28.654 96-64 96s-64-42.981-64-96z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"shocked",
+					"emoticon",
+					"smiley",
+					"face"
+				],
+				"defaultCode": 58160,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 912,
+				"order": 16,
+				"prevSize": 32,
+				"code": 58882,
+				"ligatures": "shocked, emoticon19",
+				"name": "warn"
+			},
+			"setIdx": 0,
+			"setId": 111,
+			"iconIdx": 2
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icon-index"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-index-",
+			"metadata": {
+				"fontFamily": "icon-index",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"resetPoint": 58880,
+			"showSelector": true,
+			"selector": "class",
+			"classSelector": ".icon-index",
+			"showMetrics": false,
+			"embed": false
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215,
+			"classSelector": ".icon"
+		},
+		"historySize": 100,
+		"showCodes": false,
+		"gridSize": 16,
+		"showGrid": true
+	}
+}

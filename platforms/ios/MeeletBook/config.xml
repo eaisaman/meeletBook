@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.cordova.meeletBook" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="BackupWebStorage" value="local" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
@@ -13,6 +13,15 @@
     <preference name="PaginationMode" value="unpaginated" />
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="BaseNativeBridge">
+        <param name="ios-package" value="BaseNativeBridge" />
+    </feature>
+    <feature name="BookNativeBridge">
+        <param name="ios-package" value="BookNativeBridge" />
+    </feature>
+    <feature name="FlowNativeBridge">
+        <param name="ios-package" value="FlowNativeBridge" />
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
@@ -31,4 +40,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <preference name="CameraUsesGeolocation" value="false" />
 </widget>

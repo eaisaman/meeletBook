@@ -1,0 +1,133 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M658 316l-196 196 196 196-60 60-256-256 256-256z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"navigate_before"
+				],
+				"defaultCode": 57754,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 42,
+				"id": 410,
+				"prevSize": 32,
+				"code": 58880,
+				"name": "navigate_before",
+				"ligatures": "navigate_before"
+			},
+			"setIdx": 0,
+			"setId": 112,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M426 256l256 256-256 256-60-60 196-196-196-196z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"navigate_next"
+				],
+				"defaultCode": 57755,
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 41,
+				"id": 411,
+				"prevSize": 32,
+				"code": 58882,
+				"name": "navigate_next",
+				"ligatures": "navigate_next"
+			},
+			"setIdx": 0,
+			"setId": 112,
+			"iconIdx": 1
+		},
+		{
+			"icon": {
+				"paths": [
+					"M272 65.6c-17.6 8.8-32.8 23.2-35.2 32.8-4 18.4-5.6 156.8-4.8 518.4v205.6l30.4 13.6c16 7.2 76.8 36.8 134.4 65.6 90.4 44.8 108 50.4 122.4 43.2 12-7.2 16.8-16.8 16.8-39.2 4-426.4 0-692.8-9.6-702.4-5.6-5.6-39.2-24.8-74.4-42.4l-64-32h157.6c117.6-0.8 159.2 1.6 164 8.8 3.2 5.6 6.4 140.8 7.2 300.8 0 329.6 6.4 304-71.2 304-25.6 0-48.8 1.6-51.2 4-2.4 3.2-5.6 18.4-7.2 33.6-2.4 36.8 11.2 42.4 91.2 38.4 118.4-4.8 114.4 8.8 114.4-388-0.8-345.6 0-344-42.4-368-13.6-7.2-76.8-10.4-232.8-10.4-196-0.8-217.6 0-245.6 13.6z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"tags": [
+					"Open_Door-128"
+				],
+				"grid": 24
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 9,
+				"id": 0,
+				"prevSize": 32,
+				"code": 58881,
+				"name": "exit"
+			},
+			"setIdx": 0,
+			"setId": 112,
+			"iconIdx": 2
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icon-mobile-app"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-mobile-app-",
+			"metadata": {
+				"fontFamily": "icon-mobile-app",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"resetPoint": 58880,
+			"showSelector": true,
+			"selector": "class",
+			"classSelector": ".icon-mobile-app",
+			"showMetrics": false,
+			"embed": false
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215,
+			"classSelector": ".icon"
+		},
+		"historySize": 100,
+		"showCodes": false,
+		"gridSize": 16
+	}
+}

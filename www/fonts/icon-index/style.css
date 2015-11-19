@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'icon-index';
+    src: url('icon-index.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-index:before {
+    font-family: 'icon-index';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-index-before:before {
+    font-family: 'icon-index';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-index-after:after {
+    font-family: 'icon-index';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-index-fail:before {
+    content: "\e600";
+}
+
+.icon-index-success:before {
+    content: "\e601";
+}
+
+.icon-index-warn:before {
+    content: "\e602";
+}
+
+.icon-index-fail-before:before {
+    content: "\e600";
+}
+
+.icon-index-success-before:before {
+    content: "\e601";
+}
+
+.icon-index-warn-before:before {
+    content: "\e602";
+}
+
+.icon-index-fail-after:after {
+    content: "\e600";
+}
+
+.icon-index-success-after:after {
+    content: "\e601";
+}
+
+.icon-index-warn-after:after {
+    content: "\e602";
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>640C0E48-1B5A-46CC-BBB1-120958AEFC8C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MeeletBook</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6BA5312969E0B0DFEAA7F4554C082CC199676452</key>
+		<string>https://github.com/eaisaman/meeletBook.git</string>
+		<key>A9FE791E3509432577DF49F8EE55D8F412AE7ED7</key>
+		<string>https://github.com/eaisaman/meeletClient.git</string>
+		<key>DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D</key>
+		<string>https://github.com/eaisaman/meelet.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/MeeletBook.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6BA5312969E0B0DFEAA7F4554C082CC199676452</key>
+		<string>../../..</string>
+		<key>A9FE791E3509432577DF49F8EE55D8F412AE7ED7</key>
+		<string>../../../../meeletClient</string>
+		<key>DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D</key>
+		<string>../../../../meelet</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/eaisaman/meeletBook.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6BA5312969E0B0DFEAA7F4554C082CC199676452</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DAD588DA0E7EE4B2F5552DEA23A4189E9B1CD39D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>meelet</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6BA5312969E0B0DFEAA7F4554C082CC199676452</string>
+			<key>IDESourceControlWCCName</key>
+			<string>meeletBook</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A9FE791E3509432577DF49F8EE55D8F412AE7ED7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>meeletClient</string>
+		</dict>
+	</array>
+</dict>
+</plist>

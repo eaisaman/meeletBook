@@ -1,0 +1,812 @@
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/filter";
+@import "compass/css3/box-shadow";
+
+$default-sidebar-value-map: (
+        sideBarClass: "sideBarContainer",
+        barContentWidth: 30%,
+        overlayColor: #d4d4d4,
+        overlayOpacity: 0.5,
+        mainColor: #ffffff,
+        barColor: #cccccc
+);
+
+@mixin sidebar($sideBarClass, $barContentWidth, $overlayColor, $overlayOpacity, $mainColor, $barColor) {
+
+    .#{$sideBarClass}.rightSide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.overlay {
+            > .mainContent {
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 0;
+                    background: rgba($overlayColor, $overlayOpacity);
+                    content: '';
+                    opacity: 1;
+                }
+            }
+
+            &.select {
+                > .mainContent:after {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 1;
+
+                    @include transition(opacity 0.5s);
+                }
+            }
+        }
+
+        > .mainContent {
+            position: relative;
+            right: 0;
+            z-index: 99;
+            height: 100%;
+            background-color: $mainColor;
+
+            @include transition(transform 0.5s);
+
+            > [name=mainContent] {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        > .barContent, > .mainContent > .barContent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            visibility: hidden;
+            width: $barContentWidth;
+            height: 100%;
+            display: none;
+            background-color: $barColor;
+
+            @include transition(all 0.5s);
+
+            > [name=barContent] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &.select {
+            > .barContent {
+                display: block;
+            }
+        }
+
+        /* Effect 1: Slide in on top */
+        &.slideInOnTop {
+            > .barContent {
+                @include translate3d(100%, 0, 0);
+            }
+
+            &.select > .barContent {
+                visibility: visible;
+                @include translate3d(0, 0, 0);
+            }
+        }
+
+        /* Effect 2: Reveal */
+        &.reveal {
+            > .barContent {
+                z-index: 1;
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                }
+            }
+        }
+
+        /* Effect 4: Slide along */
+        &.slideAlong {
+            > .barContent {
+                z-index: 1;
+                @include translate3d(50%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 5: Reverse slide out */
+        &.reverseSlideOut {
+            > .barContent {
+                z-index: 1;
+                @include translate3d(-50%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 6: Rotate pusher */
+        &.rotatePusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-origin(100%, 50%);
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include translate3d(100%, 0, 0);
+                    @include transform-origin(0%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0) rotateY(15deg));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(0, 0, 0) rotateY(-15deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 7: 3D rotate in */
+        &.rotateIn3D {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform(translate3d(100%, 0, 0) rotateY(90deg));
+                    @include transform-origin(100%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 8: 3D rotate out */
+        &.rotateOut3D {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform-origin(0%, 50%);
+                    @include transform(translate3d(100%, 0, 0) rotateY(-90deg));
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 9: Scale down pusher */
+        &.scaleDownPusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(0, 0, -300px));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 10: Scale up */
+        &.scaleUp {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .barContent {
+                z-index: 1;
+                opacity: 1;
+
+                @include transform(translate3d(0, 0, -#{$barContentWidth}));
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 11: Scale and rotate pusher */
+        &.scaleRotatePusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-100px, 0, -600px) rotateY(20deg));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 12: Open door */
+        &.openDoor {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-origin(0%, 50%);
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include rotateY(10deg);
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 13: Fall down */
+        &.fallDown {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .barContent {
+                z-index: 1;
+                opacity: 1;
+                @include translate3d(0, -100%, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.2s ease-in-out);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 14: Delayed 3D rotate */
+        &.delayed3DRotate {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform-origin(100%, 50%);
+                    @include transform(rotateY(90deg));
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(-#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transform(translate3d(100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$sideBarClass}.leftSide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.overlay {
+            > .mainContent {
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 0;
+                    height: 0;
+                    background: rgba($overlayColor, $overlayOpacity);
+                    content: '';
+                    opacity: 1;
+                }
+            }
+
+            &.select {
+                > .mainContent:after {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 1;
+
+                    @include transition(opacity 0.5s);
+                }
+            }
+        }
+
+        > .mainContent {
+            position: relative;
+            left: 0;
+            z-index: 99;
+            height: 100%;
+            background-color: $mainColor;
+
+            @include transition(transform 0.5s);
+
+            > [name=mainContent] {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        > .barContent, > .mainContent > .barContent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            visibility: hidden;
+            width: $barContentWidth;
+            height: 100%;
+            background-color: $barColor;
+
+            @include transition(all 0.5s);
+
+            > [name=barContent] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &.select {
+        }
+
+        /* Effect 1: Slide in on top */
+        &.slideInOnTop {
+            > .barContent, > .mainContent > .barContent {
+                @include translate3d(-100%, 0, 0);
+            }
+
+            &.select {
+                > .barContent, > .mainContent > .barContent {
+                    visibility: visible;
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 2: Reveal */
+        &.reveal {
+            > .barContent {
+                z-index: 1;
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                }
+            }
+        }
+
+        /* Effect 4: Slide along */
+        &.slideAlong {
+            > .barContent {
+                z-index: 1;
+                @include translate3d(-50%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 5: Reverse slide out */
+        &.reverseSlideOut {
+            > .barContent {
+                z-index: 1;
+                @include translate3d(0, -50%, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 6: Rotate pusher */
+        &.rotatePusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-origin(0%, 50%);
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include translate3d(-100%, 0, 0);
+                    @include transform-origin(100%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0) rotateY(-15deg));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(-100%, 0, 0) rotateY(15deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 7: 3D rotate in */
+        &.rotateIn3D {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform(translate3d(-100%, 0, 0) rotateY(-90deg));
+                    @include transform-origin(100%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(-100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 8: 3D rotate out */
+        &.rotateOut3D {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform(translate3d(-100%, 0, 0) rotateY(90deg));
+                    @include transform-origin(100%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transition(transform 0.5s);
+                        @include transform(translate3d(-100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+
+        /* Effect 9: Scale down pusher */
+        &.scaleDownPusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(-100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(0, 0, -300px));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 10: Scale up */
+        &.scaleUp {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .barContent {
+                z-index: 1;
+                opacity: 1;
+
+                @include transform(translate3d(0, 0, -#{$barContentWidth}));
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 11: Scale and rotate pusher */
+        &.scaleRotatePusher {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(-100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(100px, 0, -600px) rotateY(-20deg));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 12: Open door */
+        &.openDoor {
+            @include perspective(1500px);
+
+            > .mainContent {
+                @include transform-origin(100%, 50%);
+                @include transform-style(preserve-3d);
+            }
+
+            > .barContent {
+                opacity: 1;
+                @include translate3d(-100%, 0, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include rotateY(-10deg);
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.5s);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 13: Fall down */
+        &.fallDown {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .barContent {
+                z-index: 1;
+                opacity: 1;
+                @include translate3d(0, -100%, 0);
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+                }
+
+                > .barContent {
+                    visibility: visible;
+
+                    @include transition(transform 0.2s ease-in-out);
+                    @include translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        /* Effect 14: Delayed 3D rotate */
+        &.delayed3DRotate {
+            @include perspective(1500px);
+            @include perspective-origin(0% 50%);
+
+            > .mainContent {
+                @include transform-style(preserve-3d);
+
+                > .barContent {
+                    @include transform(translate3d(-100%, 0, 0) rotateY(90deg));
+                    @include transform-origin(0%, 50%);
+                    @include transform-style(preserve-3d);
+                }
+            }
+
+            &.select {
+                > .mainContent {
+                    @include transform(translate3d(#{$barContentWidth}, 0, 0));
+
+                    > .barContent {
+                        visibility: visible;
+
+                        @include transform(translate3d(-100%, 0, 0) rotateY(0deg));
+                    }
+                }
+            }
+        }
+    }
+}

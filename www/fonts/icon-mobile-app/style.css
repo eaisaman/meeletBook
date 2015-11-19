@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'icon-mobile-app';
+    src: url('icon-mobile-app.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-mobile-app:before {
+    font-family: 'icon-mobile-app';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-app-before:before {
+    font-family: 'icon-mobile-app';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-app-after:after {
+    font-family: 'icon-mobile-app';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile-app-navigate_before:before {
+    content: "\e600";
+}
+.icon-mobile-app-navigate_next:before {
+    content: "\e602";
+}
+.icon-mobile-app-exit:before {
+    content: "\e601";
+}
+
+.icon-mobile-app-navigate_before-before:before {
+    content: "\e600";
+}
+.icon-mobile-app-navigate_next-before:before {
+    content: "\e602";
+}
+.icon-mobile-app-exit-before:before {
+    content: "\e601";
+}
+
+.icon-mobile-app-navigate_before-after:after {
+    content: "\e600";
+}
+.icon-mobile-app-navigate_next-after:after {
+    content: "\e602";
+}
+.icon-mobile-app-exit-after:after {
+    content: "\e601";
+}

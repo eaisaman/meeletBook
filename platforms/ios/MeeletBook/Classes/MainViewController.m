@@ -25,7 +25,16 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
+#import <Pods/JSONKit/JSONKit.h>
 #import "MainViewController.h"
+
+@interface MainViewController () {
+    UIPinchGestureRecognizer *pinchGestureRecognizer;
+}
+
+- (void)closeMainView:(UIGestureRecognizer *)sender;
+
+@end
 
 @implementation MainViewController
 
@@ -61,6 +70,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)closeMainView:(UIGestureRecognizer *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,17 +85,25 @@
     [super viewWillAppear:animated];
 }
 
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(closeMainView:)];
+    [pinchGestureRecognizer setDelegate:self];
+    
+    [self.view addGestureRecognizer:pinchGestureRecognizer];
+    
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(addEventDispatcher:) withObject:self];
 }
 
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(removeEventDispatcher:) withObject:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -128,6 +150,12 @@
     return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
 }
 */
+
+#pragma mark IEventDispatcher implementation
+- (void)sendAppEventWithName:(NSString *)name body:(NSDictionary*)body
+{
+    [self.commandDelegate evalJs:[NSString stringWithFormat:@"sendAppEventWithName && sendAppEventWithName('%@', %@)", name, [body JSONString]]];
+}
 
 @end
 

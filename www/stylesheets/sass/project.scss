@@ -1,0 +1,720 @@
+@import "compass/css3";
+@import "global";
+@import "sidebar";
+@import "modal-window";
+
+$configuration-project-sidebar: map-merge($default-sidebar-value-map, (barContentWidth:25%, overlayColor:#cccccc, overlayOpacity:0.3, barColor:#1d5b8b));
+
+@include sidebar($configuration-project-sidebar...);
+@include modal-window();
+
+$tabHeaderWidth: 6em;
+$underlineLinearGradient: (rgb(235, 235, 235) 0%, rgb(235, 235, 235) 25%, rgba(235, 235, 235, 0.4) 100%);
+$modalColor: #27ae60;
+
+#projectContainer {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .modalWindowContainer {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 100%;
+
+        > .md-modal {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        > .modalOverlay {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        [name=mainContent] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        [name=modalContent] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .topbar {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 2em;
+        background: $blue6;
+
+        .topbarButton {
+            position: relative;
+            float: left;
+            width: 2em;
+            height: 2em;
+            background-color: transparent;
+            color: $blue4;
+            overflow: hidden;
+
+            &:before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 2;
+            }
+        }
+
+        .projectTitle {
+            position: relative;
+            float: left;
+            width: calc(100% - 2em);
+            height: 100%;
+            background-color: transparent;
+            color: white;
+
+            @include display-flex;
+            @include flex-direction(row);
+            @include justify-content(center);
+            @include align-items(center);
+
+            span {
+                width: 18em;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align: center;
+            }
+        }
+    }
+
+    .sideBarContainer {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: calc(100% - 2em);
+
+        .projectMainContent {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/schoolBackground.png');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .projectBarContent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: white;
+
+            @include display-flex;
+            @include flex-direction(column);
+            @include justify-content(center);
+            @include align-items(center);
+
+            .accordianGroup {
+                position: relative;
+                float: left;
+                width: 100%;
+
+                &.select .accordianBody {
+                    @include box-shadow(inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px white);
+
+                    .projectButton {
+                        opacity: 1;
+                        pointer-events: auto;
+                        height: 2em;
+
+                        @include display-flex;
+                        @include flex-direction(row);
+                        @include justify-content(flex-end);
+                        @include align-items(center);
+
+                        &:before {
+                            position: relative;
+                            float: left;
+                            width: 2em;
+                            text-align: center;
+                            line-height: 2;
+                        }
+
+                        &:not(:last-child) {
+                            @include box-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+                        }
+
+                        div {
+                            width: 2em;
+                            height: 2em;
+
+                            &:active {
+                                opacity: $touchOpacity;
+                            }
+
+                            &:before {
+                                position: relative;
+                                float: left;
+                                width: 100%;
+                                height: 100%;
+                                text-align: center;
+                                line-height: 2;
+                            }
+                        }
+
+                        span {
+                            @include flex(1);
+
+                            height: 2em;
+                            line-height: 2;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .accordianTitle {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                    height: 120px;
+
+                    @include display-flex;
+                    @include flex-direction(row);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    .avatarImg {
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 100%;
+                        overflow: hidden;
+                        margin: 10px;
+                        background-image: url('../images/default_avatar_50.png');
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+
+                    .userName {
+                        @include flex(1);
+                        text-align: right;
+                    }
+
+                    .expandButton {
+                        width: 2em;
+                        height: 2em;
+
+                        &:after {
+                            position: relative;
+                            float: left;
+                            width: 100%;
+                            text-align: center;
+                            line-height: 2;
+                        }
+                    }
+                }
+
+                .accordianBody {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                    background: $blue5;
+
+                    .projectButton {
+                        position: relative;
+                        float: left;
+                        width: 100%;
+                        height: 0px;
+                        opacity: 0;
+                        pointer-events: none;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .barTabContent {
+                @include flex(1);
+
+                position: relative;
+                float: left;
+                width: 100%;
+                background: white;
+                border-right: 1px solid #40bf6c;
+
+                @include display-flex;
+                @include flex-direction(column);
+                @include justify-content(center);
+                @include align-items(center);
+
+                > .tabs {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+
+                    @include flex(1);
+                    @include display-flex;
+                    @include flex-direction(column);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    > input {
+                        position: absolute;
+                        z-index: 10;
+                        width: $tabHeaderWidth;
+                        height: 2em;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+                    > input#tab-2 {
+                        left: $tabHeaderWidth;
+                    }
+                    > label {
+                        z-index: 6;
+                        position: absolute;
+                        display: block;
+                        text-align: center;
+                        font-weight: 600;
+                        line-height: 2;
+                        height: 2em;
+                        width: $tabHeaderWidth;
+                        background: #40bf6c;
+
+                        &:before {
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            content: '';
+                            background: rgba(0, 0, 0, 0.3);
+                        }
+                    }
+                    > label.tab-label-2 {
+                        left: $tabHeaderWidth;
+                    }
+                    > input:checked + label {
+                        z-index: 7;
+
+                        &:before {
+                            background: transparent;
+                        }
+                    }
+
+                    > .content {
+                        position: relative;
+                        float: left;
+                        width: 100%;
+                        z-index: 5;
+                        top: 2em;
+                        overflow: hidden;
+
+                        @include flex(1);
+
+                        > div {
+                            position: absolute;
+                            width: 100%;
+                            height: calc(100% - 2em);
+                            opacity: 0;
+
+                            @include transition(opacity linear 0.3s);
+                        }
+
+                        .thumbList {
+                            position: relative;
+                            float: left;
+                            width: 100%;
+                            height: 100%;
+                            overflow: auto;
+                            counter-reset: item;
+
+                            &::-webkit-scrollbar {
+                                display: none !important;
+                            }
+
+                            .thumbItem {
+                                position: relative;
+                                float: left;
+                                width: calc(100% - 20px);
+                                height: 180px;
+                                margin: 10px;
+                                background-size: contain;
+                                background-position: center center;
+                                background-repeat: no-repeat;
+
+                                &:active {
+                                    opacity: $touchOpacity;
+                                }
+
+                                &:before {
+                                    counter-increment: item;
+                                    content: counter(item);
+                                    position: absolute;
+                                    left: -0.5em;
+                                    top: -0.5em;
+                                    width: 2em;
+                                    height: 2em;
+                                    line-height: 2;
+                                    text-align: center;
+                                    border-radius: 100%;
+                                    background: $shadowColor;
+                                }
+
+                                &:after {
+                                    position: absolute;
+                                    right: 0;
+                                    bottom: -10px;
+                                    content: '';
+                                    width: 100%;
+                                    height: 1px;
+                                    @include background(linear-gradient(left, $underlineLinearGradient));
+                                }
+                            }
+                        }
+
+                        .chatList {
+                            position: relative;
+                            float: left;
+                            width: 100%;
+                            height: 100%;
+                            overflow: auto;
+                            color: $darkColor;
+                            margin-top: 1em;
+
+                            .chatItem {
+                                position: relative;
+                                float: left;
+                                width: 100%;
+
+                                &:not(:last-child) {
+                                    margin-bottom: 2em;
+                                }
+
+                                > .timeChat {
+                                    position: relative;
+                                    float: left;
+                                    width: 100%;
+                                    height: 3em;
+                                    @include display-flex;
+                                    @include flex-direction(row);
+                                    @include justify-content(center);
+                                    @include align-items(center);
+
+                                    .chatContent {
+                                        @include flex(1);
+
+                                        max-width: 15em;
+                                        width: 15em;
+                                        height: 100%;
+                                        background: $blue2;
+                                        color: $lightColor;
+                                        border-radius: 10px;
+                                        line-height: 3;
+                                        display: -webkit-box;
+                                        -webkit-box-orient: vertical;
+                                        -webkit-line-clamp: 1;
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
+                                        text-align: center;
+                                    }
+                                }
+
+                                > .myChat, .friendChat {
+                                    position: relative;
+                                    float: left;
+                                    width: 100%;
+
+                                    .chatContent {
+                                        position: relative;
+                                        float: left;
+                                        background: $blue1;
+                                        border-radius: 5px;
+
+                                        &:active {
+                                            opacity: $touchOpacity;
+                                        }
+                                    }
+
+                                    .chatAvatar {
+                                        position: relative;
+                                        float: left;
+
+                                        div {
+                                            position: absolute;
+                                            width: 48px;
+                                            height: 48px;
+                                            left: calc(50% - 24px);
+                                            top: 0px;
+                                            background-position: center center;
+                                            background-size: contain;
+                                            background-repeat: no-repeat;
+                                        }
+                                    }
+                                }
+
+                                > .topicChat {
+                                    .chatContent {
+                                        color: rgb(250, 84, 64);
+                                        background: $lightColor;
+
+                                        span:before {
+                                            position: relative;
+                                            float: left;
+                                            width: 2em;
+                                            height: 1em;
+                                            line-height: 1;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    > input.tab-selector-1:checked ~ .content .content-1,
+                    > input.tab-selector-2:checked ~ .content .content-2 {
+                        z-index: 10;
+                        opacity: 1;
+
+                        @include transition(opacity ease-out 0.3s 0.2s);
+                    }
+                }
+
+            }
+        }
+    }
+
+    .chatConfirmPanel {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        left: 25%;
+        top: 25%;
+        overflow: visible;
+        background: $lightBackgroundColor;
+
+        .confirmContent {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 50%;
+
+            span {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 3em;
+                top: calc(50% - 1.5em);
+                line-height: 3;
+                text-align: center;
+                font-weight: 600;
+
+                &:after {
+                    position: absolute;
+                    width: 1.5em;
+                    height: 1em;
+                    top: calc(50% - 0.6em);
+                    text-align: center;
+                    font-size: 48px;
+                }
+            }
+        }
+
+        .confirmBar {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 50%;
+
+            @include display-flex;
+            @include flex-direction(row);
+            @include justify-content(center);
+            @include align-items(center);
+
+            .confirmButton {
+                @include flex(1);
+
+                @include display-flex;
+                @include flex-direction(row);
+                @include justify-content(center);
+                @include align-items(center);
+
+                span {
+                    @include flex(1);
+                    min-width: 7em;
+                    max-width: 7em;
+                    width: 7em;
+                    height: 2em;
+                    line-height: 2;
+                    text-align: center;
+                    font-weight: 600;
+                    margin: 0 1em;
+                    background: $darkBackgroundColor;
+
+                    @include border-radius(0.5em);
+
+                    &:active {
+                        opacity: $touchOpacity;
+                    }
+
+                    &:before {
+                        position: relative;
+                        float: left;
+                        top: calc(50% - 0.5em);
+                        width: 2em;
+                        height: 1em;
+                        line-height: 1;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .chatInvitationPanel {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        left: 10%;
+        top: 10%;
+        background: $lightBackgroundColor;
+
+        .invitationBar {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 4em;
+            background: $blue6;
+            color: lightgray;
+
+            @include display-flex;
+            @include flex-direction(row);
+            @include justify-content(flex-start);
+            @include align-items(center);
+
+            .toggleSelectionButton {
+                @include flex(1);
+
+                font-size: 32px;
+                width: 4em;
+                max-width: 4em;
+                height: 2em;
+                max-height: 2em;
+
+                &:before {
+                    position: relative;
+                    float: left;
+                    width: 2em;
+                    height: 100%;
+                    line-height: 2;
+                    text-align: center;
+                }
+
+                &:active {
+                    opacity: $touchOpacity;
+                }
+
+                &.partialSelect:before {
+                    color: #666;
+                }
+
+                span {
+                    position: relative;
+                    float: left;
+                    text-align: center;
+                    height: 1em;
+                    line-height: 1;
+                    top: calc(50% - 0.5em);
+                }
+            }
+        }
+
+        .inviteeList {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: calc(100% - 4em);
+            overflow: auto;
+
+            .inviteeItem {
+                position: relative;
+                float: left;
+                width: 100px;
+                height: 150px;
+                margin: 15px;
+                overflow: visible;
+
+                @include display-flex;
+                @include flex-direction(column);
+                @include justify-content(center);
+                @include align-items(center);
+
+                &:active {
+                    opacity: $touchOpacity;
+                }
+
+                &:after {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 1em;
+                    height: 1em;
+                    line-height: 1;
+                    text-align: center;
+                    opacity: 0;
+                    color: $blue6;
+
+                    @include transition(opacity 0.3s);
+                }
+
+                &.selected:after {
+                    opacity: 1;
+                }
+
+                .inviteePhoto {
+                    position: relative;
+                    float: left;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 100%;
+                    color: $blue1;
+                    background: $lightColor;
+
+                    &:before {
+                        position: relative;
+                        left: calc(50% - 0.5em);
+                        top: calc(50% - 0.5em);
+                        width: 1em;
+                        height: 1em;
+                        line-height: 1;
+                        font-size: 32px;
+                    }
+                }
+
+                .inviteeName {
+                    @include flex(1);
+
+                    span {
+                        position: relative;
+                        float: left;
+                        width: 100%;
+                        line-height: 3;
+                        height: 3em;
+                    }
+                }
+            }
+        }
+    }
+}
